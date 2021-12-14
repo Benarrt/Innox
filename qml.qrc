@@ -5,4 +5,7 @@
         <file>Page2Form.ui.qml</file>
         <file>qtquickcontrols2.conf</file>
     </qresource>
+    <qresource prefix="/window/utils">
+        <file>ResizableRect.qml</file>
+    </qresource>
 </RCC>

@@ -14,10 +14,10 @@ EQ            = =
 
 CC            = emcc
 CXX           = em++
-DEFINES       = -DQT_NO_DEBUG -DQT_QUICK_LIB -DQT_GUI_LIB -DQT_QMLMODELS_LIB -DQT_QML_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB
+DEFINES       = -DQT_NO_DEBUG -DQT_QUICK_LIB -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_QMLMODELS_LIB -DQT_QML_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB
 CFLAGS        = -pipe -O2 -s ALLOW_MEMORY_GROWTH=1 -Wall -Wextra $(DEFINES)
 CXXFLAGS      = -pipe -O2 -std=gnu++1z -s ALLOW_MEMORY_GROWTH=1 -Wall -Wextra $(DEFINES)
-INCPATH       = -I. -I../../Qt/5.15.0/wasm_32/include -I../../Qt/5.15.0/wasm_32/include/QtQuick -I../../Qt/5.15.0/wasm_32/include/QtGui -I../../Qt/5.15.0/wasm_32/include/QtQmlModels -I../../Qt/5.15.0/wasm_32/include/QtQml -I../../Qt/5.15.0/wasm_32/include/QtNetwork -I../../Qt/5.15.0/wasm_32/include/QtCore -I. -I/home/lqony/.emscripten_ports/openssl/include -I../../Qt/5.15.0/wasm_32/mkspecs/wasm-emscripten
+INCPATH       = -I. -I../../Qt/5.15.0/wasm_32/include -I../../Qt/5.15.0/wasm_32/include/QtQuick -I../../Qt/5.15.0/wasm_32/include/QtWidgets -I../../Qt/5.15.0/wasm_32/include/QtGui -I../../Qt/5.15.0/wasm_32/include/QtQmlModels -I../../Qt/5.15.0/wasm_32/include/QtQml -I../../Qt/5.15.0/wasm_32/include/QtNetwork -I../../Qt/5.15.0/wasm_32/include/QtCore -I. -I/home/lqony/.emscripten_ports/openssl/include -I../../Qt/5.15.0/wasm_32/mkspecs/wasm-emscripten
 QMAKE         = /home/lqony/Qt/5.15.0/wasm_32/bin/qmake
 DEL_FILE      = rm -f
 CHK_DIR_EXISTS= test -d
@@ -40,7 +40,7 @@ DISTNAME      = Innox.js1.0.0
 DISTDIR = /home/lqony/QtProjects/Innox/.tmp/Innox.js1.0.0
 LINK          = em++
 LFLAGS        = -s WASM=1 -s FULL_ES2=1 -s FULL_ES3=1 -s USE_WEBGL2=1 -s EXIT_RUNTIME=1 -s ERROR_ON_UNDEFINED_SYMBOLS=1 -s EXTRA_EXPORTED_RUNTIME_METHODS=["UTF16ToString","stringToUTF16"] --bind -s FETCH=1 -O2 -s ALLOW_MEMORY_GROWTH=1
-LIBS          = $(SUBLIBS) /home/lqony/Qt/5.15.0/wasm_32/plugins/platforms/libqwasm.a /home/lqony/Qt/5.15.0/wasm_32/lib/libQt5EventDispatcherSupport.a /home/lqony/Qt/5.15.0/wasm_32/lib/libQt5FontDatabaseSupport.a /home/lqony/Qt/5.15.0/wasm_32/lib/libqtfreetype.a /home/lqony/Qt/5.15.0/wasm_32/lib/libQt5EglSupport.a /home/lqony/Qt/5.15.0/wasm_32/plugins/imageformats/libqgif.a /home/lqony/Qt/5.15.0/wasm_32/plugins/imageformats/libqicns.a /home/lqony/Qt/5.15.0/wasm_32/plugins/imageformats/libqico.a /home/lqony/Qt/5.15.0/wasm_32/plugins/imageformats/libqjpeg.a /home/lqony/Qt/5.15.0/wasm_32/plugins/imageformats/libqtga.a /home/lqony/Qt/5.15.0/wasm_32/plugins/imageformats/libqtiff.a /home/lqony/Qt/5.15.0/wasm_32/plugins/imageformats/libqwbmp.a /home/lqony/Qt/5.15.0/wasm_32/plugins/imageformats/libqwebp.a /home/lqony/Qt/5.15.0/wasm_32/qml/QtGraphicalEffects/private/libqtgraphicaleffectsprivate.a /home/lqony/Qt/5.15.0/wasm_32/qml/QtGraphicalEffects/libqtgraphicaleffectsplugin.a /home/lqony/Qt/5.15.0/wasm_32/qml/QtQuick/Window.2/libwindowplugin.a /home/lqony/Qt/5.15.0/wasm_32/qml/QtQuick.2/libqtquick2plugin.a /home/lqony/Qt/5.15.0/wasm_32/qml/QtQuick/Templates.2/libqtquicktemplates2plugin.a /home/lqony/Qt/5.15.0/wasm_32/qml/QtQuick/Controls.2/Imagine/libqtquickcontrols2imaginestyleplugin.a /home/lqony/Qt/5.15.0/wasm_32/qml/QtQuick/Controls.2/libqtquickcontrols2plugin.a /home/lqony/Qt/5.15.0/wasm_32/qml/QtQuick/Controls.2/Material/libqtquickcontrols2materialstyleplugin.a /home/lqony/Qt/5.15.0/wasm_32/qml/QtQuick/Controls.2/Fusion/libqtquickcontrols2fusionstyleplugin.a /home/lqony/Qt/5.15.0/wasm_32/qml/QtQuick/Controls.2/Universal/libqtquickcontrols2universalstyleplugin.a /home/lqony/Qt/5.15.0/wasm_32/lib/libQt5QuickControls2.a /home/lqony/Qt/5.15.0/wasm_32/lib/libQt5QuickTemplates2.a /home/lqony/Qt/5.15.0/wasm_32/lib/libQt5Quick.a /home/lqony/Qt/5.15.0/wasm_32/lib/libQt5Gui.a /home/lqony/Qt/5.15.0/wasm_32/lib/libqtlibpng.a /home/lqony/Qt/5.15.0/wasm_32/lib/libqtharfbuzz.a /home/lqony/Qt/5.15.0/wasm_32/lib/libQt5QmlModels.a /home/lqony/Qt/5.15.0/wasm_32/lib/libQt5Qml.a /home/lqony/Qt/5.15.0/wasm_32/lib/libQt5Network.a /home/lqony/Qt/5.15.0/wasm_32/lib/libQt5Core.a /home/lqony/Qt/5.15.0/wasm_32/lib/libqtpcre2.a   
+LIBS          = $(SUBLIBS) /home/lqony/Qt/5.15.0/wasm_32/plugins/platforms/libqwasm.a /home/lqony/Qt/5.15.0/wasm_32/lib/libQt5EventDispatcherSupport.a /home/lqony/Qt/5.15.0/wasm_32/lib/libQt5FontDatabaseSupport.a /home/lqony/Qt/5.15.0/wasm_32/lib/libqtfreetype.a /home/lqony/Qt/5.15.0/wasm_32/lib/libQt5EglSupport.a /home/lqony/Qt/5.15.0/wasm_32/plugins/imageformats/libqgif.a /home/lqony/Qt/5.15.0/wasm_32/plugins/imageformats/libqicns.a /home/lqony/Qt/5.15.0/wasm_32/plugins/imageformats/libqico.a /home/lqony/Qt/5.15.0/wasm_32/plugins/imageformats/libqjpeg.a /home/lqony/Qt/5.15.0/wasm_32/plugins/imageformats/libqtga.a /home/lqony/Qt/5.15.0/wasm_32/plugins/imageformats/libqtiff.a /home/lqony/Qt/5.15.0/wasm_32/plugins/imageformats/libqwbmp.a /home/lqony/Qt/5.15.0/wasm_32/plugins/imageformats/libqwebp.a /home/lqony/Qt/5.15.0/wasm_32/lib/libQt5Widgets.a /home/lqony/Qt/5.15.0/wasm_32/qml/QtGraphicalEffects/private/libqtgraphicaleffectsprivate.a /home/lqony/Qt/5.15.0/wasm_32/qml/QtGraphicalEffects/libqtgraphicaleffectsplugin.a /home/lqony/Qt/5.15.0/wasm_32/qml/QtQuick/Window.2/libwindowplugin.a /home/lqony/Qt/5.15.0/wasm_32/qml/QtQuick.2/libqtquick2plugin.a /home/lqony/Qt/5.15.0/wasm_32/qml/QtQuick/Templates.2/libqtquicktemplates2plugin.a /home/lqony/Qt/5.15.0/wasm_32/qml/QtQuick/Controls.2/Imagine/libqtquickcontrols2imaginestyleplugin.a /home/lqony/Qt/5.15.0/wasm_32/qml/QtQuick/Controls.2/libqtquickcontrols2plugin.a /home/lqony/Qt/5.15.0/wasm_32/qml/QtQuick/Controls.2/Material/libqtquickcontrols2materialstyleplugin.a /home/lqony/Qt/5.15.0/wasm_32/qml/QtQuick/Controls.2/Fusion/libqtquickcontrols2fusionstyleplugin.a /home/lqony/Qt/5.15.0/wasm_32/qml/QtQuick/Controls.2/Universal/libqtquickcontrols2universalstyleplugin.a /home/lqony/Qt/5.15.0/wasm_32/lib/libQt5QuickControls2.a /home/lqony/Qt/5.15.0/wasm_32/lib/libQt5QuickTemplates2.a /home/lqony/Qt/5.15.0/wasm_32/lib/libQt5Quick.a /home/lqony/Qt/5.15.0/wasm_32/lib/libQt5Gui.a /home/lqony/Qt/5.15.0/wasm_32/lib/libqtlibpng.a /home/lqony/Qt/5.15.0/wasm_32/lib/libqtharfbuzz.a /home/lqony/Qt/5.15.0/wasm_32/lib/libQt5QmlModels.a /home/lqony/Qt/5.15.0/wasm_32/lib/libQt5Qml.a /home/lqony/Qt/5.15.0/wasm_32/lib/libQt5Network.a /home/lqony/Qt/5.15.0/wasm_32/lib/libQt5Core.a /home/lqony/Qt/5.15.0/wasm_32/lib/libqtpcre2.a   
 AR            = emar cqs
 RANLIB        = 
 SED           = sed
@@ -52,13 +52,17 @@ OBJECTS_DIR   = ./
 
 ####### Files
 
-SOURCES       = main.cpp /home/lqony/QtProjects/Innox/innox.js_plugin_import.cpp \
+SOURCES       = ixwindow.cpp \
+		main.cpp /home/lqony/QtProjects/Innox/innox.js_plugin_import.cpp \
 		/home/lqony/QtProjects/Innox/innox.js_qml_plugin_import.cpp \
-		qrc_qml.cpp
-OBJECTS       = main.o \
+		qrc_qml.cpp \
+		moc_ixwindow.cpp
+OBJECTS       = ixwindow.o \
+		main.o \
 		innox.js_plugin_import.o \
 		innox.js_qml_plugin_import.o \
-		qrc_qml.o
+		qrc_qml.o \
+		moc_ixwindow.o
 DIST          = ../../Qt/5.15.0/wasm_32/mkspecs/features/spec_pre.prf \
 		../../Qt/5.15.0/wasm_32/mkspecs/common/sanitize.conf \
 		../../Qt/5.15.0/wasm_32/mkspecs/common/gcc-base.conf \
@@ -202,13 +206,15 @@ DIST          = ../../Qt/5.15.0/wasm_32/mkspecs/features/spec_pre.prf \
 		../../Qt/5.15.0/wasm_32/mkspecs/features/resources.prf \
 		../../Qt/5.15.0/wasm_32/mkspecs/features/moc.prf \
 		../../Qt/5.15.0/wasm_32/mkspecs/features/unix/opengl.prf \
+		../../Qt/5.15.0/wasm_32/mkspecs/features/uic.prf \
 		../../Qt/5.15.0/wasm_32/mkspecs/features/qmake_use.prf \
 		../../Qt/5.15.0/wasm_32/mkspecs/features/file_copies.prf \
 		../../Qt/5.15.0/wasm_32/mkspecs/features/testcase_targets.prf \
 		../../Qt/5.15.0/wasm_32/mkspecs/features/exceptions.prf \
 		../../Qt/5.15.0/wasm_32/mkspecs/features/yacc.prf \
 		../../Qt/5.15.0/wasm_32/mkspecs/features/lex.prf \
-		Innox.pro  main.cpp
+		Innox.pro ixwindow.h ixwindow.cpp \
+		main.cpp
 QMAKE_TARGET  = Innox.js
 DESTDIR       = 
 TARGET        = Innox.js
@@ -217,7 +223,7 @@ TARGET        = Innox.js
 first: all
 ####### Build rules
 
-Innox.js: /home/lqony/Qt/5.15.0/wasm_32/lib/libQt5Quick.a /home/lqony/Qt/5.15.0/wasm_32/lib/libQt5Gui.a /home/lqony/Qt/5.15.0/wasm_32/lib/libQt5QmlModels.a /home/lqony/Qt/5.15.0/wasm_32/lib/libQt5Qml.a /home/lqony/Qt/5.15.0/wasm_32/lib/libQt5Network.a /home/lqony/Qt/5.15.0/wasm_32/lib/libQt5Core.a $(OBJECTS)  apphtml appjs appsvg
+Innox.js: /home/lqony/Qt/5.15.0/wasm_32/lib/libQt5Quick.a /home/lqony/Qt/5.15.0/wasm_32/lib/libQt5Widgets.a /home/lqony/Qt/5.15.0/wasm_32/lib/libQt5Gui.a /home/lqony/Qt/5.15.0/wasm_32/lib/libQt5QmlModels.a /home/lqony/Qt/5.15.0/wasm_32/lib/libQt5Qml.a /home/lqony/Qt/5.15.0/wasm_32/lib/libQt5Network.a /home/lqony/Qt/5.15.0/wasm_32/lib/libQt5Core.a $(OBJECTS)  apphtml appjs appsvg
 	$(LINK) $(LFLAGS) -o $(TARGET) $(OBJECTS) $(OBJCOMP) $(LIBS)
 
 Makefile: Innox.pro ../../Qt/5.15.0/wasm_32/mkspecs/wasm-emscripten/qmake.conf ../../Qt/5.15.0/wasm_32/mkspecs/features/spec_pre.prf \
@@ -363,6 +369,7 @@ Makefile: Innox.pro ../../Qt/5.15.0/wasm_32/mkspecs/wasm-emscripten/qmake.conf .
 		../../Qt/5.15.0/wasm_32/mkspecs/features/resources.prf \
 		../../Qt/5.15.0/wasm_32/mkspecs/features/moc.prf \
 		../../Qt/5.15.0/wasm_32/mkspecs/features/unix/opengl.prf \
+		../../Qt/5.15.0/wasm_32/mkspecs/features/uic.prf \
 		../../Qt/5.15.0/wasm_32/mkspecs/features/qmake_use.prf \
 		../../Qt/5.15.0/wasm_32/mkspecs/features/file_copies.prf \
 		../../Qt/5.15.0/wasm_32/mkspecs/features/testcase_targets.prf \
@@ -381,6 +388,7 @@ Makefile: Innox.pro ../../Qt/5.15.0/wasm_32/mkspecs/wasm-emscripten/qmake.conf .
 		../../Qt/5.15.0/wasm_32/plugins/imageformats/libqwbmp.prl \
 		../../Qt/5.15.0/wasm_32/plugins/imageformats/libqwebp.prl \
 		../../Qt/5.15.0/wasm_32/lib/libQt5Quick.prl \
+		../../Qt/5.15.0/wasm_32/lib/libQt5Widgets.prl \
 		../../Qt/5.15.0/wasm_32/lib/libQt5Gui.prl \
 		../../Qt/5.15.0/wasm_32/lib/libQt5QmlModels.prl \
 		../../Qt/5.15.0/wasm_32/lib/libQt5Qml.prl \
@@ -540,6 +548,7 @@ Makefile: Innox.pro ../../Qt/5.15.0/wasm_32/mkspecs/wasm-emscripten/qmake.conf .
 ../../Qt/5.15.0/wasm_32/mkspecs/features/resources.prf:
 ../../Qt/5.15.0/wasm_32/mkspecs/features/moc.prf:
 ../../Qt/5.15.0/wasm_32/mkspecs/features/unix/opengl.prf:
+../../Qt/5.15.0/wasm_32/mkspecs/features/uic.prf:
 ../../Qt/5.15.0/wasm_32/mkspecs/features/qmake_use.prf:
 ../../Qt/5.15.0/wasm_32/mkspecs/features/file_copies.prf:
 ../../Qt/5.15.0/wasm_32/mkspecs/features/testcase_targets.prf:
@@ -558,6 +567,7 @@ qml.qrc:
 ../../Qt/5.15.0/wasm_32/plugins/imageformats/libqwbmp.prl:
 ../../Qt/5.15.0/wasm_32/plugins/imageformats/libqwebp.prl:
 ../../Qt/5.15.0/wasm_32/lib/libQt5Quick.prl:
+../../Qt/5.15.0/wasm_32/lib/libQt5Widgets.prl:
 ../../Qt/5.15.0/wasm_32/lib/libQt5Gui.prl:
 ../../Qt/5.15.0/wasm_32/lib/libQt5QmlModels.prl:
 ../../Qt/5.15.0/wasm_32/lib/libQt5Qml.prl:
@@ -589,7 +599,8 @@ distdir: FORCE
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents qml.qrc $(DISTDIR)/
 	$(COPY_FILE) --parents ../../Qt/5.15.0/wasm_32/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents main.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ixwindow.h $(DISTDIR)/
+	$(COPY_FILE) --parents ixwindow.cpp main.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents Innox_pl_PL.ts $(DISTDIR)/
 
 
@@ -642,7 +653,8 @@ qrc_qml.cpp: qml.qrc \
 		Page1Form.ui.qml \
 		Page2Form.ui.qml \
 		qtquickcontrols2.conf \
-		main.qml
+		main.qml \
+		ResizableRect.qml
 	/home/lqony/Qt/5.15.0/wasm_32/bin/rcc -name qml qml.qrc -o qrc_qml.cpp
 
 compiler_moc_predefs_make_all: moc_predefs.h
@@ -651,21 +663,249 @@ compiler_moc_predefs_clean:
 moc_predefs.h: ../../Qt/5.15.0/wasm_32/mkspecs/features/data/dummy.cpp
 	em++ -pipe -O2 -std=gnu++1z -s ALLOW_MEMORY_GROWTH=1 -Wall -Wextra -dM -E -o moc_predefs.h ../../Qt/5.15.0/wasm_32/mkspecs/features/data/dummy.cpp
 
-compiler_moc_header_make_all:
+compiler_moc_header_make_all: moc_ixwindow.cpp
 compiler_moc_header_clean:
+	-$(DEL_FILE) moc_ixwindow.cpp
+moc_ixwindow.cpp: ixwindow.h \
+		../../Qt/5.15.0/wasm_32/include/QtQuick/QQuickItem \
+		../../Qt/5.15.0/wasm_32/include/QtQuick/qquickitem.h \
+		../../Qt/5.15.0/wasm_32/include/QtQuick/qtquickglobal.h \
+		../../Qt/5.15.0/wasm_32/include/QtQml/qtqmlglobal.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qglobal.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qconfig-bootstrapped.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qconfig.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qtcore-config.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qsystemdetection.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qprocessordetection.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qcompilerdetection.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qtypeinfo.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qsysinfo.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qlogging.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qflags.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qatomic.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qbasicatomic.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qatomic_bootstrap.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qgenericatomic.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qatomic_cxx11.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qatomic_msvc.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qglobalstatic.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qmutex.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qnumeric.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qversiontagging.h \
+		../../Qt/5.15.0/wasm_32/include/QtQml/qtqml-config.h \
+		../../Qt/5.15.0/wasm_32/include/QtNetwork/qtnetworkglobal.h \
+		../../Qt/5.15.0/wasm_32/include/QtNetwork/qtnetwork-config.h \
+		../../Qt/5.15.0/wasm_32/include/QtGui/qtguiglobal.h \
+		../../Qt/5.15.0/wasm_32/include/QtGui/qtgui-config.h \
+		../../Qt/5.15.0/wasm_32/include/QtQuick/qtquick-config.h \
+		../../Qt/5.15.0/wasm_32/include/QtQml/qqml.h \
+		../../Qt/5.15.0/wasm_32/include/QtQml/qqmlprivate.h \
+		../../Qt/5.15.0/wasm_32/include/QtQml/qqmlparserstatus.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qobject.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qobjectdefs.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qnamespace.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qobjectdefs_impl.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qstring.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qchar.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qbytearray.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qrefcount.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qarraydata.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qstringliteral.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qstringalgorithms.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qstringview.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qstringbuilder.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qlist.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qalgorithms.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qiterator.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qhashfunctions.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qpair.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qvector.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qcontainertools_impl.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qpoint.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qbytearraylist.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qstringlist.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qregexp.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qstringmatcher.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qcoreevent.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qscopedpointer.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qmetatype.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qvarlengtharray.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qcontainerfwd.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qobject_impl.h \
+		../../Qt/5.15.0/wasm_32/include/QtQml/qqmllist.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qvariant.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qmap.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qdebug.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qhash.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qtextstream.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qiodevice.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qlocale.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qshareddata.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qset.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qcontiguouscache.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qsharedpointer.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qsharedpointer_impl.h \
+		../../Qt/5.15.0/wasm_32/include/QtQml/qqmlpropertyvaluesource.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qurl.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qurlquery.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qpointer.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qmetaobject.h \
+		../../Qt/5.15.0/wasm_32/include/QtQml/qqmlcomponent.h \
+		../../Qt/5.15.0/wasm_32/include/QtQml/qqmlerror.h \
+		../../Qt/5.15.0/wasm_32/include/QtQml/qjsvalue.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/QObject \
+		../../Qt/5.15.0/wasm_32/include/QtCore/QList \
+		../../Qt/5.15.0/wasm_32/include/QtGui/qevent.h \
+		../../Qt/5.15.0/wasm_32/include/QtGui/qwindowdefs.h \
+		../../Qt/5.15.0/wasm_32/include/QtGui/qwindowdefs_win.h \
+		../../Qt/5.15.0/wasm_32/include/QtGui/qregion.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qrect.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qmargins.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qsize.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qdatastream.h \
+		../../Qt/5.15.0/wasm_32/include/QtGui/qkeysequence.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qfile.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qfiledevice.h \
+		../../Qt/5.15.0/wasm_32/include/QtGui/qvector2d.h \
+		../../Qt/5.15.0/wasm_32/include/QtGui/qtouchdevice.h \
+		../../Qt/5.15.0/wasm_32/include/QtGui/qfont.h \
+		../../Qt/5.15.0/wasm_32/include/QtGui/qaccessible.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qcoreapplication.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qeventloop.h \
+		../../Qt/5.15.0/wasm_32/include/QtGui/qcolor.h \
+		../../Qt/5.15.0/wasm_32/include/QtGui/qrgb.h \
+		../../Qt/5.15.0/wasm_32/include/QtGui/qrgba64.h \
+		moc_predefs.h \
+		../../Qt/5.15.0/wasm_32/bin/moc
+	/home/lqony/Qt/5.15.0/wasm_32/bin/moc $(DEFINES) --include /home/lqony/QtProjects/Innox/moc_predefs.h -I/home/lqony/Qt/5.15.0/wasm_32/mkspecs/wasm-emscripten -I/home/lqony/QtProjects/Innox -I/home/lqony/Qt/5.15.0/wasm_32/include -I/home/lqony/Qt/5.15.0/wasm_32/include/QtQuick -I/home/lqony/Qt/5.15.0/wasm_32/include/QtWidgets -I/home/lqony/Qt/5.15.0/wasm_32/include/QtGui -I/home/lqony/Qt/5.15.0/wasm_32/include/QtQmlModels -I/home/lqony/Qt/5.15.0/wasm_32/include/QtQml -I/home/lqony/Qt/5.15.0/wasm_32/include/QtNetwork -I/home/lqony/Qt/5.15.0/wasm_32/include/QtCore ixwindow.h -o moc_ixwindow.cpp
+
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
+compiler_uic_make_all:
+compiler_uic_clean:
 compiler_yacc_decl_make_all:
 compiler_yacc_decl_clean:
 compiler_yacc_impl_make_all:
 compiler_yacc_impl_clean:
 compiler_lex_make_all:
 compiler_lex_clean:
-compiler_clean: compiler_rcc_clean compiler_moc_predefs_clean 
+compiler_clean: compiler_rcc_clean compiler_moc_predefs_clean compiler_moc_header_clean 
 
 ####### Compile
+
+ixwindow.o: ixwindow.cpp ixwindow.h \
+		../../Qt/5.15.0/wasm_32/include/QtQuick/QQuickItem \
+		../../Qt/5.15.0/wasm_32/include/QtQuick/qquickitem.h \
+		../../Qt/5.15.0/wasm_32/include/QtQuick/qtquickglobal.h \
+		../../Qt/5.15.0/wasm_32/include/QtQml/qtqmlglobal.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qglobal.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qconfig-bootstrapped.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qconfig.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qtcore-config.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qsystemdetection.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qprocessordetection.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qcompilerdetection.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qtypeinfo.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qsysinfo.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qlogging.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qflags.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qatomic.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qbasicatomic.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qatomic_bootstrap.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qgenericatomic.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qatomic_cxx11.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qatomic_msvc.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qglobalstatic.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qmutex.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qnumeric.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qversiontagging.h \
+		../../Qt/5.15.0/wasm_32/include/QtQml/qtqml-config.h \
+		../../Qt/5.15.0/wasm_32/include/QtNetwork/qtnetworkglobal.h \
+		../../Qt/5.15.0/wasm_32/include/QtNetwork/qtnetwork-config.h \
+		../../Qt/5.15.0/wasm_32/include/QtGui/qtguiglobal.h \
+		../../Qt/5.15.0/wasm_32/include/QtGui/qtgui-config.h \
+		../../Qt/5.15.0/wasm_32/include/QtQuick/qtquick-config.h \
+		../../Qt/5.15.0/wasm_32/include/QtQml/qqml.h \
+		../../Qt/5.15.0/wasm_32/include/QtQml/qqmlprivate.h \
+		../../Qt/5.15.0/wasm_32/include/QtQml/qqmlparserstatus.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qobject.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qobjectdefs.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qnamespace.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qobjectdefs_impl.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qstring.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qchar.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qbytearray.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qrefcount.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qarraydata.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qstringliteral.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qstringalgorithms.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qstringview.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qstringbuilder.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qlist.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qalgorithms.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qiterator.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qhashfunctions.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qpair.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qvector.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qcontainertools_impl.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qpoint.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qbytearraylist.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qstringlist.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qregexp.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qstringmatcher.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qcoreevent.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qscopedpointer.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qmetatype.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qvarlengtharray.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qcontainerfwd.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qobject_impl.h \
+		../../Qt/5.15.0/wasm_32/include/QtQml/qqmllist.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qvariant.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qmap.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qdebug.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qhash.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qtextstream.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qiodevice.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qlocale.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qshareddata.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qset.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qcontiguouscache.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qsharedpointer.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qsharedpointer_impl.h \
+		../../Qt/5.15.0/wasm_32/include/QtQml/qqmlpropertyvaluesource.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qurl.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qurlquery.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qpointer.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qmetaobject.h \
+		../../Qt/5.15.0/wasm_32/include/QtQml/qqmlcomponent.h \
+		../../Qt/5.15.0/wasm_32/include/QtQml/qqmlerror.h \
+		../../Qt/5.15.0/wasm_32/include/QtQml/qjsvalue.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/QObject \
+		../../Qt/5.15.0/wasm_32/include/QtCore/QList \
+		../../Qt/5.15.0/wasm_32/include/QtGui/qevent.h \
+		../../Qt/5.15.0/wasm_32/include/QtGui/qwindowdefs.h \
+		../../Qt/5.15.0/wasm_32/include/QtGui/qwindowdefs_win.h \
+		../../Qt/5.15.0/wasm_32/include/QtGui/qregion.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qrect.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qmargins.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qsize.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qdatastream.h \
+		../../Qt/5.15.0/wasm_32/include/QtGui/qkeysequence.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qfile.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qfiledevice.h \
+		../../Qt/5.15.0/wasm_32/include/QtGui/qvector2d.h \
+		../../Qt/5.15.0/wasm_32/include/QtGui/qtouchdevice.h \
+		../../Qt/5.15.0/wasm_32/include/QtGui/qfont.h \
+		../../Qt/5.15.0/wasm_32/include/QtGui/qaccessible.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qcoreapplication.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qeventloop.h \
+		../../Qt/5.15.0/wasm_32/include/QtGui/qcolor.h \
+		../../Qt/5.15.0/wasm_32/include/QtGui/qrgb.h \
+		../../Qt/5.15.0/wasm_32/include/QtGui/qrgba64.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/QString
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ixwindow.o ixwindow.cpp
 
 main.o: main.cpp ../../Qt/5.15.0/wasm_32/include/QtGui/QGuiApplication \
 		../../Qt/5.15.0/wasm_32/include/QtGui/qguiapplication.h \
@@ -761,7 +1001,29 @@ main.o: main.cpp ../../Qt/5.15.0/wasm_32/include/QtGui/QGuiApplication \
 		../../Qt/5.15.0/wasm_32/include/QtQml/qqmlpropertyvaluesource.h \
 		../../Qt/5.15.0/wasm_32/include/QtCore/qpointer.h \
 		../../Qt/5.15.0/wasm_32/include/QtCore/qmetaobject.h \
-		../../Qt/5.15.0/wasm_32/include/QtQml/qqmlerror.h
+		../../Qt/5.15.0/wasm_32/include/QtQml/qqmlerror.h \
+		ixwindow.h \
+		../../Qt/5.15.0/wasm_32/include/QtQuick/QQuickItem \
+		../../Qt/5.15.0/wasm_32/include/QtQuick/qquickitem.h \
+		../../Qt/5.15.0/wasm_32/include/QtQuick/qtquickglobal.h \
+		../../Qt/5.15.0/wasm_32/include/QtQuick/qtquick-config.h \
+		../../Qt/5.15.0/wasm_32/include/QtQml/qqmlcomponent.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/QObject \
+		../../Qt/5.15.0/wasm_32/include/QtCore/QList \
+		../../Qt/5.15.0/wasm_32/include/QtGui/qevent.h \
+		../../Qt/5.15.0/wasm_32/include/QtGui/qregion.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qrect.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qdatastream.h \
+		../../Qt/5.15.0/wasm_32/include/QtGui/qkeysequence.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qfile.h \
+		../../Qt/5.15.0/wasm_32/include/QtCore/qfiledevice.h \
+		../../Qt/5.15.0/wasm_32/include/QtGui/qvector2d.h \
+		../../Qt/5.15.0/wasm_32/include/QtGui/qtouchdevice.h \
+		../../Qt/5.15.0/wasm_32/include/QtGui/qfont.h \
+		../../Qt/5.15.0/wasm_32/include/QtGui/qaccessible.h \
+		../../Qt/5.15.0/wasm_32/include/QtGui/qcolor.h \
+		../../Qt/5.15.0/wasm_32/include/QtGui/qrgb.h \
+		../../Qt/5.15.0/wasm_32/include/QtGui/qrgba64.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o main.cpp
 
 innox.js_plugin_import.o: /home/lqony/QtProjects/Innox/innox.js_plugin_import.cpp 
@@ -772,6 +1034,9 @@ innox.js_qml_plugin_import.o: /home/lqony/QtProjects/Innox/innox.js_qml_plugin_i
 
 qrc_qml.o: qrc_qml.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o qrc_qml.o qrc_qml.cpp
+
+moc_ixwindow.o: moc_ixwindow.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_ixwindow.o moc_ixwindow.cpp
 
 ####### Install
 

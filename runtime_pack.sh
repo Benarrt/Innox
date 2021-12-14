@@ -24,7 +24,7 @@ if [ $# -ge 3 ];then
 
 
 # COPY
-
+APP_PATH="/home/innox"
 # Server
 docker cp ./server/ $1:${APP_PATH}/
 
