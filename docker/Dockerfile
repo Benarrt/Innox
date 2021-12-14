@@ -14,7 +14,7 @@ RUN useradd -m innox && echo "innox:innox" | chpasswd && adduser innox sudo
 COPY --chown=innox:innox ./server/ ${APP_PATH}/
 
 # Scripts
-# COPY --chown=innox:innox ./scripts/* ${APP_PATH}/public/scripts/
+COPY --chown=innox:innox ./scripts/ ${APP_PATH}/public/scripts/
 
 # html
 COPY --chown=innox:innox ./index.html ${APP_PATH}/public/
