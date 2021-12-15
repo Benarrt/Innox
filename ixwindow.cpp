@@ -9,7 +9,6 @@ IXWindow::IXWindow(QQuickItem *parent) : QQuickItem(parent)
 
 void IXWindow::setup(QQuickItem* parent, quint16 w, quint16 h)
 {
-    setParentItem(parent);
     connect(parent, &QQuickItem::widthChanged, this, &IXWindow::windowResized);
     connect(parent, &QQuickItem::heightChanged, this, &IXWindow::windowResized);
     _width = w;
@@ -25,6 +24,17 @@ void IXWindow::setup(QQuickItem* parent, quint16 w, quint16 h)
     qvariant_cast<QObject*>(
         this->property("anchors")
     )->setProperty("horizontalCenter", parent->property("horizontalCenter"));
+}
+
+void IXWindow::componentComplete()
+{
+    QQuickItem::componentComplete();
+    qDebug("componentComplete");
+
+    if(parentItem())
+        setup(parentItem(), 720, 1280);
+    else
+        qDebug("No parent item");
 }
 
 void IXWindow::windowResized()
@@ -44,6 +54,11 @@ void IXWindow::windowResized()
         scaleH = parentHeight / this->_height;
     }
     appliedScale = fmin(scaleW, scaleH);
+
+    qDebug(QString::number(parentWidth).toLocal8Bit());
+    qDebug(QString::number(parentHeight).toLocal8Bit());
+    qDebug(QString::number(appliedScale).toLocal8Bit());
+
     this->setWidth(parentWidth / appliedScale);
     this->setHeight(parentHeight / appliedScale);
     this->setScale(appliedScale);

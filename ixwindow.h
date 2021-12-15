@@ -8,7 +8,7 @@ class IXWindow : public QQuickItem
 {
     Q_OBJECT
 public:
-    explicit IXWindow(QQuickItem  *parent = nullptr);
+    IXWindow(QQuickItem *parent=nullptr);
 
     Q_INVOKABLE void setup(QQuickItem* parent, quint16 w = 720, quint16 h = 1280);
 
@@ -17,6 +17,9 @@ public slots:
 
 public slots:
     void windowResized();
+
+protected:
+    void componentComplete() override;
 
 private:
     quint16 _width = 720;

@@ -2,9 +2,9 @@
 // static plugins used by QML imports.
 #include <QtPlugin>
 Q_IMPORT_PLUGIN(QtQuick2Plugin)
+Q_IMPORT_PLUGIN(QtQuick2WindowPlugin)
 Q_IMPORT_PLUGIN(QtQuickControls2Plugin)
 Q_IMPORT_PLUGIN(QtQuickTemplates2Plugin)
-Q_IMPORT_PLUGIN(QtQuick2WindowPlugin)
 Q_IMPORT_PLUGIN(QtQuickControls2ImagineStylePlugin)
 Q_IMPORT_PLUGIN(QtGraphicalEffectsPlugin)
 Q_IMPORT_PLUGIN(QtGraphicalEffectsPrivatePlugin)

@@ -1,21 +1,54 @@
 import QtQuick 2.15
+import QtQuick.Window 2.15
 import QtQuick.Controls 2.15
 import io.qt.examples.ixwindow 1.0
 
-ApplicationWindow {
+Window {
     width: 640
     height: 480
     visible: true
     title: qsTr("Tabs")
 
-    Rectangle {
+    IXWindow {
+        id: ixWindow
+
+        Page {
+            width: 720
+            height: 1280
+            anchors.horizontalCenter: parent.horizontalCenter
+            anchors.top: parent.top
+            clip: true
+
+            header: Label {
+                text: qsTr("Main header")
+                font.pixelSize: Qt.application.font.pixelSize * 2
+                padding: 10
+            }
+
+            SwipeView {
+                id: swipeView
+                anchors.fill: parent
+                currentIndex: 0
+
+                Page1Form {
+                }
+
+                Page2Form {
+                }
+            }
+        }
+
+
+    }
+
+    /*Rectangle {
         id: rectangle
         anchors.fill: parent;
         color: "#000000";
         border.color: "#eb1c1c"
         border.width: 20
         Component.onCompleted: {
-            ixWindow.setup(rectangle, 720, 1280)
+            //ixWindow.setup(rectangle, 720, 1280)
         }
 
         IXWindow {
@@ -30,21 +63,9 @@ ApplicationWindow {
                 height: 1280
             }
         }
-    }
+    }*/
 
-    /*SwipeView {
-        id: swipeView
-        anchors.fill: parent
-        currentIndex: tabBar.currentIndex
-
-        Page1Form {
-        }
-
-        Page2Form {
-        }
-    }
-
-    footer: TabBar {
+    /*footer: TabBar {
         id: tabBar
         currentIndex: swipeView.currentIndex
 
