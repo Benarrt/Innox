@@ -3,6 +3,7 @@ import QtQuick.Window 2.15
 import QtQuick.Controls 2.15
 import io.qt.examples.ixwindow 1.0
 
+
 Window {
     width: 640
     height: 480
@@ -12,33 +13,20 @@ Window {
     IXWindow {
         id: ixWindow
 
-        Page {
-            width: 720
-            height: 1280
-            anchors.horizontalCenter: parent.horizontalCenter
-            anchors.top: parent.top
-            clip: true
-
+        QIXPage {
+            currentPage: "qrc:/SwipePage1.qml"
             header: Label {
                 text: qsTr("Main header")
                 font.pixelSize: Qt.application.font.pixelSize * 2
                 padding: 10
             }
 
-            SwipeView {
-                id: swipeView
-                anchors.fill: parent
-                currentIndex: 0
-
-                Page1Form {
-                }
-
-                Page2Form {
-                }
+            footer: Label {
+                text: qsTr("Main Footer")
+                font.pixelSize: Qt.application.font.pixelSize * 2
+                padding: 10
             }
         }
-
-
     }
 
     /*Rectangle {

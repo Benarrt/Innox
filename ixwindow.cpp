@@ -11,10 +11,10 @@ void IXWindow::setup(QQuickItem* parent, quint16 w, quint16 h)
 {
     connect(parent, &QQuickItem::widthChanged, this, &IXWindow::windowResized);
     connect(parent, &QQuickItem::heightChanged, this, &IXWindow::windowResized);
-    _width = w;
-    _height = h;
-    this->setWidth(_width);
-    this->setHeight(_height);
+    _baseWidth = w;
+    _baseHeight = h;
+    this->setWidth(_baseWidth);
+    this->setHeight(_baseHeight);
     windowResized();
 
     qvariant_cast<QObject*>(
@@ -29,8 +29,6 @@ void IXWindow::setup(QQuickItem* parent, quint16 w, quint16 h)
 void IXWindow::componentComplete()
 {
     QQuickItem::componentComplete();
-    qDebug("componentComplete");
-
     if(parentItem())
         setup(parentItem(), 720, 1280);
     else
@@ -46,18 +44,14 @@ void IXWindow::windowResized()
     qreal parentWidth = parentItem()->width();
     qreal parentHeight = parentItem()->height();
 
-    if(parentWidth < this->_width) {
-        scaleW = parentWidth / this->_width;
+    if(parentWidth < this->_baseWidth) {
+        scaleW = parentWidth / this->_baseWidth;
     }
 
-    if(parentHeight < this->_height) {
-        scaleH = parentHeight / this->_height;
+    if(parentHeight < this->_baseHeight) {
+        scaleH = parentHeight / this->_baseHeight;
     }
     appliedScale = fmin(scaleW, scaleH);
-
-    qDebug(QString::number(parentWidth).toLocal8Bit());
-    qDebug(QString::number(parentHeight).toLocal8Bit());
-    qDebug(QString::number(appliedScale).toLocal8Bit());
 
     this->setWidth(parentWidth / appliedScale);
     this->setHeight(parentHeight / appliedScale);

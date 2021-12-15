@@ -22,8 +22,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_IXWindow_t {
-    QByteArrayData data[9];
-    char stringdata0[69];
+    QByteArrayData data[12];
+    char stringdata0[109];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -33,18 +33,22 @@ struct qt_meta_stringdata_IXWindow_t {
 static const qt_meta_stringdata_IXWindow_t qt_meta_stringdata_IXWindow = {
     {
 QT_MOC_LITERAL(0, 0, 8), // "IXWindow"
-QT_MOC_LITERAL(1, 9, 15), // "onParentChanged"
-QT_MOC_LITERAL(2, 25, 0), // ""
-QT_MOC_LITERAL(3, 26, 13), // "windowResized"
-QT_MOC_LITERAL(4, 40, 5), // "setup"
-QT_MOC_LITERAL(5, 46, 11), // "QQuickItem*"
-QT_MOC_LITERAL(6, 58, 6), // "parent"
-QT_MOC_LITERAL(7, 65, 1), // "w"
-QT_MOC_LITERAL(8, 67, 1) // "h"
+QT_MOC_LITERAL(1, 9, 16), // "baseWidthChanged"
+QT_MOC_LITERAL(2, 26, 0), // ""
+QT_MOC_LITERAL(3, 27, 17), // "baseHeightChanged"
+QT_MOC_LITERAL(4, 45, 13), // "windowResized"
+QT_MOC_LITERAL(5, 59, 5), // "setup"
+QT_MOC_LITERAL(6, 65, 11), // "QQuickItem*"
+QT_MOC_LITERAL(7, 77, 6), // "parent"
+QT_MOC_LITERAL(8, 84, 1), // "w"
+QT_MOC_LITERAL(9, 86, 1), // "h"
+QT_MOC_LITERAL(10, 88, 9), // "baseWidth"
+QT_MOC_LITERAL(11, 98, 10) // "baseHeight"
 
     },
-    "IXWindow\0onParentChanged\0\0windowResized\0"
-    "setup\0QQuickItem*\0parent\0w\0h"
+    "IXWindow\0baseWidthChanged\0\0baseHeightChanged\0"
+    "windowResized\0setup\0QQuickItem*\0parent\0"
+    "w\0h\0baseWidth\0baseHeight"
 };
 #undef QT_MOC_LITERAL
 
@@ -54,30 +58,44 @@ static const uint qt_meta_data_IXWindow[] = {
        8,       // revision
        0,       // classname
        0,    0, // classinfo
-       5,   14, // methods
-       0,    0, // properties
+       6,   14, // methods
+       2,   66, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       0,       // signalCount
+       2,       // signalCount
+
+ // signals: name, argc, parameters, tag, flags
+       1,    1,   44,    2, 0x06 /* Public */,
+       3,    1,   47,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-       1,    0,   39,    2, 0x0a /* Public */,
-       3,    0,   40,    2, 0x0a /* Public */,
+       4,    0,   50,    2, 0x0a /* Public */,
 
  // methods: name, argc, parameters, tag, flags
-       4,    3,   41,    2, 0x02 /* Public */,
-       4,    2,   48,    2, 0x22 /* Public | MethodCloned */,
-       4,    1,   53,    2, 0x22 /* Public | MethodCloned */,
+       5,    3,   51,    2, 0x02 /* Public */,
+       5,    2,   58,    2, 0x22 /* Public | MethodCloned */,
+       5,    1,   63,    2, 0x22 /* Public | MethodCloned */,
+
+ // signals: parameters
+    QMetaType::Void, QMetaType::UShort,    2,
+    QMetaType::Void, QMetaType::UShort,    2,
 
  // slots: parameters
     QMetaType::Void,
-    QMetaType::Void,
 
  // methods: parameters
-    QMetaType::Void, 0x80000000 | 5, QMetaType::UShort, QMetaType::UShort,    6,    7,    8,
-    QMetaType::Void, 0x80000000 | 5, QMetaType::UShort,    6,    7,
-    QMetaType::Void, 0x80000000 | 5,    6,
+    QMetaType::Void, 0x80000000 | 6, QMetaType::UShort, QMetaType::UShort,    7,    8,    9,
+    QMetaType::Void, 0x80000000 | 6, QMetaType::UShort,    7,    8,
+    QMetaType::Void, 0x80000000 | 6,    7,
+
+ // properties: name, type, flags
+      10, QMetaType::UShort, 0x00495003,
+      11, QMetaType::UShort, 0x00495003,
+
+ // properties: notify_signal_id
+       0,
+       1,
 
        0        // eod
 };
@@ -88,23 +106,17 @@ void IXWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, vo
         auto *_t = static_cast<IXWindow *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
-        case 0: _t->onParentChanged(); break;
-        case 1: _t->windowResized(); break;
-        case 2: _t->setup((*reinterpret_cast< QQuickItem*(*)>(_a[1])),(*reinterpret_cast< quint16(*)>(_a[2])),(*reinterpret_cast< quint16(*)>(_a[3]))); break;
-        case 3: _t->setup((*reinterpret_cast< QQuickItem*(*)>(_a[1])),(*reinterpret_cast< quint16(*)>(_a[2]))); break;
-        case 4: _t->setup((*reinterpret_cast< QQuickItem*(*)>(_a[1]))); break;
+        case 0: _t->baseWidthChanged((*reinterpret_cast< quint16(*)>(_a[1]))); break;
+        case 1: _t->baseHeightChanged((*reinterpret_cast< quint16(*)>(_a[1]))); break;
+        case 2: _t->windowResized(); break;
+        case 3: _t->setup((*reinterpret_cast< QQuickItem*(*)>(_a[1])),(*reinterpret_cast< quint16(*)>(_a[2])),(*reinterpret_cast< quint16(*)>(_a[3]))); break;
+        case 4: _t->setup((*reinterpret_cast< QQuickItem*(*)>(_a[1])),(*reinterpret_cast< quint16(*)>(_a[2]))); break;
+        case 5: _t->setup((*reinterpret_cast< QQuickItem*(*)>(_a[1]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
         switch (_id) {
         default: *reinterpret_cast<int*>(_a[0]) = -1; break;
-        case 2:
-            switch (*reinterpret_cast<int*>(_a[1])) {
-            default: *reinterpret_cast<int*>(_a[0]) = -1; break;
-            case 0:
-                *reinterpret_cast<int*>(_a[0]) = qRegisterMetaType< QQuickItem* >(); break;
-            }
-            break;
         case 3:
             switch (*reinterpret_cast<int*>(_a[1])) {
             default: *reinterpret_cast<int*>(_a[0]) = -1; break;
@@ -119,8 +131,63 @@ void IXWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, vo
                 *reinterpret_cast<int*>(_a[0]) = qRegisterMetaType< QQuickItem* >(); break;
             }
             break;
+        case 5:
+            switch (*reinterpret_cast<int*>(_a[1])) {
+            default: *reinterpret_cast<int*>(_a[0]) = -1; break;
+            case 0:
+                *reinterpret_cast<int*>(_a[0]) = qRegisterMetaType< QQuickItem* >(); break;
+            }
+            break;
+        }
+    } else if (_c == QMetaObject::IndexOfMethod) {
+        int *result = reinterpret_cast<int *>(_a[0]);
+        {
+            using _t = void (IXWindow::*)(quint16 );
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&IXWindow::baseWidthChanged)) {
+                *result = 0;
+                return;
+            }
+        }
+        {
+            using _t = void (IXWindow::*)(quint16 );
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&IXWindow::baseHeightChanged)) {
+                *result = 1;
+                return;
+            }
         }
     }
+#ifndef QT_NO_PROPERTIES
+    else if (_c == QMetaObject::ReadProperty) {
+        auto *_t = static_cast<IXWindow *>(_o);
+        Q_UNUSED(_t)
+        void *_v = _a[0];
+        switch (_id) {
+        case 0: *reinterpret_cast< quint16*>(_v) = _t->_baseWidth; break;
+        case 1: *reinterpret_cast< quint16*>(_v) = _t->_baseHeight; break;
+        default: break;
+        }
+    } else if (_c == QMetaObject::WriteProperty) {
+        auto *_t = static_cast<IXWindow *>(_o);
+        Q_UNUSED(_t)
+        void *_v = _a[0];
+        switch (_id) {
+        case 0:
+            if (_t->_baseWidth != *reinterpret_cast< quint16*>(_v)) {
+                _t->_baseWidth = *reinterpret_cast< quint16*>(_v);
+                Q_EMIT _t->baseWidthChanged(_t->_baseWidth);
+            }
+            break;
+        case 1:
+            if (_t->_baseHeight != *reinterpret_cast< quint16*>(_v)) {
+                _t->_baseHeight = *reinterpret_cast< quint16*>(_v);
+                Q_EMIT _t->baseHeightChanged(_t->_baseHeight);
+            }
+            break;
+        default: break;
+        }
+    } else if (_c == QMetaObject::ResetProperty) {
+    }
+#endif // QT_NO_PROPERTIES
 }
 
 QT_INIT_METAOBJECT const QMetaObject IXWindow::staticMetaObject = { {
@@ -152,15 +219,46 @@ int IXWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 5)
+        if (_id < 6)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 5;
+        _id -= 6;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 5)
+        if (_id < 6)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 5;
+        _id -= 6;
     }
+#ifndef QT_NO_PROPERTIES
+    else if (_c == QMetaObject::ReadProperty || _c == QMetaObject::WriteProperty
+            || _c == QMetaObject::ResetProperty || _c == QMetaObject::RegisterPropertyMetaType) {
+        qt_static_metacall(this, _c, _id, _a);
+        _id -= 2;
+    } else if (_c == QMetaObject::QueryPropertyDesignable) {
+        _id -= 2;
+    } else if (_c == QMetaObject::QueryPropertyScriptable) {
+        _id -= 2;
+    } else if (_c == QMetaObject::QueryPropertyStored) {
+        _id -= 2;
+    } else if (_c == QMetaObject::QueryPropertyEditable) {
+        _id -= 2;
+    } else if (_c == QMetaObject::QueryPropertyUser) {
+        _id -= 2;
+    }
+#endif // QT_NO_PROPERTIES
     return _id;
+}
+
+// SIGNAL 0
+void IXWindow::baseWidthChanged(quint16 _t1)
+{
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
+    QMetaObject::activate(this, &staticMetaObject, 0, _a);
+}
+
+// SIGNAL 1
+void IXWindow::baseHeightChanged(quint16 _t1)
+{
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
+    QMetaObject::activate(this, &staticMetaObject, 1, _a);
 }
 QT_WARNING_POP
 QT_END_MOC_NAMESPACE

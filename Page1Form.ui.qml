@@ -4,6 +4,7 @@ import QtQuick.Controls 2.15
 Page {
     width: 720
     height: 1280
+    clip: true
 
     header: Label {
         text: qsTr("Page 1")
@@ -20,5 +21,11 @@ Page {
     Label {
         text: qsTr("You are on Page 1.")
         anchors.centerIn: parent
+    }
+
+    footer: Label {
+        text: qsTr("Page 1")
+        font.pixelSize: Qt.application.font.pixelSize * 2
+        padding: 10
     }
 }

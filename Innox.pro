@@ -8,11 +8,12 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+        ixpage.cpp \
         ixwindow.cpp \
-        ixwindowbackground.cpp \
         main.cpp
 
-RESOURCES += qml.qrc
+RESOURCES += qml.qrc \
+    page.qrc
 
 TRANSLATIONS += \
     Innox_pl_PL.ts
@@ -29,5 +30,5 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 HEADERS += \
-    ixwindow.h \
-    ixwindowbackground.h
+    ixpage.h \
+    ixwindow.h
