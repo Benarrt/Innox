@@ -9,6 +9,7 @@ CONFIG += c++17
 
 SOURCES += \
         ixpage.cpp \
+        ixtextfield.cpp \
         ixwindow.cpp \
         main.cpp
 
@@ -31,4 +32,5 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 HEADERS += \
     ixpage.h \
+    ixtextfield.h \
     ixwindow.h

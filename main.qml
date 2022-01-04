@@ -14,6 +14,7 @@ Window {
         id: ixWindow
 
         QIXPage {
+            id: qixpage
             currentPage: "qrc:/SwipePage1.qml"
             header: Label {
                 text: qsTr("Main header")
@@ -26,6 +27,20 @@ Window {
                 font.pixelSize: Qt.application.font.pixelSize * 2
                 padding: 10
             }
+        }
+    }
+
+    MouseArea   {
+        anchors.fill: parent
+        acceptedButtons: Qt.LeftButton
+
+        property bool editable: false
+
+        onPressed: {
+            console.log("Pressed");
+            clearFoc
+            focus = true;
+            mouse.accepted = false;
         }
     }
 

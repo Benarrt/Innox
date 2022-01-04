@@ -1,5 +1,6 @@
 <RCC>
     <qresource prefix="/">
         <file>QIXPage.qml</file>
+        <file>QIXTextField.qml</file>
     </qresource>
 </RCC>

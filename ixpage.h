@@ -10,7 +10,6 @@ public:
     IXPage();
 
     Q_INVOKABLE void loadPage(const QUrl& url);
-
 signals:
 
 protected:

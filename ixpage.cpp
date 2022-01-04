@@ -1,5 +1,6 @@
 #include "ixpage.h"
 #include "QString"
+
 IXPage::IXPage() : _item(nullptr)
 {
 
@@ -10,6 +11,8 @@ void IXPage::componentComplete()
     QQuickItem::componentComplete();
     assert(parent());
     auto ixWindow = parent()->parent();
+    auto ixWindow2 = QQuickItem::window();
+
     quint16 baseWidth = ixWindow->property("baseWidth").toUInt();
     quint16 baseHeight = ixWindow->property("baseHeight").toUInt();
 

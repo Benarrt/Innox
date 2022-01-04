@@ -16,6 +16,17 @@ Page {
         width: 720
         height: 1280
         color: "#f07171"
+
+        QIXTextField {
+            id: textField
+            x: 208
+            y: 128
+            width: 283
+            height: 102
+            horizontalAlignment: Text.AlignHCenter
+            font.pointSize: 18
+            placeholderText: qsTr("Tooltip")
+        }
     }
 
     Label {
@@ -29,3 +40,10 @@ Page {
         padding: 10
     }
 }
+
+/*##^##
+Designer {
+    D{i:0;formeditorZoom:0.6600000262260437}
+}
+##^##*/
+
