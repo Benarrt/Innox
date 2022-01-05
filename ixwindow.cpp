@@ -11,6 +11,7 @@ void IXWindow::setup(QQuickItem* parent, quint16 w, quint16 h)
 {
     connect(parent, &QQuickItem::widthChanged, this, &IXWindow::windowResized);
     connect(parent, &QQuickItem::heightChanged, this, &IXWindow::windowResized);
+    //connect(qobject_cast<QQuickWindow*>(parent), &QQuickWindow::activeFocusItemChanged, this, &IXWindow::windowFocusChanged);
     _baseWidth = w;
     _baseHeight = h;
     this->setWidth(_baseWidth);
@@ -24,6 +25,10 @@ void IXWindow::setup(QQuickItem* parent, quint16 w, quint16 h)
     qvariant_cast<QObject*>(
         this->property("anchors")
     )->setProperty("horizontalCenter", parent->property("horizontalCenter"));
+
+
+    _mEHandler = new mouseEventHandler(parentItem());
+    _mEHandler->stackAfter(this);
 }
 
 void IXWindow::componentComplete()
