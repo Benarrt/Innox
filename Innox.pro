@@ -11,6 +11,7 @@ SOURCES += \
         ixpage.cpp \
         ixtextfield.cpp \
         ixwindow.cpp \
+        ixwindowfocushandler.cpp \
         main.cpp
 
 RESOURCES += qml.qrc \
@@ -33,4 +34,5 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 HEADERS += \
     ixpage.h \
     ixtextfield.h \
-    ixwindow.h
+    ixwindow.h \
+    ixwindowfocushandler.h

@@ -2,56 +2,11 @@
 #define IXWINDOW_H
 
 #include <QQuickItem>
-#include <QQuickWindow>
+
+#include <ixwindowfocushandler.h>
 
 //Resizes parent according to desired size and aspect ration based on actual size of window
-
-class mouseEventHandler : public QQuickItem
-{
-    Q_OBJECT
-public:
-    mouseEventHandler(QQuickItem *parent=nullptr) : QQuickItem(parent)
-    {
-        qDebug("mouseEventHandler");
-        setAcceptedMouseButtons(Qt::AllButtons);
-        setAcceptTouchEvents(true);
-        setFlag(ItemAcceptsInputMethod, true);
-        connect(parent, &QQuickItem::widthChanged, this, &mouseEventHandler::windowResized);
-        connect(parent, &QQuickItem::heightChanged, this, &mouseEventHandler::windowResized);
-    }
-
-signals:
-
-public slots:
-
-protected:
-    virtual void mousePressEvent(QMouseEvent *event) override
-    {
-        auto activeFocusItem = window()->activeFocusItem();
-        if(activeFocusItem)
-            activeFocusItem->setFocus(false);
-
-        event->ignore();
-    }
-
-    virtual void touchEvent(QTouchEvent *event) override
-    {
-        auto activeFocusItem = window()->activeFocusItem();
-        if(activeFocusItem)
-            activeFocusItem->setFocus(false);
-
-        event->ignore();
-    }
-
-private:
-
-    void windowResized()
-    {
-        this->setWidth(this->parentItem()->width());
-        this->setHeight(this->parentItem()->height());
-    }
-
-};
+//TODO make IXWindow just a hook for handlers like IXWindowFocusHandler move its current behaviour to some new handler
 
 class IXWindow : public QQuickItem
 {
@@ -60,8 +15,6 @@ class IXWindow : public QQuickItem
     Q_PROPERTY(quint16 baseHeight MEMBER _baseHeight NOTIFY baseHeightChanged)
 public:
     IXWindow(QQuickItem *parent=nullptr);
-
-    Q_INVOKABLE void setup(QQuickItem* parent, quint16 w = 720, quint16 h = 1280);
 
 signals:
     void baseWidthChanged(quint16);
@@ -77,7 +30,10 @@ private:
     quint16 _baseWidth = 720;
     quint16 _baseHeight = 1280;
 
-    mouseEventHandler* _mEHandler;
+    IXWindowFocusHandler* _focusHandler;
+
+    void setup();
+    void setupFocusHandler();
 };
 
 #endif // IXWINDOW_H

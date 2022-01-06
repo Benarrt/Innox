@@ -7,16 +7,15 @@ IXWindow::IXWindow(QQuickItem *parent) : QQuickItem(parent)
 
 }
 
-void IXWindow::setup(QQuickItem* parent, quint16 w, quint16 h)
+void IXWindow::setup()
 {
-    connect(parent, &QQuickItem::widthChanged, this, &IXWindow::windowResized);
-    connect(parent, &QQuickItem::heightChanged, this, &IXWindow::windowResized);
-    //connect(qobject_cast<QQuickWindow*>(parent), &QQuickWindow::activeFocusItemChanged, this, &IXWindow::windowFocusChanged);
-    _baseWidth = w;
-    _baseHeight = h;
+    auto parent = this->parentItem();
+
     this->setWidth(_baseWidth);
     this->setHeight(_baseHeight);
-    windowResized();
+
+    connect(parent, &QQuickItem::widthChanged, this, &IXWindow::windowResized);
+    connect(parent, &QQuickItem::heightChanged, this, &IXWindow::windowResized);
 
     qvariant_cast<QObject*>(
         this->property("anchors")
@@ -26,18 +25,27 @@ void IXWindow::setup(QQuickItem* parent, quint16 w, quint16 h)
         this->property("anchors")
     )->setProperty("horizontalCenter", parent->property("horizontalCenter"));
 
+    windowResized();
+}
 
-    _mEHandler = new mouseEventHandler(parentItem());
-    _mEHandler->stackAfter(this);
+void IXWindow::setupFocusHandler()
+{
+    _focusHandler = new IXWindowFocusHandler(parentItem());
+    _focusHandler->stackAfter(this);
 }
 
 void IXWindow::componentComplete()
 {
     QQuickItem::componentComplete();
-    if(parentItem())
-        setup(parentItem(), 720, 1280);
-    else
+    if(!parentItem())
+    {
         qDebug("No parent item");
+        return;
+    }
+
+
+    this->setup();
+    this->setupFocusHandler();
 }
 
 void IXWindow::windowResized()
