@@ -9,7 +9,10 @@ class IXTextField : public QQuickItem
 public:
     IXTextField();
 
+    static IXTextField* inst;
+
 signals:
+    void setData(const QString& data);
 
 protected:
     void componentComplete() override;

@@ -15,7 +15,7 @@
       canvas { outline: 0px solid transparent; caret-color: transparent; cursor:default }
     </style>
   </head>
-  <body onload="init()">
+  <body onload="init()" onscroll="scrollTest(event)">
     <figure style="overflow:visible;" id="qtspinner">
       <center style="margin-top:1.5em; line-height:150%">
         <img src="qtlogo.svg" width="320" height="200" style="display:block"></img>
@@ -24,42 +24,54 @@
         <noscript>JavaScript is disabled. Please enable JavaScript to use this application.</noscript>
       </center>
     </figure>
-    <canvas id="qtcanvas" inputmode="none" oncontextmenu="event.preventDefault()" oncontextmenu="event.preventDefault()" contenteditable="true"></canvas>
-
-    <script type='text/javascript'>
-        function init() {
-          var spinner = document.querySelector('#qtspinner');
-          var canvas = document.querySelector('#qtcanvas');
-          var status = document.querySelector('#qtstatus')
-
-          var qtLoader = QtLoader({
-              canvasElements : [canvas],
-              showLoader: function(loaderStatus) {
-                  spinner.style.display = 'block';
-                  canvas.style.display = 'none';
-                  status.innerHTML = loaderStatus + "...";
-              },
-              showError: function(errorText) {
-                  status.innerHTML = errorText;
-                  spinner.style.display = 'block';
-                  canvas.style.display = 'none';
-              },
-              showExit: function() {
-                  status.innerHTML = "Application exit";
-                  if (qtLoader.exitCode !== undefined)
-                      status.innerHTML += " with code " + qtLoader.exitCode;
-                  if (qtLoader.exitText !== undefined)
-                      status.innerHTML += " (" + qtLoader.exitText + ")";
-                  spinner.style.display = 'block';
-                  canvas.style.display = 'none';
-              },
-              showCanvas: function() {
-                  spinner.style.display = 'none';
-                  canvas.style.display = 'block';
-              },
-          });
-          qtLoader.loadEmscriptenModule("Innox");
+    <canvas style="position: sticky; top: 0;" id="qtcanvas" inputmode="none" oncontextmenu="event.preventDefault()" contenteditable="false" onscroll="scrollTest(event)"></canvas>
+    <input hidden style="opacity: 0" type="text" id="shadowTextField" inputmode="text" oninput="inputEventHandler(event)">
+    <script  type='text/javascript'>
+    function scrollTest(e) {
+      console.log("scrollTest");
+    }
+    function inputEventHandler(e) {
+        var element = e.srcElement;
+        console.log("inputEventHandler");
+        console.log(element.value);
+        var dataStr = element.value;
+        var heapPtr = Module._malloc((dataStr.length+1)*2);
+        Module.stringToUTF16(dataStr, heapPtr, (dataStr.length+1)*2);
+        Module._inputData(heapPtr);
       }
+      function init() {
+        var spinner = document.querySelector('#qtspinner');
+        var canvas = document.querySelector('#qtcanvas');
+        var status = document.querySelector('#qtstatus')
+
+        var qtLoader = QtLoader({
+            canvasElements : [canvas],
+            showLoader: function(loaderStatus) {
+                spinner.style.display = 'block';
+                canvas.style.display = 'none';
+                status.innerHTML = loaderStatus + "...";
+            },
+            showError: function(errorText) {
+                status.innerHTML = errorText;
+                spinner.style.display = 'block';
+                canvas.style.display = 'none';
+            },
+            showExit: function() {
+                status.innerHTML = "Application exit";
+                if (qtLoader.exitCode !== undefined)
+                    status.innerHTML += " with code " + qtLoader.exitCode;
+                if (qtLoader.exitText !== undefined)
+                    status.innerHTML += " (" + qtLoader.exitText + ")";
+                spinner.style.display = 'block';
+                canvas.style.display = 'none';
+            },
+            showCanvas: function() {
+                spinner.style.display = 'none';
+                canvas.style.display = 'block';
+            },
+        });
+        qtLoader.loadEmscriptenModule("Innox");
+    }
     </script>
     <script type="text/javascript" src="qtloader.js"></script>
   </body>

@@ -24,6 +24,7 @@ Page {
             width: 283
             height: 102
             horizontalAlignment: Text.AlignHCenter
+            verticalAlignment: Text.AlignVCenter
             font.pointSize: 18
             placeholderText: qsTr("Tooltip")
         }
@@ -41,9 +42,5 @@ Page {
     }
 }
 
-/*##^##
-Designer {
-    D{i:0;formeditorZoom:0.6600000262260437}
-}
-##^##*/
+
 
