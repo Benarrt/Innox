@@ -3,17 +3,17 @@ import QtQuick.Controls 2.15
 import io.qt.examples.ixtextfield 1.0
 
 TextField {
-    text: ixtextfield.text;
+    text: ""
     selectByMouse: false
+
+    Connections {
+        target: ixtextfield
+        function onTextUpdated(data) {
+            text = data;
+        }
+    }
+
     IXTextField {
         id: ixtextfield
-        property string text: ""
-        Connections {
-            function onSetData(data) {
-                console.log("onSetData");
-                console.log(data);
-                ixtextfield.text = data;
-            }
-        }
     }
 }

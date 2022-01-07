@@ -13,6 +13,7 @@ Page {
     }
 
     Rectangle {
+        id: rectangle
         width: 720
         height: 1280
         color: "#f07171"
@@ -28,6 +29,19 @@ Page {
             font.pointSize: 18
             placeholderText: qsTr("Tooltip")
         }
+
+        QIXTextField {
+            id: textField1
+            x: 208
+            width: 283
+            height: 102
+            anchors.top: textField.bottom
+            horizontalAlignment: Text.AlignHCenter
+            verticalAlignment: Text.AlignVCenter
+            anchors.topMargin: 100
+            placeholderText: qsTr("Tooltip")
+            font.pointSize: 18
+        }
     }
 
     Label {
@@ -42,5 +56,8 @@ Page {
     }
 }
 
-
-
+/*##^##
+Designer {
+    D{i:0;formeditorZoom:0.33000001311302185}D{i:4}
+}
+##^##*/

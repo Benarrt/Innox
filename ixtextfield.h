@@ -8,11 +8,10 @@ class IXTextField : public QQuickItem
     Q_OBJECT
 public:
     IXTextField();
-
-    static IXTextField* inst;
+    void setTextValue(const QString&);
 
 signals:
-    void setData(const QString& data);
+    void textUpdated(const QString& data);
 
 protected:
     void componentComplete() override;
@@ -26,7 +25,7 @@ private:
     void focusIn();
     void focusOut();
 
-
+    QString _textValue;
 };
 
 #endif // IXTEXTFIELD_H

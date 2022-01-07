@@ -1,27 +1,11 @@
 #include "ixtextfield.h"
-
+#include "ixshadowtextfield.h"
 #include </home/lqony/Documents/projects/emsdk/upstream/emscripten/system/include/emscripten.h>
 #include </home/lqony/Documents/projects/emsdk/upstream/emscripten/system/include/emscripten/html5.h>
 
-IXTextField* IXTextField::inst = nullptr;
-
-extern "C" {
-        void EMSCRIPTEN_KEEPALIVE inputData(QChar* data)
-        {
-            QString k(data);
-            free(data);
-            qDebug("inputData");
-            qDebug(k.toLocal8Bit());
-            IXTextField::inst->setData(k);
-        }
-}
-
-IXTextField::IXTextField()
+IXTextField::IXTextField() : _textValue("")
 {
-    IXTextField::inst = this;
 
-    QString name = QString::number(uint64_t(this));
-    this->setObjectName(name);
 }
 
 void IXTextField::componentComplete()
@@ -54,27 +38,27 @@ void IXTextField::focusOutEvent(QFocusEvent *e)
 
 void IXTextField::focusIn()
 {
+    IXShadowTextField::inst().addTextField(this);
     EM_ASM({
-        var qtCanvas = document.getElementById("qtcanvas");
-        var input = document.getElementById("shadowTextField");
-        qtCanvas.blur();
-        input.hidden = false;
-        input.focus({preventScroll:true});
-    });
+        var currentValue = Module.UTF16ToString($0);
+        window.focusShadowTextField(currentValue);
+    }, _textValue.data());
 
     qDebug("IXTextField focusIn");
 }
 
 void IXTextField::focusOut()
 {
+    IXShadowTextField::inst().removeTextField(this);
     EM_ASM({
-        var qtCanvas = document.getElementById("qtcanvas");
-        var input = document.getElementById("shadowTextField");
-        input.blur();
-        input.hidden = true;
-        qtCanvas.focus();
-        qtCanvas.scrollIntoView();
+        window.blurShadowTextField();
     });
 
     qDebug("IXTextField focusOut");
+}
+
+void IXTextField::setTextValue(const QString& data)
+{
+    _textValue = data;
+    emit textUpdated(_textValue);
 }

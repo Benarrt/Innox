@@ -9,6 +9,7 @@ CONFIG += c++17
 
 SOURCES += \
         ixpage.cpp \
+        ixshadowtextfield.cpp \
         ixtextfield.cpp \
         ixwindow.cpp \
         ixwindowfocushandler.cpp \
@@ -33,6 +34,7 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 HEADERS += \
     ixpage.h \
+    ixshadowtextfield.h \
     ixtextfield.h \
     ixwindow.h \
     ixwindowfocushandler.h

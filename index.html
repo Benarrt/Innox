@@ -15,7 +15,7 @@
       canvas { outline: 0px solid transparent; caret-color: transparent; cursor:default }
     </style>
   </head>
-  <body onload="init()" onscroll="scrollTest(event)">
+  <body onload="init()">
     <figure style="overflow:visible;" id="qtspinner">
       <center style="margin-top:1.5em; line-height:150%">
         <img src="qtlogo.svg" width="320" height="200" style="display:block"></img>
@@ -24,21 +24,8 @@
         <noscript>JavaScript is disabled. Please enable JavaScript to use this application.</noscript>
       </center>
     </figure>
-    <canvas style="position: sticky; top: 0;" id="qtcanvas" inputmode="none" oncontextmenu="event.preventDefault()" contenteditable="false" onscroll="scrollTest(event)"></canvas>
-    <input hidden style="opacity: 0" type="text" id="shadowTextField" inputmode="text" oninput="inputEventHandler(event)">
+    <canvas style="position: sticky; top: 0;" id="qtcanvas" inputmode="none" oncontextmenu="event.preventDefault()" contenteditable="false"></canvas>
     <script  type='text/javascript'>
-    function scrollTest(e) {
-      console.log("scrollTest");
-    }
-    function inputEventHandler(e) {
-        var element = e.srcElement;
-        console.log("inputEventHandler");
-        console.log(element.value);
-        var dataStr = element.value;
-        var heapPtr = Module._malloc((dataStr.length+1)*2);
-        Module.stringToUTF16(dataStr, heapPtr, (dataStr.length+1)*2);
-        Module._inputData(heapPtr);
-      }
       function init() {
         var spinner = document.querySelector('#qtspinner');
         var canvas = document.querySelector('#qtcanvas');

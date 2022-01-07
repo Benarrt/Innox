@@ -23,7 +23,7 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_IXTextField_t {
     QByteArrayData data[4];
-    char stringdata0[26];
+    char stringdata0[30];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -33,12 +33,12 @@ struct qt_meta_stringdata_IXTextField_t {
 static const qt_meta_stringdata_IXTextField_t qt_meta_stringdata_IXTextField = {
     {
 QT_MOC_LITERAL(0, 0, 11), // "IXTextField"
-QT_MOC_LITERAL(1, 12, 7), // "setData"
-QT_MOC_LITERAL(2, 20, 0), // ""
-QT_MOC_LITERAL(3, 21, 4) // "data"
+QT_MOC_LITERAL(1, 12, 11), // "textUpdated"
+QT_MOC_LITERAL(2, 24, 0), // ""
+QT_MOC_LITERAL(3, 25, 4) // "data"
 
     },
-    "IXTextField\0setData\0\0data"
+    "IXTextField\0textUpdated\0\0data"
 };
 #undef QT_MOC_LITERAL
 
@@ -70,14 +70,14 @@ void IXTextField::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id,
         auto *_t = static_cast<IXTextField *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
-        case 0: _t->setData((*reinterpret_cast< const QString(*)>(_a[1]))); break;
+        case 0: _t->textUpdated((*reinterpret_cast< const QString(*)>(_a[1]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
         int *result = reinterpret_cast<int *>(_a[0]);
         {
             using _t = void (IXTextField::*)(const QString & );
-            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&IXTextField::setData)) {
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&IXTextField::textUpdated)) {
                 *result = 0;
                 return;
             }
@@ -126,7 +126,7 @@ int IXTextField::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 }
 
 // SIGNAL 0
-void IXTextField::setData(const QString & _t1)
+void IXTextField::textUpdated(const QString & _t1)
 {
     void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
     QMetaObject::activate(this, &staticMetaObject, 0, _a);
