@@ -8,10 +8,13 @@ class IXTextField : public QQuickItem
     Q_OBJECT
 public:
     IXTextField();
-    void setTextValue(const QString&);
+    void setTextValue(quint16 cursorPos, const QString&);
 
 signals:
-    void textUpdated(const QString& data);
+    void textUpdated(quint16 cursorPos, const QString& data);
+
+public slots:
+    void cursorPositionChanged(quint16);
 
 protected:
     void componentComplete() override;

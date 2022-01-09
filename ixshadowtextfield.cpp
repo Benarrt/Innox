@@ -5,11 +5,11 @@
 #include </home/lqony/Documents/projects/emsdk/upstream/emscripten/system/include/emscripten/html5.h>
 
 extern "C" {
-        void EMSCRIPTEN_KEEPALIVE shadowTextFieldData(QChar* data)
+        void EMSCRIPTEN_KEEPALIVE shadowTextFieldData(quint16 cursorPos, QChar* data)
         {
             QString k(data);
             free(data);
-            IXShadowTextField::inst().shadowTextFieldData(k);
+            IXShadowTextField::inst().shadowTextFieldData(cursorPos, k);
         }
 }
 
@@ -26,12 +26,12 @@ IXShadowTextField::IXShadowTextField() : _textField(nullptr)
         input.style.opacity = 0;
 
         var inputEventHandler = function(e) {
-           console.log("inputEventHandler");
-           console.log(this.value);
+           var selStart = e.target.selectionStart;
+           var selEnd = e.target.selectionStart;
            var dataStr = this.value;
            var heapPtr = Module._malloc((dataStr.length+1)*2);
            Module.stringToUTF16(dataStr, heapPtr, (dataStr.length+1)*2);
-           Module._shadowTextFieldData(heapPtr);
+           Module._shadowTextFieldData(selEnd < selStart ? selEnd : selStart, heapPtr);
         };
 
        var shadowInputElements = {};
@@ -52,7 +52,14 @@ IXShadowTextField::IXShadowTextField() : _textField(nullptr)
                this.qtCanvas.scrollIntoView();
         }).bind(shadowInputElements);
 
-        input.addEventListener('input', inputEventHandler.bind(input));
+       window.moveShadowTextFieldCursor = (function (pos) {
+            console.log("moveShadowTextFieldCursor", pos);
+            this.input.setSelectionRange(pos, pos);
+       }).bind(shadowInputElements);
+
+       input.addEventListener('input', inputEventHandler.bind(input));
+       input.addEventListener('keydown', inputEventHandler.bind(input));
+       input.addEventListener('keyup', inputEventHandler.bind(input));
     });
 }
 
@@ -67,11 +74,11 @@ void IXShadowTextField::removeTextField(IXTextField* textField)
     _textField = nullptr;
 }
 
-void IXShadowTextField::shadowTextFieldData(const QString& data)
+void IXShadowTextField::shadowTextFieldData(quint16 cursorPos, const QString& data)
 {
     Q_ASSERT(_textField != nullptr);
     if(!_textField)
         return;
 
-    _textField->setTextValue(data);
+    _textField->setTextValue(cursorPos, data);
 }

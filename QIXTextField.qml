@@ -5,11 +5,16 @@ import io.qt.examples.ixtextfield 1.0
 TextField {
     text: ""
     selectByMouse: false
+    onCursorPositionChanged: {
+        console.log("onCursorPositionChanged", cursorPosition);
+        ixtextfield.cursorPositionChanged(cursorPosition);
+    }
 
     Connections {
         target: ixtextfield
-        function onTextUpdated(data) {
+        function onTextUpdated(cursorPos, data) {
             text = data;
+            cursorPosition = cursorPos;
         }
     }
 

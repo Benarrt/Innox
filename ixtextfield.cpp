@@ -27,13 +27,11 @@ void IXTextField::onParentFocusChanged(bool focus)
 void IXTextField::focusInEvent(QFocusEvent *e)
 {
     QQuickItem::focusInEvent(e);
-    qDebug("IXTextField focusInEvent");
 }
 
 void IXTextField::focusOutEvent(QFocusEvent *e)
 {
     QQuickItem::focusOutEvent(e);
-    qDebug("IXTextField focusOutEvent");
 }
 
 void IXTextField::focusIn()
@@ -43,8 +41,6 @@ void IXTextField::focusIn()
         var currentValue = Module.UTF16ToString($0);
         window.focusShadowTextField(currentValue);
     }, _textValue.data());
-
-    qDebug("IXTextField focusIn");
 }
 
 void IXTextField::focusOut()
@@ -53,12 +49,22 @@ void IXTextField::focusOut()
     EM_ASM({
         window.blurShadowTextField();
     });
-
-    qDebug("IXTextField focusOut");
 }
 
-void IXTextField::setTextValue(const QString& data)
+void IXTextField::setTextValue(quint16 cursorPos, const QString& data)
 {
     _textValue = data;
-    emit textUpdated(_textValue);
+    emit textUpdated(cursorPos, _textValue);
+}
+
+void IXTextField::cursorPositionChanged(quint16 pos)
+{
+    qDebug("cursorPositionChanged");
+    qDebug(QString::number(pos).toLocal8Bit());
+    EM_ASM({
+        if(!window.moveShadowTextFieldCursor) {
+            return;
+        }
+        window.moveShadowTextFieldCursor($0);
+    }, pos);
 }
