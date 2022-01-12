@@ -21,9 +21,10 @@ public:
         return inst();
     }
 
-    void shadowTextFieldData(quint16 cursorPos, const QString& data);
+    void shadowTextFieldData(const QString& data);
     void addTextField(IXTextField* textField);
     void removeTextField(IXTextField* textField);
+    void shadowTextFieldCursor(quint16 posBeg, quint16 posEnd);
 
 private:
     IXShadowTextField();

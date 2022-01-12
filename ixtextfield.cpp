@@ -1,9 +1,10 @@
 #include "ixtextfield.h"
 #include "ixshadowtextfield.h"
+
 #include </home/lqony/Documents/projects/emsdk/upstream/emscripten/system/include/emscripten.h>
 #include </home/lqony/Documents/projects/emsdk/upstream/emscripten/system/include/emscripten/html5.h>
 
-IXTextField::IXTextField() : _textValue("")
+IXTextField::IXTextField(QQuickItem* parent) : QQuickItem(parent), _textValue("")
 {
 
 }
@@ -13,7 +14,21 @@ void IXTextField::componentComplete()
     QQuickItem::componentComplete();
     assert(parent());
 
-    connect(parentItem(), &QQuickItem::focusChanged, this, &IXTextField::onParentFocusChanged);
+    parentItem()->setProperty("selectByMouse", true);
+    parentItem()->installEventFilter(this);
+    QObject::connect(parentItem(), &QQuickItem::focusChanged, this, &IXTextField::onParentFocusChanged);
+    //QObject::connect(parentItem(), SIGNAL(selectionEndChanged()), this, SLOT(selectionChanged()));
+    //QObject::connect(parentItem(), SIGNAL(selectionStartChanged()), this, SLOT(selectionChanged()));
+}
+
+bool IXTextField::eventFilter(QObject *obj, QEvent *event)
+{
+    if(event->type() == QEvent::MouseButtonRelease ||
+            event->type() == QEvent::TouchEnd)
+    {
+        selectionChanged();
+    }
+    return false;
 }
 
 void IXTextField::onParentFocusChanged(bool focus)
@@ -41,6 +56,7 @@ void IXTextField::focusIn()
         var currentValue = Module.UTF16ToString($0);
         window.focusShadowTextField(currentValue);
     }, _textValue.data());
+    cursorPositionChanged();
 }
 
 void IXTextField::focusOut()
@@ -51,20 +67,48 @@ void IXTextField::focusOut()
     });
 }
 
-void IXTextField::setTextValue(quint16 cursorPos, const QString& data)
+void IXTextField::setTextValue(const QString& data)
 {
     _textValue = data;
-    emit textUpdated(cursorPos, _textValue);
+    parentItem()->setProperty("text", data);
 }
 
-void IXTextField::cursorPositionChanged(quint16 pos)
+void IXTextField::setSelection(quint16 posBeg, quint16 posEnd)
 {
-    qDebug("cursorPositionChanged");
-    qDebug(QString::number(pos).toLocal8Bit());
+    if(posBeg >= posEnd)
+    {
+        parentItem()->setProperty("cursorPosition", posEnd);
+        return;
+    }
+    QMetaObject::invokeMethod(parentItem(), "select",
+            Q_ARG(int, posBeg),  Q_ARG(int, posEnd));
+}
+
+void IXTextField::cursorPositionChanged()
+{
+    auto pos = parentItem()->property("cursorPosition").toInt();
     EM_ASM({
         if(!window.moveShadowTextFieldCursor) {
             return;
         }
-        window.moveShadowTextFieldCursor($0);
+        window.moveShadowTextFieldCursor($0, $0);
     }, pos);
+}
+
+void IXTextField::selectionChanged()
+{
+    if(!parentItem()->property("selectByMouse").toBool())
+    {
+        return;
+    }
+
+    auto posBeg = parentItem()->property("selectionStart").toInt();
+    auto posEnd = parentItem()->property("selectionEnd").toInt();
+
+    EM_ASM({
+        if(!window.moveShadowTextFieldCursor) {
+            return;
+        }
+        window.moveShadowTextFieldCursor($0, $1);
+    }, posBeg, posEnd);
 }

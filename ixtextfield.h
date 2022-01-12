@@ -7,17 +7,17 @@ class IXTextField : public QQuickItem
 {
     Q_OBJECT
 public:
-    IXTextField();
-    void setTextValue(quint16 cursorPos, const QString&);
-
-signals:
-    void textUpdated(quint16 cursorPos, const QString& data);
+    IXTextField(QQuickItem* parent = nullptr);
+    void setTextValue(const QString&);
+    void setSelection(quint16 posBeg, quint16 posEnd);
 
 public slots:
-    void cursorPositionChanged(quint16);
+    void cursorPositionChanged();
+    void selectionChanged();
 
 protected:
     void componentComplete() override;
+    bool eventFilter(QObject *obj, QEvent *event) override;
 
 private:
     void onParentFocusChanged(bool);

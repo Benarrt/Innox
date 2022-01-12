@@ -5,11 +5,16 @@
 #include </home/lqony/Documents/projects/emsdk/upstream/emscripten/system/include/emscripten/html5.h>
 
 extern "C" {
-        void EMSCRIPTEN_KEEPALIVE shadowTextFieldData(quint16 cursorPos, QChar* data)
+        void EMSCRIPTEN_KEEPALIVE shadowTextFieldData(QChar* data)
         {
             QString k(data);
             free(data);
-            IXShadowTextField::inst().shadowTextFieldData(cursorPos, k);
+            IXShadowTextField::inst().shadowTextFieldData(k);
+        }
+
+        void EMSCRIPTEN_KEEPALIVE shadowTextFieldCursor(quint16 posBeg, quint16 posEnd)
+        {
+            IXShadowTextField::inst().shadowTextFieldCursor(posBeg, posEnd);
         }
 }
 
@@ -27,11 +32,12 @@ IXShadowTextField::IXShadowTextField() : _textField(nullptr)
 
         var inputEventHandler = function(e) {
            var selStart = e.target.selectionStart;
-           var selEnd = e.target.selectionStart;
+           var selEnd = e.target.selectionEnd;
            var dataStr = this.value;
            var heapPtr = Module._malloc((dataStr.length+1)*2);
            Module.stringToUTF16(dataStr, heapPtr, (dataStr.length+1)*2);
-           Module._shadowTextFieldData(selEnd < selStart ? selEnd : selStart, heapPtr);
+           Module._shadowTextFieldData(heapPtr);
+           Module._shadowTextFieldCursor(selStart <= selEnd ? selStart : selEnd, selEnd);
         };
 
        var shadowInputElements = {};
@@ -52,9 +58,10 @@ IXShadowTextField::IXShadowTextField() : _textField(nullptr)
                this.qtCanvas.scrollIntoView();
         }).bind(shadowInputElements);
 
-       window.moveShadowTextFieldCursor = (function (pos) {
-            console.log("moveShadowTextFieldCursor", pos);
-            this.input.setSelectionRange(pos, pos);
+       window.moveShadowTextFieldCursor = (function (posBeg, posEnd) {
+            console.log("moveShadowTextFieldCursor", posBeg, posEnd);
+            this.input.focus();
+            this.input.setSelectionRange(posBeg, posEnd);
        }).bind(shadowInputElements);
 
        input.addEventListener('input', inputEventHandler.bind(input));
@@ -65,7 +72,6 @@ IXShadowTextField::IXShadowTextField() : _textField(nullptr)
 
 void IXShadowTextField::addTextField(IXTextField* textField)
 {
-    Q_ASSERT(_textField == nullptr);
     _textField = textField;
 }
 void IXShadowTextField::removeTextField(IXTextField* textField)
@@ -74,11 +80,20 @@ void IXShadowTextField::removeTextField(IXTextField* textField)
     _textField = nullptr;
 }
 
-void IXShadowTextField::shadowTextFieldData(quint16 cursorPos, const QString& data)
+void IXShadowTextField::shadowTextFieldData(const QString& data)
 {
     Q_ASSERT(_textField != nullptr);
     if(!_textField)
         return;
 
-    _textField->setTextValue(cursorPos, data);
+    _textField->setTextValue(data);
+}
+
+void IXShadowTextField::shadowTextFieldCursor(quint16 posBeg, quint16 posEnd)
+{
+    Q_ASSERT(_textField != nullptr);
+    if(!_textField)
+        return;
+
+    _textField->setSelection(posBeg, posEnd);
 }
