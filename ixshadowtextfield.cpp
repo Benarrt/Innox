@@ -60,6 +60,10 @@ IXShadowTextField::IXShadowTextField() : _textField(nullptr)
 
        window.moveShadowTextFieldCursor = (function (posBeg, posEnd) {
             console.log("moveShadowTextFieldCursor", posBeg, posEnd);
+            var selStart = this.input.selectionStart;
+            var selEnd = this.input.selectionEnd;
+            if(selStart == posBeg && selStart == posEnd)
+                   return;
             this.input.focus();
             this.input.setSelectionRange(posBeg, posEnd);
        }).bind(shadowInputElements);
@@ -70,14 +74,34 @@ IXShadowTextField::IXShadowTextField() : _textField(nullptr)
     });
 }
 
-void IXShadowTextField::addTextField(IXTextField* textField)
+void IXShadowTextField::addTextField(IXTextField* textField, const QString& _textValue)
 {
     _textField = textField;
+    EM_ASM({
+        var currentValue = Module.UTF16ToString($0);
+        window.focusShadowTextField(currentValue);
+    }, _textValue.data());
 }
 void IXShadowTextField::removeTextField(IXTextField* textField)
 {
-    Q_ASSERT(_textField == textField);
+    if(_textField != textField)
+        return;
+
+    EM_ASM({
+        window.blurShadowTextField();
+    });
+
     _textField = nullptr;
+}
+
+void IXShadowTextField::setShadowTextFieldSelection(quint16 selecionStart, quint16 selecionEnd)
+{
+    EM_ASM({
+        if(!window.moveShadowTextFieldCursor) {
+            return;
+        }
+        window.moveShadowTextFieldCursor($0, $1);
+    }, selecionStart, selecionEnd);
 }
 
 void IXShadowTextField::shadowTextFieldData(const QString& data)

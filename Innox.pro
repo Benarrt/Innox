@@ -13,6 +13,7 @@ SOURCES += \
         ixtextfield.cpp \
         ixwindow.cpp \
         ixwindowfocushandler.cpp \
+        ixwindowtabhandler.cpp \
         main.cpp
 
 RESOURCES += qml.qrc \
@@ -37,4 +38,5 @@ HEADERS += \
     ixshadowtextfield.h \
     ixtextfield.h \
     ixwindow.h \
-    ixwindowfocushandler.h
+    ixwindowfocushandler.h \
+    ixwindowtabhandler.h

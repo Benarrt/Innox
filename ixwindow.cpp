@@ -2,9 +2,13 @@
 #include <math.h>
 #include <QString>
 
+#include <ixwindowfocushandler.h>
+#include <ixwindowtabhandler.h>
+#include <qquickwindow.h>
+
 IXWindow::IXWindow(QQuickItem *parent) : QQuickItem(parent)
 {
-
+    setFiltersChildMouseEvents(true);
 }
 
 void IXWindow::setup()
@@ -30,8 +34,13 @@ void IXWindow::setup()
 
 void IXWindow::setupFocusHandler()
 {
-    _focusHandler = new IXWindowFocusHandler(parentItem());
-    _focusHandler->stackAfter(this);
+    IXWindowFocusHandler::inst().setParentItem(parentItem());
+    IXWindowFocusHandler::inst().stackBefore(this);
+}
+
+void IXWindow::setupTabHandler()
+{
+    IXWindowTabHandler::inst().setParentItem(parentItem());
 }
 
 void IXWindow::componentComplete()
@@ -43,9 +52,9 @@ void IXWindow::componentComplete()
         return;
     }
 
-
     this->setup();
     this->setupFocusHandler();
+    this->setupTabHandler();
 }
 
 void IXWindow::windowResized()
@@ -69,4 +78,19 @@ void IXWindow::windowResized()
     this->setWidth(parentWidth / appliedScale);
     this->setHeight(parentHeight / appliedScale);
     this->setScale(appliedScale);
+}
+
+bool IXWindow::childMouseEventFilter(QQuickItem *item, QEvent *event)
+{
+    if(event->type() == QEvent::MouseButtonPress)
+    {
+        qDebug("IXWindow child event!");
+        auto activeFocusItem = window()->activeFocusItem();
+        if(activeFocusItem == item)
+            qDebug("ACTIVE");
+        else
+            activeFocusItem->setFocus(false);
+    }
+
+    return false;
 }

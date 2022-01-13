@@ -6,8 +6,23 @@ IXWindowFocusHandler::IXWindowFocusHandler(QQuickItem *parent) : QQuickItem(pare
     setAcceptedMouseButtons(Qt::AllButtons);
     setAcceptTouchEvents(true);
     setFlag(ItemAcceptsInputMethod, true);
-    connect(parent, &QQuickItem::widthChanged, this, &IXWindowFocusHandler::windowResized);
-    connect(parent, &QQuickItem::heightChanged, this, &IXWindowFocusHandler::windowResized);
+    connect(this, &IXWindowFocusHandler::parentChanged, this, &IXWindowFocusHandler::onParentChanged);
+}
+
+void IXWindowFocusHandler::onParentChanged(QQuickItem* parentItem)
+{
+    qDebug("FOCUSHANDLER COMPLS");
+
+    connect(parentItem, &QQuickItem::widthChanged, this, &IXWindowFocusHandler::windowResized);
+    connect(parentItem, &QQuickItem::heightChanged, this, &IXWindowFocusHandler::windowResized);
+
+    windowResized();
+}
+
+void IXWindowFocusHandler::windowResized()
+{
+    this->setWidth(this->parentItem()->width());
+    this->setHeight(this->parentItem()->height());
 }
 
 void IXWindowFocusHandler::mousePressEvent(QMouseEvent *event)
@@ -17,19 +32,4 @@ void IXWindowFocusHandler::mousePressEvent(QMouseEvent *event)
         activeFocusItem->setFocus(false);
 
     event->ignore();
-}
-
-void IXWindowFocusHandler::touchEvent(QTouchEvent *event)
-{
-    auto activeFocusItem = window()->activeFocusItem();
-    if(activeFocusItem)
-        activeFocusItem->setFocus(false);
-
-    event->ignore();
-}
-
-void IXWindowFocusHandler::windowResized()
-{
-    this->setWidth(this->parentItem()->width());
-    this->setHeight(this->parentItem()->height());
 }

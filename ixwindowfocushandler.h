@@ -3,24 +3,29 @@
 
 #include <QQuickItem>
 
-//This class resets focus after everylick inside application
-//So even if we click nonfocusable item, the one with focus will lose it
+//This class catches clicks on empty undefinded space
 
 class IXWindowFocusHandler : public QQuickItem
 {
     Q_OBJECT
 public:
-    IXWindowFocusHandler(QQuickItem *parent=nullptr);
+    static IXWindowFocusHandler& inst()
+    {
+        static IXWindowFocusHandler instance;
+        return instance;
+    }
 
-signals:
-
-public slots:
+    static IXWindowFocusHandler& cinst()
+    {
+        return IXWindowFocusHandler::inst();
+    }
 
 protected:
     virtual void mousePressEvent(QMouseEvent *event) override;
-    virtual void touchEvent(QTouchEvent *event) override;
-private:
 
+private:
+    IXWindowFocusHandler(QQuickItem *parent=nullptr);
+    void onParentChanged(QQuickItem*);
     void windowResized();
 };
 
