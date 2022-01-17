@@ -13,6 +13,7 @@ SOURCES += \
         ixtextfield.cpp \
         ixwindow.cpp \
         ixwindowfocushandler.cpp \
+        ixwindownavigationhandler.cpp \
         ixwindowtabhandler.cpp \
         main.cpp
 
@@ -39,4 +40,5 @@ HEADERS += \
     ixtextfield.h \
     ixwindow.h \
     ixwindowfocushandler.h \
+    ixwindownavigationhandler.h \
     ixwindowtabhandler.h

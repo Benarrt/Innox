@@ -32,6 +32,7 @@ private:
     void setup();
     void setupFocusHandler();
     void setupTabHandler();
+    void setupNavigationHandler();
 };
 
 #endif // IXWINDOW_H

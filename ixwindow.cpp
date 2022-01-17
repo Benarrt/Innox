@@ -1,9 +1,11 @@
 #include "ixwindow.h"
+#include <ixwindowfocushandler.h>
+#include <ixwindowtabhandler.h>
+#include <ixwindownavigationhandler.h>
+
 #include <math.h>
 #include <QString>
 
-#include <ixwindowfocushandler.h>
-#include <ixwindowtabhandler.h>
 #include <qquickwindow.h>
 
 IXWindow::IXWindow(QQuickItem *parent) : QQuickItem(parent)
@@ -43,6 +45,11 @@ void IXWindow::setupTabHandler()
     IXWindowTabHandler::inst().setParentItem(parentItem());
 }
 
+void IXWindow::setupNavigationHandler()
+{
+    IXWindowNavigationHandler::inst().setParentItem(parentItem());
+}
+
 void IXWindow::componentComplete()
 {
     QQuickItem::componentComplete();
@@ -55,6 +62,7 @@ void IXWindow::componentComplete()
     this->setup();
     this->setupFocusHandler();
     this->setupTabHandler();
+    this->setupNavigationHandler();
 }
 
 void IXWindow::windowResized()
