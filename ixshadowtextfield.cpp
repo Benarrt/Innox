@@ -30,21 +30,34 @@ IXShadowTextField::IXShadowTextField() : _textField(nullptr)
         input.hidden = true;
         input.style.opacity = 0;
 
-        var inputEventHandler = function(e) {
-           var selStart = e.target.selectionStart;
-           var selEnd = e.target.selectionEnd;
-           var dataStr = this.value;
-           var heapPtr = Module._malloc((dataStr.length+1)*2);
-           Module.stringToUTF16(dataStr, heapPtr, (dataStr.length+1)*2);
-           Module._shadowTextFieldData(heapPtr);
-           Module._shadowTextFieldCursor(selStart <= selEnd ? selStart : selEnd, selEnd);
-        };
+       var inputEventHandler = function(e) {
+          var selStart = e.target.selectionStart;
+          var selEnd = e.target.selectionEnd;
+          var dataStr = this.value;
+          var heapPtr = Module._malloc((dataStr.length+1)*2);
+          Module.stringToUTF16(dataStr, heapPtr, (dataStr.length+1)*2);
+          Module._shadowTextFieldData(heapPtr);
+          Module._shadowTextFieldCursor(selStart <= selEnd ? selStart : selEnd, selEnd);
+       };
 
-       var shadowInputElements = {};
-       shadowInputElements.input = input;
-       shadowInputElements.qtCanvas = document.getElementById("qtcanvas");
+       var shadowInputElements = {
+               interceptFocus: false
+        };
+        shadowInputElements.input = input;
+        shadowInputElements.qtCanvas = document.getElementById("qtcanvas");
+
+        var shadowFocusHandler = (function () {
+            if(!this.interceptFocus)
+                   this.input.blur();
+        }).bind(shadowInputElements);
+
+        var shadowBlurHandler = (function () {
+           if(this.interceptFocus)
+                  this.input.focus();
+        }).bind(shadowInputElements);
 
         window.focusShadowTextField = (function (currentValue) {
+               this.interceptFocus = true;
                this.qtCanvas.blur();
                this.input.hidden = false;
                this.input.focus({preventScroll:true});
@@ -52,6 +65,7 @@ IXShadowTextField::IXShadowTextField() : _textField(nullptr)
         }).bind(shadowInputElements);
 
         window.blurShadowTextField = (function () {
+               this.interceptFocus = false;
                this.input.blur();
                this.input.hidden = true;
                this.qtCanvas.focus();
@@ -59,18 +73,19 @@ IXShadowTextField::IXShadowTextField() : _textField(nullptr)
         }).bind(shadowInputElements);
 
        window.moveShadowTextFieldCursor = (function (posBeg, posEnd) {
-            console.log("moveShadowTextFieldCursor", posBeg, posEnd);
             var selStart = this.input.selectionStart;
             var selEnd = this.input.selectionEnd;
-            if(selStart == posBeg && selStart == posEnd)
-                   return;
-            this.input.focus();
-            this.input.setSelectionRange(posBeg, posEnd);
+            if(selStart != posBeg || selEnd != posEnd) {
+                this.input.blur();
+                this.input.setSelectionRange(posBeg, posEnd);
+            }
        }).bind(shadowInputElements);
 
        input.addEventListener('input', inputEventHandler.bind(input));
        input.addEventListener('keydown', inputEventHandler.bind(input));
        input.addEventListener('keyup', inputEventHandler.bind(input));
+       input.addEventListener('focus', shadowFocusHandler);
+       input.addEventListener('blur', shadowBlurHandler);
     });
 }
 

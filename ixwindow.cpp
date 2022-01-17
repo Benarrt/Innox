@@ -84,11 +84,8 @@ bool IXWindow::childMouseEventFilter(QQuickItem *item, QEvent *event)
 {
     if(event->type() == QEvent::MouseButtonPress)
     {
-        qDebug("IXWindow child event!");
         auto activeFocusItem = window()->activeFocusItem();
-        if(activeFocusItem == item)
-            qDebug("ACTIVE");
-        else
+        if(activeFocusItem != item)
             activeFocusItem->setFocus(false);
     }
 

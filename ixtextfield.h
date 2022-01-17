@@ -18,6 +18,20 @@ protected:
     void componentComplete() override;
 
 private:
+    struct META_PROPERTIES
+    {
+        static constexpr char selectionStart[] = "selectionStart";
+        static constexpr char selectionEnd[] = "selectionEnd";
+        static constexpr char cursorPosition[] = "cursorPosition";
+        static constexpr char text[] = "text";
+        static constexpr char selectByMouse[] = "selectByMouse";
+    };
+
+    struct META_METHODS
+    {
+        static constexpr char select[] = "select";
+    };
+
     void onParentFocusChanged(bool);
 
     void focusIn();
