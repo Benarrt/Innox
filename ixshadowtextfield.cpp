@@ -76,7 +76,6 @@ IXShadowTextField::IXShadowTextField() : _textField(nullptr)
             var selStart = this.input.selectionStart;
             var selEnd = this.input.selectionEnd;
             if(selStart != posBeg || selEnd != posEnd) {
-                this.input.blur();
                 this.input.setSelectionRange(posBeg, posEnd);
             }
        }).bind(shadowInputElements);
