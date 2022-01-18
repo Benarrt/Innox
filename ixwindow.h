@@ -19,7 +19,8 @@ signals:
     void baseHeightChanged(quint16);
 
 public slots:
-    void windowResized();
+    void onWindowResized();
+    void onHandleBack();
 
 protected:
     void componentComplete() override;

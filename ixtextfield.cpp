@@ -1,6 +1,5 @@
 #include "ixtextfield.h"
 #include "ixshadowtextfield.h"
-#include "ixwindowfocushandler.h"
 
 IXTextField::IXTextField(QQuickItem* parent) : QQuickItem(parent)
 {

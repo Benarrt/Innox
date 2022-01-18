@@ -20,8 +20,8 @@ void IXWindow::setup()
     this->setWidth(_baseWidth);
     this->setHeight(_baseHeight);
 
-    connect(parent, &QQuickItem::widthChanged, this, &IXWindow::windowResized);
-    connect(parent, &QQuickItem::heightChanged, this, &IXWindow::windowResized);
+    connect(parent, &QQuickItem::widthChanged, this, &IXWindow::onWindowResized);
+    connect(parent, &QQuickItem::heightChanged, this, &IXWindow::onWindowResized);
 
     qvariant_cast<QObject*>(
         this->property("anchors")
@@ -31,7 +31,7 @@ void IXWindow::setup()
         this->property("anchors")
     )->setProperty("horizontalCenter", parent->property("horizontalCenter"));
 
-    windowResized();
+    onWindowResized();
 }
 
 void IXWindow::setupFocusHandler()
@@ -48,6 +48,8 @@ void IXWindow::setupTabHandler()
 void IXWindow::setupNavigationHandler()
 {
     IXWindowNavigationHandler::inst().setParentItem(parentItem());
+    connect(&IXWindowNavigationHandler::inst(), &IXWindowNavigationHandler::handleBack,
+            this, &IXWindow::onHandleBack);
 }
 
 void IXWindow::componentComplete()
@@ -65,7 +67,7 @@ void IXWindow::componentComplete()
     this->setupNavigationHandler();
 }
 
-void IXWindow::windowResized()
+void IXWindow::onWindowResized()
 {
     qreal scaleW = 1.0f;
     qreal scaleH = 1.0f;
@@ -98,4 +100,11 @@ bool IXWindow::childMouseEventFilter(QQuickItem *item, QEvent *event)
     }
 
     return false;
+}
+
+void IXWindow::onHandleBack()
+{
+    auto handleBackPopup = this->findChild<QQuickItem*>("handleBackPopup");
+    if(handleBackPopup)
+        handleBackPopup->setVisible(true);
 }

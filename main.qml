@@ -29,5 +29,10 @@ Window {
                 padding: 10
             }
         }
+
+        QIXHandleBackPopup {
+            anchors.verticalCenter: parent.verticalCenter
+            anchors.horizontalCenter: parent.horizontalCenter
+        }
     }
 }

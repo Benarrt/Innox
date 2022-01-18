@@ -17,7 +17,10 @@ public:
         return inst();
     }
 
+    void goBack();
+
 signals:
+    void handleBack();
 
 private:
     IXWindowNavigationHandler();
