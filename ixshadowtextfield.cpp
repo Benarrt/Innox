@@ -29,6 +29,7 @@ IXShadowTextField::IXShadowTextField() : _textField(nullptr)
         input.type = "text";
         input.hidden = true;
         input.style.opacity = 0;
+        input.autocomplete = "off";
 
        var inputEventHandler = function(e) {
           var selStart = e.target.selectionStart;
