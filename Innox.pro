@@ -9,8 +9,11 @@ CONFIG += c++17
 
 SOURCES += \
         ixbutton.cpp \
+        ixdynamiccomponent.cpp \
         ixhandlebackpopup.cpp \
         ixpage.cpp \
+        ixpageheader.cpp \
+        ixregistry.cpp \
         ixshadowtextfield.cpp \
         ixtextfield.cpp \
         ixwindow.cpp \
@@ -20,7 +23,10 @@ SOURCES += \
         main.cpp
 
 RESOURCES += qml.qrc \
-    page.qrc
+    component.qrc \
+    control.qrc \
+    page.qrc \
+    screen.qrc
 
 TRANSLATIONS += \
     Innox_pl_PL.ts
@@ -38,8 +44,11 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 HEADERS += \
     ixbutton.h \
+    ixdynamiccomponent.h \
     ixhandlebackpopup.h \
     ixpage.h \
+    ixpageheader.h \
+    ixregistry.h \
     ixshadowtextfield.h \
     ixtextfield.h \
     ixwindow.h \

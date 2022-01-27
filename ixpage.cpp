@@ -1,15 +1,19 @@
 #include "ixpage.h"
-#include "QString"
+#include "ixdynamiccomponent.h"
+#include "ixregistry.h"
 
-IXPage::IXPage() : _item(nullptr)
+#include <QString>
+
+IXPage::IXPage() : _pageComponent(nullptr)
 {
-
+    IXRegistry::inst().addToRegistry(this);
 }
 
 void IXPage::componentComplete()
 {
     QQuickItem::componentComplete();
     assert(parent());
+
     auto ixWindow = parent()->parent();
     auto ixWindow2 = QQuickItem::window();
 
@@ -25,22 +29,19 @@ void IXPage::componentComplete()
 
     qvariant_cast<QObject*>(parent()->property("anchors"))->
             setProperty("top", ixWindow->property("top"));
+
+
+    setupDynamicComponent();
 }
 
-void IXPage::loadPage(const QUrl& url)
+void IXPage::setupDynamicComponent()
 {
-    QQmlEngine *engine = qmlEngine(parent());
-    // Or:
-    // QQmlEngine *engine = qmlContext(this)->engine();
-    QQmlComponent component(engine, url);
-    qDebug(component.errorString().toLocal8Bit());
-    if(_item)
-    {
-        delete _item;
-        _item = nullptr;
-    }
-    QObject *myObject = component.create();
-    qDebug(component.errorString().toLocal8Bit());
-    _item = qobject_cast<QQuickItem*>(myObject);
-    _item->setParentItem(parentItem());
+    _pageComponent = new IXDynamicComponent();
+    _pageComponent->setup(parentItem(),parent());
+}
+
+void IXPage::load(const QUrl& url)
+{
+    if(_pageComponent)
+        _pageComponent->setUrl(url);
 }

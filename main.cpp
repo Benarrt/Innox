@@ -5,6 +5,7 @@
 #include <ixtextfield.h>
 #include <ixbutton.h>
 #include <ixhandlebackpopup.h>
+#include <ixpageheader.h>
 
 int main(int argc, char *argv[])
 {
@@ -17,6 +18,7 @@ int main(int argc, char *argv[])
     qmlRegisterType<IXTextField>("io.qt.examples.ixtextfield", 1, 0, "IXTextField");
     qmlRegisterType<IXButton>("io.qt.examples.ixbutton", 1, 0, "IXButton");
     qmlRegisterType<IXHandleBackPopup>("io.qt.examples.ixhandlebackpopup", 1, 0, "IXHandleBackPopup");
+    qmlRegisterType<IXPageHeader>("io.qt.examples.ixpageheader", 1, 0, "IXPageHeader");
 
     QQmlApplicationEngine engine;
     const QUrl url(QStringLiteral("qrc:/main.qml"));

@@ -6,8 +6,8 @@ import io.qt.examples.ixwindow 1.0
 
 Window {
     id: window
-    width: 640
-    height: 480
+    width: 720
+    height: 1280
     visible: true
     title: qsTr("Tabs")
 
@@ -16,17 +16,9 @@ Window {
 
         QIXPage {
             id: qixpage
-            currentPage: "qrc:/SwipePage1.qml"
-            header: Label {
-                text: qsTr("Main header")
-                font.pixelSize: Qt.application.font.pixelSize * 2
-                padding: 10
-            }
 
-            footer: Label {
-                text: qsTr("Main Footer")
-                font.pixelSize: Qt.application.font.pixelSize * 2
-                padding: 10
+            Component.onCompleted: {
+                qixpage.contentUrl = "qrc:/QIXLoginScreen.qml"
             }
         }
 

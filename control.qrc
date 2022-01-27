@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/">
+        <file>QIXTextField.qml</file>
+        <file>QIXButton.qml</file>
+        <file>QIXScreenPage.qml</file>
+    </qresource>
+</RCC>

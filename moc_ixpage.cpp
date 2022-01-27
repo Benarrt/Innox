@@ -23,7 +23,7 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_IXPage_t {
     QByteArrayData data[4];
-    char stringdata0[21];
+    char stringdata0[17];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -33,12 +33,12 @@ struct qt_meta_stringdata_IXPage_t {
 static const qt_meta_stringdata_IXPage_t qt_meta_stringdata_IXPage = {
     {
 QT_MOC_LITERAL(0, 0, 6), // "IXPage"
-QT_MOC_LITERAL(1, 7, 8), // "loadPage"
-QT_MOC_LITERAL(2, 16, 0), // ""
-QT_MOC_LITERAL(3, 17, 3) // "url"
+QT_MOC_LITERAL(1, 7, 4), // "load"
+QT_MOC_LITERAL(2, 12, 0), // ""
+QT_MOC_LITERAL(3, 13, 3) // "url"
 
     },
-    "IXPage\0loadPage\0\0url"
+    "IXPage\0load\0\0url"
 };
 #undef QT_MOC_LITERAL
 
@@ -70,7 +70,7 @@ void IXPage::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void
         auto *_t = static_cast<IXPage *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
-        case 0: _t->loadPage((*reinterpret_cast< const QUrl(*)>(_a[1]))); break;
+        case 0: _t->load((*reinterpret_cast< const QUrl(*)>(_a[1]))); break;
         default: ;
         }
     }

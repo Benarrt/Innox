@@ -1,8 +1,6 @@
 <RCC>
     <qresource prefix="/">
-        <file>QIXPage.qml</file>
-        <file>QIXTextField.qml</file>
-        <file>QIXButton.qml</file>
-        <file>QIXHandleBackPopup.qml</file>
+        <file>QIXLoginPage.qml</file>
+        <file>QIXRegisterPage.qml</file>
     </qresource>
 </RCC>

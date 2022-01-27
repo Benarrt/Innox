@@ -1,7 +1,8 @@
 #include "ixwindow.h"
-#include <ixwindowfocushandler.h>
-#include <ixwindowtabhandler.h>
-#include <ixwindownavigationhandler.h>
+#include "ixwindowfocushandler.h"
+#include "ixwindowtabhandler.h"
+#include "ixwindownavigationhandler.h"
+#include "ixregistry.h"
 
 #include <math.h>
 #include <QString>
@@ -10,6 +11,7 @@
 
 IXWindow::IXWindow(QQuickItem *parent) : QQuickItem(parent)
 {
+    IXRegistry::inst().addToRegistry(this);
     setFiltersChildMouseEvents(true);
 }
 
@@ -92,6 +94,7 @@ void IXWindow::onWindowResized()
 
 bool IXWindow::childMouseEventFilter(QQuickItem *item, QEvent *event)
 {
+
     if(event->type() == QEvent::MouseButtonPress)
     {
         auto activeFocusItem = window()->activeFocusItem();
