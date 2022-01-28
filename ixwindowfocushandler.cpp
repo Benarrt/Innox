@@ -11,6 +11,9 @@ IXWindowFocusHandler::IXWindowFocusHandler(QQuickItem *parent) : QQuickItem(pare
 
 void IXWindowFocusHandler::onParentChanged(QQuickItem* parentItem)
 {
+    if(!parentItem)
+        return;
+
     connect(parentItem, &QQuickItem::widthChanged, this, &IXWindowFocusHandler::windowResized);
     connect(parentItem, &QQuickItem::heightChanged, this, &IXWindowFocusHandler::windowResized);
 

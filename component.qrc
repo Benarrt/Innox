@@ -1,7 +1,7 @@
 <RCC>
     <qresource prefix="/">
         <file>QIXHandleBackPopup.qml</file>
-        <file>QIXPage.qml</file>
-        <file>QIXPageHeader.qml</file>
+        <file>QIXWindowPage.qml</file>
+        <file>QIXWindowPageHeader.qml</file>
     </qresource>
 </RCC>

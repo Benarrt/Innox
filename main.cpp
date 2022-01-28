@@ -1,11 +1,12 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 #include <ixwindow.h>
-#include <ixpage.h>
+#include <ixwindowpage.h>
 #include <ixtextfield.h>
 #include <ixbutton.h>
 #include <ixhandlebackpopup.h>
-#include <ixpageheader.h>
+#include <ixwindowpageheader.h>
+#include <ixstartupscreen.h>
 
 int main(int argc, char *argv[])
 {
@@ -14,11 +15,12 @@ int main(int argc, char *argv[])
     QGuiApplication app(argc, argv);
 
     qmlRegisterType<IXWindow>("io.qt.examples.ixwindow", 1, 0, "IXWindow");
-    qmlRegisterType<IXPage>("io.qt.examples.ixpage", 1, 0, "IXPage");
+    qmlRegisterType<IXWindowPage>("io.qt.examples.ixwindowpage", 1, 0, "IXWindowPage");
     qmlRegisterType<IXTextField>("io.qt.examples.ixtextfield", 1, 0, "IXTextField");
     qmlRegisterType<IXButton>("io.qt.examples.ixbutton", 1, 0, "IXButton");
     qmlRegisterType<IXHandleBackPopup>("io.qt.examples.ixhandlebackpopup", 1, 0, "IXHandleBackPopup");
-    qmlRegisterType<IXPageHeader>("io.qt.examples.ixpageheader", 1, 0, "IXPageHeader");
+    qmlRegisterType<IXWindowPageHeader>("io.qt.examples.ixwindowpageheader", 1, 0, "IXWindowPageHeader");
+    qmlRegisterType<IXStartupScreen>("io.qt.examples.ixstartupscreen", 1, 0, "IXStartupScreen");
 
     QQmlApplicationEngine engine;
     const QUrl url(QStringLiteral("qrc:/main.qml"));

@@ -27,16 +27,24 @@ const QUrl& IXDynamicComponent::url()
 
 void IXDynamicComponent::onUrlChanged(const QUrl& url)
 {
-    QQmlEngine *engine = qmlEngine(parent());
-    // Or:
-    // QQmlEngine *engine = qmlContext(this)->engine();
-    QQmlComponent component(engine, url);
-    qDebug(component.errorString().toLocal8Bit());
     if(_item)
     {
         delete _item;
         _item = nullptr;
     }
+
+    if(url.isEmpty() || !url.isValid())
+    {
+        qDebug("Empty URL");
+        return;
+    }
+
+    QQmlEngine *engine = qmlEngine(parent());
+    // Or:
+    // QQmlEngine *engine = qmlContext(this)->engine();
+    QQmlComponent component(engine, url);
+    qDebug(component.errorString().toLocal8Bit());
+
     QObject *myObject = component.create();
     qDebug(component.errorString().toLocal8Bit());
     _item = qobject_cast<QQuickItem*>(myObject);

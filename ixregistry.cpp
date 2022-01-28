@@ -1,14 +1,14 @@
 #include "ixregistry.h"
-#include "ixpage.h"
+#include "ixwindowpage.h"
 #include "ixhandlebackpopup.h"
 #include "ixwindow.h"
-#include "ixpageheader.h"
+#include "ixwindowpageheader.h"
 
 IXRegistry::IXRegistry() :
     _ixWindow(nullptr),
-    _ixPage(nullptr),
+    _ixWindowPage(nullptr),
     _ixHandleBackPopup(nullptr),
-    _ixPageHeader(nullptr)
+    _ixWindowPageHeader(nullptr)
 {
 
 }
@@ -20,9 +20,9 @@ IXWindow* IXRegistry::get()
 }
 
 template <>
-IXPage* IXRegistry::get()
+IXWindowPage* IXRegistry::get()
 {
-    return _ixPage;
+    return _ixWindowPage;
 }
 
 template <>
@@ -33,9 +33,9 @@ IXHandleBackPopup* IXRegistry::get()
 }
 
 template <>
-IXPageHeader* IXRegistry::get()
+IXWindowPageHeader* IXRegistry::get()
 {
-    return _ixPageHeader;
+    return _ixWindowPageHeader;
 }
 
 void IXRegistry::addToRegistry(IXWindow* ixWindow)
@@ -43,9 +43,9 @@ void IXRegistry::addToRegistry(IXWindow* ixWindow)
     _ixWindow= ixWindow;
 }
 
-void IXRegistry::addToRegistry(IXPage* ixPage)
+void IXRegistry::addToRegistry(IXWindowPage* ixWindowPage)
 {
-    _ixPage = ixPage;
+    _ixWindowPage = ixWindowPage;
 }
 
 void IXRegistry::addToRegistry(IXHandleBackPopup* ixHandleBackPopup)
@@ -53,7 +53,7 @@ void IXRegistry::addToRegistry(IXHandleBackPopup* ixHandleBackPopup)
     _ixHandleBackPopup = ixHandleBackPopup;
 }
 
-void IXRegistry::addToRegistry(IXPageHeader* ixPageHeader)
+void IXRegistry::addToRegistry(IXWindowPageHeader* ixWindowPageHeader)
 {
-    _ixPageHeader = ixPageHeader;
+    _ixWindowPageHeader = ixWindowPageHeader;
 }

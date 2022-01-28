@@ -57,11 +57,7 @@ void IXWindow::setupNavigationHandler()
 void IXWindow::componentComplete()
 {
     QQuickItem::componentComplete();
-    if(!parentItem())
-    {
-        qDebug("No parent item");
-        return;
-    }
+    assert(parentItem());
 
     this->setup();
     this->setupFocusHandler();

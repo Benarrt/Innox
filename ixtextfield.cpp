@@ -9,7 +9,7 @@ IXTextField::IXTextField(QQuickItem* parent) : QQuickItem(parent)
 void IXTextField::componentComplete()
 {
     QQuickItem::componentComplete();
-    assert(parent());
+    assert(parentItem());
 
     parentItem()->setAcceptHoverEvents(true);
     parentItem()->setActiveFocusOnTab(true);

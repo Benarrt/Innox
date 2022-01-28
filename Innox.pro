@@ -11,14 +11,16 @@ SOURCES += \
         ixbutton.cpp \
         ixdynamiccomponent.cpp \
         ixhandlebackpopup.cpp \
-        ixpage.cpp \
-        ixpageheader.cpp \
         ixregistry.cpp \
+        ixscreenlogic.cpp \
         ixshadowtextfield.cpp \
+        ixstartupscreen.cpp \
         ixtextfield.cpp \
         ixwindow.cpp \
         ixwindowfocushandler.cpp \
         ixwindownavigationhandler.cpp \
+        ixwindowpage.cpp \
+        ixwindowpageheader.cpp \
         ixwindowtabhandler.cpp \
         main.cpp
 
@@ -46,12 +48,14 @@ HEADERS += \
     ixbutton.h \
     ixdynamiccomponent.h \
     ixhandlebackpopup.h \
-    ixpage.h \
-    ixpageheader.h \
     ixregistry.h \
+    ixscreenlogic.h \
     ixshadowtextfield.h \
+    ixstartupscreen.h \
     ixtextfield.h \
     ixwindow.h \
     ixwindowfocushandler.h \
     ixwindownavigationhandler.h \
+    ixwindowpage.h \
+    ixwindowpageheader.h \
     ixwindowtabhandler.h

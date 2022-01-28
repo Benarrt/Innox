@@ -1,5 +1,6 @@
 <RCC>
     <qresource prefix="/">
         <file>QIXLoginScreen.qml</file>
+        <file>QIXStartupScreen.qml</file>
     </qresource>
 </RCC>

@@ -14,11 +14,9 @@ Window {
     IXWindow {
         id: ixWindow
 
-        QIXPage {
-            id: qixpage
-
+        QIXWindowPage {
             Component.onCompleted: {
-                qixpage.contentUrl = "qrc:/QIXLoginScreen.qml"
+                contentUrl = "qrc:/QIXStartupScreen.qml"
             }
         }
 
