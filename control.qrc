@@ -3,5 +3,7 @@
         <file>QIXTextField.qml</file>
         <file>QIXButton.qml</file>
         <file>QIXScreenPage.qml</file>
+        <file>QIXSwipeView.qml</file>
+        <file>QIXPageIndicator.qml</file>
     </qresource>
 </RCC>

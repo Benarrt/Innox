@@ -12,10 +12,13 @@ SOURCES += \
         ixdynamiccomponent.cpp \
         ixhandlebackpopup.cpp \
         ixloginscreen.cpp \
+        ixpageindicator.cpp \
+        ixpageindicatorlogic.cpp \
         ixregistry.cpp \
         ixscreenlogic.cpp \
         ixshadowtextfield.cpp \
         ixstartupscreen.cpp \
+        ixswipeview.cpp \
         ixtextfield.cpp \
         ixwindow.cpp \
         ixwindowfocushandler.cpp \
@@ -53,10 +56,13 @@ HEADERS += \
     ixdynamiccomponent.h \
     ixhandlebackpopup.h \
     ixloginscreen.h \
+    ixpageindicator.h \
+    ixpageindicatorlogic.h \
     ixregistry.h \
     ixscreenlogic.h \
     ixshadowtextfield.h \
     ixstartupscreen.h \
+    ixswipeview.h \
     ixtextfield.h \
     ixwindow.h \
     ixwindowfocushandler.h \

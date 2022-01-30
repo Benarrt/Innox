@@ -7,12 +7,9 @@ Item {
         id: rectangle
         color: "#c82626"
         anchors.fill: parent
-        PageIndicator {
+        QIXPageIndicator {
             anchors.fill: parent
             font.pointSize: 16
-
         }
     }
 }
-
-

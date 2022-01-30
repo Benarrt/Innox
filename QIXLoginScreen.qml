@@ -6,7 +6,7 @@ import io.qt.examples.ixloginscreen 1.0
 Item {
     anchors.fill: parent
     clip: true
-    SwipeView {
+    QIXSwipeView {
         id: swipeView
         anchors.fill: parent
         currentIndex: 0
