@@ -7,11 +7,10 @@ QIXScreenPage {
     QIXTextField {
         id: qIXTextField
         x: 260
-        y: 210
         width: 400
-        anchors.verticalCenter: parent.verticalCenter
+        anchors.top: parent.top
         horizontalAlignment: Text.AlignHCenter
-        anchors.verticalCenterOffset: -160
+        anchors.topMargin: 5
         anchors.horizontalCenter: parent.horizontalCenter
         placeholderText: "email"
     }
@@ -68,6 +67,6 @@ QIXScreenPage {
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:0.75}
+    D{i:0;formeditorZoom:0.75}D{i:1}
 }
 ##^##*/

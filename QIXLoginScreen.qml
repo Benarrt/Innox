@@ -1,15 +1,25 @@
 import QtQuick 2.15
 import QtQuick.Controls 2.15
 
-SwipeView {
-    id: swipeView
-    anchors.fill: parent
-    currentIndex: 0
-    clip: true
+import io.qt.examples.ixloginscreen 1.0
 
-    QIXLoginPage {
+Item {
+    anchors.fill: parent
+    clip: true
+    SwipeView {
+        id: swipeView
+        anchors.fill: parent
+        currentIndex: 0
+
+        QIXLoginPage {
+        }
+
+        QIXRegisterPage {
+        }
     }
 
-    QIXRegisterPage {
+    IXLoginScreen {
     }
 }
+
+

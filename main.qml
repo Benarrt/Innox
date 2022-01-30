@@ -11,7 +11,7 @@ Window {
     visible: true
     title: qsTr("Tabs")
 
-    IXWindow {
+    QIXWindow {
         id: ixWindow
 
         QIXWindowPage {

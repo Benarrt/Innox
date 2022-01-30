@@ -9,6 +9,10 @@ Page {
         ixwindowpage.load(contentUrl);
     }
 
+    header: QIXWindowPageHeader {
+
+    }
+
     IXWindowPage {
         id: ixwindowpage
     }

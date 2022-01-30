@@ -11,6 +11,7 @@ SOURCES += \
         ixbutton.cpp \
         ixdynamiccomponent.cpp \
         ixhandlebackpopup.cpp \
+        ixloginscreen.cpp \
         ixregistry.cpp \
         ixscreenlogic.cpp \
         ixshadowtextfield.cpp \
@@ -28,7 +29,8 @@ RESOURCES += qml.qrc \
     component.qrc \
     control.qrc \
     page.qrc \
-    screen.qrc
+    screen.qrc \
+    screenheader.qrc
 
 TRANSLATIONS += \
     Innox_pl_PL.ts
@@ -48,6 +50,7 @@ HEADERS += \
     ixbutton.h \
     ixdynamiccomponent.h \
     ixhandlebackpopup.h \
+    ixloginscreen.h \
     ixregistry.h \
     ixscreenlogic.h \
     ixshadowtextfield.h \

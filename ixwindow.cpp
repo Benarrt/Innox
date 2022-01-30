@@ -67,7 +67,7 @@ void IXWindow::componentComplete()
 
 void IXWindow::onWindowResized()
 {
-    qreal scaleW = 1.0f;
+    /*qreal scaleW = 1.0f;
     qreal scaleH = 1.0f;
     qreal appliedScale = 1.0f;
 
@@ -85,7 +85,19 @@ void IXWindow::onWindowResized()
 
     this->setWidth(parentWidth / appliedScale);
     this->setHeight(parentHeight / appliedScale);
-    this->setScale(appliedScale);
+    this->setScale(appliedScale);*/
+
+    qreal desiredW = parentItem()->width() > _baseWidth ? _baseWidth : parentItem()->width();
+    qreal scaleW = desiredW / this->width();
+    qreal scaleH = parentItem()->height()/this->height();
+
+    //Scale is sometimess off and you can see 1-2pixels off
+    scaleH += 0.01;
+    scaleW += 0.01;
+
+    auto ixWindowScale = this->findChild<QObject*>("ixWindowScale");
+    ixWindowScale->setProperty("xScale", scaleW);
+    ixWindowScale->setProperty("yScale", scaleH);
 }
 
 bool IXWindow::childMouseEventFilter(QQuickItem *item, QEvent *event)

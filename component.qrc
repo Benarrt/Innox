@@ -3,5 +3,6 @@
         <file>QIXHandleBackPopup.qml</file>
         <file>QIXWindowPage.qml</file>
         <file>QIXWindowPageHeader.qml</file>
+        <file>QIXWindow.qml</file>
     </qresource>
 </RCC>

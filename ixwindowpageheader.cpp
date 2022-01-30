@@ -13,6 +13,8 @@ void IXWindowPageHeader::componentComplete()
     assert(parent());
     assert(parentItem());
 
+    parentItem()->setHeight(100);
+
     setupDynamicComponent();
 }
 

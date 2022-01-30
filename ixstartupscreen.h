@@ -20,9 +20,6 @@ private:
     {};
 
     Logic _logic;
-
-signals:
-
 };
 
 #endif // IXSTARTUPSCREEN_H

@@ -10,6 +10,8 @@ public:
 
     void loadScreen(const std::string& url);
     void loadHeader(const std::string& url);
+
+    void hideHeader();
 };
 
 #endif // IXPAGELOGIC_H

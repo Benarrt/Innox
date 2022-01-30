@@ -21,3 +21,10 @@ void IXScreenLogic::loadHeader(const std::string& url)
     if(windowPageHeader)
         windowPageHeader->load(QString::fromStdString(url));
 }
+
+void IXScreenLogic::hideHeader()
+{
+    auto windowPageHeader = IXRegistry::inst().get<IXWindowPageHeader>();
+    if(windowPageHeader)
+        windowPageHeader->hide();
+}
