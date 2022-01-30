@@ -13,6 +13,10 @@ Page {
 
     }
 
+    footer: QIXWindowPageFooter {
+
+    }
+
     IXWindowPage {
         id: ixwindowpage
     }

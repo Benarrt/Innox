@@ -4,5 +4,6 @@
         <file>QIXWindowPage.qml</file>
         <file>QIXWindowPageHeader.qml</file>
         <file>QIXWindow.qml</file>
+        <file>QIXWindowPageFooter.qml</file>
     </qresource>
 </RCC>

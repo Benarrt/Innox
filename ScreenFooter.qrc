@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/">
+        <file>QIXPageIndicatorFooter.qml</file>
+    </qresource>
+</RCC>

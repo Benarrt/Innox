@@ -9,6 +9,7 @@
 #include "ixwindowpageheader.h"
 #include "ixstartupscreen.h"
 #include "ixloginscreen.h"
+#include "ixwindowpagefooter.h"
 
 int main(int argc, char *argv[])
 {
@@ -24,6 +25,7 @@ int main(int argc, char *argv[])
     qmlRegisterType<IXWindowPageHeader>("io.qt.examples.ixwindowpageheader", 1, 0, "IXWindowPageHeader");
     qmlRegisterType<IXStartupScreen>("io.qt.examples.ixstartupscreen", 1, 0, "IXStartupScreen");
     qmlRegisterType<IXLoginScreen>("io.qt.examples.ixloginscreen", 1, 0, "IXLoginScreen");
+    qmlRegisterType<IXWindowPageFooter>("io.qt.examples.ixwindowpagefooter", 1, 0, "IXWindowPageFooter");
 
     QQmlApplicationEngine engine;
     const QUrl url(QStringLiteral("qrc:/main.qml"));

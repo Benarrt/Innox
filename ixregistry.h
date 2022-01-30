@@ -5,6 +5,7 @@ class IXWindow;
 class IXWindowPage;
 class IXHandleBackPopup;
 class IXWindowPageHeader;
+class IXWindowPageFooter;
 
 class IXRegistry
 {
@@ -25,6 +26,7 @@ public:
     void addToRegistry(IXWindowPage*);
     void addToRegistry(IXHandleBackPopup*);
     void addToRegistry(IXWindowPageHeader*);
+    void addToRegistry(IXWindowPageFooter*);
 
     template <class T>
     T* get();
@@ -36,6 +38,7 @@ private:
     IXWindowPage* _ixWindowPage;
     IXHandleBackPopup* _ixHandleBackPopup;
     IXWindowPageHeader* _ixWindowPageHeader;
+    IXWindowPageFooter* _ixWindowPageFooter;
 };
 
 #endif // IXREGISTRY_H

@@ -21,11 +21,13 @@ SOURCES += \
         ixwindowfocushandler.cpp \
         ixwindownavigationhandler.cpp \
         ixwindowpage.cpp \
+        ixwindowpagefooter.cpp \
         ixwindowpageheader.cpp \
         ixwindowtabhandler.cpp \
         main.cpp
 
 RESOURCES += qml.qrc \
+    ScreenFooter.qrc \
     component.qrc \
     control.qrc \
     page.qrc \
@@ -60,5 +62,6 @@ HEADERS += \
     ixwindowfocushandler.h \
     ixwindownavigationhandler.h \
     ixwindowpage.h \
+    ixwindowpagefooter.h \
     ixwindowpageheader.h \
     ixwindowtabhandler.h

@@ -38,6 +38,12 @@ IXWindowPageHeader* IXRegistry::get()
     return _ixWindowPageHeader;
 }
 
+template <>
+IXWindowPageFooter* IXRegistry::get()
+{
+    return _ixWindowPageFooter;
+}
+
 void IXRegistry::addToRegistry(IXWindow* ixWindow)
 {
     _ixWindow= ixWindow;
@@ -56,4 +62,9 @@ void IXRegistry::addToRegistry(IXHandleBackPopup* ixHandleBackPopup)
 void IXRegistry::addToRegistry(IXWindowPageHeader* ixWindowPageHeader)
 {
     _ixWindowPageHeader = ixWindowPageHeader;
+}
+
+void IXRegistry::addToRegistry(IXWindowPageFooter* ixWindowPageFooter)
+{
+    _ixWindowPageFooter = ixWindowPageFooter;
 }
