@@ -18,6 +18,7 @@ Page {
     }
 
     IXWindowPage {
+        anchors.fill: parent
         id: ixwindowpage
     }
 }

@@ -14,8 +14,8 @@ public:
     IXLoginScreen();
 
 protected:
-    static constexpr char HEADER_URL[] = "qrc:/QIXTestHeader.qml";
-    static constexpr char FOOTER_URL[] = "qrc:/QIXPageIndicatorFooter.qml";
+    static constexpr char HEADER_URL[] = "";
+    static constexpr char FOOTER_URL[] = "";
 
     void componentComplete() override;
 

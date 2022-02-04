@@ -59,7 +59,8 @@ void IXDynamicComponent::onUrlChanged(const QUrl& url)
     QObject *myObject = component.createWithInitialProperties(qvm);
     qDebug(component.errorString().toLocal8Bit());
     _item = qobject_cast<QQuickItem*>(myObject);
-    _item->setParentItem(parentItem());
+    _item->setParentItem(this);
+    _item->setParent(this);
     changing = false;
     _item->setEnabled(true);
 }
