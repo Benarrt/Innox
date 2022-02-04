@@ -6,7 +6,7 @@ Page {
 
     property url contentUrl
     onContentUrlChanged: {
-        ixwindowpage.load(contentUrl);
+        ixwindowpage.url = contentUrl;
     }
 
     header: QIXWindowPageHeader {

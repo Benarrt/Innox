@@ -3,27 +3,17 @@
 
 #include <QQuickItem>
 
-class IXDynamicComponent;
+#include "ixdynamiccomponent.h"
 
-class IXWindowPageHeader : public QQuickItem
+class IXWindowPageHeader : public IXDynamicComponent
 {
     Q_OBJECT
 public:
     IXWindowPageHeader();
-
-    Q_INVOKABLE void load(const QUrl& url);
-    Q_INVOKABLE void hide();
-
 signals:
 
 protected:
     void componentComplete() override;
-
-private:
-    void setupDynamicComponent();
-
-    IXDynamicComponent* _headerComponent;
-
 };
 
 #endif // IXPAGEHEADER_H

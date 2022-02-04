@@ -1,6 +1,6 @@
 #include "ixdynamiccomponent.h"
 
-IXDynamicComponent::IXDynamicComponent() : _item(nullptr)
+IXDynamicComponent::IXDynamicComponent() : _item(nullptr), changing(false)
 {
     connect(this, &IXDynamicComponent::urlChanged, this, &IXDynamicComponent::onUrlChanged);
 }
@@ -9,6 +9,11 @@ void IXDynamicComponent::setup(QQuickItem* parentItem, QObject* parent)
 {
     setParentItem(parentItem);
     setParent(parent);
+}
+
+QQuickItem* IXDynamicComponent::item()
+{
+    return _item;
 }
 
 void IXDynamicComponent::setUrl(const QUrl& url)
@@ -27,27 +32,34 @@ const QUrl& IXDynamicComponent::url()
 
 void IXDynamicComponent::onUrlChanged(const QUrl& url)
 {
-    if(_item)
+    assert(!changing);
+    changing = true;
+    qDebug(url.toString().toLocal8Bit());
+
+    if(_item != nullptr)
     {
-        delete _item;
+        _item->deleteLater();
         _item = nullptr;
     }
 
     if(url.isEmpty() || !url.isValid())
     {
-        qDebug("Empty URL");
+        parentItem()->setVisible(false);
         return;
     }
+    parentItem()->setVisible(true);
 
     QQmlEngine *engine = qmlEngine(parent());
     // Or:
     // QQmlEngine *engine = qmlContext(this)->engine();
     QQmlComponent component(engine, url);
     qDebug(component.errorString().toLocal8Bit());
-
-    QObject *myObject = component.create();
+    QVariantMap qvm;
+    qvm["enabled"] = QVariant(false);
+    QObject *myObject = component.createWithInitialProperties(qvm);
     qDebug(component.errorString().toLocal8Bit());
     _item = qobject_cast<QQuickItem*>(myObject);
     _item->setParentItem(parentItem());
-    _item->setParent(parent());
+    changing = false;
+    _item->setEnabled(true);
 }

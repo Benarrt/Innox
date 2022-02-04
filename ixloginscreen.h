@@ -1,7 +1,9 @@
 #ifndef IXLOGINSCREEN_H
 #define IXLOGINSCREEN_H
 
+#include "ixdynamiccreationlogic.h"
 #include "ixscreenlogic.h"
+#include "ixpageindicatorlogic.h"
 
 #include <QQuickItem>
 
@@ -12,15 +14,38 @@ public:
     IXLoginScreen();
 
 protected:
+    static constexpr char HEADER_URL[] = "qrc:/QIXTestHeader.qml";
+    static constexpr char FOOTER_URL[] = "qrc:/QIXPageIndicatorFooter.qml";
+
     void componentComplete() override;
 
 private:
-    class Logic : public IXScreenLogic
-    {};
+    class Logic :
+            public IXDynamicCreationLogic<IXLoginScreen>,
+            public IXScreenLogic<IXLoginScreen>,
+            public IXPageIndicatorLogic
+    {
+    public:
+        Logic(IXLoginScreen* object) :
+            IXDynamicCreationLogic(object),
+            IXScreenLogic(),
+            IXPageIndicatorLogic(),
+            _component(object)
+        {}
+
+        void dynamicReady() override
+        {
+
+        }
+
+    protected:
+        IXLoginScreen* _component;
+    };
 
     Logic _logic;
 
-
+    friend class IXDynamicCreationLogic<IXLoginScreen>;
+    friend class IXScreenLogic<IXLoginScreen>;
 };
 
 #endif // IXLOGINSCREEN_H

@@ -7,6 +7,5 @@ Page {
     contentHeight: 1280
     contentWidth: 720
     font.pointSize: 16
-    title: "Login"
     clip: true
 }

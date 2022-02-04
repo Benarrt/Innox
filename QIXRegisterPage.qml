@@ -3,6 +3,9 @@ import QtQuick.Controls 2.15
 
 QIXScreenPage {
     id: qIXScreenPage
+    title: "register"
+    height: 1080
+    contentHeight: 880
 
     background: Rectangle {
         color: "#29323c"
@@ -18,6 +21,14 @@ QIXScreenPage {
                 color: "#485563"
             }
         }
+    }
+
+    footer: QIXPageIndicatorFooter {
+
+    }
+
+    header: QIXTestHeader {
+
     }
 
     QIXTextField {

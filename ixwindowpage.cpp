@@ -6,7 +6,7 @@
 
 #include <QQuickWindow>
 
-IXWindowPage::IXWindowPage() : _pageComponent(nullptr)
+IXWindowPage::IXWindowPage()
 {
     IXRegistry::inst().addToRegistry(this);
 }
@@ -14,6 +14,7 @@ IXWindowPage::IXWindowPage() : _pageComponent(nullptr)
 void IXWindowPage::componentComplete()
 {
     QQuickItem::componentComplete();
+    IXDynamicComponent::componentComplete();
     assert(parent());
 
     auto ixWindow = parent()->parent();
@@ -31,19 +32,4 @@ void IXWindowPage::componentComplete()
     qvariant_cast<QObject*>(parent()->property("anchors"))->
             setProperty("top", ixWindow->property("top"));
 
-
-    setupDynamicComponent();
-}
-
-void IXWindowPage::setupDynamicComponent()
-{
-    _pageComponent = new IXDynamicComponent();
-    _pageComponent->setup(parentItem(),parent());
-}
-
-void IXWindowPage::load(const QUrl& url)
-{
-    assert(url.isValid() && !url.isEmpty());
-    if(_pageComponent)
-        _pageComponent->setUrl(url);
 }

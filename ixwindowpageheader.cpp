@@ -2,7 +2,7 @@
 #include "ixdynamiccomponent.h"
 #include "ixregistry.h"
 
-IXWindowPageHeader::IXWindowPageHeader() : _headerComponent(nullptr)
+IXWindowPageHeader::IXWindowPageHeader()
 {
     IXRegistry::inst().addToRegistry(this);
 }
@@ -10,28 +10,7 @@ IXWindowPageHeader::IXWindowPageHeader() : _headerComponent(nullptr)
 void IXWindowPageHeader::componentComplete()
 {
     QQuickItem::componentComplete();
+    IXDynamicComponent::componentComplete();
     assert(parent());
     assert(parentItem());
-
-    parentItem()->setHeight(100);
-
-    setupDynamicComponent();
-}
-
-void IXWindowPageHeader::setupDynamicComponent()
-{
-    _headerComponent = new IXDynamicComponent();
-    _headerComponent->setup(parentItem(),parent());
-}
-
-void IXWindowPageHeader::load(const QUrl& url)
-{
-    _headerComponent->setUrl(url);
-    parentItem()->setVisible(true);
-}
-
-void IXWindowPageHeader::hide()
-{
-    _headerComponent->setUrl(QUrl());
-    parentItem()->setVisible(false);
 }

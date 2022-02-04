@@ -1,12 +1,11 @@
 #include "ixloginscreen.h"
 
-IXLoginScreen::IXLoginScreen()
+IXLoginScreen::IXLoginScreen() : _logic(this)
 {
 
 }
 
 void IXLoginScreen::componentComplete()
 {
-    _logic.loadHeader("qrc:/QIXTestHeader.qml");
-    _logic.loadFooter("qrc:/QIXPageIndicatorFooter.qml");
+
 }

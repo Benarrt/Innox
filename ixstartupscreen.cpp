@@ -1,13 +1,12 @@
 #include "ixstartupscreen.h"
 
-IXStartupScreen::IXStartupScreen()
+IXStartupScreen::IXStartupScreen() :
+    _logic(this)
 {
 
 }
 
 void IXStartupScreen::componentComplete()
 {
-    _logic.hideHeader();
-    _logic.hideFooter();
-    _logic.loadScreen("qrc:/QIXLoginScreen.qml");
+
 }

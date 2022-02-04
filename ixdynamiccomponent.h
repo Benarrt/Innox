@@ -16,13 +16,16 @@ public:
 
     void setup(QQuickItem* parentItem, QObject* parent);
 
+    QQuickItem* item();
+
 signals:
     void urlChanged(QUrl);
 
 public slots:
     void onUrlChanged(const QUrl&);
 
-private:
+protected:
+   bool changing;
    QQuickItem *_item;
    QUrl _url;
 

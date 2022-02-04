@@ -18,3 +18,8 @@ void IXPageIndicator::setIndex(qint16 index)
 {
     parentItem()->setProperty(META_PROPERTIES::currentIndex, index);
 }
+
+void IXPageIndicator::setCount(qint16 count)
+{
+    parentItem()->setProperty(META_PROPERTIES::count, count);
+}

@@ -10,6 +10,7 @@ CONFIG += c++17
 SOURCES += \
         ixbutton.cpp \
         ixdynamiccomponent.cpp \
+        ixdynamiccreationlogic.cpp \
         ixhandlebackpopup.cpp \
         ixloginscreen.cpp \
         ixpageindicator.cpp \
@@ -54,6 +55,7 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 HEADERS += \
     ixbutton.h \
     ixdynamiccomponent.h \
+    ixdynamiccreationlogic.h \
     ixhandlebackpopup.h \
     ixloginscreen.h \
     ixpageindicator.h \

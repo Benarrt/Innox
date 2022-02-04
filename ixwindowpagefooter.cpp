@@ -11,28 +11,8 @@ IXWindowPageFooter::IXWindowPageFooter()
 void IXWindowPageFooter::componentComplete()
 {
     QQuickItem::componentComplete();
+    IXDynamicComponent::componentComplete();
+
     assert(parent());
     assert(parentItem());
-
-    parentItem()->setHeight(100);
-
-    setupDynamicComponent();
-}
-
-void IXWindowPageFooter::setupDynamicComponent()
-{
-    _footerComponent = new IXDynamicComponent();
-    _footerComponent->setup(parentItem(),parent());
-}
-
-void IXWindowPageFooter::load(const QUrl& url)
-{
-    _footerComponent->setUrl(url);
-    parentItem()->setVisible(true);
-}
-
-void IXWindowPageFooter::hide()
-{
-    _footerComponent->setUrl(QUrl());
-    parentItem()->setVisible(false);
 }

@@ -2,7 +2,7 @@ import QtQuick 2.15
 import QtQuick.Controls 2.15
 
 Item {
-    anchors.fill: parent
+    height: 100
     Rectangle {
         id: rectangle
         color: "#c82626"

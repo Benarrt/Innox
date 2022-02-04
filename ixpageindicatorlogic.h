@@ -6,8 +6,6 @@ class IXPageIndicatorLogic
 {
 public:
     IXPageIndicatorLogic();
-
-    void connectSVWithFooter();
 };
 
 #endif // IXPAGEINDICATORLOGIC_H

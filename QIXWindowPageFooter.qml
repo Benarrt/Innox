@@ -4,7 +4,7 @@ import io.qt.examples.ixwindowpagefooter 1.0
 Item {
     property url contentUrl
     onContentUrlChanged: {
-        ixWindowPageFooter.load(contentUrl);
+        ixWindowPageFooter.url = contentUrl;
     }
 
     IXWindowPageFooter {

@@ -4,8 +4,15 @@ import QtQuick.Controls 2.15
 import io.qt.examples.ixstartupscreen 1.0
 
 Item {
-
-    IXStartupScreen {
+    Component.onCompleted: {
+        console.log("Component.onCompleted");
     }
 
+    IXStartupScreen {
+        id: ixstartupscreen
+    }
+
+    Component.onDestruction: {
+        console.log("Destroyed");
+    }
 }

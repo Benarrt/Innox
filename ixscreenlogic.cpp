@@ -3,43 +3,46 @@
 #include "ixwindowpage.h"
 #include "ixwindowpageheader.h"
 #include "ixwindowpagefooter.h"
+#include "ixstartupscreen.h"
+#include "ixloginscreen.h"
 
-IXScreenLogic::IXScreenLogic()
+template<class T>
+IXScreenLogic<T>::IXScreenLogic()
 {
-
+    load();
 }
 
-void IXScreenLogic::loadScreen(const std::string& url)
+template<class T>
+void IXScreenLogic<T>::loadComponent(IXDynamicComponent* comp, const std::string& url)
 {
-    auto windowPage = IXRegistry::inst().get<IXWindowPage>();
-    if(windowPage)
-        windowPage->load(QString::fromStdString(url));
+    if(comp)
+        comp->setUrl(QString::fromStdString(url));
 }
 
-void IXScreenLogic::loadHeader(const std::string& url)
+template<class T>
+void IXScreenLogic<T>::load()
 {
-    auto windowPageHeader = IXRegistry::inst().get<IXWindowPageHeader>();
-    if(windowPageHeader)
-        windowPageHeader->load(QString::fromStdString(url));
+    loadHeader(T::HEADER_URL);
+    loadFooter(T::FOOTER_URL);
 }
 
-void IXScreenLogic::hideHeader()
+template<class T>
+void IXScreenLogic<T>::loadScreen(const std::string& url)
 {
-    auto windowPageHeader = IXRegistry::inst().get<IXWindowPageHeader>();
-    if(windowPageHeader)
-        windowPageHeader->hide();
+    loadComponent(IXRegistry::inst().get<IXWindowPage>(), url);
 }
 
-void IXScreenLogic::loadFooter(const std::string& url)
+template<class T>
+void IXScreenLogic<T>::loadHeader(const std::string& url)
 {
-    auto windowPageFooter = IXRegistry::inst().get<IXWindowPageFooter>();
-    if(windowPageFooter)
-        windowPageFooter->load(QString::fromStdString(url));
+    loadComponent(IXRegistry::inst().get<IXWindowPageHeader>(), url);
 }
 
-void IXScreenLogic::hideFooter()
+template<class T>
+void IXScreenLogic<T>::loadFooter(const std::string& url)
 {
-    auto windowPageFooter = IXRegistry::inst().get<IXWindowPageFooter>();
-    if(windowPageFooter)
-        windowPageFooter->hide();
+    loadComponent(IXRegistry::inst().get<IXWindowPageFooter>(), url);
 }
+
+template class IXScreenLogic<IXStartupScreen>;
+template class IXScreenLogic<IXLoginScreen>;

@@ -7,18 +7,17 @@
 
 IXPageIndicatorLogic::IXPageIndicatorLogic()
 {
-
-}
-
-void IXPageIndicatorLogic::connectSVWithFooter()
-{
+    qDebug("IXPageIndicatorLogic");
     auto footer = IXRegistry::inst().get<IXWindowPageFooter>();
-    auto page = IXRegistry::inst().get<IXWindowPage>();
+    auto pageIndicator = footer->parentItem()->findChild<QQuickItem*>("QIXPageIndicator");
+    if(pageIndicator)
+        qDebug("GOT pageIndicator");
+
+    /*auto page = IXRegistry::inst().get<IXWindowPage>();
 
     auto pageIndicator = footer->findChild<IXPageIndicator*>("IXPageIndicator");
     auto swipeView = page->findChild<IXSwipeView*>("IXSwipeView");
 
-    //QObject::connect(swipeView->parentItem(), SIGNAL(currentIndexChanged()), pageIndicator, [pageIndicator, swipeView](){
-        //pageIndicator->setIndex();
-    //});
+    QObject::connect(swipeView, &IXSwipeView::indexChanged, pageIndicator, &IXPageIndicator::setIndex);
+    pageIndicator->setCount(swipeView->count());*/
 }
