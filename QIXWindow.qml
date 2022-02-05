@@ -2,6 +2,7 @@ import QtQuick 2.15
 import io.qt.examples.ixwindow 1.0
 
 IXWindow {
+    component: parent
     onWidthChanged: {
         ixWindowScale.origin.x = width/2;
     }

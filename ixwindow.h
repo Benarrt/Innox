@@ -2,6 +2,7 @@
 #define IXWINDOW_H
 
 #include <QQuickItem>
+#include "ixqcomponent.h"
 
 //Resizes parent according to desired size and aspect ration based on actual size of window
 //TODO make IXWindow just a hook for handlers like IXWindowFocusHandler move its current behaviour to some new handler
@@ -9,6 +10,7 @@
 class IXWindow : public QQuickItem
 {
     Q_OBJECT
+    IX_Q_COMPONENT
     Q_PROPERTY(quint16 baseWidth MEMBER _baseWidth NOTIFY baseWidthChanged)
     Q_PROPERTY(quint16 baseHeight MEMBER _baseHeight NOTIFY baseHeightChanged)
 public:
