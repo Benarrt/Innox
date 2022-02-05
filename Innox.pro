@@ -15,6 +15,7 @@ SOURCES += \
         ixloginscreen.cpp \
         ixpageindicator.cpp \
         ixpageindicatorlogic.cpp \
+        ixqcomponent.cpp \
         ixregistry.cpp \
         ixscreenlogic.cpp \
         ixshadowtextfield.cpp \
@@ -60,6 +61,7 @@ HEADERS += \
     ixloginscreen.h \
     ixpageindicator.h \
     ixpageindicatorlogic.h \
+    ixqcomponent.h \
     ixregistry.h \
     ixscreenlogic.h \
     ixshadowtextfield.h \

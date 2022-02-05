@@ -3,7 +3,7 @@ import QtQuick.Controls 2.15
 import io.qt.examples.ixwindowpage 1.0
 
 Page {
-
+    id: page
     property url contentUrl
     onContentUrlChanged: {
         ixwindowpage.url = contentUrl;
@@ -18,6 +18,7 @@ Page {
     }
 
     IXWindowPage {
+        //component: page
         anchors.fill: parent
         id: ixwindowpage
     }

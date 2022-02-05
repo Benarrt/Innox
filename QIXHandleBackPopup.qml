@@ -58,5 +58,6 @@ Item {
 
     IXHandleBackPopup {
         id: ixHandleBackPopup;
+        component: item
     }
 }

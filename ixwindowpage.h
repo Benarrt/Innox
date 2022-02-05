@@ -4,10 +4,12 @@
 #include <QQuickItem>
 
 #include "ixdynamiccomponent.h"
+#include "ixqcomponent.h"
 
 class IXWindowPage : public IXDynamicComponent
 {
     Q_OBJECT
+    //IX_Q_COMPONENT
 public:
     IXWindowPage();
 signals:
