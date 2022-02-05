@@ -18,7 +18,7 @@ Page {
     }
 
     IXWindowPage {
-        //component: page
+        component: page
         anchors.fill: parent
         id: ixwindowpage
     }

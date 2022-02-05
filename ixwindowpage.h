@@ -9,7 +9,7 @@
 class IXWindowPage : public IXDynamicComponent
 {
     Q_OBJECT
-    //IX_Q_COMPONENT
+    IX_Q_COMPONENT
 public:
     IXWindowPage();
 signals:
