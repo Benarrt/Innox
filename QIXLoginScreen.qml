@@ -19,6 +19,7 @@ Item {
     }
 
     IXLoginScreen {
+        component: swipeView
     }
 }
 

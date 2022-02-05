@@ -2,11 +2,12 @@
 #define IXSWIPEVIEW_H
 
 #include <QQuickItem>
+#include "ixqcomponent.h"
 
 class IXSwipeView : public QQuickItem
 {
     Q_OBJECT
-    Q_PROPERTY(QQuickItem* component READ component WRITE setComponent NOTIFY componentChanged)
+    IX_Q_COMPONENT
 public:
     IXSwipeView(QQuickItem* parent = nullptr);
     ~IXSwipeView();
@@ -14,20 +15,8 @@ public:
     Q_INVOKABLE qint16 index();
     Q_INVOKABLE qint16 count();
 
-    Q_INVOKABLE QQuickItem* component()
-    {
-        return _component;
-    }
-
-    Q_INVOKABLE void setComponent(QQuickItem* component)
-    {
-        qDebug("setting component");
-        _component = component;
-    }
-
 signals:
     void indexChanged(qint16 index);
-    void componentChanged(QQuickItem*);
 
 protected slots:
     void onCurrentIdexChanged();
@@ -40,8 +29,6 @@ protected:
     };
 
     void componentComplete() override;
-
-    QQuickItem* _component;
 };
 
 #endif // IXSWIPEVIEW_H

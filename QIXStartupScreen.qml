@@ -9,6 +9,7 @@ Item {
     }
 
     IXStartupScreen {
+        component: parent
         id: ixstartupscreen
     }
 

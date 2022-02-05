@@ -3,6 +3,7 @@
 
 #include "ixscreenlogic.h"
 #include "ixdynamiccreationlogic.h"
+#include "ixqcomponent.h"
 
 #include <QQuickItem>
 
@@ -10,6 +11,7 @@
 class IXStartupScreen : public QQuickItem
 {
     Q_OBJECT
+    IX_Q_COMPONENT
 public:
     IXStartupScreen();
 

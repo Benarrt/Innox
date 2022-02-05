@@ -3,9 +3,12 @@
 
 #include <QQuickItem>
 
+#include "ixqcomponent.h"
+
 class IXPageIndicator : public QQuickItem
 {
     Q_OBJECT
+    IX_Q_COMPONENT
 public:
     IXPageIndicator(QQuickItem* parent = nullptr);
 

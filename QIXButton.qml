@@ -7,5 +7,6 @@ Button {
     }
 
     IXButton {
+        component: parent
     }
 }

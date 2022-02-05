@@ -3,9 +3,12 @@
 
 #include <QQuickItem>
 
+#include "ixqcomponent.h"
+
 class IXButton : public QQuickItem
 {
     Q_OBJECT
+    IX_Q_COMPONENT
 public:
     IXButton(QQuickItem* parent = nullptr);
 

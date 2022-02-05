@@ -4,5 +4,6 @@ import io.qt.examples.ixtextfield 1.0
 
 TextField {
     IXTextField {
+        component: parent
     }
 }

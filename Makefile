@@ -947,6 +947,7 @@ moc_ixbutton.cpp: ixbutton.h \
 		../../Qt/5.15.0/wasm_32/include/QtGui/qcolor.h \
 		../../Qt/5.15.0/wasm_32/include/QtGui/qrgb.h \
 		../../Qt/5.15.0/wasm_32/include/QtGui/qrgba64.h \
+		ixqcomponent.h \
 		moc_predefs.h \
 		../../Qt/5.15.0/wasm_32/bin/moc
 	/home/lqony/Qt/5.15.0/wasm_32/bin/moc $(DEFINES) --include /home/lqony/QtProjects/Innox/moc_predefs.h -I/home/lqony/Qt/5.15.0/wasm_32/mkspecs/wasm-emscripten -I/home/lqony/QtProjects/Innox -I/home/lqony/Qt/5.15.0/wasm_32/include -I/home/lqony/Qt/5.15.0/wasm_32/include/QtQuick -I/home/lqony/Qt/5.15.0/wasm_32/include/QtWidgets -I/home/lqony/Qt/5.15.0/wasm_32/include/QtGui -I/home/lqony/Qt/5.15.0/wasm_32/include/QtQmlModels -I/home/lqony/Qt/5.15.0/wasm_32/include/QtQml -I/home/lqony/Qt/5.15.0/wasm_32/include/QtNetwork -I/home/lqony/Qt/5.15.0/wasm_32/include/QtCore ixbutton.h -o moc_ixbutton.cpp
@@ -1181,6 +1182,8 @@ moc_ixhandlebackpopup.cpp: ixhandlebackpopup.h \
 
 moc_ixloginscreen.cpp: ixloginscreen.h \
 		ixdynamiccreationlogic.h \
+		ixscreenlogic.h \
+		ixpageindicatorlogic.h \
 		../../Qt/5.15.0/wasm_32/include/QtQuick/QQuickItem \
 		../../Qt/5.15.0/wasm_32/include/QtQuick/qquickitem.h \
 		../../Qt/5.15.0/wasm_32/include/QtQuick/qtquickglobal.h \
@@ -1289,8 +1292,7 @@ moc_ixloginscreen.cpp: ixloginscreen.h \
 		../../Qt/5.15.0/wasm_32/include/QtGui/qcolor.h \
 		../../Qt/5.15.0/wasm_32/include/QtGui/qrgb.h \
 		../../Qt/5.15.0/wasm_32/include/QtGui/qrgba64.h \
-		ixscreenlogic.h \
-		ixpageindicatorlogic.h \
+		ixqcomponent.h \
 		moc_predefs.h \
 		../../Qt/5.15.0/wasm_32/bin/moc
 	/home/lqony/Qt/5.15.0/wasm_32/bin/moc $(DEFINES) --include /home/lqony/QtProjects/Innox/moc_predefs.h -I/home/lqony/Qt/5.15.0/wasm_32/mkspecs/wasm-emscripten -I/home/lqony/QtProjects/Innox -I/home/lqony/Qt/5.15.0/wasm_32/include -I/home/lqony/Qt/5.15.0/wasm_32/include/QtQuick -I/home/lqony/Qt/5.15.0/wasm_32/include/QtWidgets -I/home/lqony/Qt/5.15.0/wasm_32/include/QtGui -I/home/lqony/Qt/5.15.0/wasm_32/include/QtQmlModels -I/home/lqony/Qt/5.15.0/wasm_32/include/QtQml -I/home/lqony/Qt/5.15.0/wasm_32/include/QtNetwork -I/home/lqony/Qt/5.15.0/wasm_32/include/QtCore ixloginscreen.h -o moc_ixloginscreen.cpp
@@ -1404,6 +1406,7 @@ moc_ixpageindicator.cpp: ixpageindicator.h \
 		../../Qt/5.15.0/wasm_32/include/QtGui/qcolor.h \
 		../../Qt/5.15.0/wasm_32/include/QtGui/qrgb.h \
 		../../Qt/5.15.0/wasm_32/include/QtGui/qrgba64.h \
+		ixqcomponent.h \
 		moc_predefs.h \
 		../../Qt/5.15.0/wasm_32/bin/moc
 	/home/lqony/Qt/5.15.0/wasm_32/bin/moc $(DEFINES) --include /home/lqony/QtProjects/Innox/moc_predefs.h -I/home/lqony/Qt/5.15.0/wasm_32/mkspecs/wasm-emscripten -I/home/lqony/QtProjects/Innox -I/home/lqony/Qt/5.15.0/wasm_32/include -I/home/lqony/Qt/5.15.0/wasm_32/include/QtQuick -I/home/lqony/Qt/5.15.0/wasm_32/include/QtWidgets -I/home/lqony/Qt/5.15.0/wasm_32/include/QtGui -I/home/lqony/Qt/5.15.0/wasm_32/include/QtQmlModels -I/home/lqony/Qt/5.15.0/wasm_32/include/QtQml -I/home/lqony/Qt/5.15.0/wasm_32/include/QtNetwork -I/home/lqony/Qt/5.15.0/wasm_32/include/QtCore ixpageindicator.h -o moc_ixpageindicator.cpp
@@ -1411,6 +1414,7 @@ moc_ixpageindicator.cpp: ixpageindicator.h \
 moc_ixstartupscreen.cpp: ixstartupscreen.h \
 		ixscreenlogic.h \
 		ixdynamiccreationlogic.h \
+		ixqcomponent.h \
 		../../Qt/5.15.0/wasm_32/include/QtQuick/QQuickItem \
 		../../Qt/5.15.0/wasm_32/include/QtQuick/qquickitem.h \
 		../../Qt/5.15.0/wasm_32/include/QtQuick/qtquickglobal.h \
@@ -1632,6 +1636,7 @@ moc_ixswipeview.cpp: ixswipeview.h \
 		../../Qt/5.15.0/wasm_32/include/QtGui/qcolor.h \
 		../../Qt/5.15.0/wasm_32/include/QtGui/qrgb.h \
 		../../Qt/5.15.0/wasm_32/include/QtGui/qrgba64.h \
+		ixqcomponent.h \
 		moc_predefs.h \
 		../../Qt/5.15.0/wasm_32/bin/moc
 	/home/lqony/Qt/5.15.0/wasm_32/bin/moc $(DEFINES) --include /home/lqony/QtProjects/Innox/moc_predefs.h -I/home/lqony/Qt/5.15.0/wasm_32/mkspecs/wasm-emscripten -I/home/lqony/QtProjects/Innox -I/home/lqony/Qt/5.15.0/wasm_32/include -I/home/lqony/Qt/5.15.0/wasm_32/include/QtQuick -I/home/lqony/Qt/5.15.0/wasm_32/include/QtWidgets -I/home/lqony/Qt/5.15.0/wasm_32/include/QtGui -I/home/lqony/Qt/5.15.0/wasm_32/include/QtQmlModels -I/home/lqony/Qt/5.15.0/wasm_32/include/QtQml -I/home/lqony/Qt/5.15.0/wasm_32/include/QtNetwork -I/home/lqony/Qt/5.15.0/wasm_32/include/QtCore ixswipeview.h -o moc_ixswipeview.cpp
@@ -1745,6 +1750,7 @@ moc_ixtextfield.cpp: ixtextfield.h \
 		../../Qt/5.15.0/wasm_32/include/QtGui/qcolor.h \
 		../../Qt/5.15.0/wasm_32/include/QtGui/qrgb.h \
 		../../Qt/5.15.0/wasm_32/include/QtGui/qrgba64.h \
+		ixqcomponent.h \
 		moc_predefs.h \
 		../../Qt/5.15.0/wasm_32/bin/moc
 	/home/lqony/Qt/5.15.0/wasm_32/bin/moc $(DEFINES) --include /home/lqony/QtProjects/Innox/moc_predefs.h -I/home/lqony/Qt/5.15.0/wasm_32/mkspecs/wasm-emscripten -I/home/lqony/QtProjects/Innox -I/home/lqony/Qt/5.15.0/wasm_32/include -I/home/lqony/Qt/5.15.0/wasm_32/include/QtQuick -I/home/lqony/Qt/5.15.0/wasm_32/include/QtWidgets -I/home/lqony/Qt/5.15.0/wasm_32/include/QtGui -I/home/lqony/Qt/5.15.0/wasm_32/include/QtQmlModels -I/home/lqony/Qt/5.15.0/wasm_32/include/QtQml -I/home/lqony/Qt/5.15.0/wasm_32/include/QtNetwork -I/home/lqony/Qt/5.15.0/wasm_32/include/QtCore ixtextfield.h -o moc_ixtextfield.cpp
@@ -2315,6 +2321,7 @@ moc_ixwindowpagefooter.cpp: ixwindowpagefooter.h \
 		../../Qt/5.15.0/wasm_32/include/QtGui/qrgba64.h \
 		ixdynamiccomponent.h \
 		../../Qt/5.15.0/wasm_32/include/QtCore/QUrl \
+		ixqcomponent.h \
 		moc_predefs.h \
 		../../Qt/5.15.0/wasm_32/bin/moc
 	/home/lqony/Qt/5.15.0/wasm_32/bin/moc $(DEFINES) --include /home/lqony/QtProjects/Innox/moc_predefs.h -I/home/lqony/Qt/5.15.0/wasm_32/mkspecs/wasm-emscripten -I/home/lqony/QtProjects/Innox -I/home/lqony/Qt/5.15.0/wasm_32/include -I/home/lqony/Qt/5.15.0/wasm_32/include/QtQuick -I/home/lqony/Qt/5.15.0/wasm_32/include/QtWidgets -I/home/lqony/Qt/5.15.0/wasm_32/include/QtGui -I/home/lqony/Qt/5.15.0/wasm_32/include/QtQmlModels -I/home/lqony/Qt/5.15.0/wasm_32/include/QtQml -I/home/lqony/Qt/5.15.0/wasm_32/include/QtNetwork -I/home/lqony/Qt/5.15.0/wasm_32/include/QtCore ixwindowpagefooter.h -o moc_ixwindowpagefooter.cpp
@@ -2430,6 +2437,7 @@ moc_ixwindowpageheader.cpp: ixwindowpageheader.h \
 		../../Qt/5.15.0/wasm_32/include/QtGui/qrgba64.h \
 		ixdynamiccomponent.h \
 		../../Qt/5.15.0/wasm_32/include/QtCore/QUrl \
+		ixqcomponent.h \
 		moc_predefs.h \
 		../../Qt/5.15.0/wasm_32/bin/moc
 	/home/lqony/Qt/5.15.0/wasm_32/bin/moc $(DEFINES) --include /home/lqony/QtProjects/Innox/moc_predefs.h -I/home/lqony/Qt/5.15.0/wasm_32/mkspecs/wasm-emscripten -I/home/lqony/QtProjects/Innox -I/home/lqony/Qt/5.15.0/wasm_32/include -I/home/lqony/Qt/5.15.0/wasm_32/include/QtQuick -I/home/lqony/Qt/5.15.0/wasm_32/include/QtWidgets -I/home/lqony/Qt/5.15.0/wasm_32/include/QtGui -I/home/lqony/Qt/5.15.0/wasm_32/include/QtQmlModels -I/home/lqony/Qt/5.15.0/wasm_32/include/QtQml -I/home/lqony/Qt/5.15.0/wasm_32/include/QtNetwork -I/home/lqony/Qt/5.15.0/wasm_32/include/QtCore ixwindowpageheader.h -o moc_ixwindowpageheader.cpp
@@ -2671,7 +2679,8 @@ ixbutton.o: ixbutton.cpp ixbutton.h \
 		../../Qt/5.15.0/wasm_32/include/QtCore/qeventloop.h \
 		../../Qt/5.15.0/wasm_32/include/QtGui/qcolor.h \
 		../../Qt/5.15.0/wasm_32/include/QtGui/qrgb.h \
-		../../Qt/5.15.0/wasm_32/include/QtGui/qrgba64.h
+		../../Qt/5.15.0/wasm_32/include/QtGui/qrgba64.h \
+		ixqcomponent.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ixbutton.o ixbutton.cpp
 
 ixdynamiccomponent.o: ixdynamiccomponent.cpp ixdynamiccomponent.h \
@@ -2787,6 +2796,9 @@ ixdynamiccomponent.o: ixdynamiccomponent.cpp ixdynamiccomponent.h \
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ixdynamiccomponent.o ixdynamiccomponent.cpp
 
 ixdynamiccreationlogic.o: ixdynamiccreationlogic.cpp ixdynamiccreationlogic.h \
+		ixstartupscreen.h \
+		ixscreenlogic.h \
+		ixqcomponent.h \
 		../../Qt/5.15.0/wasm_32/include/QtQuick/QQuickItem \
 		../../Qt/5.15.0/wasm_32/include/QtQuick/qquickitem.h \
 		../../Qt/5.15.0/wasm_32/include/QtQuick/qtquickglobal.h \
@@ -2895,8 +2907,6 @@ ixdynamiccreationlogic.o: ixdynamiccreationlogic.cpp ixdynamiccreationlogic.h \
 		../../Qt/5.15.0/wasm_32/include/QtGui/qcolor.h \
 		../../Qt/5.15.0/wasm_32/include/QtGui/qrgb.h \
 		../../Qt/5.15.0/wasm_32/include/QtGui/qrgba64.h \
-		ixstartupscreen.h \
-		ixscreenlogic.h \
 		ixloginscreen.h \
 		ixpageindicatorlogic.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ixdynamiccreationlogic.o ixdynamiccreationlogic.cpp
@@ -3017,6 +3027,8 @@ ixhandlebackpopup.o: ixhandlebackpopup.cpp ixhandlebackpopup.h \
 
 ixloginscreen.o: ixloginscreen.cpp ixloginscreen.h \
 		ixdynamiccreationlogic.h \
+		ixscreenlogic.h \
+		ixpageindicatorlogic.h \
 		../../Qt/5.15.0/wasm_32/include/QtQuick/QQuickItem \
 		../../Qt/5.15.0/wasm_32/include/QtQuick/qquickitem.h \
 		../../Qt/5.15.0/wasm_32/include/QtQuick/qtquickglobal.h \
@@ -3125,8 +3137,7 @@ ixloginscreen.o: ixloginscreen.cpp ixloginscreen.h \
 		../../Qt/5.15.0/wasm_32/include/QtGui/qcolor.h \
 		../../Qt/5.15.0/wasm_32/include/QtGui/qrgb.h \
 		../../Qt/5.15.0/wasm_32/include/QtGui/qrgba64.h \
-		ixscreenlogic.h \
-		ixpageindicatorlogic.h
+		ixqcomponent.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ixloginscreen.o ixloginscreen.cpp
 
 ixpageindicator.o: ixpageindicator.cpp ixpageindicator.h \
@@ -3237,7 +3248,8 @@ ixpageindicator.o: ixpageindicator.cpp ixpageindicator.h \
 		../../Qt/5.15.0/wasm_32/include/QtCore/qeventloop.h \
 		../../Qt/5.15.0/wasm_32/include/QtGui/qcolor.h \
 		../../Qt/5.15.0/wasm_32/include/QtGui/qrgb.h \
-		../../Qt/5.15.0/wasm_32/include/QtGui/qrgba64.h
+		../../Qt/5.15.0/wasm_32/include/QtGui/qrgba64.h \
+		ixqcomponent.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ixpageindicator.o ixpageindicator.cpp
 
 ixpageindicatorlogic.o: ixpageindicatorlogic.cpp ixpageindicatorlogic.h \
@@ -3351,11 +3363,11 @@ ixpageindicatorlogic.o: ixpageindicatorlogic.cpp ixpageindicatorlogic.h \
 		../../Qt/5.15.0/wasm_32/include/QtGui/qcolor.h \
 		../../Qt/5.15.0/wasm_32/include/QtGui/qrgb.h \
 		../../Qt/5.15.0/wasm_32/include/QtGui/qrgba64.h \
+		ixqcomponent.h \
 		ixwindowpagefooter.h \
 		ixdynamiccomponent.h \
 		../../Qt/5.15.0/wasm_32/include/QtCore/QUrl \
 		ixwindowpage.h \
-		ixqcomponent.h \
 		ixswipeview.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ixpageindicatorlogic.o ixpageindicatorlogic.cpp
 
@@ -3712,6 +3724,7 @@ ixshadowtextfield.o: ixshadowtextfield.cpp ixshadowtextfield.h \
 		../../Qt/5.15.0/wasm_32/include/QtGui/qcolor.h \
 		../../Qt/5.15.0/wasm_32/include/QtGui/qrgb.h \
 		../../Qt/5.15.0/wasm_32/include/QtGui/qrgba64.h \
+		ixqcomponent.h \
 		/home/lqony/Documents/projects/emsdk/upstream/emscripten/system/include/emscripten.h \
 		../../Documents/projects/emsdk/upstream/emscripten/system/include/emscripten/emscripten.h \
 		../../Documents/projects/emsdk/upstream/emscripten/system/include/emscripten/em_asm.h \
@@ -3722,6 +3735,7 @@ ixshadowtextfield.o: ixshadowtextfield.cpp ixshadowtextfield.h \
 ixstartupscreen.o: ixstartupscreen.cpp ixstartupscreen.h \
 		ixscreenlogic.h \
 		ixdynamiccreationlogic.h \
+		ixqcomponent.h \
 		../../Qt/5.15.0/wasm_32/include/QtQuick/QQuickItem \
 		../../Qt/5.15.0/wasm_32/include/QtQuick/qquickitem.h \
 		../../Qt/5.15.0/wasm_32/include/QtQuick/qtquickglobal.h \
@@ -3940,7 +3954,8 @@ ixswipeview.o: ixswipeview.cpp ixswipeview.h \
 		../../Qt/5.15.0/wasm_32/include/QtCore/qeventloop.h \
 		../../Qt/5.15.0/wasm_32/include/QtGui/qcolor.h \
 		../../Qt/5.15.0/wasm_32/include/QtGui/qrgb.h \
-		../../Qt/5.15.0/wasm_32/include/QtGui/qrgba64.h
+		../../Qt/5.15.0/wasm_32/include/QtGui/qrgba64.h \
+		ixqcomponent.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ixswipeview.o ixswipeview.cpp
 
 ixtextfield.o: ixtextfield.cpp ixtextfield.h \
@@ -4052,6 +4067,7 @@ ixtextfield.o: ixtextfield.cpp ixtextfield.h \
 		../../Qt/5.15.0/wasm_32/include/QtGui/qcolor.h \
 		../../Qt/5.15.0/wasm_32/include/QtGui/qrgb.h \
 		../../Qt/5.15.0/wasm_32/include/QtGui/qrgba64.h \
+		ixqcomponent.h \
 		ixshadowtextfield.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ixtextfield.o ixtextfield.cpp
 
@@ -4723,6 +4739,7 @@ ixwindowpagefooter.o: ixwindowpagefooter.cpp ixwindowpagefooter.h \
 		../../Qt/5.15.0/wasm_32/include/QtGui/qrgba64.h \
 		ixdynamiccomponent.h \
 		../../Qt/5.15.0/wasm_32/include/QtCore/QUrl \
+		ixqcomponent.h \
 		ixregistry.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ixwindowpagefooter.o ixwindowpagefooter.cpp
 
@@ -4837,6 +4854,7 @@ ixwindowpageheader.o: ixwindowpageheader.cpp ixwindowpageheader.h \
 		../../Qt/5.15.0/wasm_32/include/QtGui/qrgba64.h \
 		ixdynamiccomponent.h \
 		../../Qt/5.15.0/wasm_32/include/QtCore/QUrl \
+		ixqcomponent.h \
 		ixregistry.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ixwindowpageheader.o ixwindowpageheader.cpp
 

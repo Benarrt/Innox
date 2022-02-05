@@ -2,10 +2,12 @@
 #define IXTEXTFIELD_H
 
 #include <QQuickItem>
+#include "ixqcomponent.h"
 
 class IXTextField : public QQuickItem
 {
     Q_OBJECT
+    IX_Q_COMPONENT
 public:
     IXTextField(QQuickItem* parent = nullptr);
     void setTextValue(const QString&);

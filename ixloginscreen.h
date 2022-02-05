@@ -6,10 +6,12 @@
 #include "ixpageindicatorlogic.h"
 
 #include <QQuickItem>
+#include "ixqcomponent.h"
 
 class IXLoginScreen : public QQuickItem
 {
     Q_OBJECT
+    IX_Q_COMPONENT
 public:
     IXLoginScreen();
 

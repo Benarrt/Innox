@@ -8,6 +8,7 @@ Item {
     }
 
     IXWindowPageFooter {
+        component: parent
         id: ixWindowPageFooter
     }
 }

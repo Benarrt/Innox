@@ -2,8 +2,6 @@
 #define IXDYNAMICCREATIONLOGIC_H
 #include "functional"
 
-#include <QQuickItem>
-
 template<class T>
 class IXDynamicCreationLogic
 {

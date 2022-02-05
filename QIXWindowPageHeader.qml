@@ -8,6 +8,7 @@ Item {
     }
 
     IXWindowPageHeader {
+        component: parent
         id: ixWindowPageHeader
     }
 }

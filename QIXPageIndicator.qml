@@ -9,6 +9,6 @@ PageIndicator {
     }
 
     IXPageIndicator {
-
+        component: parent
     }
 }
