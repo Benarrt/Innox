@@ -4,9 +4,12 @@
 #include <QQuickItem>
 #include <QUrl>
 
+#include "ixqcomponent.h"
+
 class IXDynamicComponent : public QQuickItem
 {
     Q_OBJECT
+    IX_Q_COMPONENT
     Q_PROPERTY(QUrl url READ url WRITE setUrl NOTIFY urlChanged)
 public:
     IXDynamicComponent();

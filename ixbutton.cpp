@@ -10,7 +10,7 @@ void IXButton::componentComplete()
     QQuickItem::componentComplete();
     assert(parentItem());
 
-    parentItem()->setProperty(META_PROPERTIES::hoverEnabled, true);
+    _component->setProperty(META_PROPERTIES::hoverEnabled, true);
 
 }
 

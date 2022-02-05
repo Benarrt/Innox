@@ -17,39 +17,37 @@ IXWindow::IXWindow(QQuickItem *parent) : QQuickItem(parent)
 
 void IXWindow::setup()
 {
-    auto parent = this->parentItem();
-
     this->setWidth(_baseWidth);
     this->setHeight(_baseHeight);
 
-    connect(parent, &QQuickItem::widthChanged, this, &IXWindow::onWindowResized);
-    connect(parent, &QQuickItem::heightChanged, this, &IXWindow::onWindowResized);
+    connect(_component, &QQuickItem::widthChanged, this, &IXWindow::onWindowResized);
+    connect(_component, &QQuickItem::heightChanged, this, &IXWindow::onWindowResized);
 
     qvariant_cast<QObject*>(
         this->property("anchors")
-    )->setProperty("verticalCenter", parent->property("verticalCenter"));
+    )->setProperty("verticalCenter", _component->property("verticalCenter"));
 
     qvariant_cast<QObject*>(
         this->property("anchors")
-    )->setProperty("horizontalCenter", parent->property("horizontalCenter"));
+    )->setProperty("horizontalCenter", _component->property("horizontalCenter"));
 
     onWindowResized();
 }
 
 void IXWindow::setupFocusHandler()
 {
-    IXWindowFocusHandler::inst().setParentItem(parentItem());
+    IXWindowFocusHandler::inst().setParentItem(_component);
     IXWindowFocusHandler::inst().stackBefore(this);
 }
 
 void IXWindow::setupTabHandler()
 {
-    IXWindowTabHandler::inst().setParentItem(parentItem());
+    IXWindowTabHandler::inst().setParentItem(_component);
 }
 
 void IXWindow::setupNavigationHandler()
 {
-    IXWindowNavigationHandler::inst().setParentItem(parentItem());
+    IXWindowNavigationHandler::inst().setParentItem(_component);
     connect(&IXWindowNavigationHandler::inst(), &IXWindowNavigationHandler::handleBack,
             this, &IXWindow::onHandleBack);
 }
@@ -87,9 +85,9 @@ void IXWindow::onWindowResized()
     this->setHeight(parentHeight / appliedScale);
     this->setScale(appliedScale);*/
 
-    qreal desiredW = parentItem()->width() > _baseWidth ? _baseWidth : parentItem()->width();
+    qreal desiredW = _component->width() > _baseWidth ? _baseWidth : _component->width();
     qreal scaleW = desiredW / this->width();
-    qreal scaleH = parentItem()->height()/this->height();
+    qreal scaleH = _component->height()/this->height();
 
     //Scale is sometimess off and you can see 1-2pixels off
     scaleH += 0.01;

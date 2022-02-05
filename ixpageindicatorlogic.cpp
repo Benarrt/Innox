@@ -9,7 +9,7 @@ IXPageIndicatorLogic::IXPageIndicatorLogic()
 {
     qDebug("IXPageIndicatorLogic");
     auto footer = IXRegistry::inst().get<IXWindowPageFooter>();
-    auto pageIndicator = footer->parentItem()->findChild<QQuickItem*>("QIXPageIndicator");
+    auto pageIndicator = footer->component()->findChild<QQuickItem*>("QIXPageIndicator");
     if(pageIndicator)
         qDebug("GOT pageIndicator");
 

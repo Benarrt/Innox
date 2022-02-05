@@ -31,12 +31,12 @@ void IXSwipeView::onCurrentIdexChanged()
 
 qint16 IXSwipeView::index()
 {
-    return parent()->property(META_PROPERTIES::currentIndex).toInt();
+    return _component->property(META_PROPERTIES::currentIndex).toInt();
 }
 
 qint16 IXSwipeView::count()
 {
-    return parent()->property(META_PROPERTIES::count).toInt();
+    return _component->property(META_PROPERTIES::count).toInt();
 }
 
 

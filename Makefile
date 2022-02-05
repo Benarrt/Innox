@@ -1062,6 +1062,7 @@ moc_ixdynamiccomponent.cpp: ixdynamiccomponent.h \
 		../../Qt/5.15.0/wasm_32/include/QtGui/qrgb.h \
 		../../Qt/5.15.0/wasm_32/include/QtGui/qrgba64.h \
 		../../Qt/5.15.0/wasm_32/include/QtCore/QUrl \
+		ixqcomponent.h \
 		moc_predefs.h \
 		../../Qt/5.15.0/wasm_32/bin/moc
 	/home/lqony/Qt/5.15.0/wasm_32/bin/moc $(DEFINES) --include /home/lqony/QtProjects/Innox/moc_predefs.h -I/home/lqony/Qt/5.15.0/wasm_32/mkspecs/wasm-emscripten -I/home/lqony/QtProjects/Innox -I/home/lqony/Qt/5.15.0/wasm_32/include -I/home/lqony/Qt/5.15.0/wasm_32/include/QtQuick -I/home/lqony/Qt/5.15.0/wasm_32/include/QtWidgets -I/home/lqony/Qt/5.15.0/wasm_32/include/QtGui -I/home/lqony/Qt/5.15.0/wasm_32/include/QtQmlModels -I/home/lqony/Qt/5.15.0/wasm_32/include/QtQml -I/home/lqony/Qt/5.15.0/wasm_32/include/QtNetwork -I/home/lqony/Qt/5.15.0/wasm_32/include/QtCore ixdynamiccomponent.h -o moc_ixdynamiccomponent.cpp
@@ -1864,6 +1865,7 @@ moc_ixwindow.cpp: ixwindow.h \
 		../../Qt/5.15.0/wasm_32/include/QtGui/qcolor.h \
 		../../Qt/5.15.0/wasm_32/include/QtGui/qrgb.h \
 		../../Qt/5.15.0/wasm_32/include/QtGui/qrgba64.h \
+		ixqcomponent.h \
 		moc_predefs.h \
 		../../Qt/5.15.0/wasm_32/bin/moc
 	/home/lqony/Qt/5.15.0/wasm_32/bin/moc $(DEFINES) --include /home/lqony/QtProjects/Innox/moc_predefs.h -I/home/lqony/Qt/5.15.0/wasm_32/mkspecs/wasm-emscripten -I/home/lqony/QtProjects/Innox -I/home/lqony/Qt/5.15.0/wasm_32/include -I/home/lqony/Qt/5.15.0/wasm_32/include/QtQuick -I/home/lqony/Qt/5.15.0/wasm_32/include/QtWidgets -I/home/lqony/Qt/5.15.0/wasm_32/include/QtGui -I/home/lqony/Qt/5.15.0/wasm_32/include/QtQmlModels -I/home/lqony/Qt/5.15.0/wasm_32/include/QtQml -I/home/lqony/Qt/5.15.0/wasm_32/include/QtNetwork -I/home/lqony/Qt/5.15.0/wasm_32/include/QtCore ixwindow.h -o moc_ixwindow.cpp
@@ -2792,7 +2794,8 @@ ixdynamiccomponent.o: ixdynamiccomponent.cpp ixdynamiccomponent.h \
 		../../Qt/5.15.0/wasm_32/include/QtGui/qcolor.h \
 		../../Qt/5.15.0/wasm_32/include/QtGui/qrgb.h \
 		../../Qt/5.15.0/wasm_32/include/QtGui/qrgba64.h \
-		../../Qt/5.15.0/wasm_32/include/QtCore/QUrl
+		../../Qt/5.15.0/wasm_32/include/QtCore/QUrl \
+		ixqcomponent.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ixdynamiccomponent.o ixdynamiccomponent.cpp
 
 ixdynamiccreationlogic.o: ixdynamiccreationlogic.cpp ixdynamiccreationlogic.h \
@@ -4180,6 +4183,7 @@ ixwindow.o: ixwindow.cpp ixwindow.h \
 		../../Qt/5.15.0/wasm_32/include/QtGui/qcolor.h \
 		../../Qt/5.15.0/wasm_32/include/QtGui/qrgb.h \
 		../../Qt/5.15.0/wasm_32/include/QtGui/qrgba64.h \
+		ixqcomponent.h \
 		ixwindowfocushandler.h \
 		ixwindowtabhandler.h \
 		ixwindownavigationhandler.h \
@@ -4625,7 +4629,8 @@ ixwindowpage.o: ixwindowpage.cpp ixwindowpage.h \
 		../../Qt/5.15.0/wasm_32/include/QtGui/qpolygon.h \
 		../../Qt/5.15.0/wasm_32/include/QtCore/qline.h \
 		../../Qt/5.15.0/wasm_32/include/QtGui/qcursor.h \
-		../../Qt/5.15.0/wasm_32/include/QtQml/qqmldebug.h
+		../../Qt/5.15.0/wasm_32/include/QtQml/qqmldebug.h \
+		ixwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ixwindowpage.o ixwindowpage.cpp
 
 ixwindowpagefooter.o: ixwindowpagefooter.cpp ixwindowpagefooter.h \
@@ -5124,10 +5129,10 @@ main.o: main.cpp ../../Qt/5.15.0/wasm_32/include/QtGui/QGuiApplication \
 		../../Qt/5.15.0/wasm_32/include/QtGui/qcolor.h \
 		../../Qt/5.15.0/wasm_32/include/QtGui/qrgb.h \
 		../../Qt/5.15.0/wasm_32/include/QtGui/qrgba64.h \
+		ixqcomponent.h \
 		ixwindowpage.h \
 		ixdynamiccomponent.h \
 		../../Qt/5.15.0/wasm_32/include/QtCore/QUrl \
-		ixqcomponent.h \
 		ixtextfield.h \
 		ixbutton.h \
 		ixhandlebackpopup.h \
