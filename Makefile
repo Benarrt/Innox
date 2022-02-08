@@ -2440,7 +2440,6 @@ moc_ixwindowpageheader.cpp: ixwindowpageheader.h \
 		ixdynamiccomponent.h \
 		../../Qt/5.15.0/wasm_32/include/QtCore/QUrl \
 		ixqcomponent.h \
-		ixdynamiccreationlogic.h \
 		moc_predefs.h \
 		../../Qt/5.15.0/wasm_32/bin/moc
 	/home/lqony/Qt/5.15.0/wasm_32/bin/moc $(DEFINES) --include /home/lqony/QtProjects/Innox/moc_predefs.h -I/home/lqony/Qt/5.15.0/wasm_32/mkspecs/wasm-emscripten -I/home/lqony/QtProjects/Innox -I/home/lqony/Qt/5.15.0/wasm_32/include -I/home/lqony/Qt/5.15.0/wasm_32/include/QtQuick -I/home/lqony/Qt/5.15.0/wasm_32/include/QtWidgets -I/home/lqony/Qt/5.15.0/wasm_32/include/QtGui -I/home/lqony/Qt/5.15.0/wasm_32/include/QtQmlModels -I/home/lqony/Qt/5.15.0/wasm_32/include/QtQml -I/home/lqony/Qt/5.15.0/wasm_32/include/QtNetwork -I/home/lqony/Qt/5.15.0/wasm_32/include/QtCore ixwindowpageheader.h -o moc_ixwindowpageheader.cpp
@@ -3493,8 +3492,7 @@ ixregistry.o: ixregistry.cpp ixregistry.h \
 		ixqcomponent.h \
 		ixhandlebackpopup.h \
 		ixwindow.h \
-		ixwindowpageheader.h \
-		ixdynamiccreationlogic.h
+		ixwindowpageheader.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ixregistry.o ixregistry.cpp
 
 ixscreenlogic.o: ixscreenlogic.cpp ixscreenlogic.h \
@@ -3612,9 +3610,9 @@ ixscreenlogic.o: ixscreenlogic.cpp ixscreenlogic.h \
 		../../Qt/5.15.0/wasm_32/include/QtCore/QUrl \
 		ixqcomponent.h \
 		ixwindowpageheader.h \
-		ixdynamiccreationlogic.h \
 		ixwindowpagefooter.h \
 		ixstartupscreen.h \
+		ixdynamiccreationlogic.h \
 		ixloginscreen.h \
 		ixpageindicatorlogic.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ixscreenlogic.o ixscreenlogic.cpp
@@ -4862,7 +4860,6 @@ ixwindowpageheader.o: ixwindowpageheader.cpp ixwindowpageheader.h \
 		ixdynamiccomponent.h \
 		../../Qt/5.15.0/wasm_32/include/QtCore/QUrl \
 		ixqcomponent.h \
-		ixdynamiccreationlogic.h \
 		ixregistry.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ixwindowpageheader.o ixwindowpageheader.cpp
 
@@ -5140,9 +5137,9 @@ main.o: main.cpp ../../Qt/5.15.0/wasm_32/include/QtGui/QGuiApplication \
 		ixbutton.h \
 		ixhandlebackpopup.h \
 		ixwindowpageheader.h \
-		ixdynamiccreationlogic.h \
 		ixstartupscreen.h \
 		ixscreenlogic.h \
+		ixdynamiccreationlogic.h \
 		ixloginscreen.h \
 		ixpageindicatorlogic.h \
 		ixwindowpagefooter.h \

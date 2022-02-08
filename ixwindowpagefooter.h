@@ -19,6 +19,10 @@ signals:
 protected:
     void componentComplete() override;
 
+    Q_SLOT void onUrlChanged(const QUrl&) override;
+
+    void fillComponent();
+
 private:
 };
 
