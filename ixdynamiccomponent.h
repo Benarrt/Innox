@@ -9,7 +9,6 @@
 class IXDynamicComponent : public QQuickItem
 {
     Q_OBJECT
-    IX_Q_COMPONENT
     Q_PROPERTY(QUrl url READ url WRITE setUrl NOTIFY urlChanged)
 public:
     IXDynamicComponent();
@@ -25,7 +24,7 @@ signals:
     void urlChanged(QUrl);
 
 public slots:
-    void onUrlChanged(const QUrl&);
+    virtual void onUrlChanged(const QUrl&);
 
 protected:
    bool changing;

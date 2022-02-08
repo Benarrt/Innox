@@ -9,7 +9,6 @@
                        } \
                        Q_INVOKABLE void setComponent(QQuickItem* component) \
                        { \
-                           qDebug("setting component"); \
                            _component = component; \
                            emit componentChanged(_component); \
                        } \

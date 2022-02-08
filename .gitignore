@@ -1,0 +1,7 @@
+Innox.js
+Innox.pro.user
+Innox.wasm
+*.o
+Makefile
+moc_*.cpp
+qrc_*.cpp

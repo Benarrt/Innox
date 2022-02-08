@@ -9,9 +9,6 @@ IXDynamicCreationLogic<T>::IXDynamicCreationLogic(T* object)
     *connection = QObject::connect(object, &QQuickItem::enabledChanged, object,
     [this, connection, object]()
     {
-        qDebug("IXDynamicCreationLogic");
-        qDebug(QString::number(object->isEnabled()).toLocal8Bit());
-
         if(object->isEnabled())
         {
             QObject::disconnect(*connection);

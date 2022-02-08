@@ -5,6 +5,11 @@ import io.qt.examples.ixwindowpage 1.0
 Page {
     id: page
     property url contentUrl
+
+    function test() {
+        console.log("TEST");
+    }
+
     onContentUrlChanged: {
         ixwindowpage.url = contentUrl;
     }
@@ -19,7 +24,7 @@ Page {
 
     IXWindowPage {
         component: page
-        anchors.fill: parent
         id: ixwindowpage
+        anchors.fill: parent
     }
 }

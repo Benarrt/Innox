@@ -61,6 +61,10 @@ void IXDynamicComponent::onUrlChanged(const QUrl& url)
     _item = qobject_cast<QQuickItem*>(myObject);
     _item->setParentItem(this);
     _item->setParent(this);
+
+    this->setHeight(_item->height());
+    this->setWidth(_item->width());
+
     changing = false;
     _item->setEnabled(true);
 }

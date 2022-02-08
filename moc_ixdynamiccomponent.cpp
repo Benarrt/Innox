@@ -22,8 +22,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_IXDynamicComponent_t {
-    QByteArrayData data[10];
-    char stringdata0[105];
+    QByteArrayData data[5];
+    char stringdata0[48];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -33,20 +33,14 @@ struct qt_meta_stringdata_IXDynamicComponent_t {
 static const qt_meta_stringdata_IXDynamicComponent_t qt_meta_stringdata_IXDynamicComponent = {
     {
 QT_MOC_LITERAL(0, 0, 18), // "IXDynamicComponent"
-QT_MOC_LITERAL(1, 19, 16), // "componentChanged"
-QT_MOC_LITERAL(2, 36, 0), // ""
-QT_MOC_LITERAL(3, 37, 11), // "QQuickItem*"
-QT_MOC_LITERAL(4, 49, 4), // "item"
-QT_MOC_LITERAL(5, 54, 10), // "urlChanged"
-QT_MOC_LITERAL(6, 65, 12), // "onUrlChanged"
-QT_MOC_LITERAL(7, 78, 9), // "component"
-QT_MOC_LITERAL(8, 88, 12), // "setComponent"
-QT_MOC_LITERAL(9, 101, 3) // "url"
+QT_MOC_LITERAL(1, 19, 10), // "urlChanged"
+QT_MOC_LITERAL(2, 30, 0), // ""
+QT_MOC_LITERAL(3, 31, 12), // "onUrlChanged"
+QT_MOC_LITERAL(4, 44, 3) // "url"
 
     },
-    "IXDynamicComponent\0componentChanged\0"
-    "\0QQuickItem*\0item\0urlChanged\0onUrlChanged\0"
-    "component\0setComponent\0url"
+    "IXDynamicComponent\0urlChanged\0\0"
+    "onUrlChanged\0url"
 };
 #undef QT_MOC_LITERAL
 
@@ -56,44 +50,30 @@ static const uint qt_meta_data_IXDynamicComponent[] = {
        8,       // revision
        0,       // classname
        0,    0, // classinfo
-       6,   14, // methods
-       2,   58, // properties
+       2,   14, // methods
+       1,   30, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       3,       // signalCount
+       1,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    1,   44,    2, 0x06 /* Public */,
-       1,    0,   47,    2, 0x26 /* Public | MethodCloned */,
-       5,    1,   48,    2, 0x06 /* Public */,
+       1,    1,   24,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-       6,    1,   51,    2, 0x0a /* Public */,
-
- // methods: name, argc, parameters, tag, flags
-       7,    0,   54,    2, 0x02 /* Public */,
-       8,    1,   55,    2, 0x02 /* Public */,
+       3,    1,   27,    2, 0x0a /* Public */,
 
  // signals: parameters
-    QMetaType::Void, 0x80000000 | 3,    4,
-    QMetaType::Void,
     QMetaType::Void, QMetaType::QUrl,    2,
 
  // slots: parameters
     QMetaType::Void, QMetaType::QUrl,    2,
 
- // methods: parameters
-    0x80000000 | 3,
-    QMetaType::Void, 0x80000000 | 3,    7,
-
  // properties: name, type, flags
-       7, 0x80000000 | 3, 0x0049510b,
-       9, QMetaType::QUrl, 0x00495103,
+       4, QMetaType::QUrl, 0x00495103,
 
  // properties: notify_signal_id
        0,
-       2,
 
        0        // eod
 };
@@ -104,65 +84,27 @@ void IXDynamicComponent::qt_static_metacall(QObject *_o, QMetaObject::Call _c, i
         auto *_t = static_cast<IXDynamicComponent *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
-        case 0: _t->componentChanged((*reinterpret_cast< QQuickItem*(*)>(_a[1]))); break;
-        case 1: _t->componentChanged(); break;
-        case 2: _t->urlChanged((*reinterpret_cast< QUrl(*)>(_a[1]))); break;
-        case 3: _t->onUrlChanged((*reinterpret_cast< const QUrl(*)>(_a[1]))); break;
-        case 4: { QQuickItem* _r = _t->component();
-            if (_a[0]) *reinterpret_cast< QQuickItem**>(_a[0]) = std::move(_r); }  break;
-        case 5: _t->setComponent((*reinterpret_cast< QQuickItem*(*)>(_a[1]))); break;
+        case 0: _t->urlChanged((*reinterpret_cast< QUrl(*)>(_a[1]))); break;
+        case 1: _t->onUrlChanged((*reinterpret_cast< const QUrl(*)>(_a[1]))); break;
         default: ;
-        }
-    } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        switch (_id) {
-        default: *reinterpret_cast<int*>(_a[0]) = -1; break;
-        case 0:
-            switch (*reinterpret_cast<int*>(_a[1])) {
-            default: *reinterpret_cast<int*>(_a[0]) = -1; break;
-            case 0:
-                *reinterpret_cast<int*>(_a[0]) = qRegisterMetaType< QQuickItem* >(); break;
-            }
-            break;
-        case 5:
-            switch (*reinterpret_cast<int*>(_a[1])) {
-            default: *reinterpret_cast<int*>(_a[0]) = -1; break;
-            case 0:
-                *reinterpret_cast<int*>(_a[0]) = qRegisterMetaType< QQuickItem* >(); break;
-            }
-            break;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
         int *result = reinterpret_cast<int *>(_a[0]);
         {
-            using _t = void (IXDynamicComponent::*)(QQuickItem * );
-            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&IXDynamicComponent::componentChanged)) {
+            using _t = void (IXDynamicComponent::*)(QUrl );
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&IXDynamicComponent::urlChanged)) {
                 *result = 0;
                 return;
             }
         }
-        {
-            using _t = void (IXDynamicComponent::*)(QUrl );
-            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&IXDynamicComponent::urlChanged)) {
-                *result = 2;
-                return;
-            }
-        }
-    } else if (_c == QMetaObject::RegisterPropertyMetaType) {
-        switch (_id) {
-        default: *reinterpret_cast<int*>(_a[0]) = -1; break;
-        case 0:
-            *reinterpret_cast<int*>(_a[0]) = qRegisterMetaType< QQuickItem* >(); break;
-        }
     }
-
 #ifndef QT_NO_PROPERTIES
     else if (_c == QMetaObject::ReadProperty) {
         auto *_t = static_cast<IXDynamicComponent *>(_o);
         Q_UNUSED(_t)
         void *_v = _a[0];
         switch (_id) {
-        case 0: *reinterpret_cast< QQuickItem**>(_v) = _t->component(); break;
-        case 1: *reinterpret_cast< QUrl*>(_v) = _t->url(); break;
+        case 0: *reinterpret_cast< QUrl*>(_v) = _t->url(); break;
         default: break;
         }
     } else if (_c == QMetaObject::WriteProperty) {
@@ -170,8 +112,7 @@ void IXDynamicComponent::qt_static_metacall(QObject *_o, QMetaObject::Call _c, i
         Q_UNUSED(_t)
         void *_v = _a[0];
         switch (_id) {
-        case 0: _t->setComponent(*reinterpret_cast< QQuickItem**>(_v)); break;
-        case 1: _t->setUrl(*reinterpret_cast< QUrl*>(_v)); break;
+        case 0: _t->setUrl(*reinterpret_cast< QUrl*>(_v)); break;
         default: break;
         }
     } else if (_c == QMetaObject::ResetProperty) {
@@ -208,46 +149,39 @@ int IXDynamicComponent::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 6)
+        if (_id < 2)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 6;
+        _id -= 2;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 6)
-            qt_static_metacall(this, _c, _id, _a);
-        _id -= 6;
+        if (_id < 2)
+            *reinterpret_cast<int*>(_a[0]) = -1;
+        _id -= 2;
     }
 #ifndef QT_NO_PROPERTIES
     else if (_c == QMetaObject::ReadProperty || _c == QMetaObject::WriteProperty
             || _c == QMetaObject::ResetProperty || _c == QMetaObject::RegisterPropertyMetaType) {
         qt_static_metacall(this, _c, _id, _a);
-        _id -= 2;
+        _id -= 1;
     } else if (_c == QMetaObject::QueryPropertyDesignable) {
-        _id -= 2;
+        _id -= 1;
     } else if (_c == QMetaObject::QueryPropertyScriptable) {
-        _id -= 2;
+        _id -= 1;
     } else if (_c == QMetaObject::QueryPropertyStored) {
-        _id -= 2;
+        _id -= 1;
     } else if (_c == QMetaObject::QueryPropertyEditable) {
-        _id -= 2;
+        _id -= 1;
     } else if (_c == QMetaObject::QueryPropertyUser) {
-        _id -= 2;
+        _id -= 1;
     }
 #endif // QT_NO_PROPERTIES
     return _id;
 }
 
 // SIGNAL 0
-void IXDynamicComponent::componentChanged(QQuickItem * _t1)
-{
-    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
-    QMetaObject::activate(this, &staticMetaObject, 0, _a);
-}
-
-// SIGNAL 2
 void IXDynamicComponent::urlChanged(QUrl _t1)
 {
     void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
-    QMetaObject::activate(this, &staticMetaObject, 2, _a);
+    QMetaObject::activate(this, &staticMetaObject, 0, _a);
 }
 QT_WARNING_POP
 QT_END_MOC_NAMESPACE

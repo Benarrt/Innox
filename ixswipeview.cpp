@@ -13,7 +13,6 @@ IXSwipeView::~IXSwipeView()
 void IXSwipeView::componentComplete()
 {
     QQuickItem::componentComplete();
-    qDebug("IXSwipeView::componentComplete");
     assert(parentItem());
     assert(parent());
 
@@ -25,7 +24,6 @@ void IXSwipeView::componentComplete()
 
 void IXSwipeView::onCurrentIdexChanged()
 {
-    qDebug("IXSwipeView");
     emit indexChanged(index());
 }
 
