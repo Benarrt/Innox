@@ -16,8 +16,8 @@ public:
     IXStartupScreen();
 
 protected:
-    static constexpr char HEADER_URL[] = "";
-    static constexpr char FOOTER_URL[] = "";
+    static constexpr char HEADER_URL[] = "qrc:/QIXTestHeader2.qml";
+    static constexpr char FOOTER_URL[] = "qrc:/QIXTestFooter.qml";
 
     void componentComplete() override;
 
@@ -35,9 +35,7 @@ private:
     protected:
         void dynamicReady() override
         {
-            qDebug("dynamicReady");
             IXScreenLogic::load();
-            IXScreenLogic::loadScreen("qrc:/QIXLoginScreen.qml");
         }
 
         IXStartupScreen* _component;

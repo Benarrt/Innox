@@ -15,6 +15,13 @@ class IXLoginScreen : public QQuickItem
 public:
     IXLoginScreen();
 
+    Q_INVOKABLE void changeScreenTest();
+
+    ~IXLoginScreen()
+    {
+        qDebug("IXLoginScreen destructor");
+    }
+
 protected:
     static constexpr char HEADER_URL[] = "qrc:/QIXTestHeader.qml";
     static constexpr char FOOTER_URL[] = "qrc:/QIXPageIndicatorFooter.qml";

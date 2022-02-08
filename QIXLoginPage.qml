@@ -48,6 +48,11 @@ QIXScreenPage {
         anchors.rightMargin: 0
         anchors.topMargin: 20
         display: AbstractButton.TextOnly
+
+        onClicked: {
+            console.log("changeScreenTest1");
+            changeScreenTest();
+        }
     }
 
 

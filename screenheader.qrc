@@ -1,5 +1,6 @@
 <RCC>
     <qresource prefix="/">
         <file>QIXTestHeader.qml</file>
+        <file>QIXTestHeader2.qml</file>
     </qresource>
 </RCC>

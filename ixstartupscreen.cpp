@@ -8,5 +8,5 @@ IXStartupScreen::IXStartupScreen() :
 
 void IXStartupScreen::componentComplete()
 {
-
+    QQuickItem::componentComplete();
 }
