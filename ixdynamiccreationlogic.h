@@ -5,7 +5,6 @@
 template<class T>
 class IXDynamicCreationLogic
 {
-    using startFunctionT = std::function<void()>;
 public:
     IXDynamicCreationLogic(T* object);
 

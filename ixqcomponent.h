@@ -10,6 +10,7 @@
                        Q_INVOKABLE void setComponent(QQuickItem* component) \
                        { \
                            _component = component; \
+                           _component->setProperty("logic", QVariant::fromValue(qobject_cast<QQuickItem*>(this))); \
                            emit componentChanged(_component); \
                        } \
                        Q_SIGNAL void componentChanged(QQuickItem* item=nullptr); \

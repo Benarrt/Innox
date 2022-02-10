@@ -1,8 +1,7 @@
 #include "ixswipeview.h"
 
-IXSwipeView::IXSwipeView(QQuickItem* parent) : QQuickItem(parent), _component(nullptr)
+IXSwipeView::IXSwipeView(QQuickItem* parent) : QQuickItem(parent)
 {
-
 }
 
 IXSwipeView::~IXSwipeView()
@@ -17,24 +16,15 @@ void IXSwipeView::componentComplete()
     assert(parent());
 
     setParentItem(nullptr);
-    //parentItem()->setObjectName("IXSwipeView");
+    setObjectName("IXSwipeView");
 
-    //QObject::connect(parent(), SIGNAL(currentIndexChanged()), this, SLOT(onCurrentIdexChanged()));
+    connect(component(), SIGNAL(currentIndexChanged()), this, SLOT(onCurrentIndexChanged()));
+    onCurrentIndexChanged();
 }
 
-void IXSwipeView::onCurrentIdexChanged()
+void IXSwipeView::onCurrentIndexChanged()
 {
-    emit indexChanged(index());
-}
-
-qint16 IXSwipeView::index()
-{
-    return _component->property(META_PROPERTIES::currentIndex).toInt();
-}
-
-qint16 IXSwipeView::count()
-{
-    return _component->property(META_PROPERTIES::count).toInt();
+    _logic.upadtePageIndicator(component()->property(META_PROPERTIES::currentIndex).toInt(), component()->property(META_PROPERTIES::count).toInt());
 }
 
 

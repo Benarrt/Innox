@@ -10,8 +10,7 @@ void IXPageIndicator::componentComplete()
     QQuickItem::componentComplete();
     assert(parentItem());
 
-    _component->setObjectName("IXPageIndicator");
-
+    setObjectName("IXPageIndicator");
 }
 
 void IXPageIndicator::setIndex(qint16 index)

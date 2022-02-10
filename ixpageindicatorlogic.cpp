@@ -2,22 +2,23 @@
 #include "ixregistry.h"
 #include "ixpageindicator.h"
 #include "ixwindowpagefooter.h"
-#include "ixwindowpage.h"
-#include "ixswipeview.h"
 
 IXPageIndicatorLogic::IXPageIndicatorLogic()
 {
-    qDebug("IXPageIndicatorLogic");
-    auto footer = IXRegistry::inst().get<IXWindowPageFooter>();
-    auto pageIndicator = footer->component()->findChild<QQuickItem*>("QIXPageIndicator");
-    if(pageIndicator)
-        qDebug("GOT pageIndicator");
-
-    /*auto page = IXRegistry::inst().get<IXWindowPage>();
-
-    auto pageIndicator = footer->findChild<IXPageIndicator*>("IXPageIndicator");
-    auto swipeView = page->findChild<IXSwipeView*>("IXSwipeView");
-
-    QObject::connect(swipeView, &IXSwipeView::indexChanged, pageIndicator, &IXPageIndicator::setIndex);
-    pageIndicator->setCount(swipeView->count());*/
 }
+
+void IXPageIndicatorLogic::upadtePageIndicator(int index, int count)
+{
+    auto footer = IXRegistry::inst().get<IXWindowPageFooter>();
+    auto pageIndicator = footer->findChild<IXPageIndicator*>("IXPageIndicator");
+
+    if(!pageIndicator)
+    {
+        qDebug("Missing pageIndicator");
+        return;
+    }
+
+    pageIndicator->component()->setProperty("count", count);
+    pageIndicator->component()->setProperty("currentIndex", index);
+}
+

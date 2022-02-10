@@ -3,6 +3,7 @@
 
 #include <QQuickItem>
 #include "ixqcomponent.h"
+#include "ixpageindicatorlogic.h"
 
 class IXSwipeView : public QQuickItem
 {
@@ -12,14 +13,8 @@ public:
     IXSwipeView(QQuickItem* parent = nullptr);
     ~IXSwipeView();
 
-    Q_INVOKABLE qint16 index();
-    Q_INVOKABLE qint16 count();
-
-signals:
-    void indexChanged(qint16 index);
-
 protected slots:
-    void onCurrentIdexChanged();
+    void onCurrentIndexChanged();
 
 protected:
     struct META_PROPERTIES
@@ -29,6 +24,12 @@ protected:
     };
 
     void componentComplete() override;
+
+private:
+    class Logic : public IXPageIndicatorLogic
+    { };
+
+    Logic _logic;
 };
 
 #endif // IXSWIPEVIEW_H

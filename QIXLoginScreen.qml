@@ -26,7 +26,7 @@ Item {
 
     IXLoginScreen {
         id: ixloginscreen
-        component: swipeView
+        component: parent
     }
 }
 
