@@ -5,3 +5,4 @@ Innox.wasm
 Makefile
 moc_*.cpp
 qrc_*.cpp
+*.autosave
