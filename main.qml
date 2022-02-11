@@ -16,7 +16,7 @@ Window {
 
         QIXWindowPage {
             Component.onCompleted: {
-                contentUrl = "qrc:/QIXLoginScreen.qml"
+                contentUrl = "qrc:/QIXStartupScreen.qml"
             }
         }
 

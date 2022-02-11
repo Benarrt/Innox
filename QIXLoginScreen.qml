@@ -7,11 +7,6 @@ Item {
     anchors.fill: parent
     clip: true
 
-    function changeScreenTest() {
-        console.log("changeScreenTest2");
-        ixloginscreen.changeScreenTest();
-    }
-
     QIXSwipeView {
         id: swipeView
         anchors.fill: parent

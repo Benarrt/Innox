@@ -8,10 +8,12 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+        ixbackendless.cpp \
         ixbutton.cpp \
         ixdynamiccomponent.cpp \
         ixdynamiccreationlogic.cpp \
         ixhandlebackpopup.cpp \
+        ixloginlogic.cpp \
         ixloginscreen.cpp \
         ixpageindicator.cpp \
         ixpageindicatorlogic.cpp \
@@ -54,10 +56,12 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 HEADERS += \
+    ixbackendless.h \
     ixbutton.h \
     ixdynamiccomponent.h \
     ixdynamiccreationlogic.h \
     ixhandlebackpopup.h \
+    ixloginlogic.h \
     ixloginscreen.h \
     ixpageindicator.h \
     ixpageindicatorlogic.h \

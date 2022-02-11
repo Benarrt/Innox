@@ -4,6 +4,7 @@
 #include "ixscreenlogic.h"
 #include "ixdynamiccreationlogic.h"
 #include "ixqcomponent.h"
+#include "ixloginlogic.h"
 
 #include <QQuickItem>
 
@@ -16,19 +17,24 @@ public:
     IXStartupScreen();
 
 protected:
-    static constexpr char HEADER_URL[] = "qrc:/QIXTestHeader2.qml";
-    static constexpr char FOOTER_URL[] = "qrc:/QIXTestFooter.qml";
+    static constexpr char HEADER_URL[] = "";
+    static constexpr char FOOTER_URL[] = "";
 
     void componentComplete() override;
 
+    virtual void onValidLogin();
+    virtual void onInvalidLogin();
+
 private:
     class Logic : public IXDynamicCreationLogic<IXStartupScreen>,
-                  public IXScreenLogic<IXStartupScreen>
+                  public IXScreenLogic<IXStartupScreen>,
+                  public IXLoginLogic
     {
     public:
         Logic(IXStartupScreen* object) :
             IXDynamicCreationLogic(object),
             IXScreenLogic(),
+            IXLoginLogic([](){}, [](){}),
             _component(object)
         {}
 

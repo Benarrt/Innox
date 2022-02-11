@@ -51,7 +51,6 @@ QIXScreenPage {
 
         onClicked: {
             console.log("changeScreenTest1");
-            changeScreenTest();
         }
     }
 

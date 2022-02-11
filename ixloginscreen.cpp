@@ -9,8 +9,3 @@ void IXLoginScreen::componentComplete()
 {
     QQuickItem::componentComplete();
 }
-
-void IXLoginScreen::changeScreenTest()
-{
-    _logic.loadScreen("qrc:/QIXStartupScreen.qml");
-}
