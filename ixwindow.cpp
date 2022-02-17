@@ -90,7 +90,7 @@ void IXWindow::onWindowResized()
     qreal scaleH = _component->height()/this->height();
 
     //Scale is sometimess off and you can see 1-2pixels off
-    scaleH += 0.01;
+    //scaleH += 0.01;
     scaleW += 0.01;
 
     auto ixWindowScale = this->findChild<QObject*>("ixWindowScale");

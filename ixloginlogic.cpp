@@ -5,7 +5,7 @@ IXLoginLogic::IXLoginLogic(loginSatusEventT validLogin, loginSatusEventT invalid
     _validLogin(validLogin),
     _invalidLogin(invalidLogin)
 {
-    IXBackendLess::inst().loginStatus(std::bind(&IXLoginLogic::test, this, std::placeholders::_1));
+    IXBackendLess::inst().request<LOGIN_STATUS>(std::bind(&IXLoginLogic::test, this, std::placeholders::_1));
 }
 
 void IXLoginLogic::test(const QString& data)

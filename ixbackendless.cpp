@@ -7,39 +7,17 @@ extern "C"
 {
     void EMSCRIPTEN_KEEPALIVE IXBackendLessCallback(uint32_t id ,const QChar* data)
     {
-        IXBackendLess::inst().callBack(id, QString(data));
-    }
-}
-
-IXBackendLess::IXBackendLess() :
-    _loginStatusCall(false)
-{
-    EM_ASM({
-       Backendless.serverURL = 'https://eu-api.backendless.com';
-       Backendless.initApp(Module.UTF16ToString($0), Module.UTF16ToString($1));
-    }, QString::fromLocal8Bit(APP_ID).data(), QString::fromLocal8Bit(APP_KEY).data());
-}
-
-void IXBackendLess::callBack(uint32_t id, const QString& message)
-{
-    if(id == 0)
-    {
-        while(!_loginStatusCallbacks.empty())
+        auto cbMap = IXBackendLess::inst().callbackMap();
+        auto it = cbMap.find(id);
+        if(it != cbMap.end())
         {
-            _loginStatusCallbacks.front()(message);
-            _loginStatusCallbacks.pop_front();
+            it->second(QString(data));
         }
-        _loginStatusCall = false;
     }
 }
 
-void IXBackendLess::loginStatus(callbackT cb)
+void LOGIN_STATUS::request()
 {
-    _loginStatusCallbacks.push_back(cb);
-    if(_loginStatusCall)
-        return;
-
-    _loginStatusCall = true;
     EM_ASM({
                Backendless.UserService.isValidLogin().then((res)=>{
                    if(!res) {
@@ -57,4 +35,12 @@ void IXBackendLess::loginStatus(callbackT cb)
                    Module._IXBackendLessCallback(0, heapPtr);
                });
     });
+}
+
+IXBackendLess::IXBackendLess()
+{
+    EM_ASM({
+       Backendless.serverURL = 'https://eu-api.backendless.com';
+       Backendless.initApp(Module.UTF16ToString($0), Module.UTF16ToString($1));
+    }, QString::fromLocal8Bit(APP_ID).data(), QString::fromLocal8Bit(APP_KEY).data());
 }
