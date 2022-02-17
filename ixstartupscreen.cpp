@@ -11,12 +11,8 @@ void IXStartupScreen::componentComplete()
     QQuickItem::componentComplete();
 }
 
-void IXStartupScreen::onValidLogin()
+void IXStartupScreen::loginCallback(const QString& data)
 {
-    qDebug("onValidLogin");
-}
-
-void IXStartupScreen::onInvalidLogin()
-{
-    _logic.loadScreen("qrc:/QIXLoginScreen");
+    qDebug("loginCallback");
+    qDebug(data.toLocal8Bit());
 }

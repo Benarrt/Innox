@@ -22,9 +22,6 @@ protected:
 
     void componentComplete() override;
 
-    virtual void onValidLogin();
-    virtual void onInvalidLogin();
-
 private:
     class Logic : public IXDynamicCreationLogic<IXStartupScreen>,
                   public IXScreenLogic<IXStartupScreen>,
@@ -34,7 +31,7 @@ private:
         Logic(IXStartupScreen* object) :
             IXDynamicCreationLogic(object),
             IXScreenLogic(),
-            IXLoginLogic([](){}, [](){}),
+            IXLoginLogic(std::bind(&IXStartupScreen::loginCallback, object, std::placeholders::_1)),
             _component(object)
         {}
 
@@ -46,6 +43,8 @@ private:
 
         IXStartupScreen* _component;
     };
+
+    void loginCallback(const QString& data);
 
     friend class IXDynamicCreationLogic<IXStartupScreen>;
     friend class IXScreenLogic<IXStartupScreen>;
