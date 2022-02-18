@@ -2,23 +2,26 @@
 #define IXPAGELOGIC_H
 
 #include <string>
+#include "ixscreen.h"
 
 class IXDynamicComponent;
 
-template<class T>
 class IXScreenLogic
 {
 public:
-    IXScreenLogic();
+    IXScreenLogic(IXScreen* component);
 
-    void load();
+    void loadLoginScreen();
 
+protected:
+    void loadComponent(IXDynamicComponent* comp, const std::string& url);
     void loadScreen(const std::string& url);
     void loadHeader(const std::string& url);
     void loadFooter(const std::string& url);
 
-protected:
-    void loadComponent(IXDynamicComponent* comp, const std::string& url);
+    virtual void load();
+
+    IXScreen* _component;
 };
 
 #endif // IXPAGELOGIC_H

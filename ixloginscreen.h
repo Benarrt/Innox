@@ -7,28 +7,28 @@
 #include "ixscreenlogic.h"
 #include "ixqcomponent.h"
 
-class IXLoginScreen : public QQuickItem
+class IXLoginScreen : public QQuickItem, public IXScreen
 {
     Q_OBJECT
     IX_Q_COMPONENT
 public:
     IXLoginScreen();
 
-protected:
-    static constexpr char HEADER_URL[] = "qrc:/QIXTestHeader.qml";
-    static constexpr char FOOTER_URL[] = "qrc:/QIXPageIndicatorFooter.qml";
+    const std::string headerURL() override;
+    const std::string footerURL() override;
 
+protected:
     void componentComplete() override;
 
 private:
     class Logic :
             public IXDynamicCreationLogic<IXLoginScreen>,
-            public IXScreenLogic<IXLoginScreen>
+            public IXScreenLogic
     {
     public:
         Logic(IXLoginScreen* object) :
             IXDynamicCreationLogic(object),
-            IXScreenLogic(),
+            IXScreenLogic(object),
             _component(object)
         {}
 
@@ -44,7 +44,7 @@ private:
     Logic _logic;
 
     friend class IXDynamicCreationLogic<IXLoginScreen>;
-    friend class IXScreenLogic<IXLoginScreen>;
+    friend class IXScreenLogic;
 };
 
 #endif // IXLOGINSCREEN_H

@@ -7,15 +7,17 @@
 
 class IXLoginLogic
 {
-    using callbackT = std::function<void(const QString&)>;
+    using callbackT = std::function<void()>;
 public:
-    IXLoginLogic(callbackT validLogin);
+    IXLoginLogic(callbackT validLoginCallback, callbackT invalidLoginCallback);
 
-    void test(const QString&);
-
+    void loginStatus();
 protected:
 
-    callbackT _loginCallback;
+    callbackT _validLoginCallback;
+    callbackT _invalidLoginCallback;
+
+    virtual void loginStatusCallback(const QString&);
 };
 
 #endif // IXLOGINLOGIC_H

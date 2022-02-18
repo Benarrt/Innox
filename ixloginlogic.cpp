@@ -1,14 +1,30 @@
 #include "ixloginlogic.h"
 #include "ixbackendless.h"
 
-IXLoginLogic::IXLoginLogic(callbackT loginCallback) :
-    _loginCallback(loginCallback)
+#include "QJsonDocument"
+
+IXLoginLogic::IXLoginLogic(callbackT validLoginCallback, callbackT invalidLoginCallback) :
+    _validLoginCallback(validLoginCallback), _invalidLoginCallback(invalidLoginCallback)
 {
-    IXBackendLess::inst().loginStatus(_loginCallback);
+
 }
 
-void IXLoginLogic::test(const QString& data)
+void IXLoginLogic::loginStatus()
 {
-    qDebug("IXLoginLogic::test");
-    qDebug(data.toLocal8Bit());
+    IXBackendLess::inst().loginStatus(std::bind(&IXLoginLogic::loginStatusCallback, this, std::placeholders::_1));
+}
+
+void IXLoginLogic::loginStatusCallback(const QString& msg)
+{
+    qDebug("loginCallback");
+    auto data = QJsonDocument::fromJson(msg.toUtf8());
+
+    if(data["loginStatus"] == QJsonValue::Undefined ||
+            !data["loginStatus"].toBool())
+    {
+        _invalidLoginCallback();
+        return;
+    }
+
+    _validLoginCallback();
 }

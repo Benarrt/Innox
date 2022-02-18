@@ -1,5 +1,7 @@
 #include "ixstartupscreen.h"
 
+#include "QJsonDocument"
+
 IXStartupScreen::IXStartupScreen() :
     _logic(this)
 {
@@ -11,8 +13,22 @@ void IXStartupScreen::componentComplete()
     QQuickItem::componentComplete();
 }
 
-void IXStartupScreen::loginCallback(const QString& data)
+void IXStartupScreen::validLoginCallback()
 {
-    qDebug("loginCallback");
-    qDebug(data.toLocal8Bit());
+    qDebug("LOGIN IS VALID");
+}
+void IXStartupScreen::invalidLoginCallback()
+{
+    qDebug("LOGIN IS INVALID");
+    _logic.loadLoginScreen();
+}
+
+const std::string IXStartupScreen::headerURL()
+{
+    return std::string("");
+}
+
+const std::string IXStartupScreen::footerURL()
+{
+    return std::string("");
 }

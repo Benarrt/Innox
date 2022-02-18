@@ -6,43 +6,39 @@
 #include "ixstartupscreen.h"
 #include "ixloginscreen.h"
 
-template<class T>
-IXScreenLogic<T>::IXScreenLogic()
+IXScreenLogic::IXScreenLogic(IXScreen* component) : _component(component)
 {
     load();
 }
 
-template<class T>
-void IXScreenLogic<T>::loadComponent(IXDynamicComponent* comp, const std::string& url)
+void IXScreenLogic::loadComponent(IXDynamicComponent* comp, const std::string& url)
 {
     if(comp)
         comp->setUrl(QString::fromStdString(url));
 }
 
-template<class T>
-void IXScreenLogic<T>::load()
+void IXScreenLogic::load()
 {
-    loadHeader(T::HEADER_URL);
-    loadFooter(T::FOOTER_URL);
+    loadHeader(_component->headerURL());
+    loadFooter(_component->footerURL());
 }
 
-template<class T>
-void IXScreenLogic<T>::loadScreen(const std::string& url)
+void IXScreenLogic::loadScreen(const std::string& url)
 {
     loadComponent(IXRegistry::inst().get<IXWindowPage>(), url);
 }
 
-template<class T>
-void IXScreenLogic<T>::loadHeader(const std::string& url)
+void IXScreenLogic::loadHeader(const std::string& url)
 {
     loadComponent(IXRegistry::inst().get<IXWindowPageHeader>(), url);
 }
 
-template<class T>
-void IXScreenLogic<T>::loadFooter(const std::string& url)
+void IXScreenLogic::loadFooter(const std::string& url)
 {
     loadComponent(IXRegistry::inst().get<IXWindowPageFooter>(), url);
 }
 
-template class IXScreenLogic<IXStartupScreen>;
-template class IXScreenLogic<IXLoginScreen>;
+void IXScreenLogic::loadLoginScreen()
+{
+    loadScreen("qrc:/QIXLoginScreen.qml");
+}

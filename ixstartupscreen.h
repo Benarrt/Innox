@@ -9,12 +9,15 @@
 #include <QQuickItem>
 
 
-class IXStartupScreen : public QQuickItem
+class IXStartupScreen : public QQuickItem, public IXScreen
 {
     Q_OBJECT
     IX_Q_COMPONENT
 public:
     IXStartupScreen();
+
+    const std::string headerURL() override;
+    const std::string footerURL() override;
 
 protected:
     static constexpr char HEADER_URL[] = "";
@@ -24,30 +27,32 @@ protected:
 
 private:
     class Logic : public IXDynamicCreationLogic<IXStartupScreen>,
-                  public IXScreenLogic<IXStartupScreen>,
+                  public IXScreenLogic,
                   public IXLoginLogic
     {
     public:
         Logic(IXStartupScreen* object) :
             IXDynamicCreationLogic(object),
-            IXScreenLogic(),
-            IXLoginLogic(std::bind(&IXStartupScreen::loginCallback, object, std::placeholders::_1)),
+            IXScreenLogic(object),
+            IXLoginLogic(std::bind(&IXStartupScreen::validLoginCallback, object),
+                         std::bind(&IXStartupScreen::invalidLoginCallback, object)),
             _component(object)
         {}
 
     protected:
         void dynamicReady() override
         {
-            IXScreenLogic::load();
+            IXLoginLogic::loginStatus();
         }
 
         IXStartupScreen* _component;
     };
 
-    void loginCallback(const QString& data);
+    void validLoginCallback();
+    void invalidLoginCallback();
 
     friend class IXDynamicCreationLogic<IXStartupScreen>;
-    friend class IXScreenLogic<IXStartupScreen>;
+    friend class IXScreenLogic;
 
     Logic _logic;
 };
