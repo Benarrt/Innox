@@ -19,6 +19,7 @@ SOURCES += \
         ixpageindicator.cpp \
         ixpageindicatorlogic.cpp \
         ixqcomponent.cpp \
+        ixregisterlogic.cpp \
         ixregistry.cpp \
         ixscreen.cpp \
         ixscreenlogic.cpp \
@@ -70,6 +71,7 @@ HEADERS += \
     ixpageindicator.h \
     ixpageindicatorlogic.h \
     ixqcomponent.h \
+    ixregisterlogic.h \
     ixregistry.h \
     ixscreen.h \
     ixscreenlogic.h \

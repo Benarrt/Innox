@@ -29,3 +29,26 @@ void IXLoginScreen::logIntoAccount(const QString& username, const QString& passw
 {
     _logic.logIn(username, password);
 }
+
+void IXLoginScreen::registerAccount(const QString& username, const QString& password)
+{
+    _logic.registerAccount(username, password);
+}
+
+void IXLoginScreen::validLoginCallback()
+{
+    qDebug("LOGINC SUCCES");
+}
+void IXLoginScreen::invalidLoginCallback()
+{
+    qDebug("LOGINC FAIL");
+}
+void IXLoginScreen::validRegisterCallback()
+{
+    qDebug("REGISTER SUCCES");
+}
+void IXLoginScreen::invalidRegisterCallback(uint16_t error)
+{
+    qDebug("REGISTER FAIL");
+}
+

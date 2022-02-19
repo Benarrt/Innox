@@ -116,4 +116,36 @@ struct LOGOUT_REQUEST
     std::list<callbackT> callbacks={};
 };
 
+struct REGISTER_REQUEST
+{
+    using callbackT = std::function<void(const QString&)>;
+    static constexpr const uint32_t ID = 3;
+
+    void request(const QString& username, const QString& password)
+    {
+        EM_ASM({
+                   var resultCallback = function(error) {
+                       console.log(error);
+                   };
+
+                   var user = new Backendless.User();
+                   user.email = Module.UTF16ToString($1);
+                   user.password = Module.UTF16ToString($2);
+                   Backendless.UserService.register( user ).then(function(){
+                       console.log("REGISTER OK");
+                       console.log(msg);
+                   }, function(err){
+                       console.log("REGISTER FAIL");
+                       console.log(err);
+                   }).catch(err=>{
+                       console.log("REGISTER FAIL2");
+                       console.log(err);
+                   })
+        }, ID, username.data(), password.data());
+    }
+
+    std::list<callbackT> callbacks={};
+};
+#define REGISTER_REQ IXBACKENDLESS_REQUEST<REGISTER_REQUEST>
+
 #endif // IXBACKENDLESREQDEFS_H

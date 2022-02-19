@@ -23,14 +23,6 @@ QIXScreenPage {
         }
     }
 
-    footer: QIXPageIndicatorFooter {
-
-    }
-
-    header: QIXTestHeader {
-
-    }
-
     QIXTextField {
         id: qIXTextField
         x: 260
@@ -50,33 +42,39 @@ QIXScreenPage {
         anchors.top: qIXTextField.bottom
         horizontalAlignment: Text.AlignHCenter
         anchors.topMargin: 20
-        placeholderText: "password"
+        placeholderText: "haslo"
         anchors.horizontalCenter: parent.horizontalCenter
         echoMode: TextInput.Password
     }
 
-    QIXButton {
-        id: qIXButton
-        width: 150
-        text: "Zaloguj"
-        anchors.left: qIXTextField1.left
+    QIXTextField {
+        id: qIXTextField2
+        x: 250
+        width: 400
         anchors.top: qIXTextField1.bottom
-        anchors.leftMargin: 0
-        display: AbstractButton.TextBesideIcon
+        horizontalAlignment: Text.AlignHCenter
         anchors.topMargin: 20
+        echoMode: TextInput.Password
+        placeholderText: "powtorz haslo"
+        anchors.horizontalCenter: parent.horizontalCenter
     }
 
     QIXButton {
-        id: qIXButton1
-        width: 200
-        height: 40
-        text: "Zapomnialem hasla"
+        id: qIXButton
+        text: "Zarejestruj"
+        anchors.left: qIXTextField1.left
         anchors.right: qIXTextField1.right
-        anchors.top: qIXTextField1.bottom
+        anchors.top: qIXTextField2.bottom
         anchors.rightMargin: 0
-        anchors.topMargin: 20
+        anchors.leftMargin: 0
         display: AbstractButton.TextBesideIcon
+        anchors.topMargin: 20
+
+        onClicked: {
+            ixloginscreen.registerAccount(qIXTextField.text, qIXTextField1.text);
+        }
     }
+
 
 
 
@@ -96,6 +94,6 @@ QIXScreenPage {
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:0.75}D{i:2}
+    D{i:0;formeditorZoom:0.75}D{i:8}
 }
 ##^##*/

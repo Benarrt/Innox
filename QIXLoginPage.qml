@@ -8,9 +8,9 @@ QIXScreenPage {
         id: qIXTextField
         x: 260
         width: 400
-        anchors.top: parent.top
+        anchors.verticalCenter: parent.verticalCenter
         horizontalAlignment: Text.AlignHCenter
-        anchors.topMargin: 5
+        anchors.verticalCenterOffset: -160
         anchors.horizontalCenter: parent.horizontalCenter
         placeholderText: "email"
     }
@@ -22,7 +22,7 @@ QIXScreenPage {
         anchors.top: qIXTextField.bottom
         horizontalAlignment: Text.AlignHCenter
         anchors.topMargin: 20
-        placeholderText: "password"
+        placeholderText: "haslo"
         anchors.horizontalCenter: parent.horizontalCenter
         echoMode: TextInput.Password
     }
@@ -75,6 +75,6 @@ QIXScreenPage {
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:0.75}D{i:1}
+    D{i:0;formeditorZoom:0.75}
 }
 ##^##*/
