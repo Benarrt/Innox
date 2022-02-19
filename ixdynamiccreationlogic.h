@@ -2,14 +2,14 @@
 #define IXDYNAMICCREATIONLOGIC_H
 #include "functional"
 
-template<class T>
+class IXDynamic;
+
+//This class does nothing so far beside ensuring that owner of this logic is deriving from IXDynamic
+
 class IXDynamicCreationLogic
 {
 public:
-    IXDynamicCreationLogic(T* object);
-
-protected:
-    virtual void dynamicReady() = 0;
+    IXDynamicCreationLogic(IXDynamic* object);
 };
 
 #endif // IXDYNAMICCREATIONLOGIC_H

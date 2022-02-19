@@ -50,7 +50,7 @@ QIXScreenPage {
         display: AbstractButton.TextOnly
 
         onClicked: {
-            console.log("changeScreenTest1");
+
         }
     }
 

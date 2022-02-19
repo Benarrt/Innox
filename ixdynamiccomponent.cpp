@@ -1,4 +1,5 @@
 #include "ixdynamiccomponent.h"
+#include "ixdynamic.h"
 
 IXDynamicComponent::IXDynamicComponent() : _item(nullptr), changing(false)
 {
@@ -54,9 +55,7 @@ void IXDynamicComponent::onUrlChanged(const QUrl& url)
     // QQmlEngine *engine = qmlContext(this)->engine();
     QQmlComponent component(engine, url);
     qDebug(component.errorString().toLocal8Bit());
-    QVariantMap qvm;
-    qvm["enabled"] = QVariant(false);
-    QObject *myObject = component.createWithInitialProperties(qvm);
+    QObject *myObject = component.create();
     qDebug(component.errorString().toLocal8Bit());
     _item = qobject_cast<QQuickItem*>(myObject);
     _item->setParentItem(this);
@@ -65,6 +64,16 @@ void IXDynamicComponent::onUrlChanged(const QUrl& url)
     this->setHeight(_item->height());
     this->setWidth(_item->width());
 
+    IXDynamic* itemLogic = nullptr;
+    if(_item->property("logic").isValid())
+    {
+        itemLogic = dynamic_cast<IXDynamic*>(_item->property("logic").value<QQuickItem*>());
+    }
     changing = false;
-    _item->setEnabled(true);
+
+    //Not so pretty side cast
+    if(!itemLogic)
+        return;
+
+    itemLogic->onDynamicReady();
 }

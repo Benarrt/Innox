@@ -6,8 +6,10 @@
 #include "ixdynamiccreationlogic.h"
 #include "ixscreenlogic.h"
 #include "ixqcomponent.h"
+#include "ixloginlogic.h"
+#include "ixdynamic.h"
 
-class IXLoginScreen : public QQuickItem, public IXScreen
+class IXLoginScreen : public QQuickItem, public IXScreen, public IXDynamic
 {
     Q_OBJECT
     IX_Q_COMPONENT
@@ -17,34 +19,32 @@ public:
     const std::string headerURL() override;
     const std::string footerURL() override;
 
+    Q_INVOKABLE void logIntoAccount(const QString& username, const QString& password);
+
+    void onDynamicReady() override;
+
 protected:
     void componentComplete() override;
 
 private:
     class Logic :
-            public IXDynamicCreationLogic<IXLoginScreen>,
-            public IXScreenLogic
+            public IXDynamicCreationLogic,
+            public IXScreenLogic,
+            public IXLoginLogic
     {
     public:
         Logic(IXLoginScreen* object) :
             IXDynamicCreationLogic(object),
             IXScreenLogic(object),
+            IXLoginLogic([](){}, [](){}),
             _component(object)
         {}
-
-        void dynamicReady() override
-        {
-            qDebug("IXLoginScreen dynamicReady");
-        }
 
     protected:
         IXLoginScreen* _component;
     };
 
     Logic _logic;
-
-    friend class IXDynamicCreationLogic<IXLoginScreen>;
-    friend class IXScreenLogic;
 };
 
 #endif // IXLOGINSCREEN_H

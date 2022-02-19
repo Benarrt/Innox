@@ -13,6 +13,11 @@ void IXStartupScreen::componentComplete()
     QQuickItem::componentComplete();
 }
 
+void IXStartupScreen::onDynamicReady()
+{
+    _logic.loginStatus();
+}
+
 void IXStartupScreen::validLoginCallback()
 {
     qDebug("LOGIN IS VALID");

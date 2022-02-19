@@ -10,6 +10,7 @@ SOURCES += \
         ixbackendlesreqdefs.cpp \
         ixbackendless.cpp \
         ixbutton.cpp \
+        ixdynamic.cpp \
         ixdynamiccomponent.cpp \
         ixdynamiccreationlogic.cpp \
         ixhandlebackpopup.cpp \
@@ -60,6 +61,7 @@ HEADERS += \
     ixbackendlesreqdefs.h \
     ixbackendless.h \
     ixbutton.h \
+    ixdynamic.h \
     ixdynamiccomponent.h \
     ixdynamiccreationlogic.h \
     ixhandlebackpopup.h \
