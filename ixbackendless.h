@@ -23,6 +23,9 @@ public:
 
     void loginStatus(callbackT callback);
 
+    void logIn(const QString& username, const QString& password, callbackT callback);
+    void logOut(callbackT callback);
+
     static const std::unordered_map<uint32_t, callbackT>& callbackMap();
 
 private:

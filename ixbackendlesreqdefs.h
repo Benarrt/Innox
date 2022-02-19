@@ -42,4 +42,78 @@ struct LOGIN_STATUS
     std::list<callbackT> callbacks={};
 };
 
+struct LOGIN_REQUEST
+{
+    using callbackT = std::function<void(const QString&)>;
+    static constexpr const uint32_t ID = 1;
+
+    void request(const QString& username, const QString& password)
+    {
+        EM_ASM({
+                   var resultCallback = function(loginValid) {
+                       var result = {};
+                       result.loginStatus = loginValid;
+
+                       var data = JSON.stringify(result);
+                       var heapPtr = Module._malloc((data.length+1)*2);
+                       Module.stringToUTF16(data, heapPtr, (data.length+1)*2);
+                       Module._IXBackendLessCallback($0, heapPtr);
+                   };
+
+                   var email = Module.UTF16ToString($1);
+                   var password = Module.UTF16ToString($2);
+                   Backendless.UserService.login(email, password, true)
+                   .then((session) => {
+                       resultCallback(true);
+                   })
+                   .catch((e) => {
+                       console.log(e);
+                       resultCallback(false);
+                   });
+        }, ID, username.data(), password.data());
+    }
+
+    std::list<callbackT> callbacks={};
+};
+
+struct LOGOUT_REQUEST
+{
+    using callbackT = std::function<void(const QString&)>;
+    static constexpr const uint32_t ID = 2;
+
+    void request()
+    {
+        qDebug("LOGOUT_REQUEST");
+
+        EM_ASM({
+                   var resultCallback = function(loginValid) {
+                       var result = {};
+                       result.loginStatus = loginValid;
+
+                       var data = JSON.stringify(result);
+                       var heapPtr = Module._malloc((data.length+1)*2);
+                       Module.stringToUTF16(data, heapPtr, (data.length+1)*2);
+                       Module._IXBackendLessCallback($0, heapPtr);
+                   };
+
+                   Backendless.UserService.logout()
+                   .then(() => {
+                       resultCallback(false);
+                   }).catch((e) => {
+                       Backendless.UserService.isValidLogin().then((res)=>{
+                           if(!res) {
+                               throw 'Invalid login';
+                           }
+                           resultCallback(true);
+                       }).catch((e)=>{
+                           console.log(e);
+                           resultCallback(false);
+                       });
+                   });
+        }, ID);
+    }
+
+    std::list<callbackT> callbacks={};
+};
+
 #endif // IXBACKENDLESREQDEFS_H

@@ -27,5 +27,5 @@ const std::string IXLoginScreen::footerURL()
 
 void IXLoginScreen::logIntoAccount(const QString& username, const QString& password)
 {
-
+    _logic.logIn(username, password);
 }

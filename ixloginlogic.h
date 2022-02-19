@@ -8,12 +8,16 @@
 class IXLoginLogic
 {
     using callbackT = std::function<void()>;
+    using innerCallbackT = std::function<void(const QString&)>;
 public:
     IXLoginLogic(callbackT validLoginCallback, callbackT invalidLoginCallback);
 
     void loginStatus();
+    void logIn(const QString& username, const QString& password);
+    void logOut();
 protected:
 
+    innerCallbackT _loginStatusCallback;
     callbackT _validLoginCallback;
     callbackT _invalidLoginCallback;
 

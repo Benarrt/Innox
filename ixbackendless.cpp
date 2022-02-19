@@ -51,6 +51,20 @@ public:
         request().request();
     }
 
+    template<class ...Types>
+    void call(callbackT callback, Types... args)
+    {
+        auto& callbacks = request().callbacks;
+        callbacks.push_back(callback);
+
+        qDebug(QString::number(callbacks.size()).toLocal8Bit());
+
+        if(callbacks.size() > 1)
+            return;
+
+        request().request(args...);
+    }
+
 private:
     IXBACKENDLESS_REQUEST()
     {
@@ -68,8 +82,12 @@ const std::unordered_map<uint32_t, IXBackendLess::callbackT>& IXBackendLess::cal
 {
     static const std::unordered_map<uint32_t, callbackT> map =
     {
-          { LOGIN_STATUS::ID, std::bind(&IXBACKENDLESS_REQUEST<LOGIN_STATUS>::callBack,
-            IXBACKENDLESS_REQUEST<LOGIN_STATUS>::inst(), std::placeholders::_1 )}
+        { LOGIN_STATUS::ID, std::bind(&IXBACKENDLESS_REQUEST<LOGIN_STATUS>::callBack,
+            IXBACKENDLESS_REQUEST<LOGIN_STATUS>::inst(), std::placeholders::_1 )},
+        { LOGIN_REQUEST::ID, std::bind(&IXBACKENDLESS_REQUEST<LOGIN_REQUEST>::callBack,
+            IXBACKENDLESS_REQUEST<LOGIN_REQUEST>::inst(), std::placeholders::_1 )},
+        { LOGOUT_REQUEST::ID, std::bind(&IXBACKENDLESS_REQUEST<LOGOUT_REQUEST>::callBack,
+            IXBACKENDLESS_REQUEST<LOGOUT_REQUEST>::inst(), std::placeholders::_1 )}
     };
     return map;
 }
@@ -85,4 +103,14 @@ IXBackendLess::IXBackendLess()
 void IXBackendLess::loginStatus(callbackT callback)
 {
     IXBACKENDLESS_REQUEST<LOGIN_STATUS>::inst().call(callback);
+}
+
+void IXBackendLess::logIn(const QString& username, const QString& password, callbackT callback)
+{
+    IXBACKENDLESS_REQUEST<LOGIN_REQUEST>::inst().call(callback, username, password);
+}
+
+void IXBackendLess::logOut(callbackT callback)
+{
+    IXBACKENDLESS_REQUEST<LOGOUT_REQUEST>::inst().call(callback);
 }

@@ -36,6 +36,10 @@ QIXScreenPage {
         anchors.leftMargin: 0
         display: AbstractButton.TextOnly
         anchors.topMargin: 20
+
+        onClicked: {
+            ixloginscreen.logIntoAccount(qIXTextField.text, qIXTextField1.text);
+        }
     }
 
     QIXButton {
