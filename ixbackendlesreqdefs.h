@@ -124,28 +124,62 @@ struct REGISTER_REQUEST
     void request(const QString& username, const QString& password)
     {
         EM_ASM({
-                   var resultCallback = function(error) {
-                       console.log(error);
+                   var resultCallback = function(registerValid, error) {
+                       var result = {};
+                       result.registerStatus = registerValid;
+                       result.error = error;
+
+                       var data = JSON.stringify(result);
+                       var heapPtr = Module._malloc((data.length+1)*2);
+                       Module.stringToUTF16(data, heapPtr, (data.length+1)*2);
+                       Module._IXBackendLessCallback($0, heapPtr);
                    };
 
                    var user = new Backendless.User();
                    user.email = Module.UTF16ToString($1);
                    user.password = Module.UTF16ToString($2);
                    Backendless.UserService.register( user ).then(function(){
-                       console.log("REGISTER OK");
-                       console.log(msg);
+                       resultCallback(true);
                    }, function(err){
-                       console.log("REGISTER FAIL");
-                       console.log(err);
-                   }).catch(err=>{
-                       console.log("REGISTER FAIL2");
-                       console.log(err);
-                   })
+                       resultCallback(false, err.code);
+                   });
         }, ID, username.data(), password.data());
     }
 
     std::list<callbackT> callbacks={};
 };
 #define REGISTER_REQ IXBACKENDLESS_REQUEST<REGISTER_REQUEST>
+
+struct PASSWORD_RECOVER_REQUEST
+{
+    using callbackT = std::function<void(const QString&)>;
+    static constexpr const uint32_t ID = 4;
+
+    void request(const QString& username)
+    {
+        EM_ASM({
+                   var resultCallback = function(registerValid, error) {
+                       var result = {};
+                       result.registerStatus = registerValid;
+                       result.error = error;
+
+                       var data = JSON.stringify(result);
+                       var heapPtr = Module._malloc((data.length+1)*2);
+                       Module.stringToUTF16(data, heapPtr, (data.length+1)*2);
+                       Module._IXBackendLessCallback($0, heapPtr);
+                   };
+
+                   var email = Module.UTF16ToString($1);
+                   Backendless.UserService.restorePassword( email ).then(function(){
+                       resultCallback(true);
+                   }, function(err){
+                       resultCallback(false, err.code);
+                   });
+        }, ID, username.data());
+    }
+
+    std::list<callbackT> callbacks={};
+};
+#define PW_RECOVER_REQ IXBACKENDLESS_REQUEST<PASSWORD_RECOVER_REQUEST>
 
 #endif // IXBACKENDLESREQDEFS_H

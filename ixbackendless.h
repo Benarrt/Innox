@@ -28,6 +28,8 @@ public:
 
     void registerAccount(const QString& username, const QString& password, callbackT callback);
 
+    void recoverAccountPassword(const QString& username, callbackT callback);
+
     static const std::unordered_map<uint32_t, callbackT>& callbackMap();
 
 private:

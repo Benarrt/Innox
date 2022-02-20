@@ -18,6 +18,7 @@ SOURCES += \
         ixloginscreen.cpp \
         ixpageindicator.cpp \
         ixpageindicatorlogic.cpp \
+        ixpasswordrecoverlogic.cpp \
         ixqcomponent.cpp \
         ixregisterlogic.cpp \
         ixregistry.cpp \
@@ -70,6 +71,7 @@ HEADERS += \
     ixloginscreen.h \
     ixpageindicator.h \
     ixpageindicatorlogic.h \
+    ixpasswordrecoverlogic.h \
     ixqcomponent.h \
     ixregisterlogic.h \
     ixregistry.h \

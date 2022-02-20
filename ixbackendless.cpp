@@ -89,7 +89,9 @@ const std::unordered_map<uint32_t, IXBackendLess::callbackT>& IXBackendLess::cal
         { LOGOUT_REQUEST::ID, std::bind(&IXBACKENDLESS_REQUEST<LOGOUT_REQUEST>::callBack,
             IXBACKENDLESS_REQUEST<LOGOUT_REQUEST>::inst(), std::placeholders::_1 )},
         { REGISTER_REQUEST::ID, std::bind(&REGISTER_REQ::callBack,
-            REGISTER_REQ::inst(), std::placeholders::_1 )}
+            REGISTER_REQ::inst(), std::placeholders::_1 )},
+        { PASSWORD_RECOVER_REQUEST::ID, std::bind(&PW_RECOVER_REQ::callBack,
+            PW_RECOVER_REQ::inst(), std::placeholders::_1 )}
     };
     return map;
 }
@@ -120,4 +122,9 @@ void IXBackendLess::logOut(callbackT callback)
 void IXBackendLess::registerAccount(const QString& username, const QString& password, callbackT callback)
 {
     REGISTER_REQ::inst().call(callback, username, password);
+}
+
+void IXBackendLess::recoverAccountPassword(const QString& username, callbackT callback)
+{
+    PW_RECOVER_REQ::inst().call(callback, username);
 }

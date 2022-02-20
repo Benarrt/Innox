@@ -54,7 +54,7 @@ QIXScreenPage {
         display: AbstractButton.TextOnly
 
         onClicked: {
-
+            ixloginscreen.recoverAccountPassword(qIXTextField.text);
         }
     }
 
