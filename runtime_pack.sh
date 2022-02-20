@@ -29,7 +29,7 @@ APP_PATH="/home/innox"
 docker cp ./server/ $1:${APP_PATH}/
 
 # Scripts
-docker cp ./scripts/ $1:${APP_PATH}/public/scripts/
+docker cp ./scripts/ $1:${APP_PATH}/public/
 
 # html
 docker cp ./index.html $1:${APP_PATH}/public/
