@@ -1,5 +1,4 @@
 import QtQuick 2.15
-import QtQuick.Controls 2.15
 
 QIXScreenPage {
     id: qIXScreenPage
@@ -9,10 +8,10 @@ QIXScreenPage {
         x: 260
         width: 400
         anchors.verticalCenter: parent.verticalCenter
-        horizontalAlignment: Text.AlignHCenter
         anchors.verticalCenterOffset: -160
         anchors.horizontalCenter: parent.horizontalCenter
         placeholderText: qsTr("email")
+        text: ""
     }
 
     QIXTextField {
@@ -20,21 +19,21 @@ QIXScreenPage {
         x: 250
         width: 400
         anchors.top: qIXTextField.bottom
-        horizontalAlignment: Text.AlignHCenter
         anchors.topMargin: 20
         placeholderText: qsTr("haslo")
         anchors.horizontalCenter: parent.horizontalCenter
         echoMode: TextInput.Password
+        text: ""
     }
 
     QIXButton {
         id: qIXButton
         width: 150
+        height: 40
         text: qsTr("Zaloguj")
         anchors.left: qIXTextField1.left
         anchors.top: qIXTextField1.bottom
         anchors.leftMargin: 0
-        display: AbstractButton.TextOnly
         anchors.topMargin: 20
 
         onClicked: {
@@ -51,7 +50,6 @@ QIXScreenPage {
         anchors.top: qIXTextField1.bottom
         anchors.rightMargin: 0
         anchors.topMargin: 20
-        display: AbstractButton.TextOnly
 
         onClicked: {
             ixloginscreen.recoverAccountPassword(qIXTextField.text);

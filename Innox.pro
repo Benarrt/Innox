@@ -26,6 +26,7 @@ SOURCES += \
         ixscreenlogic.cpp \
         ixshadowtextfield.cpp \
         ixstartupscreen.cpp \
+        ixstylesheet.cpp \
         ixswipeview.cpp \
         ixtextfield.cpp \
         ixwindow.cpp \
@@ -79,6 +80,7 @@ HEADERS += \
     ixscreenlogic.h \
     ixshadowtextfield.h \
     ixstartupscreen.h \
+    ixstylesheet.h \
     ixswipeview.h \
     ixtextfield.h \
     ixwindow.h \

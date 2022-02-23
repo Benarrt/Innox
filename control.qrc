@@ -5,5 +5,6 @@
         <file>QIXScreenPage.qml</file>
         <file>QIXSwipeView.qml</file>
         <file>QIXPageIndicator.qml</file>
+        <file>QIXLabel.qml</file>
     </qresource>
 </RCC>

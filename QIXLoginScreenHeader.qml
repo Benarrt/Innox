@@ -8,23 +8,18 @@ Item {
         color: "#8fb9a8"
         anchors.fill: parent
 
-        Label {
+        QIXLabel {
             width: 280
             height: 34
             color: "#ffffff"
             text: qsTr("Zaloguj sie lub zaloz nowe konto")
             anchors.top: rectangle1.bottom
-            horizontalAlignment: Text.AlignHCenter
-            verticalAlignment: Text.AlignVCenter
             anchors.topMargin: 0
             anchors.horizontalCenter: parent.horizontalCenter
-            styleColor: "#ffffff"
-            font.pointSize: 16
         }
 
         Rectangle {
             id: rectangle1
-            x: 0
             width: 186
             height: 36
             color: "#00000000"
@@ -32,18 +27,15 @@ Item {
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.topMargin: 10
 
-            Label {
-                y: 20
+            QIXLabel {
                 width: 89
                 height: 36
                 color: "#fefad4"
                 text: qsTr("Innox!")
                 anchors.verticalCenter: parent.verticalCenter
                 anchors.left: rectangle2.right
-                horizontalAlignment: Text.AlignHCenter
-                verticalAlignment: Text.AlignVCenter
                 font.bold: true
-                anchors.leftMargin: 0
+                anchors.leftMargin: 15
                 font.pointSize: 20
             }
 
@@ -55,16 +47,11 @@ Item {
                 height: 36
                 color: "#00ffffff"
 
-                Label {
-                    x: 274
-                    y: 0
+                QIXLabel {
                     width: 95
                     height: 36
-                    color: "#ffffff"
-                    text: qsTr("Witaj w ")
+                    text: qsTr("Witaj w")
                     anchors.verticalCenter: parent.verticalCenter
-                    horizontalAlignment: Text.AlignHCenter
-                    verticalAlignment: Text.AlignVCenter
                     anchors.horizontalCenter: parent.horizontalCenter
                     font.pointSize: 20
                 }
@@ -77,6 +64,6 @@ Item {
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:1.659999966621399}D{i:4}D{i:6}D{i:3}
+    D{i:0;formeditorZoom:1.25}
 }
 ##^##*/
