@@ -2,5 +2,6 @@
     <qresource prefix="/">
         <file>QIXTestHeader.qml</file>
         <file>QIXTestHeader2.qml</file>
+        <file>QIXLoginScreenHeader.qml</file>
     </qresource>
 </RCC>

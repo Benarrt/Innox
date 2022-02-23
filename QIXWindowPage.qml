@@ -6,10 +6,6 @@ Page {
     id: page
     property url contentUrl
 
-    function test() {
-        console.log("TEST");
-    }
-
     onContentUrlChanged: {
         ixwindowpage.url = contentUrl;
     }

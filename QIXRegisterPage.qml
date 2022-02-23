@@ -3,25 +3,9 @@ import QtQuick.Controls 2.15
 
 QIXScreenPage {
     id: qIXScreenPage
-    title: "register"
+    title: qsTr("register")
     height: 1080
     contentHeight: 880
-
-    background: Rectangle {
-        color: "#29323c"
-        anchors.fill: parent
-        gradient: Gradient {
-            GradientStop {
-                position: 0
-                color: "#29323c"
-            }
-
-            GradientStop {
-                position: 1
-                color: "#485563"
-            }
-        }
-    }
 
     QIXTextField {
         id: qIXTextField
@@ -32,7 +16,7 @@ QIXScreenPage {
         horizontalAlignment: Text.AlignHCenter
         anchors.verticalCenterOffset: -160
         anchors.horizontalCenter: parent.horizontalCenter
-        placeholderText: "email"
+        placeholderText: qsTr("email")
     }
 
     QIXTextField {
@@ -42,7 +26,7 @@ QIXScreenPage {
         anchors.top: qIXTextField.bottom
         horizontalAlignment: Text.AlignHCenter
         anchors.topMargin: 20
-        placeholderText: "haslo"
+        placeholderText: qsTr("haslo")
         anchors.horizontalCenter: parent.horizontalCenter
         echoMode: TextInput.Password
     }
@@ -55,13 +39,13 @@ QIXScreenPage {
         horizontalAlignment: Text.AlignHCenter
         anchors.topMargin: 20
         echoMode: TextInput.Password
-        placeholderText: "powtorz haslo"
+        placeholderText: qsTr("powtorz haslo")
         anchors.horizontalCenter: parent.horizontalCenter
     }
 
     QIXButton {
         id: qIXButton
-        text: "Zarejestruj"
+        text: qsTr("Zarejestruj")
         anchors.left: qIXTextField1.left
         anchors.right: qIXTextField1.right
         anchors.top: qIXTextField2.bottom

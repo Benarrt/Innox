@@ -2,10 +2,10 @@ import QtQuick 2.15
 import QtQuick.Controls 2.15
 
 Item {
-    height: 100
+    height: 40
     Rectangle {
         id: rectangle
-        color: "#c82626"
+        color: "#00ffffff"
         anchors.fill: parent
         QIXPageIndicator {
             anchors.top: parent.top

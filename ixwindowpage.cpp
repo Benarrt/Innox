@@ -28,10 +28,18 @@ void IXWindowPage::componentComplete()
     _component->setProperty("height", baseHeight);
     _component->setProperty("clip", true);
 
+    connect(ixWindow, SIGNAL(widthChanged()), this, SLOT(updatePageWidth()));
+
     qvariant_cast<QObject*>(_component->property("anchors"))->
             setProperty("horizontalCenter", ixWindow->property("horizontalCenter"));
 
     qvariant_cast<QObject*>(_component->property("anchors"))->
             setProperty("top", ixWindow->property("top"));
 
+}
+
+void IXWindowPage::updatePageWidth()
+{
+    auto ixWindow = IXRegistry::inst().get<IXWindow>();
+    _component->setProperty("width", ixWindow->property("width").toUInt());
 }

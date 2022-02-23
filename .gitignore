@@ -6,3 +6,4 @@ Makefile
 moc_*.cpp
 qrc_*.cpp
 *.autosave
+*.qm

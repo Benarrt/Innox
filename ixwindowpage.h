@@ -16,6 +16,7 @@ signals:
 
 protected:
     void componentComplete() override;
+    Q_SLOT void updatePageWidth();
 };
 
 #endif // IXPAGE_H

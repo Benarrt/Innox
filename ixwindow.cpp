@@ -85,16 +85,26 @@ void IXWindow::onWindowResized()
     this->setHeight(parentHeight / appliedScale);
     this->setScale(appliedScale);*/
 
-    qreal desiredW = _component->width() > _baseWidth ? _baseWidth : _component->width();
-    qreal scaleW = desiredW / this->width();
-    qreal scaleH = _component->height()/this->height();
+    //qreal desiredW = _component->width() > _baseWidth ? _baseWidth : _component->width();
+    qreal scaleW = _component->width() / _baseWidth;
+    qreal scaleH = _component->height() / this->height();
 
     //Scale is sometimess off and you can see 1-2pixels off
     //scaleH += 0.01;
     scaleW += 0.01;
 
     auto ixWindowScale = this->findChild<QObject*>("ixWindowScale");
-    ixWindowScale->setProperty("xScale", scaleW);
+    if(scaleW >= 1)
+    {
+        this->setProperty("width", _component->width());
+        ixWindowScale->setProperty("xScale", 1);
+    }
+    else
+    {
+        this->setProperty("width", _baseWidth);
+        ixWindowScale->setProperty("xScale", scaleW);
+    }
+
     ixWindowScale->setProperty("yScale", scaleH);
 }
 

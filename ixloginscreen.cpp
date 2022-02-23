@@ -17,7 +17,7 @@ void IXLoginScreen::onDynamicReady()
 
 const std::string IXLoginScreen::headerURL()
 {
-    return std::string("qrc:/QIXTestHeader.qml");
+    return std::string("qrc:/QIXLoginScreenHeader.qml");
 }
 
 const std::string IXLoginScreen::footerURL()

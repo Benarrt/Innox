@@ -12,7 +12,7 @@ QIXScreenPage {
         horizontalAlignment: Text.AlignHCenter
         anchors.verticalCenterOffset: -160
         anchors.horizontalCenter: parent.horizontalCenter
-        placeholderText: "email"
+        placeholderText: qsTr("email")
     }
 
     QIXTextField {
@@ -22,7 +22,7 @@ QIXScreenPage {
         anchors.top: qIXTextField.bottom
         horizontalAlignment: Text.AlignHCenter
         anchors.topMargin: 20
-        placeholderText: "haslo"
+        placeholderText: qsTr("haslo")
         anchors.horizontalCenter: parent.horizontalCenter
         echoMode: TextInput.Password
     }
@@ -30,7 +30,7 @@ QIXScreenPage {
     QIXButton {
         id: qIXButton
         width: 150
-        text: "Zaloguj"
+        text: qsTr("Zaloguj")
         anchors.left: qIXTextField1.left
         anchors.top: qIXTextField1.bottom
         anchors.leftMargin: 0
@@ -46,7 +46,7 @@ QIXScreenPage {
         id: qIXButton1
         width: 230
         height: 40
-        text: "Zapomnialem hasla"
+        text: qsTr("Zapomnialem hasla")
         anchors.right: qIXTextField1.right
         anchors.top: qIXTextField1.bottom
         anchors.rightMargin: 0
