@@ -8,4 +8,8 @@ Page {
     contentWidth: 720
     font.pointSize: 16
     clip: true
+
+    background: Rectangle {
+        color: "#00ffffff"
+    }
 }

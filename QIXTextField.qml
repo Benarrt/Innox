@@ -6,14 +6,16 @@ import io.qt.examples.ixstylesheet 1.0
 TextField {
     text: "QIXTextField"
     horizontalAlignment: Text.AlignHCenter
-    font: IXStyleSheet.fgFont()
-    color: focus ? IXStyleSheet.fgColor() : IXStyleSheet.fg2Color()
-    selectionColor: IXStyleSheet.fg3Color()
+    font: IXStyleSheet.defaultFont()
+    color: focus ? IXStyleSheet.superLightColor() : IXStyleSheet.lightColor()
+    selectionColor: IXStyleSheet.darkColor()
+    selectedTextColor: IXStyleSheet.lightColor()
 
     background: Rectangle {
-        color: IXStyleSheet.bgColor()
-        border.color: IXStyleSheet.bg2Color()
+        color: IXStyleSheet.mediumColor()
+        border.color: IXStyleSheet.darkColor()
         border.width: parent.focus ? 1 : 0
+        radius: 5
     }
 
     IXTextField {

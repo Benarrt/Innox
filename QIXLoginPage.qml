@@ -6,8 +6,10 @@ QIXScreenPage {
     QIXTextField {
         id: qIXTextField
         x: 260
-        width: 400
+        width: 650
+        height: 50
         anchors.verticalCenter: parent.verticalCenter
+        font.pointSize: 20
         anchors.verticalCenterOffset: -160
         anchors.horizontalCenter: parent.horizontalCenter
         placeholderText: qsTr("email")
@@ -17,8 +19,10 @@ QIXScreenPage {
     QIXTextField {
         id: qIXTextField1
         x: 250
-        width: 400
+        width: 650
+        height: 50
         anchors.top: qIXTextField.bottom
+        font.pointSize: 20
         anchors.topMargin: 20
         placeholderText: qsTr("haslo")
         anchors.horizontalCenter: parent.horizontalCenter
@@ -28,11 +32,12 @@ QIXScreenPage {
 
     QIXButton {
         id: qIXButton
-        width: 150
-        height: 40
+        width: 275
+        height: 60
         text: qsTr("Zaloguj")
         anchors.left: qIXTextField1.left
         anchors.top: qIXTextField1.bottom
+        font.pointSize: 20
         anchors.leftMargin: 0
         anchors.topMargin: 20
 
@@ -43,11 +48,12 @@ QIXScreenPage {
 
     QIXButton {
         id: qIXButton1
-        width: 230
-        height: 40
+        width: 355
+        height: 60
         text: qsTr("Zapomnialem hasla")
         anchors.right: qIXTextField1.right
         anchors.top: qIXTextField1.bottom
+        font.pointSize: 20
         anchors.rightMargin: 0
         anchors.topMargin: 20
 

@@ -6,6 +6,10 @@ Page {
     id: page
     property url contentUrl
 
+    background: Rectangle {
+        color: "#00FFFFFF"
+    }
+
     onContentUrlChanged: {
         ixwindowpage.url = contentUrl;
     }

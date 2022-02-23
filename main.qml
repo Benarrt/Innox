@@ -1,6 +1,7 @@
 import QtQuick 2.15
 import QtQuick.Window 2.15
 import io.qt.examples.ixwindow 1.0
+import io.qt.examples.ixstylesheet 1.0
 
 
 Window {
@@ -8,6 +9,7 @@ Window {
     width: 720
     height: 1280
     visible: true
+    color: IXStyleSheet.superLightColor()
 
     QIXWindow {
         id: ixWindow

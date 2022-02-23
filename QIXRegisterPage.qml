@@ -10,8 +10,10 @@ QIXScreenPage {
         id: qIXTextField
         x: 260
         y: 210
-        width: 400
+        width: 650
+        height: 50
         anchors.verticalCenter: parent.verticalCenter
+        font.pointSize: 20
         anchors.verticalCenterOffset: -160
         anchors.horizontalCenter: parent.horizontalCenter
         placeholderText: qsTr("email")
@@ -21,8 +23,10 @@ QIXScreenPage {
     QIXTextField {
         id: qIXTextField1
         x: 250
-        width: 400
+        width: 650
+        height: 50
         anchors.top: qIXTextField.bottom
+        font.pointSize: 20
         anchors.topMargin: 20
         placeholderText: qsTr("haslo")
         anchors.horizontalCenter: parent.horizontalCenter
@@ -33,8 +37,10 @@ QIXScreenPage {
     QIXTextField {
         id: qIXTextField2
         x: 250
-        width: 400
+        width: 650
+        height: 50
         anchors.top: qIXTextField1.bottom
+        font.pointSize: 20
         anchors.topMargin: 20
         echoMode: TextInput.Password
         placeholderText: qsTr("powtorz haslo")
@@ -44,12 +50,12 @@ QIXScreenPage {
 
     QIXButton {
         id: qIXButton
+        width: 300
+        height: 60
         text: qsTr("Zarejestruj")
-        anchors.left: qIXTextField1.left
-        anchors.right: qIXTextField1.right
         anchors.top: qIXTextField2.bottom
-        anchors.rightMargin: 0
-        anchors.leftMargin: 0
+        font.pointSize: 20
+        anchors.horizontalCenter: parent.horizontalCenter
         anchors.topMargin: 20
 
         onClicked: {
@@ -76,6 +82,6 @@ QIXScreenPage {
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:0.75}D{i:8}
+    D{i:0;formeditorZoom:0.75}
 }
 ##^##*/

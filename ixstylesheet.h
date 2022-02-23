@@ -25,32 +25,27 @@ public:
         return IXStyleSheet::instance();
     }
 
-    Q_INVOKABLE QColor bgColor()
+    Q_INVOKABLE QColor superLightColor()
     {
-        return QColor(0x8fb9a8);
+        return QColor(0xf5faff);
     }
 
-    Q_INVOKABLE QColor bg2Color()
+    Q_INVOKABLE QColor lightColor()
     {
-        return QColor("black");
+        return QColor(0xCCD4DD);
     }
 
-    Q_INVOKABLE QColor fgColor()
+    Q_INVOKABLE QColor mediumColor()
     {
-        return QColor(0xfefad4);
+        return QColor(0x446063);
     }
 
-    Q_INVOKABLE QColor fg2Color()
+    Q_INVOKABLE QColor darkColor()
     {
-        return QColor(0xFFFFFF);
+        return QColor(0x141e1d);
     }
 
-    Q_INVOKABLE QColor fg3Color()
-    {
-        return QColor(0xFCD0BA);
-    }
-
-    Q_INVOKABLE QFont fgFont()
+    Q_INVOKABLE QFont defaultFont()
     {
         static QFont font("Verdana", 16);
         return font;

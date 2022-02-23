@@ -5,7 +5,7 @@ import io.qt.examples.ixstylesheet 1.0
 
 Button {
     text: qsTr("QIXButton")
-    font: IXStyleSheet.fgFont();
+    font: IXStyleSheet.defaultFont();
     display: AbstractButton.TextOnly
     scale: pressed ? 0.9 : 1
     opacity: 1
@@ -33,14 +33,15 @@ Button {
     contentItem: Text {
         text: parent.text
         font: parent.font
-        color: IXStyleSheet.bgColor()
+        color: IXStyleSheet.lightColor()
         horizontalAlignment: Text.AlignHCenter
         verticalAlignment: Text.AlignVCenter
     }
 
     background: Rectangle {
-        color: IXStyleSheet.fgColor()
+        color: IXStyleSheet.darkColor()
         border.width: 0
+        radius: 5
     }
 
     IXButton {

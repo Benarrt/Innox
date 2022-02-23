@@ -1,16 +1,15 @@
 import QtQuick 2.15
 import QtQuick.Controls 2.15
-
+import io.qt.examples.ixstylesheet 1.0
 
 Label {
     width: 100
     height: 25
-    color: "#ffffff"
+    font: IXStyleSheet.defaultFont()
+    color: IXStyleSheet.lightColor()
     text: qsTr("QIXLabel")
     horizontalAlignment: Text.AlignHCenter
     verticalAlignment: Text.AlignVCenter
-    font.family: "Verdana"
-    font.pointSize: 16
 }
 
 /*##^##
