@@ -48,6 +48,12 @@ void IXTextField::setTextValue(const QString& data)
     if(data == textValue)
        return;
     _component->setProperty(META_PROPERTIES::text, data);
+
+    textValue = _component->property(META_PROPERTIES::text).toString();
+    if(data == textValue)
+       return;
+
+    IXShadowTextField::inst().setShadowTextFieldText(textValue);
 }
 
 void IXTextField::setSelection(quint16 posBeg, quint16 posEnd)

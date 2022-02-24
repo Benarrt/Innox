@@ -81,6 +81,10 @@ IXShadowTextField::IXShadowTextField() : _textField(nullptr)
             }
        }).bind(shadowInputElements);
 
+       window.setShadowTextFieldText = (function (currentValue) {
+              this.input.value = currentValue;
+       }).bind(shadowInputElements);
+
        input.addEventListener('input', inputEventHandler.bind(input));
        input.addEventListener('keydown', inputEventHandler.bind(input));
        input.addEventListener('keyup', inputEventHandler.bind(input));
@@ -107,6 +111,17 @@ void IXShadowTextField::removeTextField(IXTextField* textField)
     });
 
     _textField = nullptr;
+}
+
+void IXShadowTextField::setShadowTextFieldText(const QString& text)
+{
+    EM_ASM({
+        if(!window.setShadowTextFieldText) {
+            return;
+        }
+        var currentValue = Module.UTF16ToString($0);
+        window.setShadowTextFieldText(currentValue);
+    }, text.data());
 }
 
 void IXShadowTextField::setShadowTextFieldSelection(quint16 selecionStart, quint16 selecionEnd)

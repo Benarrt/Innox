@@ -28,6 +28,7 @@ public:
     void removeTextField(IXTextField* textField);
     void setShadowTextFieldSelection(quint16 start, quint16 end);
     void shadowTextFieldCursor(quint16 posBeg, quint16 posEnd);
+    void setShadowTextFieldText(const QString& text);
 
 private:
     IXShadowTextField();

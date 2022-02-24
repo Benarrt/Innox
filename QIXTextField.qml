@@ -10,6 +10,7 @@ TextField {
     color: focus ? IXStyleSheet.superLightColor() : IXStyleSheet.lightColor()
     selectionColor: IXStyleSheet.darkColor()
     selectedTextColor: IXStyleSheet.lightColor()
+    maximumLength: 100
 
     background: Rectangle {
         color: IXStyleSheet.mediumColor()
