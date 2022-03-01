@@ -3,6 +3,7 @@ import QtQuick.Controls 2.15
 import io.qt.examples.ixhandlebackpopup 1.0
 
 Item {
+    property var logic: ixHandleBackPopup
     id: item
     width: 350
     height: 150

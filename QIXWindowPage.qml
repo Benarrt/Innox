@@ -3,6 +3,7 @@ import QtQuick.Controls 2.15
 import io.qt.examples.ixwindowpage 1.0
 
 Page {
+    property var logic: ixwindowpage
     id: page
     property url contentUrl
 

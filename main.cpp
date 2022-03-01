@@ -3,7 +3,7 @@
 
 #include "ixwindow.h"
 #include "ixwindowpage.h"
-#include "ixtextfield.h"
+#include "ixpasswordinput.h"
 #include "ixbutton.h"
 #include "ixhandlebackpopup.h"
 #include "ixwindowpageheader.h"
@@ -31,6 +31,7 @@ int main(int argc, char *argv[])
     qmlRegisterType<IXWindowPageFooter>("io.qt.examples.ixwindowpagefooter", 1, 0, "IXWindowPageFooter");
     qmlRegisterType<IXSwipeView>("io.qt.examples.ixswipeview", 1, 0, "IXSwipeView");
     qmlRegisterType<IXPageIndicator>("io.qt.examples.ixpageindicator", 1, 0, "IXPageIndicator");
+    qmlRegisterType<IXPasswordInput>("io.qt.examples.ixpasswordinput", 1, 0, "IXPasswordInput");
 
     qmlRegisterSingletonType<IXStyleSheet>("io.qt.examples.ixstylesheet", 1, 0, "IXStyleSheet", &IXStyleSheet::qmlInstance);
 

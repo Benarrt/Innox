@@ -16,17 +16,15 @@ QIXScreenPage {
         text: ""
     }
 
-    QIXTextField {
+    QIXPasswordInput {
         id: qIXTextField1
         x: 250
         width: 650
         height: 50
         anchors.top: qIXTextField.bottom
-        font.pointSize: 20
         anchors.topMargin: 20
         placeholderText: qsTr("haslo")
         anchors.horizontalCenter: parent.horizontalCenter
-        echoMode: TextInput.Password
         text: ""
     }
 
@@ -42,7 +40,9 @@ QIXScreenPage {
         anchors.topMargin: 20
 
         onClicked: {
-            ixloginscreen.logIntoAccount(qIXTextField.text, qIXTextField1.text);
+            var passwordErrors = qIXTextField1.logic.veryfiPassword();
+            if(!passwordErrors.length)
+                ixloginscreen.logIntoAccount(qIXTextField.text, qIXTextField1.text);
         }
     }
 

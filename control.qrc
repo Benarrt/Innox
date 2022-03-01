@@ -6,5 +6,6 @@
         <file>QIXSwipeView.qml</file>
         <file>QIXPageIndicator.qml</file>
         <file>QIXLabel.qml</file>
+        <file>QIXPasswordInput.qml</file>
     </qresource>
 </RCC>

@@ -4,6 +4,7 @@ import io.qt.examples.ixpageindicator 1.0
 import io.qt.examples.ixstylesheet 1.0
 
 PageIndicator {
+    property var logic: ixPageIndicator
     id: pageIndicator
     spacing: 15
     delegate: Rectangle {
@@ -29,6 +30,7 @@ PageIndicator {
     }
 
     IXPageIndicator {
+        id: ixPageIndicator
         component: parent
     }
 }

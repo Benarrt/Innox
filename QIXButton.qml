@@ -4,6 +4,7 @@ import io.qt.examples.ixbutton 1.0
 import io.qt.examples.ixstylesheet 1.0
 
 Button {
+    property var logic: ixButton
     text: qsTr("QIXButton")
     font: IXStyleSheet.defaultFont();
     display: AbstractButton.TextOnly
@@ -45,6 +46,7 @@ Button {
     }
 
     IXButton {
+        id: ixButton
         component: parent
     }
 }

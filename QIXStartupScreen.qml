@@ -4,6 +4,7 @@ import QtQuick.Controls 2.15
 import io.qt.examples.ixstartupscreen 1.0
 
 Item {
+    property var logic: ixstartupscreen
     Component.onCompleted: {
         console.log("Component.onCompleted");
     }

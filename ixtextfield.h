@@ -19,7 +19,6 @@ public slots:
 protected:
     void componentComplete() override;
 
-private:
     struct META_PROPERTIES
     {
         static constexpr char selectionStart[] = "selectionStart";
