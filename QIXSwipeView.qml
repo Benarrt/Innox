@@ -4,7 +4,9 @@ import io.qt.examples.ixswipeview 1.0
 
 SwipeView {
     id: swipeView
+    property var logic: ixSwipeView
     IXSwipeView {
+        id: ixSwipeView
         component: swipeView
     }
 

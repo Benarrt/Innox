@@ -7,5 +7,6 @@
         <file>QIXPageIndicator.qml</file>
         <file>QIXLabel.qml</file>
         <file>QIXPasswordInput.qml</file>
+        <file>QIXRegisterErrors.qml</file>
     </qresource>
 </RCC>

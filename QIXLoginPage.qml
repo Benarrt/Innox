@@ -26,6 +26,7 @@ QIXScreenPage {
         placeholderText: qsTr("haslo")
         anchors.horizontalCenter: parent.horizontalCenter
         text: ""
+        font.pointSize: 20
     }
 
     QIXButton {
@@ -40,9 +41,7 @@ QIXScreenPage {
         anchors.topMargin: 20
 
         onClicked: {
-            var passwordErrors = qIXTextField1.logic.veryfiPassword();
-            if(!passwordErrors.length)
-                ixloginscreen.logIntoAccount(qIXTextField.text, qIXTextField1.text);
+            ixloginscreen.logIntoAccount(qIXTextField.text, qIXTextField1.text);
         }
     }
 

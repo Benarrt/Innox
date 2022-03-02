@@ -6,28 +6,31 @@ IXPasswordLogic::IXPasswordLogic()
 
 }
 
-QList<int> IXPasswordLogic::isPasswordValid(const QString& password)
+std::list<int> IXPasswordLogic::isPasswordValid(const QString& password)
 {
-    QList<int> error;
+    std::list<int> errors;
+    errors.clear();
     if(password.length() < 8)
     {
-        error.append(0);
+        errors.push_back(PW_ERRORS::TOO_SHORT);
     }
 
     if(password.toLower() == password)
     {
-        error.append(1);
+        errors.push_back(PW_ERRORS::NO_UPPER_CASE);
     }
 
     if(!password.contains(QRegularExpression("\\d")))
     {
-        error.append(2);
+        errors.push_back(PW_ERRORS::NO_NUMBER);
     }
 
     if(!password.contains(QRegularExpression("[\\[\\]\\\\|@$!%*#?&]")))
     {
-        error.append(3);
+        errors.push_back(PW_ERRORS::NO_SPECIAL_CHAR);
     }
 
-    return error;
+    return errors;
 }
+
+

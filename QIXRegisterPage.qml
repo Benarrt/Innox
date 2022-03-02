@@ -20,7 +20,7 @@ QIXScreenPage {
         text: ""
     }
 
-    QIXTextField {
+    QIXPasswordInput {
         id: qIXTextField1
         x: 250
         width: 650
@@ -28,9 +28,7 @@ QIXScreenPage {
         anchors.top: qIXTextField.bottom
         font.pointSize: 20
         anchors.topMargin: 20
-        placeholderText: qsTr("haslo")
         anchors.horizontalCenter: parent.horizontalCenter
-        echoMode: TextInput.Password
         text: ""
     }
 
@@ -53,14 +51,48 @@ QIXScreenPage {
         width: 300
         height: 60
         text: qsTr("Zarejestruj")
-        anchors.top: qIXTextField2.bottom
+        anchors.top: qIXRegisterErrors.bottom
         font.pointSize: 20
         anchors.horizontalCenter: parent.horizontalCenter
-        anchors.topMargin: 20
+        anchors.topMargin: 10
 
         onClicked: {
+            qIXRegisterErrors.reset()
+            if(qIXTextField1.text != qIXTextField2.text)
+            {
+                qIXRegisterErrors.notEqual = true;
+                return;
+            }
+
+            var passwordErrors = qIXTextField1.logic.veryfiPassword();
+            console.log(passwordErrors);
+            if(passwordErrors.length)
+            {
+                for(var pwError of passwordErrors) {
+                    if(pwError === 0)
+                        qIXRegisterErrors.tooShort = true;
+
+                    if(pwError === 1)
+                        qIXRegisterErrors.noUpper = true;
+
+                    if(pwError === 2)
+                        qIXRegisterErrors.noNumber = true;
+
+                    if(pwError === 3)
+                        qIXRegisterErrors.noSpecial = true;
+                }
+
+                return;
+            }
             ixloginscreen.registerAccount(qIXTextField.text, qIXTextField1.text);
         }
+    }
+
+    QIXRegisterErrors {
+        id: qIXRegisterErrors
+        anchors.top: qIXTextField2.bottom
+        anchors.topMargin: 10
+        anchors.horizontalCenter: parent.horizontalCenter
     }
 
 
