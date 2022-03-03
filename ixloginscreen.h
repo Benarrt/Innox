@@ -27,6 +27,10 @@ public:
 
     void onDynamicReady() override;
 
+signals:
+    void validRegister();
+    void invalidRegister(int error);
+
 protected:
     void componentComplete() override;
 

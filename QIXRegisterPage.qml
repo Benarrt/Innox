@@ -6,7 +6,24 @@ QIXScreenPage {
     height: 1080
     contentHeight: 880
 
-    QIXTextField {
+    Connections {
+        target: ixloginscreen
+        function onValidRegister() {
+
+        }
+
+        function onInvalidRegister(error) {
+            qIXRegisterErrors.reset();
+            console.log(error);
+            if(error === 3033) {
+                qIXRegisterErrors.duplicatedEmail = true;
+            } else {
+                qIXRegisterErrors.invalidEmail = true;
+            }
+        }
+    }
+
+    QIXEmailInput {
         id: qIXTextField
         x: 260
         y: 210
@@ -16,7 +33,6 @@ QIXScreenPage {
         font.pointSize: 20
         anchors.verticalCenterOffset: -160
         anchors.horizontalCenter: parent.horizontalCenter
-        placeholderText: qsTr("email")
         text: ""
     }
 
@@ -58,6 +74,12 @@ QIXScreenPage {
 
         onClicked: {
             qIXRegisterErrors.reset()
+            if(!qIXTextField.text.length || !qIXTextField.logic.veryfiEmail())
+            {
+                qIXRegisterErrors.invalidEmail = true;
+                return;
+            }
+
             if(qIXTextField1.text != qIXTextField2.text)
             {
                 qIXRegisterErrors.notEqual = true;

@@ -13,6 +13,8 @@ SOURCES += \
         ixdynamic.cpp \
         ixdynamiccomponent.cpp \
         ixdynamiccreationlogic.cpp \
+        ixemailinput.cpp \
+        ixemaillogic.cpp \
         ixhandlebackpopup.cpp \
         ixloginlogic.cpp \
         ixloginscreen.cpp \
@@ -69,6 +71,8 @@ HEADERS += \
     ixdynamic.h \
     ixdynamiccomponent.h \
     ixdynamiccreationlogic.h \
+    ixemailinput.h \
+    ixemaillogic.h \
     ixhandlebackpopup.h \
     ixloginlogic.h \
     ixloginscreen.h \

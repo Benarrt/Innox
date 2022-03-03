@@ -51,11 +51,13 @@ void IXLoginScreen::invalidLoginCallback()
 void IXLoginScreen::validRegisterCallback()
 {
     qDebug("REGISTER SUCCES");
+    emit validRegister();
 }
 void IXLoginScreen::invalidRegisterCallback(uint16_t error)
 {
     qDebug("REGISTER FAIL");
     qDebug(QString::number(error).toLocal8Bit());
+    emit invalidRegister(error);
 }
 
 void IXLoginScreen::validRecoverCallback()

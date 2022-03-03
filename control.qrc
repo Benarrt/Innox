@@ -8,5 +8,7 @@
         <file>QIXLabel.qml</file>
         <file>QIXPasswordInput.qml</file>
         <file>QIXRegisterErrors.qml</file>
+        <file>QIXTextFieldBase.qml</file>
+        <file>QIXEmailInput.qml</file>
     </qresource>
 </RCC>

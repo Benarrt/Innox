@@ -3,16 +3,18 @@ import io.qt.examples.ixstylesheet 1.0
 
 Item {
     width: 650
-    height: 200
+    height: 280
     clip: true
 
-    property real desiredHeight: 200
+    property real desiredHeight: 280
 
     property bool tooShort: true
     property bool noUpper: true
     property bool noNumber: true
     property bool noSpecial: true
     property bool notEqual: true
+    property bool invalidEmail: true
+    property bool duplicatedEmail: true
 
     Component.onCompleted: {
         reset()
@@ -34,53 +36,44 @@ Item {
         noNumber = false
         noSpecial = false
         notEqual = false
+        invalidEmail = false
+        duplicatedEmail = false
     }
 
-    function showError(label) {
-        label.visible = true
-        label.height = 40
-        desiredHeight += 40;
-    }
-
-    function hideError(label) {
-        label.visible = false
-        label.height = 0
-        desiredHeight -= 40;
+    function updateError(showNewError) {
+        if(showNewError) {
+            desiredHeight += 40;
+        } else {
+            desiredHeight -= 40;
+        }
     }
 
     onTooShortChanged: {
-        if(tooShort)
-            showError(qIXLabel);
-        else
-            hideError(qIXLabel);
+        updateError(tooShort);
     }
 
     onNoUpperChanged: {
-        if(noUpper)
-            showError(qIXLabel1);
-        else
-            hideError(qIXLabel1);
+        updateError(noUpper);
     }
 
     onNoNumberChanged: {
-        if(noNumber)
-            showError(qIXLabel2);
-        else
-            hideError(qIXLabel2);
+        updateError(noNumber);
     }
 
     onNoSpecialChanged: {
-        if(noSpecial)
-            showError(qIXLabel3);
-        else
-            hideError(qIXLabel3);
+        updateError(noSpecial);
     }
 
     onNotEqualChanged: {
-        if(notEqual)
-            showError(qIXLabel4);
-        else
-            hideError(qIXLabel4);
+        updateError(notEqual);
+    }
+
+    onInvalidEmailChanged: {
+        updateError(invalidEmail);
+    }
+
+    onDuplicatedEmailChanged: {
+        updateError(duplicatedEmail);
     }
 
     Rectangle {
@@ -92,7 +85,8 @@ Item {
 
         QIXLabel {
             id: qIXLabel
-            height: 40
+            height: tooShort ? 40 : 0
+            opacity: tooShort ? 1 : 0
             anchors.left: parent.left
             anchors.right: parent.right
             anchors.bottom: parent.bottom
@@ -108,11 +102,17 @@ Item {
                 }
             }
 
+            Behavior on opacity {
+                PropertyAnimation {
+                    duration: 200
+                }
+            }
         }
 
         QIXLabel {
             id: qIXLabel1
-            height: 40
+            height: noUpper ? 40 : 0
+            opacity: noUpper ? 1 : 0
             anchors.left: parent.left
             anchors.right: parent.right
             anchors.bottom: qIXLabel.top
@@ -128,11 +128,17 @@ Item {
                 }
             }
 
+            Behavior on opacity {
+                PropertyAnimation {
+                    duration: 200
+                }
+            }
         }
 
         QIXLabel {
             id: qIXLabel2
-            height: 40
+            height: noNumber ? 40 : 0
+            opacity: noNumber ? 1 : 0
             anchors.left: parent.left
             anchors.right: parent.right
             anchors.bottom: qIXLabel1.top
@@ -148,11 +154,17 @@ Item {
                 }
             }
 
+            Behavior on opacity {
+                PropertyAnimation {
+                    duration: 200
+                }
+            }
         }
 
         QIXLabel {
             id: qIXLabel3
-            height: 40
+            height: noSpecial ? 40 : 0
+            opacity: noSpecial ? 1 : 0
             anchors.left: parent.left
             anchors.right: parent.right
             anchors.bottom: qIXLabel2.top
@@ -168,11 +180,18 @@ Item {
                 }
             }
 
+            Behavior on opacity {
+                PropertyAnimation {
+                    duration: 200
+                }
+            }
+
         }
 
         QIXLabel {
             id: qIXLabel4
-            height: 40
+            height: notEqual ? 40 : 0
+            opacity: notEqual ? 1 : 0
             anchors.left: parent.left
             anchors.right: parent.right
             anchors.bottom: qIXLabel3.top
@@ -188,6 +207,64 @@ Item {
                 }
             }
 
+            Behavior on opacity {
+                PropertyAnimation {
+                    duration: 200
+                }
+            }
+
+        }
+
+        QIXLabel {
+            id: qIXLabel5
+            height: invalidEmail ? 40 : 0
+            opacity: invalidEmail ? 1 : 0
+            color: "#c21313"
+            text: qsTr("Podany email jest nieprawidlowy")
+            anchors.left: parent.left
+            anchors.right: parent.right
+            anchors.bottom: qIXLabel4.top
+            anchors.leftMargin: 0
+            anchors.bottomMargin: 0
+            anchors.rightMargin: 0
+
+            Behavior on height {
+                PropertyAnimation {
+                    duration: 200
+                }
+            }
+
+            Behavior on opacity {
+                PropertyAnimation {
+                    duration: 200
+                }
+            }
+        }
+
+        QIXLabel {
+            id: qIXLabel6
+            height: duplicatedEmail ? 40 : 0
+            opacity: duplicatedEmail ? 1 : 0
+            color: "#c21313"
+            text: qsTr("Istnieje juz konto z podanym adresem email")
+            anchors.left: parent.left
+            anchors.right: parent.right
+            anchors.bottom: qIXLabel5.top
+            anchors.leftMargin: 0
+            anchors.bottomMargin: 0
+            anchors.rightMargin: 0
+
+            Behavior on height {
+                PropertyAnimation {
+                    duration: 200
+                }
+            }
+
+            Behavior on opacity {
+                PropertyAnimation {
+                    duration: 200
+                }
+            }
         }
     }
 
