@@ -13,12 +13,11 @@ QIXScreenPage {
         }
 
         function onInvalidRegister(error) {
-            qIXRegisterErrors.reset();
-            console.log(error);
+            qIXMessageBoard.clear()
             if(error === 3033) {
-                qIXRegisterErrors.duplicatedEmail = true;
+                qIXMessageBoard.addText(3033, qsTr("Istnieje juz konto z podanym adresem email"));
             } else {
-                qIXRegisterErrors.invalidEmail = true;
+                qIXMessageBoard.addText(3040, qsTr("Podany email jest nieprawidlowy"));
             }
         }
     }
@@ -67,22 +66,22 @@ QIXScreenPage {
         width: 300
         height: 60
         text: qsTr("Zarejestruj")
-        anchors.top: qIXRegisterErrors.bottom
+        anchors.top: qIXTextField2.bottom
         font.pointSize: 20
         anchors.horizontalCenter: parent.horizontalCenter
-        anchors.topMargin: 10
+        anchors.topMargin: 20
 
         onClicked: {
-            qIXRegisterErrors.reset()
+            qIXMessageBoard.clear()
             if(!qIXTextField.text.length || !qIXTextField.logic.veryfiEmail())
             {
-                qIXRegisterErrors.invalidEmail = true;
+                qIXMessageBoard.addText(3040, qsTr("Podany email jest nieprawidlowy"));
                 return;
             }
 
             if(qIXTextField1.text != qIXTextField2.text)
             {
-                qIXRegisterErrors.notEqual = true;
+                qIXMessageBoard.addText(4, qsTr("Podane hasla musza byc identyczne"));
                 return;
             }
 
@@ -91,17 +90,21 @@ QIXScreenPage {
             if(passwordErrors.length)
             {
                 for(var pwError of passwordErrors) {
-                    if(pwError === 0)
-                        qIXRegisterErrors.tooShort = true;
+                    if(pwError === 0) {
+                        qIXMessageBoard.addText(0, qsTr("Haslo musi miec conjamniej 8 znakow"));
+                    }
 
-                    if(pwError === 1)
-                        qIXRegisterErrors.noUpper = true;
+                    if(pwError === 1) {
+                        qIXMessageBoard.addText(1, qsTr("Haslo musi miec conjamniej 1 duza litere"));
+                    }
 
-                    if(pwError === 2)
-                        qIXRegisterErrors.noNumber = true;
+                    if(pwError === 2) {
+                        qIXMessageBoard.addText(2, qsTr("Haslo musi miec conjamniej 1 cyfre"));
+                    }
 
-                    if(pwError === 3)
-                        qIXRegisterErrors.noSpecial = true;
+                    if(pwError === 3) {
+                        qIXMessageBoard.addText(3, qsTr("Haslo musi miec conjamniej 1 znak specjalny"));
+                    }
                 }
 
                 return;
@@ -110,28 +113,13 @@ QIXScreenPage {
         }
     }
 
-    QIXRegisterErrors {
-        id: qIXRegisterErrors
-        anchors.top: qIXTextField2.bottom
-        anchors.topMargin: 10
+    QIXMessageBoard {
+        id: qIXMessageBoard
+        width: 650
+        anchors.bottom: qIXTextField.top
+        anchors.bottomMargin: 20
         anchors.horizontalCenter: parent.horizontalCenter
     }
-
-
-
-
-
-    /*header: Label {
-        text: qsTr("Page 1")
-        font.pixelSize: Qt.application.font.pixelSize * 2
-        padding: 10
-    }
-
-    footer: Label {
-        text: qsTr("Page 1")
-        font.pixelSize: Qt.application.font.pixelSize * 2
-        padding: 10
-    }*/
 }
 
 /*##^##

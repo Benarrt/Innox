@@ -7,8 +7,8 @@
         <file>QIXPageIndicator.qml</file>
         <file>QIXLabel.qml</file>
         <file>QIXPasswordInput.qml</file>
-        <file>QIXRegisterErrors.qml</file>
         <file>QIXTextFieldBase.qml</file>
         <file>QIXEmailInput.qml</file>
+        <file>QIXMessageBoard.qml</file>
     </qresource>
 </RCC>

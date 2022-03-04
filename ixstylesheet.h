@@ -45,6 +45,11 @@ public:
         return QColor(0x141e1d);
     }
 
+    Q_INVOKABLE QColor redColor()
+    {
+        return QColor(0xc21313);
+    }
+
     Q_INVOKABLE QFont defaultFont()
     {
         static QFont font("Verdana", 16);
