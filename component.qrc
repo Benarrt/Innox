@@ -7,5 +7,6 @@
         <file>QIXWindowPageFooter.qml</file>
         <file>QIXRegisterErrors.qml</file>
         <file>QIXRegisterMessages.qml</file>
+        <file>QIXLoginErrors.qml</file>
     </qresource>
 </RCC>

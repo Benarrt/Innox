@@ -3,7 +3,7 @@ import QtQuick 2.15
 QIXScreenPage {
     id: qIXScreenPage
 
-    QIXTextField {
+    QIXEmailInput {
         id: qIXTextField
         x: 260
         width: 650
@@ -12,7 +12,6 @@ QIXScreenPage {
         font.pointSize: 20
         anchors.verticalCenterOffset: -160
         anchors.horizontalCenter: parent.horizontalCenter
-        placeholderText: qsTr("email")
         text: ""
     }
 
@@ -41,6 +40,17 @@ QIXScreenPage {
         anchors.topMargin: 20
 
         onClicked: {
+            qIXLoginErrors.clear();
+            if(!qIXTextField.text.length || !qIXTextField.logic.veryfiEmail()) {
+                qIXLoginErrors.addMessage(qIXLoginErrors.invalidEmail);
+                return;
+            }
+
+            if(!qIXTextField1.text.length) {
+                qIXLoginErrors.addMessage(qIXLoginErrors.invalidPassword);
+                return;
+            }
+
             ixloginscreen.logIntoAccount(qIXTextField.text, qIXTextField1.text);
         }
     }
@@ -59,6 +69,13 @@ QIXScreenPage {
         onClicked: {
             ixloginscreen.recoverAccountPassword(qIXTextField.text);
         }
+    }
+
+    QIXLoginErrors {
+        id: qIXLoginErrors
+        anchors.bottom: qIXTextField.top
+        anchors.bottomMargin: 20
+        anchors.horizontalCenter: parent.horizontalCenter
     }
 
 

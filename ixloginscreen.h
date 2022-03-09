@@ -31,6 +31,9 @@ signals:
     void validRegister();
     void invalidRegister(int error);
 
+    void validLogin();
+    void invalidLogin(int error);
+
 protected:
     void componentComplete() override;
 
