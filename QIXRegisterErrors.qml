@@ -9,6 +9,7 @@ QIXMessageBoard {
     property int duplicatedEmail: 4
     property int invalidEmail: 5
     property int notEqualPws: 6
+    property int unknownError: 7
 
     messages: ListModel {
         ListElement {
@@ -37,6 +38,10 @@ QIXMessageBoard {
 
         ListElement {
            text: QT_TR_NOOP("Podane hasla musza byc identyczne")
-       }
+        }
+
+        ListElement {
+           text: QT_TR_NOOP("Wystapil nieznay blad")
+        }
     }
 }

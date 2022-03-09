@@ -9,15 +9,20 @@ QIXScreenPage {
     Connections {
         target: ixloginscreen
         function onValidRegister() {
-
+            qIXButton.enabled = true;
+            qIXRegisterMessages.clear();
+            qIXRegisterMessages.addMessage(qIXRegisterMessages.registerSuccess)
         }
 
         function onInvalidRegister(error) {
-            qIXMessageBoard.clear()
+            qIXButton.enabled = true;
+            qIXRegisterMessages.clear();
             if(error === 3033) {
-                qIXMessageBoard.addMessage(qIXMessageBoard.duplicatedEmail);
+                qIXRegisterErrors.addMessage(qIXRegisterErrors.duplicatedEmail);
+            } else if(error === 3040) {
+                qIXRegisterErrors.addMessage(qIXRegisterErrors.invalidEmail);
             } else {
-                qIXMessageBoard.addMessage(qIXMessageBoard.invalidEmail);
+                qIXRegisterErrors.addMessage(qIXRegisterErrors.unknownError);
             }
         }
     }
@@ -72,16 +77,17 @@ QIXScreenPage {
         anchors.topMargin: 20
 
         onClicked: {
-            qIXMessageBoard.clear();
+            qIXRegisterErrors.clear();
+            qIXRegisterMessages.clear();
             if(!qIXTextField.text.length || !qIXTextField.logic.veryfiEmail())
             {
-                qIXMessageBoard.addMessage(qIXMessageBoard.invalidEmail);
+                qIXRegisterErrors.addMessage(qIXRegisterErrors.invalidEmail);
                 return;
             }
 
             if(qIXTextField1.text != qIXTextField2.text)
             {
-                qIXMessageBoard.addMessage(qIXMessageBoard.notEqualPws);
+                qIXRegisterErrors.addMessage(qIXRegisterErrors.notEqualPws);
                 return;
             }
 
@@ -89,15 +95,26 @@ QIXScreenPage {
             console.log(passwordErrors);
             if(passwordErrors.length)
             {
-                qIXMessageBoard.addMessages(passwordErrors);
+                qIXRegisterErrors.addMessages(passwordErrors);
                 return;
             }
+
+            qIXButton.enabled = false;
+            qIXRegisterMessages.addMessage(qIXRegisterMessages.registerInProgress)
             ixloginscreen.registerAccount(qIXTextField.text, qIXTextField1.text);
         }
     }
 
     QIXRegisterErrors {
-        id: qIXMessageBoard
+        id: qIXRegisterErrors
+        width: 650
+        anchors.bottom: qIXTextField.top
+        anchors.bottomMargin: 20
+        anchors.horizontalCenter: parent.horizontalCenter
+    }
+
+    QIXRegisterMessages {
+        id: qIXRegisterMessages
         width: 650
         anchors.bottom: qIXTextField.top
         anchors.bottomMargin: 20

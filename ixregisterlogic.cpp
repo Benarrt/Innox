@@ -15,13 +15,14 @@ void IXRegisterLogic::registerStatusCallback(const QString& msg)
 {
     auto data = QJsonDocument::fromJson(msg.toUtf8());
 
-    if(data["error"] == QJsonValue::Undefined)
+    if(data["registerStatus"] !=  QJsonValue::Undefined && data["registerStatus"].toBool())
     {
         _validRegisterCallback();
         return;
     }
 
-    _invalidRegisterCallback(data["error"].toInt());
+    int erroCode = data["error"] == QJsonValue::Undefined ? 0 : data["error"].toInt();
+    _invalidRegisterCallback(erroCode);
 }
 
 void IXRegisterLogic::registerAccount(const QString& username, const QString& password)
