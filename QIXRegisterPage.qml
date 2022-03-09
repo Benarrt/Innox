@@ -15,9 +15,9 @@ QIXScreenPage {
         function onInvalidRegister(error) {
             qIXMessageBoard.clear()
             if(error === 3033) {
-                qIXMessageBoard.addText(3033, qsTr("Istnieje juz konto z podanym adresem email"));
+                qIXMessageBoard.addMessage(qIXMessageBoard.duplicatedEmail);
             } else {
-                qIXMessageBoard.addText(3040, qsTr("Podany email jest nieprawidlowy"));
+                qIXMessageBoard.addMessage(qIXMessageBoard.invalidEmail);
             }
         }
     }
@@ -72,16 +72,16 @@ QIXScreenPage {
         anchors.topMargin: 20
 
         onClicked: {
-            qIXMessageBoard.clear()
+            qIXMessageBoard.clear();
             if(!qIXTextField.text.length || !qIXTextField.logic.veryfiEmail())
             {
-                qIXMessageBoard.addText(3040, qsTr("Podany email jest nieprawidlowy"));
+                qIXMessageBoard.addMessage(qIXMessageBoard.invalidEmail);
                 return;
             }
 
             if(qIXTextField1.text != qIXTextField2.text)
             {
-                qIXMessageBoard.addText(4, qsTr("Podane hasla musza byc identyczne"));
+                qIXMessageBoard.addMessage(qIXMessageBoard.notEqualPws);
                 return;
             }
 
@@ -89,31 +89,14 @@ QIXScreenPage {
             console.log(passwordErrors);
             if(passwordErrors.length)
             {
-                for(var pwError of passwordErrors) {
-                    if(pwError === 0) {
-                        qIXMessageBoard.addText(0, qsTr("Haslo musi miec conjamniej 8 znakow"));
-                    }
-
-                    if(pwError === 1) {
-                        qIXMessageBoard.addText(1, qsTr("Haslo musi miec conjamniej 1 duza litere"));
-                    }
-
-                    if(pwError === 2) {
-                        qIXMessageBoard.addText(2, qsTr("Haslo musi miec conjamniej 1 cyfre"));
-                    }
-
-                    if(pwError === 3) {
-                        qIXMessageBoard.addText(3, qsTr("Haslo musi miec conjamniej 1 znak specjalny"));
-                    }
-                }
-
+                qIXMessageBoard.addMessages(passwordErrors);
                 return;
             }
             ixloginscreen.registerAccount(qIXTextField.text, qIXTextField1.text);
         }
     }
 
-    QIXMessageBoard {
+    QIXRegisterErrors {
         id: qIXMessageBoard
         width: 650
         anchors.bottom: qIXTextField.top

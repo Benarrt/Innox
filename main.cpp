@@ -14,6 +14,7 @@
 #include "ixpageindicator.h"
 #include "ixstylesheet.h"
 #include "ixemailinput.h"
+#include "ixmessageboard.h"
 
 int main(int argc, char *argv[])
 {
@@ -34,6 +35,7 @@ int main(int argc, char *argv[])
     qmlRegisterType<IXPageIndicator>("io.qt.examples.ixpageindicator", 1, 0, "IXPageIndicator");
     qmlRegisterType<IXPasswordInput>("io.qt.examples.ixpasswordinput", 1, 0, "IXPasswordInput");
     qmlRegisterType<IXEmailInput>("io.qt.examples.ixemailinput", 1, 0, "IXEmailInput");
+    qmlRegisterType<IXMessageBoard>("io.qt.examples.ixmessageboard", 1, 0, "IXMessageBoard");
 
     qmlRegisterSingletonType<IXStyleSheet>("io.qt.examples.ixstylesheet", 1, 0, "IXStyleSheet", &IXStyleSheet::qmlInstance);
 

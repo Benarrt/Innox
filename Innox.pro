@@ -18,6 +18,7 @@ SOURCES += \
         ixhandlebackpopup.cpp \
         ixloginlogic.cpp \
         ixloginscreen.cpp \
+        ixmessageboard.cpp \
         ixpageindicator.cpp \
         ixpageindicatorlogic.cpp \
         ixpasswordinput.cpp \
@@ -76,6 +77,7 @@ HEADERS += \
     ixhandlebackpopup.h \
     ixloginlogic.h \
     ixloginscreen.h \
+    ixmessageboard.h \
     ixpageindicator.h \
     ixpageindicatorlogic.h \
     ixpasswordinput.h \

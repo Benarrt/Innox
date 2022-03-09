@@ -1,18 +1,45 @@
 import QtQuick 2.15
 import io.qt.examples.ixstylesheet 1.0
+import io.qt.examples.ixmessageboard 1.0
 
 Rectangle {
     id: rectangle
     color: IXStyleSheet.darkColor()
     border.width: 0
     radius: 5
-    height: desiredHeight
+    height: 0
     width: contentWidth
-    visible: opacity > 0
+    visible: true
     clip: true
+    opacity: 1
 
-    Component.onCompleted: {
-        clear();
+    property var logic: ixMessageBoard
+    property color textColor: IXStyleSheet.redColor()
+    property int fontSize: 16
+    property int contentHeight: 40
+    property int contentWidth: 650
+    property int desiredHeight: 0
+
+    property var messages: ListModel {
+        ListElement {
+            text: "QIXMessageBoardTEXT"
+        }
+    }
+
+    onDesiredHeightChanged: {
+        rectangle.height = rectangle.desiredHeight;
+    }
+
+    function addMessage(textId) {
+        logic.addMessage(textId);
+    }
+
+    function addMessages(textIds) {
+        logic.addMessages(textIds);
+    }
+
+    function clear() {
+        logic.clear();
     }
 
     Behavior on height {
@@ -27,31 +54,6 @@ Rectangle {
         }
     }
 
-    property color textColor: IXStyleSheet.redColor()
-    property int fontSize: 16
-    property int contentHeight: 40
-    property int contentWidth: 650
-    property int desiredHeight: 40
-
-    function addText(textId, text) {
-        listModel.append({
-            _textId: textId,
-            _text: text
-        });
-    }
-
-    function removeText(textId) {
-        for(var i = 0; i < listModel.count; i++) {
-            if(listModel[i]._textId === textId) {
-                listModel.remove(i);
-                return;
-            }
-        }
-    }
-
-    function clear() {
-        listModel.clear();
-    }
 
     ListView {
         id: listView
@@ -67,31 +69,38 @@ Rectangle {
         model: ListModel {
             id: listModel
 
+            function pushBack(textId) {
+                append({_textId: textId});
+            }
+
             ListElement {
                 _color: "#63d01c"
                 _text: "QIXMessageBoard"
                 _textId: 0
                 _fontSize: 20
             }
-
-            onCountChanged: {
-                if(count === 0) {
-                    rectangle.opacity = 0
-                } else if(count === 1) {
-                    rectangle.opacity = 1
-                }
-
-                rectangle.desiredHeight = rectangle.contentHeight * listModel.count;            }
         }
 
         delegate: QIXLabel {
+
+            function getText() {
+                if(rectangle.messages.count > _textId)
+                    return qsTr(rectangle.messages.get(_textId).text);
+
+                return qsTr("Nieznana wiadomosc");
+            }
+
             width: rectangle.contentWidth
             height: rectangle.contentHeight
-            text: _text
+            text: getText()
             color: rectangle.textColor
             font.pointSize: rectangle.fontSize
-            property int textId: _textId
         }
 
+    }
+
+    IXMessageBoard {
+        id: ixMessageBoard
+        component: listView
     }
 }

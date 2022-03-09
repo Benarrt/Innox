@@ -5,5 +5,6 @@
         <file>QIXWindowPageHeader.qml</file>
         <file>QIXWindow.qml</file>
         <file>QIXWindowPageFooter.qml</file>
+        <file>QIXRegisterErrors.qml</file>
     </qresource>
 </RCC>
