@@ -34,11 +34,15 @@ signals:
     void validLogin();
     void invalidLogin(int error);
 
+    void validPWRecover();
+    void invalidPWRecover(int error);
+
+
 protected:
     void componentComplete() override;
 
     void validLoginCallback();
-    void invalidLoginCallback();
+    void invalidLoginCallback(uint16_t error);
     void validRegisterCallback();
     void invalidRegisterCallback(uint16_t error);
     void validRecoverCallback();
@@ -57,7 +61,7 @@ private:
             IXDynamicCreationLogic(object),
             IXScreenLogic(object),
             IXLoginLogic(std::bind(&IXLoginScreen::validLoginCallback, object),
-                         std::bind(&IXLoginScreen::invalidLoginCallback, object)),
+                         std::bind(&IXLoginScreen::invalidLoginCallback, object, std::placeholders::_1)),
             IXRegisterLogic(std::bind(&IXLoginScreen::validRegisterCallback, object),
                             std::bind(&IXLoginScreen::invalidRegisterCallback, object, std::placeholders::_1)),
             IXPasswordRecoverLogic(std::bind(&IXLoginScreen::validRecoverCallback, object),

@@ -3,7 +3,7 @@
 
 #include "QJsonDocument"
 
-IXLoginLogic::IXLoginLogic(callbackT validLoginCallback, callbackT invalidLoginCallback) :
+IXLoginLogic::IXLoginLogic(validCallbackT validLoginCallback, invalidCallbackT invalidLoginCallback) :
     _loginStatusCallback(std::bind(&IXLoginLogic::loginStatusCallback, this, std::placeholders::_1)),
     _validLoginCallback(validLoginCallback),
     _invalidLoginCallback(invalidLoginCallback)
@@ -31,12 +31,13 @@ void IXLoginLogic::loginStatusCallback(const QString& msg)
     qDebug("loginCallback");
     auto data = QJsonDocument::fromJson(msg.toUtf8());
 
-    if(data["loginStatus"] == QJsonValue::Undefined ||
-            !data["loginStatus"].toBool())
+    if(data["status"] != QJsonValue::Undefined &&
+            data["status"].toBool())
     {
-        _invalidLoginCallback();
+        _validLoginCallback();
         return;
     }
 
-    _validLoginCallback();
+    int erroCode = data["error"] == QJsonValue::Undefined ? 0 : data["error"].toInt();
+    _invalidLoginCallback(erroCode);
 }

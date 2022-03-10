@@ -16,25 +16,14 @@ struct LOGIN_STATUS
 
     void request()
     {
-        EM_ASM({
-                   var resultCallback = function(loginValid) {
-                       var result = {};
-                       result.loginStatus = loginValid;
-
-                       var data = JSON.stringify(result);
-                       var heapPtr = Module._malloc((data.length+1)*2);
-                       Module.stringToUTF16(data, heapPtr, (data.length+1)*2);
-                       Module._IXBackendLessCallback($0, heapPtr);
-                   };
-
+        EM_ASM({ 
                    Backendless.UserService.isValidLogin().then((res)=>{
                        if(!res) {
                            throw 'Invalid login';
                        }
-                       resultCallback(true);
-                   }).catch((e)=>{
-                       console.log(e);
-                       resultCallback(false);
+                       window.backendlessCallback($0, true, null, null);
+                   }).catch((err)=>{
+                       window.backendlessCallback($0, false, null, err.code);
                    });
         }, ID);
     }
@@ -50,25 +39,14 @@ struct LOGIN_REQUEST
     void request(const QString& username, const QString& password)
     {
         EM_ASM({
-                   var resultCallback = function(loginValid) {
-                       var result = {};
-                       result.loginStatus = loginValid;
-
-                       var data = JSON.stringify(result);
-                       var heapPtr = Module._malloc((data.length+1)*2);
-                       Module.stringToUTF16(data, heapPtr, (data.length+1)*2);
-                       Module._IXBackendLessCallback($0, heapPtr);
-                   };
-
                    var email = Module.UTF16ToString($1);
                    var password = Module.UTF16ToString($2);
                    Backendless.UserService.login(email, password, true)
                    .then((session) => {
-                       resultCallback(true);
+                       window.backendlessCallback($0, true, null, null);
                    })
-                   .catch((e) => {
-                       console.log(e);
-                       resultCallback(false);
+                   .catch((err) => {
+                       window.backendlessCallback($0, false, null, err.code);
                    });
         }, ID, username.data(), password.data());
     }
@@ -86,28 +64,17 @@ struct LOGOUT_REQUEST
         qDebug("LOGOUT_REQUEST");
 
         EM_ASM({
-                   var resultCallback = function(loginValid) {
-                       var result = {};
-                       result.loginStatus = loginValid;
-
-                       var data = JSON.stringify(result);
-                       var heapPtr = Module._malloc((data.length+1)*2);
-                       Module.stringToUTF16(data, heapPtr, (data.length+1)*2);
-                       Module._IXBackendLessCallback($0, heapPtr);
-                   };
-
                    Backendless.UserService.logout()
                    .then(() => {
-                       resultCallback(false);
+                       window.backendlessCallback($0, false, null, null);
                    }).catch((e) => {
                        Backendless.UserService.isValidLogin().then((res)=>{
                            if(!res) {
                                throw 'Invalid login';
                            }
-                           resultCallback(true);
-                       }).catch((e)=>{
-                           console.log(e);
-                           resultCallback(false);
+                           window.backendlessCallback($0, true, null, nulll);
+                       }).catch((err)=>{
+                           window.backendlessCallback($0, false, null, err.code);
                        });
                    });
         }, ID);
@@ -124,24 +91,13 @@ struct REGISTER_REQUEST
     void request(const QString& username, const QString& password)
     {
         EM_ASM({
-                   var resultCallback = function(registerValid, error) {
-                       var result = {};
-                       result.registerStatus = registerValid;
-                       result.error = error;
-
-                       var data = JSON.stringify(result);
-                       var heapPtr = Module._malloc((data.length+1)*2);
-                       Module.stringToUTF16(data, heapPtr, (data.length+1)*2);
-                       Module._IXBackendLessCallback($0, heapPtr);
-                   };
-
                    var user = new Backendless.User();
                    user.email = Module.UTF16ToString($1);
                    user.password = Module.UTF16ToString($2);
                    Backendless.UserService.register( user ).then(function(){
-                       resultCallback(true);
+                       window.backendlessCallback($0, true, null, null);
                    }, function(err){
-                       resultCallback(false, err.code);
+                       window.backendlessCallback($0, false, null, err.code);
                    });
         }, ID, username.data(), password.data());
     }
@@ -158,22 +114,11 @@ struct PASSWORD_RECOVER_REQUEST
     void request(const QString& username)
     {
         EM_ASM({
-                   var resultCallback = function(registerValid, error) {
-                       var result = {};
-                       result.registerStatus = registerValid;
-                       result.error = error;
-
-                       var data = JSON.stringify(result);
-                       var heapPtr = Module._malloc((data.length+1)*2);
-                       Module.stringToUTF16(data, heapPtr, (data.length+1)*2);
-                       Module._IXBackendLessCallback($0, heapPtr);
-                   };
-
                    var email = Module.UTF16ToString($1);
                    Backendless.UserService.restorePassword( email ).then(function(){
-                       resultCallback(true);
+                       window.backendlessCallback($0, true, null, null);
                    }, function(err){
-                       resultCallback(false, err.code);
+                       window.backendlessCallback($0, false, null, err.code);
                    });
         }, ID, username.data());
     }

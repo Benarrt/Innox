@@ -101,6 +101,18 @@ IXBackendLess::IXBackendLess()
     EM_ASM({
        Backendless.serverURL = 'https://eu-api.backendless.com';
        Backendless.initApp(Module.UTF16ToString($0), Module.UTF16ToString($1));
+
+       window.backendlessCallback = function(id, status, data, error) {
+           var result = {};
+           result.status = status;
+           result.data = data;
+           result.error = error;
+
+           var data = JSON.stringify(result);
+           var heapPtr = Module._malloc((data.length+1)*2);
+           Module.stringToUTF16(data, heapPtr, (data.length+1)*2);
+           Module._IXBackendLessCallback(id, heapPtr);
+       };
     }, QString::fromLocal8Bit(APP_ID).data(), QString::fromLocal8Bit(APP_KEY).data());
 }
 

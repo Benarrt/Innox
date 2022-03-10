@@ -15,7 +15,7 @@ void IXRegisterLogic::registerStatusCallback(const QString& msg)
 {
     auto data = QJsonDocument::fromJson(msg.toUtf8());
 
-    if(data["registerStatus"] !=  QJsonValue::Undefined && data["registerStatus"].toBool())
+    if(data["status"] !=  QJsonValue::Undefined && data["status"].toBool())
     {
         _validRegisterCallback();
         return;

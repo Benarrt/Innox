@@ -15,13 +15,14 @@ void IXPasswordRecoverLogic::recoverStatusCallback(const QString& msg)
 {
     auto data = QJsonDocument::fromJson(msg.toUtf8());
 
-    if(data["error"] == QJsonValue::Undefined)
+    if(data["status"] != QJsonValue::Undefined && data["status"].toBool())
     {
         _validRecoverCallback();
         return;
     }
 
-    _invalidRecoverCallback(data["error"].toInt());
+    int erroCode = data["error"] == QJsonValue::Undefined ? 0 : data["error"].toInt();
+    _invalidRecoverCallback(erroCode);
 }
 
 void IXPasswordRecoverLogic::recoverAccountPassword(const QString& username)

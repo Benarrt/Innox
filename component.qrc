@@ -8,5 +8,7 @@
         <file>QIXRegisterErrors.qml</file>
         <file>QIXRegisterMessages.qml</file>
         <file>QIXLoginErrors.qml</file>
+        <file>QIXPasswordRecoverErrors.qml</file>
+        <file>QIXPasswordRecoverMsg.qml</file>
     </qresource>
 </RCC>
