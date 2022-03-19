@@ -35,6 +35,7 @@ void IXDynamicComponent::onUrlChanged(const QUrl& url)
 {
     assert(!changing);
     changing = true;
+    ScopeGuard doneChaning([this] { changing = false;});
     qDebug(url.toString().toLocal8Bit());
 
     if(_item != nullptr)
@@ -69,7 +70,6 @@ void IXDynamicComponent::onUrlChanged(const QUrl& url)
     {
         itemLogic = dynamic_cast<IXDynamic*>(_item->property("logic").value<QQuickItem*>());
     }
-    changing = false;
 
     //Not so pretty side cast
     if(!itemLogic)

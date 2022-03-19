@@ -36,7 +36,8 @@ void IXWindowPageFooter::componentComplete()
 void IXWindowPageFooter::onUrlChanged(const QUrl& url)
 {
     IXDynamicComponent::onUrlChanged(url);
-    fillComponent();
+    if(_item != nullptr)
+        fillComponent();
 }
 
 void IXWindowPageFooter::fillComponent()

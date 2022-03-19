@@ -2,5 +2,6 @@
     <qresource prefix="/">
         <file>QIXLoginPage.qml</file>
         <file>QIXRegisterPage.qml</file>
+        <file>QIXWarehousePage.qml</file>
     </qresource>
 </RCC>

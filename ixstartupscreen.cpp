@@ -21,7 +21,7 @@ void IXStartupScreen::onDynamicReady()
 void IXStartupScreen::validLoginCallback()
 {
     qDebug("LOGIN IS VALID");
-    _logic.logOut();
+    _logic.loadDealerScreen();
 }
 void IXStartupScreen::invalidLoginCallback()
 {

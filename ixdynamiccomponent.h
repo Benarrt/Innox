@@ -31,6 +31,22 @@ protected:
    QQuickItem *_item;
    QUrl _url;
 
+private:
+   class ScopeGuard
+   {
+        public:
+            ScopeGuard(std::function<void()> exec) : _exec(exec) {}
+            ~ScopeGuard() { _exec(); }
+
+            ScopeGuard(const ScopeGuard&) = delete;
+            ScopeGuard(const ScopeGuard&&) noexcept = delete;
+            ScopeGuard& operator=(const ScopeGuard&) = delete;
+            ScopeGuard& operator=(const ScopeGuard&&) noexcept = delete;
+
+        private:
+            std::function<void()> _exec;
+   };
+
 };
 
 #endif // IXDYNAMICCOMPONENT_H

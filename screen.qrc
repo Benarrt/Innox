@@ -2,5 +2,6 @@
     <qresource prefix="/">
         <file>QIXLoginScreen.qml</file>
         <file>QIXStartupScreen.qml</file>
+        <file>QIXDealerScreen.qml</file>
     </qresource>
 </RCC>

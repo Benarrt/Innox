@@ -12,6 +12,8 @@ public:
     IXScreenLogic(IXScreen* component);
 
     void loadLoginScreen();
+    void loadDealerScreen();
+    void loadStartupScreen();
 
 protected:
     void loadComponent(IXDynamicComponent* comp, const std::string& url);

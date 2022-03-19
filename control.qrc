@@ -10,5 +10,6 @@
         <file>QIXTextFieldBase.qml</file>
         <file>QIXEmailInput.qml</file>
         <file>QIXMessageBoard.qml</file>
+        <file>QIXRadioButton.qml</file>
     </qresource>
 </RCC>

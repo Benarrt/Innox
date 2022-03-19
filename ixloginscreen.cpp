@@ -43,11 +43,12 @@ void IXLoginScreen::recoverAccountPassword(const QString& username)
 void IXLoginScreen::validLoginCallback()
 {
     qDebug("LOGINC SUCCES");
-    emit validLogin();
+    _logic.loadDealerScreen();
+    //emit validLogin();
 }
 void IXLoginScreen::invalidLoginCallback(uint16_t error)
 {
-    qDebug(QString("LOGINC FAIL %1").arg(QString::number(error)).toLocal8Bit());
+    qDebug(QString("LOGIN FAIL %1").arg(QString::number(error)).toLocal8Bit());
     emit invalidLogin(error);
 }
 void IXLoginScreen::validRegisterCallback()

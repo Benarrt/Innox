@@ -3,5 +3,7 @@
         <file>QIXTestHeader.qml</file>
         <file>QIXTestHeader2.qml</file>
         <file>QIXLoginScreenHeader.qml</file>
+        <file>QIXWarehouseHeader.qml</file>
+        <file>QIXDealerScreenHeader.qml</file>
     </qresource>
 </RCC>

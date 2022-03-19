@@ -15,6 +15,8 @@
 #include "ixstylesheet.h"
 #include "ixemailinput.h"
 #include "ixmessageboard.h"
+#include "ixdealerscreen.h"
+#include "ixdealerscreenheader.h"
 
 int main(int argc, char *argv[])
 {
@@ -24,18 +26,25 @@ int main(int argc, char *argv[])
 
     qmlRegisterType<IXWindow>("io.qt.examples.ixwindow", 1, 0, "IXWindow");
     qmlRegisterType<IXWindowPage>("io.qt.examples.ixwindowpage", 1, 0, "IXWindowPage");
+
     qmlRegisterType<IXTextField>("io.qt.examples.ixtextfield", 1, 0, "IXTextField");
     qmlRegisterType<IXButton>("io.qt.examples.ixbutton", 1, 0, "IXButton");
-    qmlRegisterType<IXHandleBackPopup>("io.qt.examples.ixhandlebackpopup", 1, 0, "IXHandleBackPopup");
-    qmlRegisterType<IXWindowPageHeader>("io.qt.examples.ixwindowpageheader", 1, 0, "IXWindowPageHeader");
-    qmlRegisterType<IXStartupScreen>("io.qt.examples.ixstartupscreen", 1, 0, "IXStartupScreen");
-    qmlRegisterType<IXLoginScreen>("io.qt.examples.ixloginscreen", 1, 0, "IXLoginScreen");
-    qmlRegisterType<IXWindowPageFooter>("io.qt.examples.ixwindowpagefooter", 1, 0, "IXWindowPageFooter");
     qmlRegisterType<IXSwipeView>("io.qt.examples.ixswipeview", 1, 0, "IXSwipeView");
     qmlRegisterType<IXPageIndicator>("io.qt.examples.ixpageindicator", 1, 0, "IXPageIndicator");
     qmlRegisterType<IXPasswordInput>("io.qt.examples.ixpasswordinput", 1, 0, "IXPasswordInput");
     qmlRegisterType<IXEmailInput>("io.qt.examples.ixemailinput", 1, 0, "IXEmailInput");
+
+    qmlRegisterType<IXHandleBackPopup>("io.qt.examples.ixhandlebackpopup", 1, 0, "IXHandleBackPopup");
     qmlRegisterType<IXMessageBoard>("io.qt.examples.ixmessageboard", 1, 0, "IXMessageBoard");
+
+    qmlRegisterType<IXWindowPageHeader>("io.qt.examples.ixwindowpageheader", 1, 0, "IXWindowPageHeader");
+    qmlRegisterType<IXWindowPageFooter>("io.qt.examples.ixwindowpagefooter", 1, 0, "IXWindowPageFooter");
+
+    qmlRegisterType<IXStartupScreen>("io.qt.examples.ixstartupscreen", 1, 0, "IXStartupScreen");
+    qmlRegisterType<IXLoginScreen>("io.qt.examples.ixloginscreen", 1, 0, "IXLoginScreen");
+    qmlRegisterType<IXDealerScreen>("io.qt.examples.ixdealerscreen", 1, 0, "IXDealerScreen");
+
+    qmlRegisterType<IXDealerScreenHeader>("io.qt.examples.ixdealerscreenheader", 1, 0, "IXDealerScreenHeader");
 
     qmlRegisterSingletonType<IXStyleSheet>("io.qt.examples.ixstylesheet", 1, 0, "IXStyleSheet", &IXStyleSheet::qmlInstance);
 

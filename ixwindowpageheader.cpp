@@ -35,7 +35,8 @@ void IXWindowPageHeader::componentComplete()
 void IXWindowPageHeader::onUrlChanged(const QUrl& url)
 {
     IXDynamicComponent::onUrlChanged(url);
-    fillComponent();
+    if(_item != nullptr)
+        fillComponent();
 }
 
 void IXWindowPageHeader::fillComponent()

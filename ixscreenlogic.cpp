@@ -19,6 +19,9 @@ void IXScreenLogic::loadComponent(IXDynamicComponent* comp, const std::string& u
 
 void IXScreenLogic::load()
 {
+    if(_component == nullptr)
+        return;
+
     loadHeader(_component->headerURL());
     loadFooter(_component->footerURL());
 }
@@ -42,3 +45,14 @@ void IXScreenLogic::loadLoginScreen()
 {
     loadScreen("qrc:/QIXLoginScreen.qml");
 }
+
+void IXScreenLogic::loadDealerScreen()
+{
+    loadScreen("qrc:/QIXDealerScreen.qml");
+}
+
+void IXScreenLogic::loadStartupScreen()
+{
+    loadScreen("qrc:/QIXStartupScreen.qml");
+}
+
