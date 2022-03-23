@@ -17,6 +17,7 @@
 #include "ixmessageboard.h"
 #include "ixdealerscreen.h"
 #include "ixdealerscreenheader.h"
+#include "ixgridview.h"
 
 int main(int argc, char *argv[])
 {
@@ -33,6 +34,7 @@ int main(int argc, char *argv[])
     qmlRegisterType<IXPageIndicator>("io.qt.examples.ixpageindicator", 1, 0, "IXPageIndicator");
     qmlRegisterType<IXPasswordInput>("io.qt.examples.ixpasswordinput", 1, 0, "IXPasswordInput");
     qmlRegisterType<IXEmailInput>("io.qt.examples.ixemailinput", 1, 0, "IXEmailInput");
+    qmlRegisterType<IXGridView>("io.qt.examples.ixgridview", 1, 0, "IXGridView");
 
     qmlRegisterType<IXHandleBackPopup>("io.qt.examples.ixhandlebackpopup", 1, 0, "IXHandleBackPopup");
     qmlRegisterType<IXMessageBoard>("io.qt.examples.ixmessageboard", 1, 0, "IXMessageBoard");

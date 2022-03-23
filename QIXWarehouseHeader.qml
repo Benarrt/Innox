@@ -5,7 +5,7 @@ Item {
     height: 80
     Rectangle {
         id: rectangle
-        color: IXStyleSheet.mediumColor()
+        color: "#00FFFFFF"
         anchors.fill: parent
 
         QIXLabel {
@@ -29,7 +29,7 @@ Item {
             QIXLabel {
                 width: 89
                 height: 36
-                color: IXStyleSheet.superLightColor()
+                color: IXStyleSheet.darkColor()
                 text: qsTr("Magazyn")
                 anchors.verticalCenter: parent.verticalCenter
                 anchors.left: rectangle2.right

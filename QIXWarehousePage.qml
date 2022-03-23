@@ -25,25 +25,48 @@ QIXScreenPage {
         placeholderText: "Wyszukaj"
     }
 
-    RowLayout {
+    QIXGridView {
+        id: qIXGridView
+        height: 600
+        anchors.left: parent.left
+        anchors.right: parent.right
+        anchors.top: rectangle.bottom
+        anchors.rightMargin: 40
+        anchors.leftMargin: 40
+        anchors.topMargin: 20
+    }
+
+    Rectangle {
+        id: rectangle
+        x: 188
+        width: 430
+        height: 40
+        color: "#00ffffff"
         anchors.top: qIXTextField.bottom
         anchors.topMargin: 20
         anchors.horizontalCenter: parent.horizontalCenter
-        QIXRadioButton {
-            checked: true
-            text: qsTr("Dodane")
-        }
-        QIXRadioButton {
-            text: qsTr("Nie dodane")
-        }
-        QIXRadioButton {
-            text: qsTr("Wszystkie")
+
+        RowLayout {
+            x: 4
+            y: -80
+            anchors.verticalCenter: parent.verticalCenter
+            anchors.horizontalCenter: parent.horizontalCenter
+            QIXRadioButton {
+                checked: true
+                text: qsTr("Dodane")
+            }
+            QIXRadioButton {
+                text: qsTr("Nie dodane")
+            }
+            QIXRadioButton {
+                text: qsTr("Wszystkie")
+            }
         }
     }
 }
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:0.75}
+    D{i:0;formeditorZoom:0.75}D{i:3}D{i:4}
 }
 ##^##*/

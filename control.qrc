@@ -11,5 +11,6 @@
         <file>QIXEmailInput.qml</file>
         <file>QIXMessageBoard.qml</file>
         <file>QIXRadioButton.qml</file>
+        <file>QIXGridView.qml</file>
     </qresource>
 </RCC>

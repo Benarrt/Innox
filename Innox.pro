@@ -17,6 +17,7 @@ SOURCES += \
         ixdynamiccreationlogic.cpp \
         ixemailinput.cpp \
         ixemaillogic.cpp \
+        ixgridview.cpp \
         ixhandlebackpopup.cpp \
         ixloginlogic.cpp \
         ixloginscreen.cpp \
@@ -78,6 +79,7 @@ HEADERS += \
     ixdynamiccreationlogic.h \
     ixemailinput.h \
     ixemaillogic.h \
+    ixgridview.h \
     ixhandlebackpopup.h \
     ixloginlogic.h \
     ixloginscreen.h \
