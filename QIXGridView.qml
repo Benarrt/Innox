@@ -1,6 +1,7 @@
 import QtQuick 2.15
 import io.qt.examples.ixstylesheet 1.0
 import io.qt.examples.ixgridview 1.0
+import io.qt.examples.ixdynamicdelegate 1.0
 
 Item {
     id: control
@@ -42,33 +43,22 @@ Item {
             height: control.itemH
             width: control.itemW
             border.width: 2
+
+            IXDynamicDelegate {
+                width: parent.width
+                height: parent.height
+                id: iXDynamicDelegate
+            }
+
+            Component.onCompleted: {
+                iXDynamicDelegate.url = text;
+            }
         }
 
         model : ListModel {
             id: listModel
             ListElement {
-                text: "Test"
-            }
-            ListElement {
-                text: "Test"
-            }
-            ListElement {
-                text: "Test"
-            }
-            ListElement {
-                text: "Test"
-            }
-            ListElement {
-                text: "Test"
-            }
-            ListElement {
-                text: "Test"
-            }
-            ListElement {
-                text: "Test"
-            }
-            ListElement {
-                text: "Test"
+                text: "qrc:/QIXButton.qml"
             }
         }
 

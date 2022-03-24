@@ -15,6 +15,7 @@ SOURCES += \
         ixdynamic.cpp \
         ixdynamiccomponent.cpp \
         ixdynamiccreationlogic.cpp \
+        ixdynamicdelegate.cpp \
         ixemailinput.cpp \
         ixemaillogic.cpp \
         ixgridview.cpp \
@@ -77,6 +78,7 @@ HEADERS += \
     ixdynamic.h \
     ixdynamiccomponent.h \
     ixdynamiccreationlogic.h \
+    ixdynamicdelegate.h \
     ixemailinput.h \
     ixemaillogic.h \
     ixgridview.h \

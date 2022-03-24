@@ -18,6 +18,7 @@
 #include "ixdealerscreen.h"
 #include "ixdealerscreenheader.h"
 #include "ixgridview.h"
+#include "ixdynamicdelegate.h"
 
 int main(int argc, char *argv[])
 {
@@ -47,6 +48,8 @@ int main(int argc, char *argv[])
     qmlRegisterType<IXDealerScreen>("io.qt.examples.ixdealerscreen", 1, 0, "IXDealerScreen");
 
     qmlRegisterType<IXDealerScreenHeader>("io.qt.examples.ixdealerscreenheader", 1, 0, "IXDealerScreenHeader");
+
+    qmlRegisterType<IXDynamicDelegate>("io.qt.examples.ixdynamicdelegate", 1, 0, "IXDynamicDelegate");
 
     qmlRegisterSingletonType<IXStyleSheet>("io.qt.examples.ixstylesheet", 1, 0, "IXStyleSheet", &IXStyleSheet::qmlInstance);
 

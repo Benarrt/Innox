@@ -42,8 +42,6 @@ void IXGridView::calculateOptimalWidth()
 
     _optimalWidth = (maxRowElements * cellWidth) + (itemSpacingW * 2);
 
-    qDebug(QString("_optimalWidth %1").arg(QString::number(_optimalWidth)).toLocal8Bit());
-
     if(gvWidth != _optimalWidth)
     {
         _gridView->setProperty(META_PROPERTIES::width, _optimalWidth);
