@@ -27,8 +27,8 @@ Item {
         anchors.horizontalCenter: parent.horizontalCenter
         //contentHeight: height
         //contentWidth: width
-        //contentX: -control.itemSpacingW
-        //contentY: -control.itemSpacingH
+        contentX: -control.itemSpacingW
+        contentY: -control.itemSpacingH
         leftMargin: control.itemSpacingW
         topMargin: control.itemSpacingH
         layoutDirection: Qt.LeftToRight
@@ -57,6 +57,222 @@ Item {
 
         model : ListModel {
             id: listModel
+            ListElement {
+                text: "qrc:/QIXButton.qml"
+            }
+
+            ListElement {
+                text: "qrc:/QIXButton.qml"
+            }
+
+            ListElement {
+                text: "qrc:/QIXButton.qml"
+            }
+
+            ListElement {
+                text: "qrc:/QIXButton.qml"
+            }
+
+            ListElement {
+                text: "qrc:/QIXButton.qml"
+            }
+
+            ListElement {
+                text: "qrc:/QIXButton.qml"
+            }
+
+            ListElement {
+                text: "qrc:/QIXButton.qml"
+            }
+
+            ListElement {
+                text: "qrc:/QIXButton.qml"
+            }
+
+            ListElement {
+                text: "qrc:/QIXButton.qml"
+            }
+
+            ListElement {
+                text: "qrc:/QIXButton.qml"
+            }
+
+            ListElement {
+                text: "qrc:/QIXButton.qml"
+            }
+
+            ListElement {
+                text: "qrc:/QIXButton.qml"
+            }
+
+            ListElement {
+                text: "qrc:/QIXButton.qml"
+            }
+
+            ListElement {
+                text: "qrc:/QIXButton.qml"
+            }
+
+            ListElement {
+                text: "qrc:/QIXButton.qml"
+            }
+
+            ListElement {
+                text: "qrc:/QIXButton.qml"
+            }
+
+            ListElement {
+                text: "qrc:/QIXButton.qml"
+            }
+
+            ListElement {
+                text: "qrc:/QIXButton.qml"
+            }
+
+            ListElement {
+                text: "qrc:/QIXButton.qml"
+            }
+
+            ListElement {
+                text: "qrc:/QIXButton.qml"
+            }
+
+            ListElement {
+                text: "qrc:/QIXButton.qml"
+            }
+
+            ListElement {
+                text: "qrc:/QIXButton.qml"
+            }
+
+            ListElement {
+                text: "qrc:/QIXButton.qml"
+            }
+
+            ListElement {
+                text: "qrc:/QIXButton.qml"
+            }
+
+            ListElement {
+                text: "qrc:/QIXButton.qml"
+            }
+
+            ListElement {
+                text: "qrc:/QIXButton.qml"
+            }
+
+            ListElement {
+                text: "qrc:/QIXButton.qml"
+            }
+
+            ListElement {
+                text: "qrc:/QIXButton.qml"
+            }
+
+            ListElement {
+                text: "qrc:/QIXButton.qml"
+            }
+
+            ListElement {
+                text: "qrc:/QIXButton.qml"
+            }
+
+            ListElement {
+                text: "qrc:/QIXButton.qml"
+            }
+
+            ListElement {
+                text: "qrc:/QIXButton.qml"
+            }
+
+            ListElement {
+                text: "qrc:/QIXButton.qml"
+            }
+
+            ListElement {
+                text: "qrc:/QIXButton.qml"
+            }
+
+            ListElement {
+                text: "qrc:/QIXButton.qml"
+            }
+
+            ListElement {
+                text: "qrc:/QIXButton.qml"
+            }
+
+            ListElement {
+                text: "qrc:/QIXButton.qml"
+            }
+
+            ListElement {
+                text: "qrc:/QIXButton.qml"
+            }
+
+            ListElement {
+                text: "qrc:/QIXButton.qml"
+            }
+
+            ListElement {
+                text: "qrc:/QIXButton.qml"
+            }
+
+            ListElement {
+                text: "qrc:/QIXButton.qml"
+            }
+
+            ListElement {
+                text: "qrc:/QIXButton.qml"
+            }
+
+            ListElement {
+                text: "qrc:/QIXButton.qml"
+            }
+
+            ListElement {
+                text: "qrc:/QIXButton.qml"
+            }
+
+            ListElement {
+                text: "qrc:/QIXButton.qml"
+            }
+
+            ListElement {
+                text: "qrc:/QIXButton.qml"
+            }
+
+            ListElement {
+                text: "qrc:/QIXButton.qml"
+            }
+
+            ListElement {
+                text: "qrc:/QIXButton.qml"
+            }
+
+            ListElement {
+                text: "qrc:/QIXButton.qml"
+            }
+
+            ListElement {
+                text: "qrc:/QIXButton.qml"
+            }
+
+            ListElement {
+                text: "qrc:/QIXButton.qml"
+            }
+
+            ListElement {
+                text: "qrc:/QIXButton.qml"
+            }
+
+            ListElement {
+                text: "qrc:/QIXButton.qml"
+            }
+
+            ListElement {
+                text: "qrc:/QIXButton.qml"
+            }
+
             ListElement {
                 text: "qrc:/QIXButton.qml"
             }

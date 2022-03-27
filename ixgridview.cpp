@@ -5,11 +5,6 @@ IXGridView::IXGridView(QQuickItem *parent) : QQuickItem(parent), _optimalWidth(0
 
 }
 
-void IXGridView::componentComplete()
-{
-    QQuickItem::componentComplete();
-}
-
 void IXGridView::setup()
 {
     connect(_component, SIGNAL(widthChanged()), this, SLOT(calculateOptimalWidth()));

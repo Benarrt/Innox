@@ -22,6 +22,12 @@ protected:
     void fillComponent();
 
 private:
+
+    struct META_PROPERTIES
+    {
+        static constexpr char width[] = "width";
+        static constexpr char height[] = "height";
+    };
 };
 
 

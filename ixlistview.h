@@ -1,28 +1,28 @@
-#ifndef IXGRIDVIEW_H
-#define IXGRIDVIEW_H
+#ifndef IXLISTVIEW_H
+#define IXLISTVIEW_H
 
-#include "qquickitem.h"
+#include <QQuickItem>
 #include "ixqcomponent.h"
 
-class IXGridView : public QQuickItem
+class IXListView : public QQuickItem
 {
     Q_OBJECT
     IX_Q_COMPONENT
 
-    Q_PROPERTY(QQuickItem* gridView MEMBER _gridView NOTIFY gridViewChanged)
+    Q_PROPERTY(QQuickItem* listView MEMBER _listView NOTIFY listViewChanged)
 public:
-    explicit IXGridView(QQuickItem *parent = nullptr);
+    IXListView(QQuickItem *parent = nullptr);
 
     Q_INVOKABLE void setup();
 
 protected:
     Q_SLOT void calculateOptimalWidth();
 
-    QQuickItem* _gridView;
+    QQuickItem* _listView;
     int _optimalWidth;
 
 signals:
-    void gridViewChanged();
+    void listViewChanged();
 
 private:
     struct META_PROPERTIES
@@ -30,10 +30,11 @@ private:
         static constexpr char width[] = "width";
         static constexpr char model[] = "model";
         static constexpr char count[] = "count";
-        static constexpr char cellWidth[] = "cellWidth";
+        static constexpr char itemW[] = "itemW";
         static constexpr char itemSpacingW[] = "itemSpacingW";
-        static constexpr char maxColumns[] = "maxColumns";
+        static constexpr char interactive[] = "interactive";
     };
+
 };
 
-#endif // IXGRIDVIEW_H
+#endif // IXLISTVIEW_H

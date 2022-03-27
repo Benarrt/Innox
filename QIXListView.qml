@@ -1,0 +1,111 @@
+import QtQuick 2.15
+import io.qt.examples.ixstylesheet 1.0
+import io.qt.examples.ixlistview 1.0
+import io.qt.examples.ixdynamicdelegate 1.0
+
+Item {
+    id: control
+    width: 500
+    height: 50
+    property var logic: iXListView
+    property int itemW: 90
+    property int itemH: 40
+    property int itemSpacingW: 10
+    property int itemSpacingH: 10
+
+    Component.onCompleted: {
+        control.logic.setup();
+    }
+
+    ListView {
+        id: listView
+        width: 500
+        height: control.height
+        contentY: -itemSpacingH
+        contentX: -itemSpacingW
+        orientation: ListView.Horizontal
+        flickableDirection: Flickable.HorizontalFlick
+        anchors.horizontalCenter: parent.horizontalCenter
+        leftMargin: control.itemSpacingW
+        topMargin: control.itemSpacingH
+        layoutDirection: Qt.LeftToRight
+        clip: true
+
+        delegate: Item {
+            width: control.itemW + control.itemSpacingW
+            height: control.itemH + control.itemSpacingH
+
+                Rectangle {
+                color: "#56DC81"
+                height: control.itemH
+                width: control.itemW
+                border.width: 2
+
+                IXDynamicDelegate {
+                    width: parent.width
+                    height: parent.height
+                    id: iXDynamicDelegate
+                }
+
+                Component.onCompleted: {
+                  iXDynamicDelegate.url = text;
+                }
+            }
+        }
+
+        model : ListModel {
+            id: listModel
+            ListElement {
+                text: "qrc:/QIXButton.qml"
+            }
+
+            ListElement {
+                text: "qrc:/QIXButton.qml"
+            }
+
+            ListElement {
+                text: "qrc:/QIXButton.qml"
+            }
+
+            ListElement {
+                text: "qrc:/QIXButton.qml"
+            }
+
+            ListElement {
+                text: "qrc:/QIXButton.qml"
+            }
+
+            ListElement {
+                text: "qrc:/QIXButton.qml"
+            }
+
+            ListElement {
+                text: "qrc:/QIXButton.qml"
+            }
+
+            ListElement {
+                text: "qrc:/QIXButton.qml"
+            }
+
+            ListElement {
+                text: "qrc:/QIXButton.qml"
+            }
+
+            ListElement {
+                text: "qrc:/QIXButton.qml"
+            }
+        }
+    }
+
+    IXListView {
+        id: iXListView
+        component: control
+        listView: listView
+    }
+}
+
+/*##^##
+Designer {
+    D{i:0;formeditorZoom:1.75}
+}
+##^##*/

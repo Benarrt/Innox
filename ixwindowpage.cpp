@@ -38,6 +38,16 @@ void IXWindowPage::componentComplete()
 
 }
 
+void IXWindowPage::onUrlChanged(const QUrl& url)
+{
+    IXDynamicComponent::onUrlChanged(url);
+    if(_item)
+    {
+        this->setHeight(_item->height());
+        this->setWidth(_item->width());
+    }
+}
+
 void IXWindowPage::updatePageWidth()
 {
     auto ixWindow = IXRegistry::inst().get<IXWindow>();

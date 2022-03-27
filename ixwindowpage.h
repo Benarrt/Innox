@@ -12,7 +12,7 @@ class IXWindowPage : public IXDynamicComponent
     IX_Q_COMPONENT
 public:
     IXWindowPage();
-signals:
+    void onUrlChanged(const QUrl&) override;
 
 protected:
     void componentComplete() override;

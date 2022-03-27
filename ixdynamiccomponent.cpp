@@ -36,7 +36,7 @@ void IXDynamicComponent::onUrlChanged(const QUrl& url)
     assert(!changing);
     changing = true;
     ScopeGuard doneChaning([this] { changing = false;});
-    qDebug(url.toString().toLocal8Bit());
+    //qDebug(url.toString().toLocal8Bit());
 
     if(_item != nullptr)
     {
@@ -55,15 +55,12 @@ void IXDynamicComponent::onUrlChanged(const QUrl& url)
     // Or:
     // QQmlEngine *engine = qmlContext(this)->engine();
     QQmlComponent component(engine, url);
-    qDebug(component.errorString().toLocal8Bit());
+    //qDebug(component.errorString().toLocal8Bit());
     QObject *myObject = component.create();
-    qDebug(component.errorString().toLocal8Bit());
+    //qDebug(component.errorString().toLocal8Bit());
     _item = qobject_cast<QQuickItem*>(myObject);
     _item->setParentItem(this);
     _item->setParent(this);
-
-    this->setHeight(_item->height());
-    this->setWidth(_item->width());
 
     IXDynamic* itemLogic = nullptr;
     if(_item->property("logic").isValid())

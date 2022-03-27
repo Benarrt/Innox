@@ -23,6 +23,6 @@ void IXDynamicDelegate::onUrlChanged(const QUrl& url)
 
 void IXDynamicDelegate::fillComponent()
 {
-    _item->setProperty("width", 200);
-    _item->setProperty("height", 200);
+    _item->setProperty(META_PROPERTIES::width, this->width());
+    _item->setProperty(META_PROPERTIES::height, this->height());
 }

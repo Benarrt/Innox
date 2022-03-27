@@ -7,71 +7,18 @@ Item {
     height: 80
     property var logic: iXDealerScreenHeader
 
-    Row {
-        id: row
+    Rectangle {
+        id: rectangle
+        color: IXStyleSheet.mediumColor()
         anchors.fill: parent
-        padding: 0
-        topPadding: 0
-        spacing: 10
 
-        Rectangle {
-            width: 80
-            height: 80
-            color: IXStyleSheet.darkColor()
-        }
-
-        Rectangle {
-            width: 80
-            height: 80
-            color: IXStyleSheet.darkColor()
-        }
-
-        Rectangle {
-            width: 80
-            height: 80
-            color: IXStyleSheet.darkColor()
-        }
-
-        Rectangle {
-            width: 80
-            height: 80
-            color: IXStyleSheet.darkColor()
-        }
-
-        Rectangle {
-            width: 80
-            height: 80
-            color: IXStyleSheet.darkColor()
-        }
-
-        Rectangle {
-            width: 80
-            height: 80
-            color: IXStyleSheet.darkColor()
-        }
-
-        Rectangle {
-            width: 80
-            height: 80
-            color: IXStyleSheet.darkColor()
-        }
-
-        Rectangle {
-            width: 80
-            height: 80
-            color: IXStyleSheet.darkColor()
-        }
-
-        Rectangle {
-            width: 80
-            height: 80
-            color: IXStyleSheet.darkColor()
-        }
-
-        Rectangle {
-            width: 80
-            height: 80
-            color: IXStyleSheet.darkColor()
+        QIXListView {
+            anchors.fill: parent
+            itemSpacingW: 10
+            itemSpacingH: 10
+            itemW: 150
+            itemH: 60
+            id: qIXListView
         }
     }
 

@@ -41,6 +41,9 @@ void IXWindowPageHeader::onUrlChanged(const QUrl& url)
 
 void IXWindowPageHeader::fillComponent()
 {
+    this->setHeight(_item->height());
+    this->setWidth(_item->width());
+
     _component->setHeight(_item->height());
     qvariant_cast<QObject*>(
         _item->property("anchors")
