@@ -13,6 +13,49 @@ Item {
     property int itemSpacingW: 10
     property int itemSpacingH: 10
 
+    property var model: ListModel {
+        id: listModel
+        ListElement {
+            _url: "qrc:/QIXButton.qml"
+        }
+
+        ListElement {
+            _url: "qrc:/QIXButton.qml"
+        }
+
+        ListElement {
+            _url: "qrc:/QIXButton.qml"
+        }
+
+        ListElement {
+            _url: "qrc:/QIXButton.qml"
+        }
+
+        ListElement {
+            _url: "qrc:/QIXButton.qml"
+        }
+
+        ListElement {
+            _url: "qrc:/QIXButton.qml"
+        }
+
+        ListElement {
+            _url: "qrc:/QIXButton.qml"
+        }
+
+        ListElement {
+            _url: "qrc:/QIXButton.qml"
+        }
+
+        ListElement {
+            _url: "qrc:/QIXButton.qml"
+        }
+
+        ListElement {
+            _url: "qrc:/QIXButton.qml"
+        }
+    }
+
     Component.onCompleted: {
         control.logic.setup();
     }
@@ -35,66 +78,19 @@ Item {
             width: control.itemW + control.itemSpacingW
             height: control.itemH + control.itemSpacingH
 
-                Rectangle {
-                color: "#56DC81"
-                height: control.itemH
+            Component.onCompleted: {
+                iXDynamicDelegate.url = _url;
+            }
+
+            IXDynamicDelegate {
+                id: iXDynamicDelegate
                 width: control.itemW
-                border.width: 2
-
-                IXDynamicDelegate {
-                    width: parent.width
-                    height: parent.height
-                    id: iXDynamicDelegate
-                }
-
-                Component.onCompleted: {
-                  iXDynamicDelegate.url = text;
-                }
+                height: control.itemH
+                bridge: _bridge()
             }
         }
 
-        model : ListModel {
-            id: listModel
-            ListElement {
-                text: "qrc:/QIXButton.qml"
-            }
-
-            ListElement {
-                text: "qrc:/QIXButton.qml"
-            }
-
-            ListElement {
-                text: "qrc:/QIXButton.qml"
-            }
-
-            ListElement {
-                text: "qrc:/QIXButton.qml"
-            }
-
-            ListElement {
-                text: "qrc:/QIXButton.qml"
-            }
-
-            ListElement {
-                text: "qrc:/QIXButton.qml"
-            }
-
-            ListElement {
-                text: "qrc:/QIXButton.qml"
-            }
-
-            ListElement {
-                text: "qrc:/QIXButton.qml"
-            }
-
-            ListElement {
-                text: "qrc:/QIXButton.qml"
-            }
-
-            ListElement {
-                text: "qrc:/QIXButton.qml"
-            }
-        }
+        model: control.model
     }
 
     IXListView {

@@ -51,230 +51,230 @@ Item {
             }
 
             Component.onCompleted: {
-                iXDynamicDelegate.url = text;
+                iXDynamicDelegate.url = _url;
             }
         }
 
         model : ListModel {
             id: listModel
             ListElement {
-                text: "qrc:/QIXButton.qml"
+                _url: "qrc:/QIXButton.qml"
             }
 
             ListElement {
-                text: "qrc:/QIXButton.qml"
+                _url: "qrc:/QIXButton.qml"
             }
 
             ListElement {
-                text: "qrc:/QIXButton.qml"
+                _url: "qrc:/QIXButton.qml"
             }
 
             ListElement {
-                text: "qrc:/QIXButton.qml"
+                _url: "qrc:/QIXButton.qml"
             }
 
             ListElement {
-                text: "qrc:/QIXButton.qml"
+                _url: "qrc:/QIXButton.qml"
             }
 
             ListElement {
-                text: "qrc:/QIXButton.qml"
+                _url: "qrc:/QIXButton.qml"
             }
 
             ListElement {
-                text: "qrc:/QIXButton.qml"
+                _url: "qrc:/QIXButton.qml"
             }
 
             ListElement {
-                text: "qrc:/QIXButton.qml"
+                _url: "qrc:/QIXButton.qml"
             }
 
             ListElement {
-                text: "qrc:/QIXButton.qml"
+                _url: "qrc:/QIXButton.qml"
             }
 
             ListElement {
-                text: "qrc:/QIXButton.qml"
+                _url: "qrc:/QIXButton.qml"
             }
 
             ListElement {
-                text: "qrc:/QIXButton.qml"
+                _url: "qrc:/QIXButton.qml"
             }
 
             ListElement {
-                text: "qrc:/QIXButton.qml"
+                _url: "qrc:/QIXButton.qml"
             }
 
             ListElement {
-                text: "qrc:/QIXButton.qml"
+                _url: "qrc:/QIXButton.qml"
             }
 
             ListElement {
-                text: "qrc:/QIXButton.qml"
+                _url: "qrc:/QIXButton.qml"
             }
 
             ListElement {
-                text: "qrc:/QIXButton.qml"
+                _url: "qrc:/QIXButton.qml"
             }
 
             ListElement {
-                text: "qrc:/QIXButton.qml"
+                _url: "qrc:/QIXButton.qml"
             }
 
             ListElement {
-                text: "qrc:/QIXButton.qml"
+                _url: "qrc:/QIXButton.qml"
             }
 
             ListElement {
-                text: "qrc:/QIXButton.qml"
+                _url: "qrc:/QIXButton.qml"
             }
 
             ListElement {
-                text: "qrc:/QIXButton.qml"
+                _url: "qrc:/QIXButton.qml"
             }
 
             ListElement {
-                text: "qrc:/QIXButton.qml"
+                _url: "qrc:/QIXButton.qml"
             }
 
             ListElement {
-                text: "qrc:/QIXButton.qml"
+                _url: "qrc:/QIXButton.qml"
             }
 
             ListElement {
-                text: "qrc:/QIXButton.qml"
+                _url: "qrc:/QIXButton.qml"
             }
 
             ListElement {
-                text: "qrc:/QIXButton.qml"
+                _url: "qrc:/QIXButton.qml"
             }
 
             ListElement {
-                text: "qrc:/QIXButton.qml"
+                _url: "qrc:/QIXButton.qml"
             }
 
             ListElement {
-                text: "qrc:/QIXButton.qml"
+                _url: "qrc:/QIXButton.qml"
             }
 
             ListElement {
-                text: "qrc:/QIXButton.qml"
+                _url: "qrc:/QIXButton.qml"
             }
 
             ListElement {
-                text: "qrc:/QIXButton.qml"
+                _url: "qrc:/QIXButton.qml"
             }
 
             ListElement {
-                text: "qrc:/QIXButton.qml"
+                _url: "qrc:/QIXButton.qml"
             }
 
             ListElement {
-                text: "qrc:/QIXButton.qml"
+                _url: "qrc:/QIXButton.qml"
             }
 
             ListElement {
-                text: "qrc:/QIXButton.qml"
+                _url: "qrc:/QIXButton.qml"
             }
 
             ListElement {
-                text: "qrc:/QIXButton.qml"
+                _url: "qrc:/QIXButton.qml"
             }
 
             ListElement {
-                text: "qrc:/QIXButton.qml"
+                _url: "qrc:/QIXButton.qml"
             }
 
             ListElement {
-                text: "qrc:/QIXButton.qml"
+                _url: "qrc:/QIXButton.qml"
             }
 
             ListElement {
-                text: "qrc:/QIXButton.qml"
+                _url: "qrc:/QIXButton.qml"
             }
 
             ListElement {
-                text: "qrc:/QIXButton.qml"
+                _url: "qrc:/QIXButton.qml"
             }
 
             ListElement {
-                text: "qrc:/QIXButton.qml"
+                _url: "qrc:/QIXButton.qml"
             }
 
             ListElement {
-                text: "qrc:/QIXButton.qml"
+                _url: "qrc:/QIXButton.qml"
             }
 
             ListElement {
-                text: "qrc:/QIXButton.qml"
+                _url: "qrc:/QIXButton.qml"
             }
 
             ListElement {
-                text: "qrc:/QIXButton.qml"
+                _url: "qrc:/QIXButton.qml"
             }
 
             ListElement {
-                text: "qrc:/QIXButton.qml"
+                _url: "qrc:/QIXButton.qml"
             }
 
             ListElement {
-                text: "qrc:/QIXButton.qml"
+                _url: "qrc:/QIXButton.qml"
             }
 
             ListElement {
-                text: "qrc:/QIXButton.qml"
+                _url: "qrc:/QIXButton.qml"
             }
 
             ListElement {
-                text: "qrc:/QIXButton.qml"
+                _url: "qrc:/QIXButton.qml"
             }
 
             ListElement {
-                text: "qrc:/QIXButton.qml"
+                _url: "qrc:/QIXButton.qml"
             }
 
             ListElement {
-                text: "qrc:/QIXButton.qml"
+                _url: "qrc:/QIXButton.qml"
             }
 
             ListElement {
-                text: "qrc:/QIXButton.qml"
+                _url: "qrc:/QIXButton.qml"
             }
 
             ListElement {
-                text: "qrc:/QIXButton.qml"
+                _url: "qrc:/QIXButton.qml"
             }
 
             ListElement {
-                text: "qrc:/QIXButton.qml"
+                _url: "qrc:/QIXButton.qml"
             }
 
             ListElement {
-                text: "qrc:/QIXButton.qml"
+                _url: "qrc:/QIXButton.qml"
             }
 
             ListElement {
-                text: "qrc:/QIXButton.qml"
+                _url: "qrc:/QIXButton.qml"
             }
 
             ListElement {
-                text: "qrc:/QIXButton.qml"
+                _url: "qrc:/QIXButton.qml"
             }
 
             ListElement {
-                text: "qrc:/QIXButton.qml"
+                _url: "qrc:/QIXButton.qml"
             }
 
             ListElement {
-                text: "qrc:/QIXButton.qml"
+                _url: "qrc:/QIXButton.qml"
             }
 
             ListElement {
-                text: "qrc:/QIXButton.qml"
+                _url: "qrc:/QIXButton.qml"
             }
 
             ListElement {
-                text: "qrc:/QIXButton.qml"
+                _url: "qrc:/QIXButton.qml"
             }
         }
 

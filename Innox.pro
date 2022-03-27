@@ -20,6 +20,8 @@ SOURCES += \
         ixemaillogic.cpp \
         ixgridview.cpp \
         ixhandlebackpopup.cpp \
+        ixheaderpagebuton.cpp \
+        ixheaderpagebuttonbridge.cpp \
         ixlistview.cpp \
         ixloginlogic.cpp \
         ixloginscreen.cpp \
@@ -84,6 +86,8 @@ HEADERS += \
     ixemaillogic.h \
     ixgridview.h \
     ixhandlebackpopup.h \
+    ixheaderpagebuton.h \
+    ixheaderpagebuttonbridge.h \
     ixlistview.h \
     ixloginlogic.h \
     ixloginscreen.h \

@@ -1,11 +1,16 @@
 import QtQuick 2.15
+import QtQuick.Controls 2.15
 import io.qt.examples.ixstylesheet 1.0
 import io.qt.examples.ixdealerscreenheader 1.0
-import QtQuick.Controls 2.15
+import io.qt.examples.ixheaderpagebuttonbridge 1.0
 
 Item {
+    id: control
     height: 80
     property var logic: iXDealerScreenHeader
+    function currentPageChanged() {
+        console.log("currentPageChanged");
+    }
 
     Rectangle {
         id: rectangle
@@ -15,10 +20,38 @@ Item {
         QIXListView {
             anchors.fill: parent
             itemSpacingW: 10
-            itemSpacingH: 10
-            itemW: 150
-            itemH: 60
+            itemSpacingH: 5
+            itemW: 100
+            itemH: 70
             id: qIXListView
+
+            model: ListModel {
+                id: listModel
+                ListElement {
+                    _url: "qrc:/QIXHeaderPageButton.qml"
+                    _bridge: function () {
+                        return iXHeaderPageButtonBridge
+                    }
+                }
+                ListElement {
+                    _url: "qrc:/QIXHeaderPageButton.qml"
+                    _bridge: function () {
+                        return iXHeaderPageButtonBridge
+                    }
+                }
+                ListElement {
+                    _url: "qrc:/QIXHeaderPageButton.qml"
+                    _bridge: function () {
+                        return iXHeaderPageButtonBridge
+                    }
+                }
+                ListElement {
+                    _url: "qrc:/QIXHeaderPageButton.qml"
+                    _bridge: function () {
+                        return iXHeaderPageButtonBridge
+                    }
+                }
+            }
         }
     }
 
@@ -27,6 +60,9 @@ Item {
         component: parent
     }
 
+    IXHeaderPageButtonBridge {
+        id: iXHeaderPageButtonBridge
+    }
 
 }
 

@@ -18,7 +18,9 @@ void IXDynamicDelegate::onUrlChanged(const QUrl& url)
 {
     IXDynamicComponent::onUrlChanged(url);
     if(_item != nullptr)
+    {
         fillComponent();
+    }
 }
 
 void IXDynamicDelegate::fillComponent()

@@ -20,6 +20,8 @@
 #include "ixgridview.h"
 #include "ixlistview.h"
 #include "ixdynamicdelegate.h"
+#include "ixheaderpagebuton.h"
+#include "ixheaderpagebuttonbridge.h"
 
 int main(int argc, char *argv[])
 {
@@ -41,6 +43,7 @@ int main(int argc, char *argv[])
 
     qmlRegisterType<IXHandleBackPopup>("io.qt.examples.ixhandlebackpopup", 1, 0, "IXHandleBackPopup");
     qmlRegisterType<IXMessageBoard>("io.qt.examples.ixmessageboard", 1, 0, "IXMessageBoard");
+    qmlRegisterType<IXHeaderPageButon>("io.qt.examples.ixheaderpagebuton", 1, 0, "IXHeaderPageButon");
 
     qmlRegisterType<IXWindowPageHeader>("io.qt.examples.ixwindowpageheader", 1, 0, "IXWindowPageHeader");
     qmlRegisterType<IXWindowPageFooter>("io.qt.examples.ixwindowpagefooter", 1, 0, "IXWindowPageFooter");
@@ -52,6 +55,8 @@ int main(int argc, char *argv[])
     qmlRegisterType<IXDealerScreenHeader>("io.qt.examples.ixdealerscreenheader", 1, 0, "IXDealerScreenHeader");
 
     qmlRegisterType<IXDynamicDelegate>("io.qt.examples.ixdynamicdelegate", 1, 0, "IXDynamicDelegate");
+
+    qmlRegisterType<IXHeaderPageButtonBridge>("io.qt.examples.ixheaderpagebuttonbridge", 1, 0, "IXHeaderPageButtonBridge");
 
     qmlRegisterSingletonType<IXStyleSheet>("io.qt.examples.ixstylesheet", 1, 0, "IXStyleSheet", &IXStyleSheet::qmlInstance);
 

@@ -9,17 +9,22 @@ class IXDynamicDelegate :  public IXDynamicComponent
 {
     Q_OBJECT
     IX_Q_COMPONENT
+
+    Q_PROPERTY(QQuickItem* bridge MEMBER _bridge NOTIFY bridgeChanged)
 public:
     IXDynamicDelegate();
 
 signals:
+    void bridgeChanged();
 
 protected:
     void componentComplete() override;
 
+    void fillComponent();
+
     Q_SLOT void onUrlChanged(const QUrl&) override;
 
-    void fillComponent();
+    QQuickItem* _bridge;
 
 private:
 

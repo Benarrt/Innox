@@ -18,7 +18,7 @@ public:
 
     void setup(QQuickItem* parentItem, QObject* parent);
 
-    QQuickItem* item();
+    Q_INVOKABLE QQuickItem* item();
 
 signals:
     void urlChanged(QUrl);

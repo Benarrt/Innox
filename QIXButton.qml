@@ -5,6 +5,9 @@ import io.qt.examples.ixstylesheet 1.0
 
 Button {
     property var logic: ixButton
+    property color bgColor: IXStyleSheet.darkColor()
+    property color textColor: IXStyleSheet.lightColor()
+
     text: qsTr("QIXButton")
     font: IXStyleSheet.defaultFont();
     display: AbstractButton.TextOnly
@@ -34,13 +37,13 @@ Button {
     contentItem: Text {
         text: parent.text
         font: parent.font
-        color: IXStyleSheet.lightColor()
+        color: parent.textColor
         horizontalAlignment: Text.AlignHCenter
         verticalAlignment: Text.AlignVCenter
     }
 
     background: Rectangle {
-        color: IXStyleSheet.darkColor()
+        color: parent.bgColor
         border.width: 0
         radius: 5
     }
