@@ -22,5 +22,5 @@ const std::string IXDealerScreen::headerURL()
 
 const std::string IXDealerScreen::footerURL()
 {
-    return std::string("");//std::string("qrc:/QIXPageIndicatorFooter.qml");
+    return std::string("qrc:/QIXPageIndicatorFooter.qml");//std::string("qrc:/QIXPageIndicatorFooter.qml");
 }

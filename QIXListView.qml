@@ -12,6 +12,7 @@ Item {
     property int itemH: 40
     property int itemSpacingW: 10
     property int itemSpacingH: 10
+    property var bridge
 
     property var model: ListModel {
         id: listModel
@@ -82,11 +83,16 @@ Item {
                 iXDynamicDelegate.url = _url;
             }
 
+            Component.onDestruction: {
+                iXDynamicDelegate.url = "";
+            }
+
             IXDynamicDelegate {
                 id: iXDynamicDelegate
                 width: control.itemW
                 height: control.itemH
-                bridge: _bridge()
+                bridge: control.bridge
+                itemId: _itemId
             }
         }
 

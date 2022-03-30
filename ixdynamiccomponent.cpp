@@ -6,6 +6,12 @@ IXDynamicComponent::IXDynamicComponent() : _item(nullptr), changing(false)
     connect(this, &IXDynamicComponent::urlChanged, this, &IXDynamicComponent::onUrlChanged);
 }
 
+IXDynamicComponent::~IXDynamicComponent()
+{
+    if(_item)
+        delete _item;
+}
+
 void IXDynamicComponent::setup(QQuickItem* parentItem, QObject* parent)
 {
     setParentItem(parentItem);

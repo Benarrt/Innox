@@ -7,10 +7,29 @@ Item {
     property var logic: iXHeaderPageButon
     property var text: "QIXHeaderPageButton"
     property var bridge:  parent.bridge
+    property int itemId:  parent.itemId
     property bool current: false
     width: 100
     height: 70
     clip: true
+
+    Component.onDestruction: {
+        control.bridge.currentIndexChanged.disconnect(control.isCurrent);
+    }
+
+    onParentChanged: {
+        if(!parent)
+            return;
+
+        control.bridge = parent.bridge;
+        control.itemId = parent.itemId;
+        control.bridge.currentIndexChanged.connect(control.isCurrent);
+        isCurrent();
+    }
+
+    function isCurrent() {
+        control.current = itemId === control.bridge.currentIndex;
+    }
 
     onCurrentChanged: {
         if(current) {
@@ -27,14 +46,13 @@ Item {
     QIXButton {
         id: qIXButton
         anchors.fill: parent
-        text: parent.text
         bgColor: IXStyleSheet.superLightColor()
         textColor: IXStyleSheet.mediumColor()
+        text: bridge.pageName(itemId);
 
         onClicked: {
             opacity = 1;
-            current = true;
-            parent.bridge.testFunction();
+            bridge.currentIndex = control.itemId;
         }
     }
 

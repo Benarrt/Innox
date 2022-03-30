@@ -12,6 +12,18 @@ Item {
         console.log("currentPageChanged");
     }
 
+    Component.onCompleted: {
+        listModel.clear();
+        iXHeaderPageButtonBridge.feedPageNameListModel(pageNameListModel);
+        var delegateCount = iXHeaderPageButtonBridge.delegatesCount();
+        for(var i = 0; i < delegateCount; i++) {
+            listModel.append({
+                                 _url: iXHeaderPageButtonBridge.delegateUrl(),
+                                 _itemId: i,
+                             });
+        }
+    }
+
     Rectangle {
         id: rectangle
         color: IXStyleSheet.mediumColor()
@@ -25,32 +37,10 @@ Item {
             itemH: 70
             id: qIXListView
 
+            bridge: iXHeaderPageButtonBridge
+
             model: ListModel {
                 id: listModel
-                ListElement {
-                    _url: "qrc:/QIXHeaderPageButton.qml"
-                    _bridge: function () {
-                        return iXHeaderPageButtonBridge
-                    }
-                }
-                ListElement {
-                    _url: "qrc:/QIXHeaderPageButton.qml"
-                    _bridge: function () {
-                        return iXHeaderPageButtonBridge
-                    }
-                }
-                ListElement {
-                    _url: "qrc:/QIXHeaderPageButton.qml"
-                    _bridge: function () {
-                        return iXHeaderPageButtonBridge
-                    }
-                }
-                ListElement {
-                    _url: "qrc:/QIXHeaderPageButton.qml"
-                    _bridge: function () {
-                        return iXHeaderPageButtonBridge
-                    }
-                }
             }
         }
     }
@@ -64,41 +54,64 @@ Item {
         id: iXHeaderPageButtonBridge
     }
 
-}
+    ListModel {
+        id: pageNameListModel
+        function pageName(index) {
+            if(index < pageNameListModel.count) {
+                return qsTr(pageNameListModel.get(index).name);
 
-/*Item {
-    height: 80
-    property var logic: iXDealerScreenHeader
-
-    Rectangle {
-        id: rectangle
-        color: IXStyleSheet.mediumColor()
-        anchors.fill: parent
-
-        QIXButton {
-            id: qIXButton
-            x: 490
-            y: 14
-            width: 100
-            height: 40
-            text: "Wyloguj"
-            anchors.verticalCenter: parent.verticalCenter
-            anchors.right: parent.right
-            anchors.rightMargin: 50
-
-            onClicked: {
-                iXDealerScreenHeader.logOut();
             }
+            return qsTr("Nieznana");
         }
 
-        IXDealerScreenHeader {
-            id: iXDealerScreenHeader
-            component: parent
+        ListElement {
+            name: QT_TR_NOOP("Magazyn")
+        }
+        ListElement {
+            name: QT_TR_NOOP("Profil")
+        }
+        ListElement {
+            name: "Zaslepka"
+        }
+        ListElement {
+            name: "Zaslepka"
+        }
+        ListElement {
+            name: "Zaslepka"
+        }
+        ListElement {
+            name: "Zaslepka"
+        }
+        ListElement {
+            name: "Zaslepka"
+        }
+        ListElement {
+            name: "Zaslepka"
+        }
+        ListElement {
+            name: "Zaslepka"
+        }
+        ListElement {
+            name: "Zaslepka"
+        }
+        ListElement {
+            name: "Zaslepka"
+        }
+        ListElement {
+            name: "Zaslepka"
+        }
+        ListElement {
+            name: "Zaslepka"
+        }
+        ListElement {
+            name: "Zaslepka"
+        }
+        ListElement {
+            name: "Zaslepka"
         }
     }
-}*/
 
-
+}
 
 /*##^##
 Designer {

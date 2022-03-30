@@ -14,6 +14,10 @@ Item {
 
         QIXWarehousePage {
         }
+
+        QIXDealerProfilePage {
+
+        }
     }
 
     IXDealerScreen {

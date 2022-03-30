@@ -12,6 +12,7 @@ class IXDynamicComponent : public QQuickItem
     Q_PROPERTY(QUrl url READ url WRITE setUrl NOTIFY urlChanged)
 public:
     IXDynamicComponent();
+    virtual ~IXDynamicComponent();
 
     void setUrl(const QUrl& url);
     const QUrl& url();

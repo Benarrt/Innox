@@ -11,11 +11,13 @@ class IXDynamicDelegate :  public IXDynamicComponent
     IX_Q_COMPONENT
 
     Q_PROPERTY(QQuickItem* bridge MEMBER _bridge NOTIFY bridgeChanged)
+    Q_PROPERTY(int itemId MEMBER _itemId NOTIFY itemIdChanged)
 public:
     IXDynamicDelegate();
 
 signals:
     void bridgeChanged();
+    void itemIdChanged();
 
 protected:
     void componentComplete() override;
@@ -25,6 +27,7 @@ protected:
     Q_SLOT void onUrlChanged(const QUrl&) override;
 
     QQuickItem* _bridge;
+    int _itemId;
 
 private:
 

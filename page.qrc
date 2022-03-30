@@ -3,5 +3,6 @@
         <file>QIXLoginPage.qml</file>
         <file>QIXRegisterPage.qml</file>
         <file>QIXWarehousePage.qml</file>
+        <file>QIXDealerProfilePage.qml</file>
     </qresource>
 </RCC>
