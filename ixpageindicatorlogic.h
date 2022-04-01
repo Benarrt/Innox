@@ -3,11 +3,17 @@
 
 #include "QQuickItem"
 
+class IXPageIndicatorObserver;
 class IXPageIndicatorLogic
 {
 public:
-    IXPageIndicatorLogic();
-    void upadtePageIndicator(int index, int count);
+    IXPageIndicatorLogic(IXPageIndicatorObserver* observer = nullptr);
+    ~IXPageIndicatorLogic();
+    void updatePageIndex(int index);
+    void updatePageCount(int count);
+
+    int pageIndex();
+    int pageCount();
 };
 
 #endif // IXPAGEINDICATORLOGIC_H

@@ -1,6 +1,6 @@
 #include "ixpageindicator.h"
 
-IXPageIndicator::IXPageIndicator(QQuickItem* parent) : QQuickItem(parent)
+IXPageIndicator::IXPageIndicator(QQuickItem* parent) : QQuickItem(parent), _logic(this)
 {
 
 }
@@ -10,15 +10,16 @@ void IXPageIndicator::componentComplete()
     QQuickItem::componentComplete();
     assert(parentItem());
 
-    setObjectName("IXPageIndicator");
+    onPageCountChanged(_logic.pageCount());
+    onPageIndexChanged(_logic.pageIndex());
 }
 
-void IXPageIndicator::setIndex(qint16 index)
+void IXPageIndicator::onPageIndexChanged(int index)
 {
     _component->setProperty(META_PROPERTIES::currentIndex, index);
 }
 
-void IXPageIndicator::setCount(qint16 count)
+void IXPageIndicator::onPageCountChanged(int count)
 {
     _component->setProperty(META_PROPERTIES::count, count);
 }

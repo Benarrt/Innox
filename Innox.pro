@@ -28,6 +28,7 @@ SOURCES += \
         ixmessageboard.cpp \
         ixpageindicator.cpp \
         ixpageindicatorlogic.cpp \
+        ixpageindicatorobserver.cpp \
         ixpasswordinput.cpp \
         ixpasswordlogic.cpp \
         ixpasswordrecoverlogic.cpp \
@@ -47,6 +48,7 @@ SOURCES += \
         ixwindowpage.cpp \
         ixwindowpagefooter.cpp \
         ixwindowpageheader.cpp \
+        ixwindowpageindexhandler.cpp \
         ixwindowtabhandler.cpp \
         main.cpp
 
@@ -94,6 +96,7 @@ HEADERS += \
     ixmessageboard.h \
     ixpageindicator.h \
     ixpageindicatorlogic.h \
+    ixpageindicatorobserver.h \
     ixpasswordinput.h \
     ixpasswordlogic.h \
     ixpasswordrecoverlogic.h \
@@ -113,4 +116,5 @@ HEADERS += \
     ixwindowpage.h \
     ixwindowpagefooter.h \
     ixwindowpageheader.h \
+    ixwindowpageindexhandler.h \
     ixwindowtabhandler.h
