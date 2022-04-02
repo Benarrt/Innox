@@ -46,10 +46,24 @@ QString IXHeaderPageButtonBridge::pageName(int index)
 
     QVariant res;
     QVariant arg(index);
-    QMetaObject::invokeMethod(_pageNameListModel, "pageName", Qt::DirectConnection,
+    QMetaObject::invokeMethod(_pageNameListModel, "text", Qt::DirectConnection,
                               Q_RETURN_ARG(QVariant, res),
                               Q_ARG(QVariant, arg));
 
     return res.toString();
+}
+
+void IXHeaderPageButtonBridge::feedModel(QObject* model)
+{
+    QMetaObject::invokeMethod(model, META_METHODS::clear);
+
+    QMetaObject::invokeMethod(model, META_METHODS::clear);
+
+    for(int i = 0; i < DELEGATE_COUNT; i++)
+    {
+        QMetaObject::invokeMethod(model, META_METHODS::pushBack,
+                                  Q_ARG(QVariant, QVariant::fromValue(i)),
+                                  Q_ARG(QVariant, QVariant::fromValue(QString(DELEGATE_URL))));
+    }
 }
 

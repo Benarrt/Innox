@@ -18,6 +18,8 @@ public:
     Q_INVOKABLE void feedPageNameListModel(QObject*);
     Q_INVOKABLE QString pageName(int);
 
+    Q_INVOKABLE void feedModel(QObject*);
+
     Q_SIGNAL void currentIndexChanged();
 
     Q_SLOT void onPageIndexChanged(int) override;
@@ -37,6 +39,12 @@ private:
     struct delegateData
     {
         int itemId;
+    };
+
+    struct META_METHODS
+    {
+        static constexpr char clear[] = "clear";
+        static constexpr char pushBack[] = "pushBack";
     };
 
     static constexpr delegateData DELEGATES[] =

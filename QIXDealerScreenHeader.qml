@@ -13,36 +13,13 @@ Item {
     }
 
     Component.onCompleted: {
-        listModel.clear();
         iXHeaderPageButtonBridge.feedPageNameListModel(pageNameListModel);
-        var delegateCount = iXHeaderPageButtonBridge.delegatesCount();
-        for(var i = 0; i < delegateCount; i++) {
-            listModel.append({
-                                 _url: iXHeaderPageButtonBridge.delegateUrl(),
-                                 _itemId: i,
-                             });
-        }
+        iXHeaderPageButtonBridge.feedModel(pageList.getListModel());
     }
 
-    Rectangle {
-        id: rectangle
-        color: IXStyleSheet.mediumColor()
+    QIXDealerScreenHeaderPageList {
+        id: pageList
         anchors.fill: parent
-
-        QIXListView {
-            anchors.fill: parent
-            itemSpacingW: 10
-            itemSpacingH: 5
-            itemW: 100
-            itemH: 70
-            id: qIXListView
-
-            bridge: iXHeaderPageButtonBridge
-
-            model: ListModel {
-                id: listModel
-            }
-        }
     }
 
     IXDealerScreenHeader {
@@ -54,61 +31,8 @@ Item {
         id: iXHeaderPageButtonBridge
     }
 
-    ListModel {
+    QIXDealerHeaderPageNameListModel {
         id: pageNameListModel
-        function pageName(index) {
-            if(index < pageNameListModel.count) {
-                return qsTr(pageNameListModel.get(index).name);
-
-            }
-            return qsTr("Nieznana");
-        }
-
-        ListElement {
-            name: QT_TR_NOOP("Magazyn")
-        }
-        ListElement {
-            name: QT_TR_NOOP("Profil")
-        }
-        ListElement {
-            name: "Zaslepka"
-        }
-        ListElement {
-            name: "Zaslepka"
-        }
-        ListElement {
-            name: "Zaslepka"
-        }
-        ListElement {
-            name: "Zaslepka"
-        }
-        ListElement {
-            name: "Zaslepka"
-        }
-        ListElement {
-            name: "Zaslepka"
-        }
-        ListElement {
-            name: "Zaslepka"
-        }
-        ListElement {
-            name: "Zaslepka"
-        }
-        ListElement {
-            name: "Zaslepka"
-        }
-        ListElement {
-            name: "Zaslepka"
-        }
-        ListElement {
-            name: "Zaslepka"
-        }
-        ListElement {
-            name: "Zaslepka"
-        }
-        ListElement {
-            name: "Zaslepka"
-        }
     }
 
 }

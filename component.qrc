@@ -11,5 +11,8 @@
         <file>QIXPasswordRecoverErrors.qml</file>
         <file>QIXPasswordRecoverMsg.qml</file>
         <file>QIXHeaderPageButton.qml</file>
+        <file>QIXTextListModel.qml</file>
+        <file>QIXDealerHeaderPageNameListModel.qml</file>
+        <file>QIXDealerScreenHeaderPageList.qml</file>
     </qresource>
 </RCC>

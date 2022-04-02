@@ -13,6 +13,7 @@ Button {
     display: AbstractButton.TextOnly
     scale: pressed ? 0.9 : 1
     opacity: 1
+    hoverEnabled: true
 
     onClicked: {
         opacity = 1
