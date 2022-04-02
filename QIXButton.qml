@@ -11,9 +11,13 @@ Button {
     text: qsTr("QIXButton")
     font: IXStyleSheet.defaultFont();
     display: AbstractButton.TextOnly
-    scale: pressed ? 0.9 : 1
+    scale: 1
     opacity: 1
     hoverEnabled: true
+
+    onPressedChanged: {
+        scale = pressed ? 0.9 : 1;
+    }
 
     onClicked: {
         opacity = 1
