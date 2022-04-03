@@ -16,6 +16,8 @@ class IXWindow : public QQuickItem
 public:
     IXWindow(QQuickItem *parent=nullptr);
 
+    void loseCurrentFocus();
+
 signals:
     void baseWidthChanged(quint16);
     void baseHeightChanged(quint16);

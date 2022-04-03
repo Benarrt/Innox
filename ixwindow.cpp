@@ -9,10 +9,35 @@
 
 #include <qquickwindow.h>
 
+#include </home/lqony/Documents/projects/emsdk/upstream/emscripten/system/include/emscripten.h>
+#include </home/lqony/Documents/projects/emsdk/upstream/emscripten/system/include/emscripten/html5.h>
+
+extern "C" {
+        void EMSCRIPTEN_KEEPALIVE loseWindowFocus()
+        {
+            qDebug("loseWindowFocus");
+            auto ixWindow = IXRegistry::inst().get<IXWindow>();
+            ixWindow->loseCurrentFocus();
+        }
+}
+
+
 IXWindow::IXWindow(QQuickItem *parent) : QQuickItem(parent)
 {
     IXRegistry::inst().addToRegistry(this);
     setFiltersChildMouseEvents(true);
+
+    EM_ASM({
+               window.addEventListener('mouseup', e => {
+                   if(e.offsetX < 1 || e.offsetX > window.innerWidth - 1) {
+                       Module._loseWindowFocus();
+                       console.log("Mouse ", e.offsetX, e.offsetY );
+                   } else if(e.offsetY < 1 || e.offsetY > window.innerHeight - 1) {
+                        Module._loseWindowFocus();
+                        console.log("Mouse ", e.offsetX, e.offsetY );
+                   }
+               });
+           });
 }
 
 void IXWindow::setup()
@@ -126,4 +151,15 @@ void IXWindow::onHandleBack()
     auto handleBackPopup = this->findChild<QQuickItem*>("handleBackPopup");
     if(handleBackPopup)
         handleBackPopup->setVisible(true);
+}
+
+void IXWindow::loseCurrentFocus()
+{
+    auto item = window()->mouseGrabberItem();
+    if(item)
+    {
+        qDebug("Got mouse grabber");
+        item->setEnabled(false);
+        item->setEnabled(true);
+    }
 }

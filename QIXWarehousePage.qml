@@ -27,10 +27,11 @@ QIXScreenPage {
 
     QIXGridView {
         id: qIXGridView
-        height: 600
         anchors.left: parent.left
         anchors.right: parent.right
         anchors.top: rectangle.bottom
+        anchors.bottom: parent.bottom
+        anchors.bottomMargin: 20
         anchors.rightMargin: 40
         anchors.leftMargin: 40
         anchors.topMargin: 20
@@ -67,6 +68,6 @@ QIXScreenPage {
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:0.75}D{i:3}D{i:4}
+    D{i:0;formeditorZoom:0.75}D{i:3}
 }
 ##^##*/

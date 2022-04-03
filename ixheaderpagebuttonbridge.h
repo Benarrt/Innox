@@ -50,22 +50,9 @@ private:
     static constexpr delegateData DELEGATES[] =
     {
         {0},
-        {1},
-        {2},
-        {3},
-        {4},
-        {5},
-        {6},
-        {7},
-        {8},
-        {9},
-        {10},
-        {11},
-        {12},
-        {13},
-        {14}
+        {1}
     };
-    static constexpr int DELEGATE_COUNT = 15;
+    static constexpr int DELEGATE_COUNT = 2;
     static constexpr char DELEGATE_URL[] ="qrc:/QIXHeaderPageButton.qml";
 };
 
