@@ -14,5 +14,6 @@
         <file>QIXTextListModel.qml</file>
         <file>QIXDealerHeaderPageNameListModel.qml</file>
         <file>QIXDealerScreenHeaderPageList.qml</file>
+        <file>QIXWarehousePageCategoryGrid.qml</file>
     </qresource>
 </RCC>

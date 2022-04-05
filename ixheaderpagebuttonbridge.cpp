@@ -57,8 +57,6 @@ void IXHeaderPageButtonBridge::feedModel(QObject* model)
 {
     QMetaObject::invokeMethod(model, META_METHODS::clear);
 
-    QMetaObject::invokeMethod(model, META_METHODS::clear);
-
     for(int i = 0; i < DELEGATE_COUNT; i++)
     {
         QMetaObject::invokeMethod(model, META_METHODS::pushBack,

@@ -22,6 +22,7 @@
 #include "ixdynamicdelegate.h"
 #include "ixheaderpagebuton.h"
 #include "ixheaderpagebuttonbridge.h"
+#include "ixwarehousepagecategorybridge.h"
 
 int main(int argc, char *argv[])
 {
@@ -57,6 +58,7 @@ int main(int argc, char *argv[])
     qmlRegisterType<IXDynamicDelegate>("io.qt.examples.ixdynamicdelegate", 1, 0, "IXDynamicDelegate");
 
     qmlRegisterType<IXHeaderPageButtonBridge>("io.qt.examples.ixheaderpagebuttonbridge", 1, 0, "IXHeaderPageButtonBridge");
+    qmlRegisterType<IXWarehousePageCategoryBridge>("io.qt.examples.ixwarehousepagecategorybridge", 1, 0, "IXWarehousePageCategoryBridge");
 
     qmlRegisterSingletonType<IXStyleSheet>("io.qt.examples.ixstylesheet", 1, 0, "IXStyleSheet", &IXStyleSheet::qmlInstance);
 

@@ -42,6 +42,7 @@ SOURCES += \
         ixstylesheet.cpp \
         ixswipeview.cpp \
         ixtextfield.cpp \
+        ixwarehousepagecategorybridge.cpp \
         ixwindow.cpp \
         ixwindowfocushandler.cpp \
         ixwindownavigationhandler.cpp \
@@ -110,6 +111,7 @@ HEADERS += \
     ixstylesheet.h \
     ixswipeview.h \
     ixtextfield.h \
+    ixwarehousepagecategorybridge.h \
     ixwindow.h \
     ixwindowfocushandler.h \
     ixwindownavigationhandler.h \

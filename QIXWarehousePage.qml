@@ -1,12 +1,18 @@
 import QtQuick 2.15
 import QtQuick.Layouts 1.15
 import QtQuick.Controls 2.15
+import io.qt.examples.ixwarehousepagecategorybridge 1.0
 
 QIXScreenPage {
     id: qIXScreenPage
     title: qsTr("register")
     height: 1080
     contentHeight: 1080
+
+    Component.onCompleted: {
+        ixWarehousePageCategoryBridge.listModel = qIXGridView.model;
+        ixWarehousePageCategoryBridge.feedModel();
+    }
 
     header: QIXWarehouseHeader {
 
@@ -25,7 +31,11 @@ QIXScreenPage {
         placeholderText: "Wyszukaj"
     }
 
-    QIXGridView {
+    IXWarehousePageCategoryBridge {
+        id: ixWarehousePageCategoryBridge
+    }
+
+    QIXWarehousePageCategoryGrid {
         id: qIXGridView
         anchors.left: parent.left
         anchors.right: parent.right
@@ -35,6 +45,7 @@ QIXScreenPage {
         anchors.rightMargin: 40
         anchors.leftMargin: 40
         anchors.topMargin: 20
+        bridge: ixWarehousePageCategoryBridge
     }
 
     Rectangle {

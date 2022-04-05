@@ -13,9 +13,63 @@ Item {
     property int itemSpacingW: 10
     property int itemSpacingH: 10
     property int maxColumns: 5
+    property var bridge: control
 
     Component.onCompleted: {
         control.logic.setup();
+    }
+
+    property var model: ListModel {
+        id: listModel
+        ListElement {
+            _url: "qrc:/QIXButton.qml"
+            _itemId: 0
+        }
+
+        ListElement {
+            _url: "qrc:/QIXButton.qml"
+            _itemId: 0
+        }
+
+        ListElement {
+            _url: "qrc:/QIXButton.qml"
+            _itemId: 0
+        }
+
+        ListElement {
+            _url: "qrc:/QIXButton.qml"
+            _itemId: 0
+        }
+
+        ListElement {
+            _url: "qrc:/QIXButton.qml"
+            _itemId: 0
+        }
+
+        ListElement {
+            _url: "qrc:/QIXButton.qml"
+            _itemId: 0
+        }
+
+        ListElement {
+            _url: "qrc:/QIXButton.qml"
+            _itemId: 0
+        }
+
+        ListElement {
+            _url: "qrc:/QIXButton.qml"
+            _itemId: 0
+        }
+
+        ListElement {
+            _url: "qrc:/QIXButton.qml"
+            _itemId: 0
+        }
+
+        ListElement {
+            _url: "qrc:/QIXButton.qml"
+            _itemId: 0
+        }
     }
 
     GridView {
@@ -38,16 +92,16 @@ Item {
         //boundsBehavior: Flickable.StopAtBounds
         clip: true
 
-        delegate: Rectangle {
-            color: "#56DC81"
+        delegate: Item {
             height: control.itemH
             width: control.itemW
-            border.width: 2
 
             IXDynamicDelegate {
+                id: iXDynamicDelegate
                 width: parent.width
                 height: parent.height
-                id: iXDynamicDelegate
+                bridge: control.bridge
+                itemId: _itemId
             }
 
             Component.onCompleted: {
@@ -55,233 +109,7 @@ Item {
             }
         }
 
-        model : ListModel {
-            id: listModel
-            ListElement {
-                _url: "qrc:/QIXButton.qml"
-            }
-
-            ListElement {
-                _url: "qrc:/QIXButton.qml"
-            }
-
-            ListElement {
-                _url: "qrc:/QIXButton.qml"
-            }
-
-            ListElement {
-                _url: "qrc:/QIXButton.qml"
-            }
-
-            ListElement {
-                _url: "qrc:/QIXButton.qml"
-            }
-
-            ListElement {
-                _url: "qrc:/QIXButton.qml"
-            }
-
-            ListElement {
-                _url: "qrc:/QIXButton.qml"
-            }
-
-            ListElement {
-                _url: "qrc:/QIXButton.qml"
-            }
-
-            ListElement {
-                _url: "qrc:/QIXButton.qml"
-            }
-
-            ListElement {
-                _url: "qrc:/QIXButton.qml"
-            }
-
-            ListElement {
-                _url: "qrc:/QIXButton.qml"
-            }
-
-            ListElement {
-                _url: "qrc:/QIXButton.qml"
-            }
-
-            ListElement {
-                _url: "qrc:/QIXButton.qml"
-            }
-
-            ListElement {
-                _url: "qrc:/QIXButton.qml"
-            }
-
-            ListElement {
-                _url: "qrc:/QIXButton.qml"
-            }
-
-            ListElement {
-                _url: "qrc:/QIXButton.qml"
-            }
-
-            ListElement {
-                _url: "qrc:/QIXButton.qml"
-            }
-
-            ListElement {
-                _url: "qrc:/QIXButton.qml"
-            }
-
-            ListElement {
-                _url: "qrc:/QIXButton.qml"
-            }
-
-            ListElement {
-                _url: "qrc:/QIXButton.qml"
-            }
-
-            ListElement {
-                _url: "qrc:/QIXButton.qml"
-            }
-
-            ListElement {
-                _url: "qrc:/QIXButton.qml"
-            }
-
-            ListElement {
-                _url: "qrc:/QIXButton.qml"
-            }
-
-            ListElement {
-                _url: "qrc:/QIXButton.qml"
-            }
-
-            ListElement {
-                _url: "qrc:/QIXButton.qml"
-            }
-
-            ListElement {
-                _url: "qrc:/QIXButton.qml"
-            }
-
-            ListElement {
-                _url: "qrc:/QIXButton.qml"
-            }
-
-            ListElement {
-                _url: "qrc:/QIXButton.qml"
-            }
-
-            ListElement {
-                _url: "qrc:/QIXButton.qml"
-            }
-
-            ListElement {
-                _url: "qrc:/QIXButton.qml"
-            }
-
-            ListElement {
-                _url: "qrc:/QIXButton.qml"
-            }
-
-            ListElement {
-                _url: "qrc:/QIXButton.qml"
-            }
-
-            ListElement {
-                _url: "qrc:/QIXButton.qml"
-            }
-
-            ListElement {
-                _url: "qrc:/QIXButton.qml"
-            }
-
-            ListElement {
-                _url: "qrc:/QIXButton.qml"
-            }
-
-            ListElement {
-                _url: "qrc:/QIXButton.qml"
-            }
-
-            ListElement {
-                _url: "qrc:/QIXButton.qml"
-            }
-
-            ListElement {
-                _url: "qrc:/QIXButton.qml"
-            }
-
-            ListElement {
-                _url: "qrc:/QIXButton.qml"
-            }
-
-            ListElement {
-                _url: "qrc:/QIXButton.qml"
-            }
-
-            ListElement {
-                _url: "qrc:/QIXButton.qml"
-            }
-
-            ListElement {
-                _url: "qrc:/QIXButton.qml"
-            }
-
-            ListElement {
-                _url: "qrc:/QIXButton.qml"
-            }
-
-            ListElement {
-                _url: "qrc:/QIXButton.qml"
-            }
-
-            ListElement {
-                _url: "qrc:/QIXButton.qml"
-            }
-
-            ListElement {
-                _url: "qrc:/QIXButton.qml"
-            }
-
-            ListElement {
-                _url: "qrc:/QIXButton.qml"
-            }
-
-            ListElement {
-                _url: "qrc:/QIXButton.qml"
-            }
-
-            ListElement {
-                _url: "qrc:/QIXButton.qml"
-            }
-
-            ListElement {
-                _url: "qrc:/QIXButton.qml"
-            }
-
-            ListElement {
-                _url: "qrc:/QIXButton.qml"
-            }
-
-            ListElement {
-                _url: "qrc:/QIXButton.qml"
-            }
-
-            ListElement {
-                _url: "qrc:/QIXButton.qml"
-            }
-
-            ListElement {
-                _url: "qrc:/QIXButton.qml"
-            }
-
-            ListElement {
-                _url: "qrc:/QIXButton.qml"
-            }
-        }
-
-        //Rectangle {
-          //  anchors.fill: parent
-            //color: "#f4ba33"
-        //}
+        model: control.model
     }
 
     IXGridView {

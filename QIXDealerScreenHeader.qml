@@ -20,6 +20,7 @@ Item {
     QIXDealerScreenHeaderPageList {
         id: pageList
         anchors.fill: parent
+        bridge: iXHeaderPageButtonBridge
     }
 
     IXDealerScreenHeader {

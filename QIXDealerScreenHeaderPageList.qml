@@ -4,6 +4,7 @@ import io.qt.examples.ixstylesheet 1.0
 Rectangle {
     id: control
     color: IXStyleSheet.mediumColor()
+    property var bridge
 
     function getListModel() {
         return listModel;
@@ -17,7 +18,7 @@ Rectangle {
         itemH: 70
         id: qIXListView
 
-        bridge: iXHeaderPageButtonBridge
+        bridge: control.bridge
 
         model: listModel
     }
