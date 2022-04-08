@@ -5,10 +5,9 @@
 
 IXRegisterLogic::IXRegisterLogic(callbackValidRegisterT validRegisterCallback, callbackInvalidRegisterT invalidRegisterCallback) :
     _validRegisterCallback(validRegisterCallback),
-    _invalidRegisterCallback(invalidRegisterCallback),
-    _registerStatusCallback(std::bind(&IXRegisterLogic::registerStatusCallback, this, std::placeholders::_1))
+    _invalidRegisterCallback(invalidRegisterCallback)
 {
-
+    _registerStatusCallback = safeCallback(&IXRegisterLogic::registerStatusCallback);
 }
 
 void IXRegisterLogic::registerStatusCallback(const QString& msg)

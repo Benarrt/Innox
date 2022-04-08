@@ -1,11 +1,11 @@
 #ifndef IXLOGINLOGIC_H
 #define IXLOGINLOGIC_H
 
-#include <functional>
+#include "ixsafecallback.h"
 
 #include "QString"
 
-class IXLoginLogic
+class IXLoginLogic : public IXSafeCallback
 {
     using validCallbackT = std::function<void()>;
     using invalidCallbackT = std::function<void(uint16_t)>;
@@ -18,9 +18,9 @@ public:
     void logOut();
 protected:
 
-    innerCallbackT _loginStatusCallback;
     validCallbackT _validLoginCallback;
     invalidCallbackT _invalidLoginCallback;
+    innerCallbackT _loginStatusCallback;
 
     virtual void loginStatusCallback(const QString&);
 };

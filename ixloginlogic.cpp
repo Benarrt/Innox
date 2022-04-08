@@ -4,11 +4,10 @@
 #include "QJsonDocument"
 
 IXLoginLogic::IXLoginLogic(validCallbackT validLoginCallback, invalidCallbackT invalidLoginCallback) :
-    _loginStatusCallback(std::bind(&IXLoginLogic::loginStatusCallback, this, std::placeholders::_1)),
     _validLoginCallback(validLoginCallback),
     _invalidLoginCallback(invalidLoginCallback)
 {
-
+    _loginStatusCallback = safeCallback(&IXLoginLogic::loginStatusCallback);
 }
 
 void IXLoginLogic::loginStatus()

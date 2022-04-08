@@ -10,6 +10,7 @@ class IXTextField : public QQuickItem
     IX_Q_COMPONENT
 public:
     IXTextField(QQuickItem* parent = nullptr);
+    virtual ~IXTextField();
     void setTextValue(const QString&);
     void setSelection(quint16 posBeg, quint16 posEnd);
 

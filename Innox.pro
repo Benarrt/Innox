@@ -35,6 +35,7 @@ SOURCES += \
         ixqcomponent.cpp \
         ixregisterlogic.cpp \
         ixregistry.cpp \
+        ixsafecallback.cpp \
         ixscreen.cpp \
         ixscreenlogic.cpp \
         ixshadowtextfield.cpp \
@@ -42,6 +43,8 @@ SOURCES += \
         ixstylesheet.cpp \
         ixswipeview.cpp \
         ixtextfield.cpp \
+        ixwarehousecategorydata.cpp \
+        ixwarehousecategorylogic.cpp \
         ixwarehousepagecategorybridge.cpp \
         ixwindow.cpp \
         ixwindowfocushandler.cpp \
@@ -104,6 +107,7 @@ HEADERS += \
     ixqcomponent.h \
     ixregisterlogic.h \
     ixregistry.h \
+    ixsafecallback.h \
     ixscreen.h \
     ixscreenlogic.h \
     ixshadowtextfield.h \
@@ -111,6 +115,8 @@ HEADERS += \
     ixstylesheet.h \
     ixswipeview.h \
     ixtextfield.h \
+    ixwarehousecategorydata.h \
+    ixwarehousecategorylogic.h \
     ixwarehousepagecategorybridge.h \
     ixwindow.h \
     ixwindowfocushandler.h \

@@ -3,8 +3,9 @@
 
 #include <functional>
 #include "QString"
+#include "ixsafecallback.h"
 
-class IXPasswordRecoverLogic
+class IXPasswordRecoverLogic : public IXSafeCallback
 {
     using callbackValidRecoverT = std::function<void()>;
     using callbackInvalidRecoverT = std::function<void(uint16_t)>;

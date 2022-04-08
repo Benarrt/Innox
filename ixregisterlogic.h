@@ -5,7 +5,9 @@
 
 #include <QString>
 
-class IXRegisterLogic
+#include "ixsafecallback.h"
+
+class IXRegisterLogic : public IXSafeCallback
 {
     using callbackValidRegisterT = std::function<void()>;
     using callbackInvalidRegisterT = std::function<void(uint16_t)>;

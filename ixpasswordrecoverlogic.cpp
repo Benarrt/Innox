@@ -5,10 +5,9 @@
 IXPasswordRecoverLogic::IXPasswordRecoverLogic(callbackValidRecoverT validRecoverCallback,
                                                callbackInvalidRecoverT invalidRecoverCallback) :
     _validRecoverCallback(validRecoverCallback),
-    _invalidRecoverCallback(invalidRecoverCallback),
-    _recoverStatusCallback(std::bind(&IXPasswordRecoverLogic::recoverStatusCallback, this, std::placeholders::_1))
+    _invalidRecoverCallback(invalidRecoverCallback)
 {
-
+    _recoverStatusCallback = safeCallback(&IXPasswordRecoverLogic::recoverStatusCallback);
 }
 
 void IXPasswordRecoverLogic::recoverStatusCallback(const QString& msg)

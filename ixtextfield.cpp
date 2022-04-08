@@ -6,6 +6,11 @@ IXTextField::IXTextField(QQuickItem* parent) : QQuickItem(parent)
 
 }
 
+IXTextField::~IXTextField()
+{
+    IXShadowTextField::inst().removeTextField(this);
+}
+
 void IXTextField::componentComplete()
 {
     QQuickItem::componentComplete();
