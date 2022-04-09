@@ -24,6 +24,20 @@ public:
         };
     }
 
+    template<class ...argsT>
+    std::function<void(argsT...)> safeCallbackLambda(std::function<void(argsT...)>func)
+    {
+        return [this, func](argsT... args)
+        {
+            auto it = IXSafeCallback::s_registry.find(this);
+
+            if(it == s_registry.end())
+                return;
+
+            func(args...);
+        };
+    }
+
 protected:
     static std::unordered_set<IXSafeCallback*> s_registry;
 };

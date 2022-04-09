@@ -8,6 +8,9 @@ IXGridView::IXGridView(QQuickItem *parent) : QQuickItem(parent), _optimalWidth(0
 void IXGridView::setup()
 {
     connect(_component, SIGNAL(widthChanged()), this, SLOT(calculateOptimalWidth()));
+    auto gridModel = _gridView->property(META_PROPERTIES::model).value<QObject*>();
+    connect(gridModel, SIGNAL(countChanged()), this, SLOT(calculateOptimalWidth()));
+    connect(gridModel, SIGNAL(countChanged()), this, SLOT(calculateOptimalWidth()));
     calculateOptimalWidth();
 }
 

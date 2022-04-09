@@ -23,6 +23,7 @@
 #include "ixheaderpagebuton.h"
 #include "ixheaderpagebuttonbridge.h"
 #include "ixwarehousepagecategorybridge.h"
+#include "ixwarehousepagecategorybutton.h"
 
 int main(int argc, char *argv[])
 {
@@ -45,6 +46,7 @@ int main(int argc, char *argv[])
     qmlRegisterType<IXHandleBackPopup>("io.qt.examples.ixhandlebackpopup", 1, 0, "IXHandleBackPopup");
     qmlRegisterType<IXMessageBoard>("io.qt.examples.ixmessageboard", 1, 0, "IXMessageBoard");
     qmlRegisterType<IXHeaderPageButon>("io.qt.examples.ixheaderpagebuton", 1, 0, "IXHeaderPageButon");
+    qmlRegisterType<IXWarehousePageCategoryButton>("io.qt.examples.ixwarehousepagecategorybutton", 1, 0, "IXWarehousePageCategoryButton");
 
     qmlRegisterType<IXWindowPageHeader>("io.qt.examples.ixwindowpageheader", 1, 0, "IXWindowPageHeader");
     qmlRegisterType<IXWindowPageFooter>("io.qt.examples.ixwindowpagefooter", 1, 0, "IXWindowPageFooter");

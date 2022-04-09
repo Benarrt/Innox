@@ -46,6 +46,7 @@ SOURCES += \
         ixwarehousecategorydata.cpp \
         ixwarehousecategorylogic.cpp \
         ixwarehousepagecategorybridge.cpp \
+        ixwarehousepagecategorybutton.cpp \
         ixwindow.cpp \
         ixwindowfocushandler.cpp \
         ixwindownavigationhandler.cpp \
@@ -117,7 +118,9 @@ HEADERS += \
     ixtextfield.h \
     ixwarehousecategorydata.h \
     ixwarehousecategorylogic.h \
+    ixwarehousecategoryreqdefs.h \
     ixwarehousepagecategorybridge.h \
+    ixwarehousepagecategorybutton.h \
     ixwindow.h \
     ixwindowfocushandler.h \
     ixwindownavigationhandler.h \

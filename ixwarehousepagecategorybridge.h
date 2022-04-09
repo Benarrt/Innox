@@ -1,8 +1,13 @@
 #ifndef IXWAREHOUSEPAGECATEGORYBRIDGE_H
 #define IXWAREHOUSEPAGECATEGORYBRIDGE_H
 
+#include <unordered_map>
+
 #include <QQuickItem>
-#include <vector>
+
+#include "ixwarehousecategorylogic.h"
+
+class IXWarehousePageCategoryButton;
 
 class IXWarehousePageCategoryBridge : public QQuickItem
 {
@@ -13,14 +18,23 @@ public:
 
     Q_INVOKABLE void feedModel();
 
+    void setDelegateText(uint32_t);
+    void registerDelegate(uint32_t _itemId, IXWarehousePageCategoryButton* item);
+    void unregisterDelegate(uint32_t _itemId);
+
 signals:
     void listModelChanged();
 
 private:
 
-    struct delegateData
+    struct Logic : public IXWarehouseCategoryLogic
     {
-        int itemId;
+    };
+
+    struct DelegateData
+    {
+        uint32_t itemId;
+        QString text;
     };
 
     struct META_METHODS
@@ -29,11 +43,15 @@ private:
         static constexpr char pushBack[] = "pushBack";
     };
 
-    static constexpr char DELEGATE_URL[] ="qrc:/QIXButton.qml";
+    static constexpr char DELEGATE_URL[] ="qrc:/QIXWarehousePageCategoryButton.qml"; //
 
 protected:
+    void fillModelWithCategories(const std::vector<uint32_t>&);
+
+    Logic _logic;
     QObject* _listModel;
-    std::vector<delegateData> _delegates;
+    std::unordered_map<uint32_t, DelegateData> _delegateCache;
+    std::unordered_map<uint32_t, IXWarehousePageCategoryButton*> _delegates;
 
 };
 

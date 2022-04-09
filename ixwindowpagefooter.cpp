@@ -14,7 +14,6 @@ void IXWindowPageFooter::componentComplete()
     assert(parentItem());
 
     QQuickItem::componentComplete();
-    IXDynamicComponent::componentComplete();
 
     qvariant_cast<QObject*>(
         this->property("anchors")

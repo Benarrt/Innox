@@ -1,0 +1,172 @@
+{
+    "categories": [
+        {
+            "id": 0,
+            "parentId": null,
+            "tags": []
+        },
+
+        {
+            "id": 1,
+            "parentId": 0,
+            "tags": ["Rury", "Tuby"]
+        },
+        
+        {
+            "id": 2,
+            "parentId": 0,
+            "tags": ["Płyty", "Blachy"]
+        },
+
+        {
+            "id": 3,
+            "parentId": 0,
+            "tags": ["Przejściówki", "Kształtowniki"]
+        },
+
+        {
+            "id": 4,
+            "parentId": 0,
+            "tags": ["Profile"]
+        },
+
+        {
+            "id": 5,
+            "parentId": 0,
+            "tags": ["Pręty"]
+        },
+
+        {
+            "id": 6,
+            "parentId": 1,
+            "tags": ["Okrągłe", "Owalne"]
+        },
+
+        {
+            "id": 7,
+            "parentId": 1,
+            "tags": ["Spawane"]
+        },
+
+        {
+            "id": 8,
+            "parentId": 1,
+            "tags": ["Hydrauliczne"]
+        },
+
+        {
+            "id": 9,
+            "parentId": 1,
+            "tags": ["Dekoracyjne", "Ozdobne"]
+        },
+
+        {
+            "id": 10,
+            "parentId": 1,
+            "tags": ["Bezszwowe"]
+        },
+
+        {
+            "id": 11,
+            "parentId": 1,
+            "tags": ["Spożywcze", "Mleczarskie"]
+        },
+
+        {
+            "id": 12,
+            "parentId": 2,
+            "tags": ["Zimne"]
+        },
+
+        {
+            "id": 13,
+            "parentId": 2,
+            "tags": ["Gorące"]
+        },
+
+        {
+            "id": 14,
+            "parentId": 12,
+            "tags": ["Polerowane"]
+        },
+        
+        {
+            "id": 15,
+            "parentId": 12,
+            "tags": ["Gładkie"]
+        },
+
+        {
+            "id": 16,
+            "parentId": 13,
+            "tags": ["Matowe"]
+        },
+
+        {
+            "id": 17,
+            "parentId": 13,
+            "tags": ["Chropowate"]
+        },
+
+        {
+            "id": 18,
+            "parentId": 3,
+            "tags": ["Spożywcze"]
+        },
+
+        {
+            "id": 19,
+            "parentId": 3,
+            "tags": ["Zawory"]
+        },
+
+        {
+            "id": 20,
+            "parentId": 3,
+            "tags": ["Hydrauliczne"]
+        },
+
+        {
+            "id": 21,
+            "parentId": 4,
+            "tags": ["Prostokątne"]
+        },
+
+        {
+            "id": 22,
+            "parentId": 4,
+            "tags": ["Kwadratowe"]
+        },
+
+        {
+            "id": 23,
+            "parentId": 5,
+            "tags": ["Kątowe"]
+        },
+
+        {
+            "id": 24,
+            "parentId": 5,
+            "tags": ["Okrągłe"]
+        },
+
+        {
+            "id": 25,
+            "parentId": 5,
+            "tags": ["Płaskie"]
+        },
+
+        {
+            "id": 26,
+            "parentId": 5,
+            "tags": ["Kwadratowe"]
+        },
+
+        {
+            "id": 27,
+            "parentId": 5,
+            "tags": ["Sześcienne"]
+        }
+        
+    ]
+}

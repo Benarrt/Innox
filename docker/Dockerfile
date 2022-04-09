@@ -16,6 +16,9 @@ COPY --chown=innox:innox ./server/ ${APP_PATH}/
 # Scripts
 COPY --chown=innox:innox ./scripts/ ${APP_PATH}/public/scripts/
 
+# Resources
+COPY --chown=innox:innox ./resources/ ${APP_PATH}/public/resources/
+
 # html
 COPY --chown=innox:innox ./index.html ${APP_PATH}/public/
 

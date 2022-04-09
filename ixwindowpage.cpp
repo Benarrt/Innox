@@ -16,7 +16,6 @@ IXWindowPage::IXWindowPage()
 void IXWindowPage::componentComplete()
 {
     QQuickItem::componentComplete();
-    IXDynamicComponent::componentComplete();
     assert(parent());
 
     auto ixWindow = IXRegistry::inst().get<IXWindow>();
