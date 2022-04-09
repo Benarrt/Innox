@@ -4,7 +4,6 @@
 #include "ixwindownavigationhandler.h"
 #include "ixregistry.h"
 
-#include <math.h>
 #include <QString>
 
 #include <qquickwindow.h>
@@ -114,20 +113,21 @@ void IXWindow::onWindowResized()
     qreal scaleW = _component->width() / _baseWidth;
     qreal scaleH = _component->height() / this->height();
 
-    //Scale is sometimess off and you can see 1-2pixels off
-    //scaleH += 0.01;
-    scaleW += 0.01;
-
     auto ixWindowScale = this->findChild<QObject*>("ixWindowScale");
-    if(scaleW >= 1)
+    qreal parentWidth = parentItem()->width();
+    if(scaleW >= scaleH)
     {
         this->setProperty("width", _component->width());
-        ixWindowScale->setProperty("xScale", 1);
+        ixWindowScale->setProperty("xScale", scaleH);
+        //Scale is sometimess off and you can see 1-2pixels off
+        this->setWidth((parentWidth / scaleH)  + 2);
     }
     else
     {
         this->setProperty("width", _baseWidth);
         ixWindowScale->setProperty("xScale", scaleW);
+        //Scale is sometimess off and you can see 1-2pixels off
+        this->setWidth((parentWidth / scaleW) + 2);
     }
 
     ixWindowScale->setProperty("yScale", scaleH);
